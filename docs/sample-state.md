@@ -1,8 +1,8 @@
 {
   currentUser: {
     id: 1,
-    email: "cp3@clippers.com",
-    name: "Chris Paul",
+    email: "johndoe69@gmail.com",
+    name: "John Doe",
   }
 
   listings: {
@@ -25,7 +25,7 @@
     listingId: 1,
     title: "High rise condo with an amazing balcony view",
     price: 160,
-    bookings: {
+    trips: {
       1: {
         start_date: { month: "Dec", day: 31, year: 2016 }
         end_date: { month: "Jan", day: 3, year: 2017 }
@@ -42,9 +42,9 @@
 
 
 
-  bookings: {
+  trips: {
     1: {
-      booker_id: 1,
+      planner_id: 1,
       listing_id: 1,
       start_date: { month: "Dec", day: 31, year: 2016 }
       end_date: { month: "Jan", day: 3, year: 2017 }
