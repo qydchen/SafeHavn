@@ -46,7 +46,7 @@ Nomad is a web application inspired by AirBnB that helps users find unique locat
 
 **Objective:** Reviews belong to listings and also users and can be created through the API.
 
-### Phase 6: - Patch Up and CSS (1 day)
+### Phase 6: Patch Up and CSS (1 day)
 
 **Objective:** Fix overall structure, style, debug.
 
