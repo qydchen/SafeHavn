@@ -1,6 +1,6 @@
 ## Minimum Viable Product
 
-Nomad is a web application inspired by AirBnB built using Ruby on Rails and React/Redux.
+Nomad is a web application inspired by AirBnB that helps users find unique locations.
 
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
@@ -48,7 +48,7 @@ Nomad is a web application inspired by AirBnB built using Ruby on Rails and Reac
 
 ### Phase 6: - Patch Up and CSS (1 day)
 
-**Objective:** Fix overall structure and then it's time to style it up.
+**Objective:** Fix overall structure, style, debug.
 
 ### Bonus Features (TBD)
 
