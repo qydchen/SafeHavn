@@ -43,16 +43,17 @@
 
 ## Route
 
-Path	Component
-"/sign-up"	"AuthFormContainer"
-"/sign-in"	"AuthFormContainer"
-"/home"	"HeaderContainer"
-"/home"	"HomesContainer"
-"/home"	"SearchContainer"
-"/home"	"FooterContainer"
-"/listings/:listingId"	"ListingsContainer"
-"/listings/:listingId"	"BookingFormContainer"
-"/listings/:listingId"	"ReviewsContainer"
-"/listings/:listingId"	"ReviewFormContainer"
-"/bookings"	"BookingsContainer"
-"/newListing"	"ListingContainer"
+|Path	| Component|
+|-----|----------|
+|"/sign-up"	| "AuthFormContainer"|
+|"/sign-in"	| "AuthFormContainer"|
+|"/home"	| "HeaderContainer"|
+|"/home"	| "HomesContainer"|
+|"/home"	| "SearchContainer"|
+|"/home"	| "FooterContainer"|
+|"/listings/:listingId"	| "ListingsContainer"|
+|"/listings/:listingId" |	"BookingFormContainer"|
+|"/listings/:listingId" |	"ReviewsContainer"|
+|"/listings/:listingId" |	"ReviewFormContainer"|
+|"/bookings" |	"BookingsContainer"|
+|"/newListing" |	"ListingContainer"|
