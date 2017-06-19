@@ -26,7 +26,7 @@ Sorting will sort and render based on the parameters.
 **SelectContainer**
 - Header
 - PictureModal - will have carousel feature after clicking
-- Navigation
+- Navigation - Scrolls down to determined section
 - SummaryContainer
 - ReviewsContainer
 - HostInfo? (bonus)
@@ -43,8 +43,12 @@ Summary will probably be a selector and will map out a render from top to bottom
 
 **ReviewsContainer**
 - Reviews
+- ReviewFormContainer
 
-Reviews will have ratings and descriptions. Pagination TBD (TALK TO COATES).
+Reviews will have ratings and descriptions, and are also able to submit and write. Pagination TBD (TALK TO COATES).
+
+**ReviewFormContainer**
+Submit reviews.
 
 **BookingPanelContainer**
 - Booking
@@ -62,14 +66,7 @@ Will render all the trips that the user has booked under their account.
 
 |Path	| Component|
 |-----|----------|
-|"/sign-up"	| "AuthFormContainer"|
-|"/sign-in"	| "AuthFormContainer"|
-|"/home"	| "HeaderContainer"|
 |"/home"	| "HomesContainer"|
-|"/home"	| "SearchContainer"|
-|"/home"	| "FooterContainer"|
-|"/listings/:listingId"	| "ListingsContainer"|
-|"/listings/:listingId" |	"TripFormContainer"|
-|"/listings/:listingId" |	"ReviewsContainer"|
+|"/listings/:listingId"	| "SelectContainer"|
 |"/listings/:listingId" |	"ReviewFormContainer"|
 |"/trips" |	"TripsContainer"|

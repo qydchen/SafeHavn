@@ -30,13 +30,13 @@ Nomad is a web application inspired by AirBnB that helps users find unique locat
 
 **Objective:** Functioning rails project with front-end Authentication
 
-### Phase 2: Listings Model, API, and components (1.5 days)
+### Phase 2: Homes Model, API, and components (1.5 days)
 
-**Objective:** Listings belong to Users and can be seen from listings page along with map.
+**Objective:** Homes belong to Users and can be seen from homes page along with map.
 
-### Phase 3: Spots Search (2 days)
+### Phase 3: Homes Search (2 days)
 
-**Objective:** Listings can be searched by location and number of guests.
+**Objective:** Homes can be searched by location and number of guests.
 
 ### Phase 4: Trips (1.5 days)
 
