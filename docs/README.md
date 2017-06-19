@@ -1,6 +1,6 @@
 ## Minimum Viable Product
 
-Nomad is a web application inspired by AirBnB that helps users find unique locations.
+SafeHavn is a web application inspired by AirBnB that helps users find unique locations.
 
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
