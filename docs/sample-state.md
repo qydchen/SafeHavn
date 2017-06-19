@@ -30,6 +30,33 @@
     homeId: 1,
     title: "High rise apartment with an amazing balcony view",
     price: 160,
+    space: {
+      accommodates: 4,
+      bathrooms: 1,
+      bedrooms: 2,
+      beds: 3,
+      property_type: "House",
+      Room_type: "Entire home/apt"
+    },
+    amenity: {
+      "Wireless Internet": true,
+      "Family/kid friendly": true,
+      "Free parking on premises": true,
+      "Kitchen": true
+    },
+    discount: 10%
+    descriptions: "Heart of NYC. Extremely close to bars & nightlife. Close proximity to many attractions!",
+    houserule: "No smoking",
+    cancellation: {
+      lax: "Loose Cancellation Policy",
+      moderate: "Moderate Cancellation Policy",
+      strict: "Strict Cancellation Policy"
+    },
+    safety: {
+      smoke: true,
+      carbon_monoxide: true
+    },
+    max_guests: 6,
     trips: {
       1: {
         start_date: { month: "Jan", day: 5, year: 2017 }

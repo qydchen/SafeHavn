@@ -2,7 +2,7 @@
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-name            | string    | not null, indexed
+name            | string    | not null, indexed, unique
 password_digest | string    | not null, indexed, unique
 session_token   | string    | not null, indexed, unique
 email           | string    | not null, indexed, unique
@@ -18,11 +18,18 @@ lng         | float     | not null
 price       | integer   | not null
 image_url   | string    | not null
 title       | string    | not null
+space       | string    | not null
+amenity     | string    | not null
+discount    | integer   |
 description | string    | not null
+houserule   | string    | not null
+cancellation| string    | not null
+safety      | string    | not null
 city        | string    | not null
 state       | string    | not null
 country     | string    | not null
-max_guests  | integer    | not null
+max_guests  | integer   | not null
+
 
 ## trips
 column name | data type | details
@@ -38,6 +45,6 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 author_Id   | integer   | not null, foreign key (references users)
-home_Id     | integer   | not null, foreign key (references spot )
-rating      | integer   | not null,
+home_Id     | integer   | not null, foreign key (references homes)
+rating      | integer   | not null
 body        | string    | not null

@@ -26,7 +26,7 @@ Sorting will sort and render based on the parameters.
 **SelectContainer**
 - Header
 - PictureModal - will have carousel feature after clicking
-- Navigation - Scrolls down to determined section
+- NavigationContainer - Scrolls down to determined section
 - SummaryContainer
 - ReviewsContainer
 - HostInfo? (bonus)
@@ -34,7 +34,7 @@ Sorting will sort and render based on the parameters.
 - BookingPanelContainer - positioned absolute
 - Footer
 
-Select (Details) page will have a header, followed by a PictureModal. On the left, the Navigation will assist the user to scroll down to the relevant section (Summary Container, Reviews Container, Host Info, Map). On the right, an absolute BookingPanel will persist.
+Select (Details) page will have a header, followed by a PictureModal. On the left, the Navigation Container will assist the user to scroll down to the relevant section (Summary Container, Reviews Container, Host Info, Map). On the right, an absolute BookingPanel will persist.
 
 **SummaryContainer**
 - Summary
