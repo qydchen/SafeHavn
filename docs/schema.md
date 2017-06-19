@@ -29,7 +29,7 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 trip_id     | integer   | not null, foreign key (references users)
-listing_id  | integer   | not null, foreign key (references homes )
+home_id     | integer   | not null, foreign key (references homes )
 start_date  | date      | not null
 end_date    | date      | not null
 
@@ -38,6 +38,6 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 author_Id   | integer   | not null, foreign key (references users)
-listing_Id  | integer   | not null, foreign key (references spot )
+home_Id     | integer   | not null, foreign key (references spot )
 rating      | integer   | not null,
 body        | string    | not null
