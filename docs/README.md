@@ -4,9 +4,9 @@ Nomad is a web application inspired by AirBnB that helps users find unique locat
 
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
-- [ ] Spots
+- [ ] Homes
 - [ ] Trips (aka Bookings)
-- [ ] Spots search (by location & availability
+- [ ] Homes search (by location & availability)
 - [ ] Google Maps on search
 - [ ] Hosts and Guests can make many Reviews
 
