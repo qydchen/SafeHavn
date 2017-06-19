@@ -28,6 +28,8 @@
       available homes
 - `GET /api/homes/:id` - fetch one spot
 - `POST /api/homes`- bonus feature, users can list homes
+- `DELETE /api/homes/:id` - cancel a home
+- `PATCH /api/homes/:id` - edit a home
 
 ### Trips
 
