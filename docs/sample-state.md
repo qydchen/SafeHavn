@@ -91,12 +91,5 @@
     }
   }
 
-  bookings: {
-    1: {
-      host_id: 2,
-      visitor_id: 1
-    }
-  }
-
 }
 ```

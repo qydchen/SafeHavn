@@ -41,17 +41,13 @@ Select (Details) page will have a header, followed by a PictureModal. On the lef
 **SummaryContainer**
 - Summary
 
-Summary will probably be a selector and will map out a render from top to bottom (about, space, amenity, price, description, houserule, cancellation).
+Summary will probably be a selector and will map out a render from top to bottom (about, space, amenity, description, cancellation).
 
 **ReviewsContainer**
 - Reviews
 
-Reviews will have ratings and descriptions, and are also able to submit and write. Pagination TBD (TALK TO COATES).
+Reviews will have ratings and descriptions, and are also able to submit and write. Pagination.
 
-**BookingPanelContainer**
-- Booking
-
-This will allow user to book a trip and redirect the user to '/trips' and wait for the host to approve of the booking.
 
 **TripsContainer**
 - Header
@@ -60,11 +56,29 @@ This will allow user to book a trip and redirect the user to '/trips' and wait f
 
 Will render all the trips that the visitor has booked under their account.
 
-**HostContainer**
+**BookingPanelContainer**
+- Booking
+
+This will allow user to book a trip and redirect the user to '/user/:id/trips' and wait for the host to approve of the booking.
+
+**BookingsContainer**
 - Header
-- Trips
+- Host Description
 - Footer
+- Checkout - title, description, rating, dates, total price
+- Confirm Booking button (redirect to /user/:id/trips)
 Will render all the trips that the host has to approve under their account
+
+**ListingsContainer**
+- StepOneForm
+- StepTwoForm
+- StepThreeForm
+- StepFourForm
+- AddressForm
+
+Forms will fill out in order: property_type, space details, max_guests, title and description, amenity, cancellation policy, price
+
+This looks very cumbersome.....
 
 ## Route
 
@@ -72,6 +86,6 @@ Will render all the trips that the host has to approve under their account
 |-----|----------|
 |"/home"	| "HomesContainer"|
 |"/listings/:listingId"	| "SelectContainer"|
-|"/listings/:listingId" |	"ReviewFormContainer"|
 |"/user/:id/trips" |	"TripsContainer"|
-|"/user/:id/host" | "HostContainer" |
+|"/user/:id/host/" | "BookingsContainer" |
+|"/user/:id/host/list" | "ListingsContainer" |

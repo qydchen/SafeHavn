@@ -43,13 +43,13 @@ SafeHavn is a web application inspired by AirBnB that helps users find unique lo
 
 **Objective:** Homes can be searched by location and number of guests.
 
-### Phase 5: Bookings (2 days)
+### Phase 5: Bookings (1 days)
 
-**Objective:** Logged in user can set up a booking and host can approve. (CRUD)
+**Objective:** Logged in user can set up a booking and host can approve. User can then view their bookings (aka trips) (CRUD)
 
-### Phase 6: Trips (1.5 days)
+### Phase 6: Listings (1.5 days)
 
-**Objective:** Logged in user can set up a trip and view their trips. (CRUD)
+**Objective:** Host can CRUD a listing.
 
 ### Phase 7: Reviews (1.5 days)
 
