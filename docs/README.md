@@ -5,9 +5,10 @@ SafeHavn is a web application inspired by AirBnB that helps users find unique lo
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
 - [ ] Homes
-- [ ] Trips (aka Bookings)
-- [ ] Homes search (by location & availability)
+- [ ] Book Trips (aka Bookings)
+- [ ] View Trips
 - [ ] Google Maps on search
+- [ ] Homes search (by location & availability)
 - [ ] Hosts and Guests can make many Reviews
 
 ## Design Docs
@@ -26,7 +27,7 @@ SafeHavn is a web application inspired by AirBnB that helps users find unique lo
 
 ## Implementation Timeline
 
-### Phase 1: Backend setup and Front End User Authentication (2 days)
+### Phase 1: Backend setup and Front End User Authentication (1.5 days)
 
 **Objective:** Functioning rails project with front-end Authentication
 
@@ -34,21 +35,25 @@ SafeHavn is a web application inspired by AirBnB that helps users find unique lo
 
 **Objective:** Homes belong to Users and can be seen from homes page along with map.
 
-### Phase 3: Homes Search (2 days)
+### Phase 3: GoogleMap Api (1 day)
+
+**Objective:** Render home markers on GoogleMap based on bounds.
+
+### Phase 4: Homes Search (2 days)
 
 **Objective:** Homes can be searched by location and number of guests.
 
-### Phase 4: Trips (1.5 days)
+### Phase 4: Bookings (2 days)
 
-**Objective:** Logged in user can set up a trip and view their trips.
+**Objective:** Logged in user can set up a booking and host can approve. (CRUD)
 
-### Phase 5: Reviews (1 day)
+### Phase 5: Trips (2 days)
+
+**Objective:** Logged in user can set up a trip and view their trips. (CRUD)
+
+### Phase 6: Reviews (1 day)
 
 **Objective:** Reviews belong to listings and also users and can be created through the API.
-
-### Phase 6: Patch Up and CSS (1 day)
-
-**Objective:** Fix overall structure, style, debug.
 
 ### Bonus Features (TBD)
 

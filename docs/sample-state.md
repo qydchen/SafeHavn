@@ -6,14 +6,25 @@
       id: 1,
       email: "johndoe69@gmail.com",
       name: "Jaysheezy",
+      trips: {
+        1 : {
+          home_id: 1
+          user_id: 1
+          host_id: 2
+        }
+      }
     },
     errors: [],
   }
 
+  search_params: {
+    ///????
+  }
+
   homes: {
     1: {
-      homeId: 1,
-      owner_Id: 1,
+      id: 1,
+      host_id: 2,
       title: "High rise apartment with an amazing balcony view",
       description: "Heart of NYC. Extremely close to bars & nightlife. Close proximity to many attractions!",
       lat: 33,
@@ -24,10 +35,16 @@
       state: "NYC",
       country: "United States",
     }
+    2: {
+    //  ...
+    },
+    3: {
+    //  ...
+    },
   }
 
   homeDetail: {
-    homeId: 1,
+    id: 1,
     title: "High rise apartment with an amazing balcony view",
     price: 160,
     space: {
@@ -36,7 +53,7 @@
       bedrooms: 2,
       beds: 3,
       property_type: "House",
-      Room_type: "Entire home/apt"
+      room_type: "Entire home/apt"
     },
     amenity: {
       "Wireless Internet": true,
@@ -44,18 +61,8 @@
       "Free parking on premises": true,
       "Kitchen": true
     },
-    discount: 10%
-    descriptions: "Heart of NYC. Extremely close to bars & nightlife. Close proximity to many attractions!",
-    houserule: "No smoking",
-    cancellation: {
-      lax: "Loose Cancellation Policy",
-      moderate: "Moderate Cancellation Policy",
-      strict: "Strict Cancellation Policy"
-    },
-    safety: {
-      smoke: true,
-      carbon_monoxide: true
-    },
+    description: "Heart of NYC. Extremely close to bars & nightlife. Close proximity to many attractions!",
+    cancellation: "Loose",
     max_guests: 6,
     trips: {
       1: {
@@ -74,8 +81,9 @@
 
   trips: {
     1: {
-      planner_id: 1,
+      user_id: 1,
       home_id: 1,
+      host_id: 2,
       start_date: { month: "Dec", day: 31, year: 2016 }
       end_date: { month: "Jan", day: 3, year: 2017 }
     }
@@ -84,11 +92,12 @@
   reviews: {
     1: {
       author_Id: 1,
-      home_Id: 1,
+      home_id: 1,
       rating: 9,
       body: "Best view in NYC, hands down!"
     }
   }
+
 
 }
 ```

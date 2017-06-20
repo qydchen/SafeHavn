@@ -14,7 +14,7 @@ When a user clicks on the Sign Up/Log In buttons it dispatches addContentToModal
 - Homes - HomesContainer will hold an array of Homes. Unlike AirBnB's pagination, the homes will be infinite scroll.
 - Map - Will hold the Google Map that will feature automatic search and populate the search into Homes.
 - Search
-- Sorting?
+- Sorting/Filter
 
 Search will allow the user to search for a location, have Maps center to the location, and render Homes.
 
@@ -27,10 +27,10 @@ Sorting will sort and render based on the parameters.
 - Header
 - PictureModal - will have carousel feature after clicking
 - NavigationContainer - Scrolls down to determined section
-- SummaryContainer
-- ReviewsContainer
-- HostInfo? (bonus)
-- Map - Map with a unprecise location (circle)
++ SummaryContainer
++ ReviewsContainer
++ HostInfo? (bonus)
++ Map - Map with a unprecise location (circle)
 - BookingPanelContainer - positioned absolute
 - Footer
 
@@ -43,24 +43,26 @@ Summary will probably be a selector and will map out a render from top to bottom
 
 **ReviewsContainer**
 - Reviews
-- ReviewFormContainer
 
 Reviews will have ratings and descriptions, and are also able to submit and write. Pagination TBD (TALK TO COATES).
-
-**ReviewFormContainer**
-Submit reviews.
 
 **BookingPanelContainer**
 - Booking
 
-This will allow user to book a trip and redirect the user to '/trips'.
+This will allow user to book a trip and redirect the user to '/trips' and wait for the host to approve of the booking.
 
 **TripsContainer**
 - Header
 - Trips
 - Footer
 
-Will render all the trips that the user has booked under their account.
+Will render all the trips that the visitor has booked under their account.
+
+**HostContainer**
+- Header
+- Trips
+- Footer
+Will render all the trips that the host has to approve under their account
 
 ## Route
 
@@ -69,4 +71,5 @@ Will render all the trips that the user has booked under their account.
 |"/home"	| "HomesContainer"|
 |"/listings/:listingId"	| "SelectContainer"|
 |"/listings/:listingId" |	"ReviewFormContainer"|
-|"/trips" |	"TripsContainer"|
+|"/user/:id/trips" |	"TripsContainer"|
+|"/user/:id/host" | "HostContainer" |

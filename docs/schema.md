@@ -12,19 +12,16 @@ image_url       | string    | indexed
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-owner_id    | integer   | not null, foreign key (references users)
+host_id     | integer   | not null, foreign key (references users)
 lat         | float     | not null
 lng         | float     | not null
 price       | integer   | not null
 image_url   | string    | not null
 title       | string    | not null
-space       | string    | not null
-amenity     | string    | not null
-discount    | integer   |
+space       | string    |
+amenity     | string    |
 description | string    | not null
-houserule   | string    | not null
-cancellation| string    | not null
-safety      | string    | not null
+cancellation| string    | "Loose", "Moderate, "Strict" exclusive
 city        | string    | not null
 state       | string    | not null
 country     | string    | not null
@@ -35,16 +32,24 @@ max_guests  | integer   | not null
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-trip_id     | integer   | not null, foreign key (references users)
+visitor_id  | integer   | not null, foreign key (references users)
+host_id     | integer   | not null, foreign key (references users)
 home_id     | integer   | not null, foreign key (references homes )
 start_date  | date      | not null
 end_date    | date      | not null
+
+## bookings
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+visitor_id  | integer   | not null, foreign key (references users)
+host_id     | integer   | not null, foreign key (references users)
 
 ## reviews
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-author_Id   | integer   | not null, foreign key (references users)
-home_Id     | integer   | not null, foreign key (references homes)
+author_id   | integer   | not null, foreign key (references users)
+home_id     | integer   | not null, foreign key (references homes)
 rating      | integer   | not null
 body        | string    | not null
