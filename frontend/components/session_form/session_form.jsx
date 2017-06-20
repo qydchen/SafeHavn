@@ -6,11 +6,9 @@ class SessionForm extends React.Component {
     super(props);
     this.state = {
       username: '',
-      password: '',
-      email: ''
+      password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.isInLogInScreen = this.isInLogInScreen.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -29,6 +27,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm({user});
+    this.setState({username: '', password: ''});
   }
 
   renderErrors() {
@@ -43,64 +42,43 @@ class SessionForm extends React.Component {
     );
   }
 
-  isInLogInScreen() {
-    return this.props.formType === '/login';
-  }
-
   emailInput() {
-    if (!this.isInLogInScreen()) {
+    if (this.props.type === 'signup') {
       return (
         <label>Email:
-          <input onChange={this.update("email")} value={this.state.email}/>
+          <input onChange={this.update("email")} value="Please provide your email"/>
         </label>
       )
     }
   }
 
   signupScreen() {
-    const buttonText = this.isInLogInScreen() ? 'Log In' : 'Sign Up';
+    const buttonText = (this.props.type === 'signup') ? 'Sign Up' : 'Log In';
       return (
         <form onSubmit={this.handleSubmit}>
           <label>Username:
             <input onChange={this.update("username")} value={this.state.username}/>
           </label>
+          <br/>
           <label>Password:
             <input onChange={this.update("password")} type="password"/>
           </label>
+          <br/>
           {this.emailInput()}
+          <br/>
+          {this.renderErrors()}
+          <br/>
           <button>{buttonText}</button>
         </form>
       )
   }
 
   render() {
-    let redirectButton;
-    if (this.isInLogInScreen()) {
-      redirectButton =
-        <div>Do you have an account?
-          <Link to="/signup">Sign Up</Link>
-        </div>;
-    } else {
-      redirectButton =
-        <div>You have an account,
-          <Link to="/login">Log In</Link>
-          instead.
-        </div>;
-    }
-
-    if (this.props.loggedIn) {
-      return (
-        <Redirect to='/' />
-      );
-    } else {
-      return (
-        <section className="session-wrapper">
-          {this.renderErrors()}
-          {this.signupScreen()}
-          {redirectButton}
-        </section>
-      );
-    }
+    return (
+      <section className="session-wrapper">
+        {this.signupScreen()}
+      </section>
+    );
   }
 }
 
