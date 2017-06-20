@@ -53,7 +53,7 @@ class Header extends React.Component {
   }
 
   render(){
-    if (this.props.currentUser) {
+    if (this.props.loggedIn) {
       return (
         <div>
           <h1>Welcome, {this.props.currentUser.username}</h1>

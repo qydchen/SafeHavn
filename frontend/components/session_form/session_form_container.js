@@ -12,12 +12,9 @@ const mapStateToProps = ({ session, modal, loggedIn }) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  const loggedIn = ownProps.loggedIn
-  const getProcessForm = (loggedIn) ? login : signup;
   return {
-    processForm: user => {
-      return dispatch(getProcessForm(user));
-    },
+    login: (u) => dispatch(login(u)),
+    signup: (u) => dispatch(signup(u)),
   };
 };
 

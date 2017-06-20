@@ -12,6 +12,13 @@
     "postinstall": "webpack",
     "webpack": "webpack --watch"
   },
+  "engines": {
+    "node": "6.9.5",
+    "npm": "4.2.0"
+  },
+  "scripts": {
+    "postinstall": "webpack"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/qydchen/SafeHavn.git"
