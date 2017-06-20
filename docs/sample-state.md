@@ -6,13 +6,6 @@
       id: 1,
       email: "johndoe69@gmail.com",
       name: "Jaysheezy",
-      trips: {
-        1 : {
-          home_id: 1
-          user_id: 1
-          host_id: 2
-        }
-      }
     },
     errors: [],
   }
