@@ -3,9 +3,9 @@ All tables have timestamps and id primary keys. These are omitted below for brev
 ## users
 column name     | data type | details
 ----------------|-----------|-----------------------
-name            | string    | not null, indexed, unique
-password_digest | string    | not null, indexed, unique
-session_token   | string    | not null, indexed, unique
+username        | string    | not null, indexed, unique
+password_digest | string    | not null
+session_token   | string    | not null
 email           | string    | not null, indexed, unique
 image_url       | string    | indexed
 
@@ -26,7 +26,7 @@ city        | string    | not null
 state       | string    | not null
 country     | string    | not null
 max_guests  | integer   |
-
+s
 
 ## trips
 column name | data type | details

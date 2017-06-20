@@ -11,7 +11,7 @@ When a user clicks on the Sign Up/Log In buttons it dispatches addContentToModal
 
 **HomesContainer**
 - Header
-- Homes - HomesContainer will hold an array of Homes. Unlike AirBnB's pagination, the homes will be infinite scroll.
+- Homes - HomesContainer will hold an array of Homes based on the bounds of the map. Limit 40-50ish.
 - Map - Will hold the Google Map that will feature automatic search and populate the search into Homes.
 - Search
 - Sorting/Filter
@@ -47,7 +47,6 @@ Summary will probably be a selector and will map out a render from top to bottom
 - Reviews
 
 Reviews will have ratings and descriptions, and are also able to submit and write. Pagination.
-
 
 **TripsContainer**
 - Header

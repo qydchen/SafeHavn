@@ -8,21 +8,23 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  email           :string           not null
+#  image_url       :string
 #
 
 class User < ActiveRecord::Base
   attr_reader :password
-
-	validates :username, :password_digest, :session_token, presence: true
-	validates :username, uniqueness: true
+  validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i, on: :create }
+	validates :username, :email, :password_digest, :session_token, presence: true
+	validates :username, :email, uniqueness: true
 	validates :password, length: {minimum: 6, allow_nil: true}
 
 	after_initialize :ensure_session_token
 	before_validation :ensure_session_token_uniqueness
 
 	def password=(password)
+    @password = password
 		self.password_digest = BCrypt::Password.create(password)
-		@password = password
 	end
 
   def self.generate_session_token
