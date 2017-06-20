@@ -34,7 +34,7 @@
 ### Trips
 
 - `GET /api/trips` - fetches user trips
-- `POST /api/trips` - create a trip
+- `POST /api/trips` - create a trip (book a trip)
 - `GET /api/trips/:id` - fetch one trip
 - `DELETE /api/trips/:id` - cancel a trip
 
