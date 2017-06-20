@@ -42,11 +42,17 @@ class Header extends React.Component {
     Modal.setAppElement('body');
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.loggedIn === false) {
+      this.setState({ isOpen: false});
+    }
+  }
+
   handleModal(e){
-    if (e.currentTarget.textContent === 'Sign up' ||
-      e.currentTarget.textContent === 'Create account'){
+    if (e.currentTarget.textContent === 'Sign Up' ||
+      e.currentTarget.textContent === 'Sign Up'){
       this.props.signupForm();
-    } else if (e.currentTarget.textContent === 'Log in'){
+    } else if (e.currentTarget.textContent === 'Log In'){
       this.props.loginForm();
     }
     this.openModal();
@@ -62,19 +68,19 @@ class Header extends React.Component {
       );
     } else {
       return (
-
-        <div className="AuthButtons">
-          <Modal
-            onRequestClose={this.closeModal}
-            isOpen={this.state.isOpen}
-            style={customStyles}
-            contentLabel="Modal">
-            <SessionFormContainer loggedIn={this.props.loggedIn} />
-          </Modal>
-          <button className='signin'onClick={this.handleModal}>Log in</button>
-          <button className='signup'onClick={this.handleModal}>Create account</button>
+        <div className ="HeaderBar">
+          <div className="AuthButtons">
+            <Modal
+              onRequestClose={this.closeModal}
+              isOpen={this.state.isOpen}
+              style={customStyles}
+              contentLabel="Modal">
+              <SessionFormContainer loggedIn={this.props.loggedIn} />
+            </Modal>
+            <span className='signup'onClick={this.handleModal}>Sign Up</span>
+            <span className='signin'onClick={this.handleModal}>Log In</span>
+          </div>
         </div>
-
       )
     }
   }
@@ -88,5 +94,5 @@ export default Header;
 
 // <button className='signup-main'
 //   onClick={this.handleModal}>
-//     Sign up for free
+//     Sign Up for free
 // </button>

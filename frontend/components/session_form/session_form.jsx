@@ -50,7 +50,7 @@ class SessionForm extends React.Component {
     if (this.props.type === 'signup') {
       return (
         <label>Email:
-          <input onChange={this.update("email")} value="Please provide your email"/>
+          <input onChange={this.update("email")} value={this.state.email}/>
         </label>
       )
     }
@@ -84,6 +84,7 @@ class SessionForm extends React.Component {
       </section>
     );
   }
+
 }
 
 export default withRouter(SessionForm);
