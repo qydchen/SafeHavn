@@ -27,7 +27,7 @@ SafeHavn is a web application inspired by AirBnB that helps users find unique lo
 
 ## Implementation Timeline
 
-### Phase 1: Backend setup and Front End User Authentication (1.5 days)
+### Phase 1: Backend setup and Front End User Authentication (1 day)
 
 **Objective:** Functioning rails project with front-end Authentication
 
@@ -47,11 +47,11 @@ SafeHavn is a web application inspired by AirBnB that helps users find unique lo
 
 **Objective:** Logged in user can set up a booking and host can approve. (CRUD)
 
-### Phase 6: Trips (2 days)
+### Phase 6: Trips (1.5 days)
 
 **Objective:** Logged in user can set up a trip and view their trips. (CRUD)
 
-### Phase 7: Reviews (1 day)
+### Phase 7: Reviews (1.5 days)
 
 **Objective:** Reviews belong to listings and also users and can be created through the API.
 

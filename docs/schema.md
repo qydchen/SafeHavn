@@ -25,7 +25,7 @@ cancellation| string    | "Loose", "Moderate, "Strict" exclusive
 city        | string    | not null
 state       | string    | not null
 country     | string    | not null
-max_guests  | integer   | not null
+max_guests  | integer   |
 
 
 ## trips

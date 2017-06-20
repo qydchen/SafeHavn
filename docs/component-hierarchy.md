@@ -16,6 +16,8 @@ When a user clicks on the Sign Up/Log In buttons it dispatches addContentToModal
 - Search
 - Sorting/Filter
 
+This will be the Home page.
+
 Search will allow the user to search for a location, have Maps center to the location, and render Homes.
 
 Sorting will sort and render based on the parameters.
