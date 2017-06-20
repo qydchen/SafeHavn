@@ -10,13 +10,14 @@ class SessionForm extends React.Component {
       email: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.isInLogInScreen = this.isInLogInScreen.bind(this);
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.loggedIn) {
-  //     this.props.history.push('/');
-  //   }
-  // }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.loggedIn) {
+      this.props.history.push('/');
+    }
+  }
 
   update(field) {
     return e => this.setState({
@@ -30,34 +31,61 @@ class SessionForm extends React.Component {
     this.props.processForm({user});
   }
 
-  navLink() {
-    if (this.props.formType === '/login') {
-      return <Link to="/signup">sign up instead</Link>;
-    } else {
-      return <Link to="/login">log in instead</Link>;
+  renderErrors() {
+    return(
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  isInLogInScreen() {
+    return this.props.formType === '/login';
+  }
+
+  emailInput() {
+    if (!this.isInLogInScreen()) {
+      return (
+        <label>Email:
+          <input onChange={this.update("email")} value={this.state.email}/>
+        </label>
+      )
     }
   }
 
-  // renderErrors() {
-  //   return(
-  //     <ul>
-  //       {this.props.errors.map((error, i) => (
-  //         <li key={`error-${i}`}>
-  //           {error}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
+  signupScreen() {
+    const buttonText = this.isInLogInScreen() ? 'Log In' : 'Sign Up';
+      return (
+        <form onSubmit={this.handleSubmit}>
+          <label>Username:
+            <input onChange={this.update("username")} value={this.state.username}/>
+          </label>
+          <label>Password:
+            <input onChange={this.update("password")} type="password"/>
+          </label>
+          {this.emailInput()}
+          <button>{buttonText}</button>
+        </form>
+      )
+  }
 
   render() {
-    const buttonText = this.props.formType === '/login' ? 'Log In' : 'Sign Up';
-
     let redirectButton;
-    if (buttonText === 'Log In') {
-      redirectButton = <Link to="/signup">Sign Up</Link>;
+    if (this.isInLogInScreen()) {
+      redirectButton =
+        <div>Do you have an account?
+          <Link to="/signup">Sign Up</Link>
+        </div>;
     } else {
-      redirectButton = <Link to="/login">Log In</Link>;
+      redirectButton =
+        <div>You have an account,
+          <Link to="/login">Log In</Link>
+          instead.
+        </div>;
     }
 
     if (this.props.loggedIn) {
@@ -67,23 +95,8 @@ class SessionForm extends React.Component {
     } else {
       return (
         <section className="session-wrapper">
-          <form onSubmit={this.handleSubmit}>
-
-            <label>Username:
-              <input onChange={this.update("username")} value={this.state.username}/>
-            </label>
-
-            <label>Password:
-              <input onChange={this.update("password")} type="password"/>
-            </label>
-
-            <label>Email:
-              <input onChange={this.update("email")} value={this.state.email}/>
-            </label>
-
-            <button>{buttonText}</button>
-          </form>
-
+          {this.renderErrors()}
+          {this.signupScreen()}
           {redirectButton}
         </section>
       );
