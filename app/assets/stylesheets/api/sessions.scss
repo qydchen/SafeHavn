@@ -16,16 +16,19 @@
 }
 
 .Logo {
-  background-position: center;
   background-image: asset-url('SafeHavn.png');
   background-size: contain;
   background-repeat: no-repeat;
   display: inline-block;
-  height: 100px;
-  width: 100px;
+  height: 40px;
+  width: 40px;
 }
 
-.AuthButtons, .SignOutButton .Logo {
+.Logo:hover {
+  cursor: pointer !important;
+}
+
+.AuthButtons, .left {
   background: transparent !important;
   display: flex;
   align-items: center;
@@ -33,24 +36,31 @@
   color: inherit !important;
   height: 64px !important;
   line-height: 64px !important;
-  margin: 0px !important;
+  margin: 0px;
   position: relative !important;
   padding: 0 16px !important;
   white-space: nowrap !important;
   vertical-align: middle !important;
 }
 
-.AuthButtons, .SignOutButton, .left :hover {
-  text-decoration: underline !important;
+.LogInButton:hover, .SignUpButton:hover, .SignOutButton:hover {
+  border-bottom: 2px solid #484848 !important;
   cursor: pointer !important;
 }
 
-.LogInButton, .SignUpButton {
+.LogInButton, .SignUpButton, .SignOutButton {
   padding: 8px 0 !important;
   vertical-align: middle !important;
   line-height: 1 !important;
   border-bottom: 2px solid transparent !important;
   float: right;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.SignOutButton {
+  margin-left: 16px;
+  margin-right: 28px;
 }
 
 .SubmitForm :hover {
@@ -64,8 +74,25 @@
   color: #484848 !important;
   font-weight: 700 !important;
   border-color: #484848 !important;
-  width: 100% !important
+  width: 400px !important;
+  height: 320px;
+}
 
+.SubmitForm > label {
+  margin: 20px;
+}
+
+.ModalErrors {
+  margin: 5px;
+}
+
+.ModalErrors > li {
+  font-size: 16px;
+  margin: 10px;
+}
+
+.ModalErrors:hover, .ModalErrors > li:hover {
+  cursor: inherit !important;
 }
 
 .UsernameInput, .PasswordInput, .SubmitButton, .EmailInput {
@@ -84,6 +111,8 @@
 .SubmitButton {
   background: #FF5A5F;
   min-width: 77px;
-  max-width: 300px;
+  max-width: 350px;
   width: 100%;
+  margin-top: 20px;
+  margin-bottom: 15px;
 }

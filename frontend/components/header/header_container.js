@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import Header from './header';
 import { signupForm, loginForm } from '../../actions/modal_actions';
-
+import { clearErrors } from '../../actions/session_actions'
 
 const mapStateToProps = ({session}) => {
   return {
@@ -16,6 +16,7 @@ const mapDispatchToProps = (dispatch) => {
     logout: () => dispatch(logout()),
     signupForm: () => dispatch(signupForm()),
     loginForm: () => dispatch(loginForm()),
+    clearErrors: () => dispatch(clearErrors()),
   };
 };
 

@@ -2,7 +2,8 @@ import { merge } from 'lodash';
 
 import {
   RECEIVE_CURRENT_USER,
-  RECEIVE_ERRORS
+  RECEIVE_ERRORS,
+  CLEAR_ERRORS
 } from '../actions/session_actions';
 
 const defaultUser = {
@@ -11,7 +12,8 @@ const defaultUser = {
 };
 
 const SessionReducer = (state = defaultUser, action) => {
-  Object.freeze(state)
+  Object.freeze(state);
+  let errors;
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
       const currentUser = action.currentUser;
@@ -19,8 +21,14 @@ const SessionReducer = (state = defaultUser, action) => {
         currentUser
       });
     case RECEIVE_ERRORS:
-      const errors = action.errors;
-      return merge({}, defaultUser, {
+      errors = action.errors;
+      return merge({}, state, {
+        errors
+      });
+    case CLEAR_ERRORS:
+      debugger
+      errors = [];
+      return Object.assign({}, state, {
         errors
       });
     default:

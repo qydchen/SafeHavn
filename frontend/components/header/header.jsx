@@ -31,10 +31,12 @@ class Header extends React.Component {
   }
 
   closeModal(e) {
+    this.props.clearErrors();
     this.setState({ isOpen: false, redirect: true });
   }
 
   openModal(){
+    this.props.clearErrors();
     this.setState({ isOpen: true });
   }
 
@@ -63,8 +65,10 @@ class Header extends React.Component {
   loggedInHeader() {
     if (this.props.currentUser) {
       return (
-        <div className ="SignOutButton">
-          <span onClick={this.handleClick}>Log Out</span>
+        <div className="AuthButtons">
+          <div className="SignOutButton">
+            <span onClick={this.handleClick}>Sign Out</span>
+          </div>
         </div>
       )
     }
@@ -105,5 +109,6 @@ class Header extends React.Component {
     )
   }
 };
-//  <div> className="SearchBar"/></div>
+
+// <div> className="SearchBar"/>SEARCHBOXPLACEHOLDER</div>
 export default Header;

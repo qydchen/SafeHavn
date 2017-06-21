@@ -26,21 +26,20 @@ class SessionForm extends React.Component {
  		} else if (this.props.modal === 'signup'){
  			this.props.signup({user});
  		}
-     this.setState({username: '', password: '' });
+     this.setState({username: '', password: '', email: '' });
   }
 
   renderErrors() {
     return(
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
+      <ul className="ModalErrors">
+      {this.props.errors.map((error, i) => (
+        <li key={`error-${i}`}>
+        {error}
+        </li>
+      ))}
       </ul>
     );
   }
-
 
   emailInput() {
     if (this.props.modal === 'signup') {
@@ -66,9 +65,9 @@ class SessionForm extends React.Component {
           <br/>
           {this.emailInput()}
           <br/>
-          {this.renderErrors()}
-          <br/>
           <button className="SubmitButton">{buttonText}</button>
+          <br/>
+          {this.renderErrors()}
         </form>
       )
   }
