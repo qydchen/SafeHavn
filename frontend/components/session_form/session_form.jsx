@@ -20,11 +20,11 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
       const user = Object.assign({}, this.state);
-
- 		if (this.props.modal === 'login'){
- 			this.props.login({user});
- 		} else if (this.props.modal === 'signup'){
- 			this.props.signup({user});
+      debugger
+ 		if (this.props.formType === 'login'){
+ 			this.props.login({user}).then(this.props.closeModal);
+ 		} else if (this.props.formType === 'signup'){
+ 			this.props.signup({user}).then(this.props.closeModal);
  		}
      this.setState({username: '', password: '', email: '' });
   }
@@ -42,7 +42,7 @@ class SessionForm extends React.Component {
   }
 
   emailInput() {
-    if (this.props.modal === 'signup') {
+    if (this.props.formType === 'signup') {
       return (
         <label>Email:
           <input className="EmailInput" onChange={this.update("email")} value={this.state.email}/>
@@ -51,35 +51,26 @@ class SessionForm extends React.Component {
     }
   }
 
-  signupScreen() {
-    const buttonText = (this.props.modal === 'signup') ? 'Sign Up' : 'Log In';
-      return (
-        <form className="SubmitForm" onSubmit={this.handleSubmit}>
-          <label>Username:
-            <input className="UsernameInput" onChange={this.update("username")} value={this.state.username}/>
-          </label>
-          <br/>
-          <label>Password:
-            <input className="PasswordInput" onChange={this.update("password")} type="password"/>
-          </label>
-          <br/>
-          {this.emailInput()}
-          <br/>
-          <button className="SubmitButton">{buttonText}</button>
-          <br/>
-          {this.renderErrors()}
-        </form>
-      )
-  }
-
   render() {
+    const buttonText = (this.props.formType === 'signup') ? 'Sign Up' : 'Log In';
     return (
-      <section className="session-wrapper">
-        {this.signupScreen()}
-      </section>
-    );
+      <form className="SubmitForm" onSubmit={this.handleSubmit}>
+        <label>Username:
+          <input className="UsernameInput" onChange={this.update("username")} value={this.state.username}/>
+        </label>
+        <br/>
+        <label>Password:
+          <input className="PasswordInput" onChange={this.update("password")} type="password"/>
+        </label>
+        <br/>
+        {this.emailInput()}
+        <br/>
+        <button className="SubmitButton">{buttonText}</button>
+        <br/>
+        {this.renderErrors()}
+      </form>
+    )
   }
-
 }
 
 export default withRouter(SessionForm);

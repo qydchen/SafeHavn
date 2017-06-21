@@ -26,7 +26,6 @@ const SessionReducer = (state = defaultUser, action) => {
         errors
       });
     case CLEAR_ERRORS:
-      debugger
       errors = [];
       return Object.assign({}, state, {
         errors
