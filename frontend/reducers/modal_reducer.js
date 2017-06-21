@@ -4,9 +4,9 @@ import merge from "lodash/merge";
 const ModalReducer = (state = null, action) => {
   switch(action.type){
     case LOGIN:
-      return 'login';
+      return action.modal;
     case SIGNUP:
-      return 'signup';
+      return action.modal;
     default:
       return null;
   }

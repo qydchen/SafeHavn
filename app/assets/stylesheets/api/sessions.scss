@@ -2,15 +2,75 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.AuthButtons {
-  float: right
-}
-
-.AuthButtons :hover {
-  text-decoration: underline;
-
-}
 
 .HeaderBar {
-  height: 105px;
+  display: block !important;
+  position: absolute !important;
+  width: 100% !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid #e4e4e4 !important;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1) !important;
+  height: 105px !important;
+  box-sizing: border-box;
+}
+
+.AuthButtons {
+  background: transparent !important;
+  border: none !important;
+  color: inherit !important;
+  height: 64px !important;
+  line-height: 64px !important;
+  margin: 0px !important;
+  position: relative !important;
+  padding: 0 16px !important;
+  white-space: nowrap !important;
+  vertical-align: middle !important;
+}
+
+.AuthButtons, .SignOutButton :hover {
+  text-decoration: underline;
+  cursor: pointer !important;
+}
+
+.LogInButton, .SignUpButton, .SignOutButton {
+  padding: 8px 0 !important;
+  vertical-align: middle !important;
+  line-height: 1 !important;
+  border-bottom: 2px solid transparent !important;
+  float: right;
+}
+
+.SubmitForm :hover {
+  cursor: pointer !important;
+}
+
+.SubmitForm {
+  padding: 32px !important;
+  position: relative !important;
+  font-size: 19px !important;
+  color: #484848 !important;
+  font-weight: 700 !important;
+  border-color: #484848 !important;
+  width: 100% !important
+
+}
+
+.UsernameInput, .PasswordInput, .SubmitButton, .EmailInput {
+  padding-right: 24px !important;
+  padding-left: 24px !important;
+  min-width: 77.66563145999496px !important;
+  border: 2px solid transparent !important;
+  border-radius: 4px !important;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+  font-size: 19px;
+  line-height: 22px;
+
+}
+
+.SubmitButton {
+  background: #FF5A5F;
+  min-width: 77px;
+  max-width: 300px;
+  width: 100%;
 }

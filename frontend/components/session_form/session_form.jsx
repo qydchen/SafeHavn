@@ -11,12 +11,6 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.loggedIn) {
-      this.props.history.push('/');
-    }
-  }
-
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -25,10 +19,11 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-     const user = Object.assign({}, this.state);
- 		if (this.props.type === 'login'){
+      const user = Object.assign({}, this.state);
+
+ 		if (this.props.modal === 'login'){
  			this.props.login({user});
- 		} else {
+ 		} else if (this.props.modal === 'signup'){
  			this.props.signup({user});
  		}
      this.setState({username: '', password: '' });
@@ -46,33 +41,34 @@ class SessionForm extends React.Component {
     );
   }
 
+
   emailInput() {
-    if (this.props.type === 'signup') {
+    if (this.props.modal === 'signup') {
       return (
         <label>Email:
-          <input onChange={this.update("email")} value={this.state.email}/>
+          <input className="EmailInput" onChange={this.update("email")} value={this.state.email}/>
         </label>
       )
     }
   }
 
   signupScreen() {
-    const buttonText = (this.props.type === 'signup') ? 'Sign Up' : 'Log In';
+    const buttonText = (this.props.modal === 'signup') ? 'Sign Up' : 'Log In';
       return (
-        <form onSubmit={this.handleSubmit}>
+        <form className="SubmitForm" onSubmit={this.handleSubmit}>
           <label>Username:
-            <input onChange={this.update("username")} value={this.state.username}/>
+            <input className="UsernameInput" onChange={this.update("username")} value={this.state.username}/>
           </label>
           <br/>
           <label>Password:
-            <input onChange={this.update("password")} type="password"/>
+            <input className="PasswordInput" onChange={this.update("password")} type="password"/>
           </label>
           <br/>
           {this.emailInput()}
           <br/>
           {this.renderErrors()}
           <br/>
-          <button>{buttonText}</button>
+          <button className="SubmitButton">{buttonText}</button>
         </form>
       )
   }

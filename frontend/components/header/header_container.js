@@ -4,10 +4,10 @@ import Header from './header';
 import { signupForm, loginForm } from '../../actions/modal_actions';
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({session}) => {
   return {
-    currentUser: state.session.currentUser,
-    loggedIn: Boolean(state.session.currentUser),
+    currentUser: session.currentUser,
+    loggedIn: Boolean(session.currentUser),
   };
 };
 
@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch(logout()),
     signupForm: () => dispatch(signupForm()),
-    loginForm: () => dispatch(loginForm())
+    loginForm: () => dispatch(loginForm()),
   };
 };
 

@@ -4,17 +4,17 @@ import { login, logout, signup } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
 
-const mapStateToProps = ({ session, modal, loggedIn }) => {
+const mapStateToProps = ({ session, modal }) => {
   return {
     errors: session.errors,
-    type: modal
+    modal
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    login: (u) => dispatch(login(u)),
-    signup: (u) => dispatch(signup(u)),
+    login: (user) => dispatch(login(user)),
+    signup: (user) => dispatch(signup(user)),
   };
 };
 

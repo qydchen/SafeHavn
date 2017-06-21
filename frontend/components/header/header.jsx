@@ -49,21 +49,24 @@ class Header extends React.Component {
   }
 
   handleModal(e){
-    if (e.currentTarget.textContent === 'Sign Up' ||
-      e.currentTarget.textContent === 'Sign Up'){
-      this.props.signupForm();
-    } else if (e.currentTarget.textContent === 'Log In'){
-      this.props.loginForm();
+    switch (e.currentTarget.textContent) {
+      case ('Sign Up'):
+        this.props.signupForm();
+      break;
+      case ('Log In'):
+        this.props.loginForm();
+      break;
     }
     this.openModal();
   }
 
+  signInOrLogIn(currentUser) {}
+
   render(){
-    if (this.props.loggedIn) {
+    if (this.props.currentUser) {
       return (
-        <div>
-          <h1>Welcome, {this.props.currentUser.username}</h1>
-          <button onClick={this.handleClick}>Log Out!</button>
+        <div className ="HeaderBar">
+          <span className='SignOutButton' onClick={this.handleClick}>Log Out!</span>
         </div>
       );
     } else {
@@ -75,10 +78,14 @@ class Header extends React.Component {
               isOpen={this.state.isOpen}
               style={customStyles}
               contentLabel="Modal">
-              <SessionFormContainer loggedIn={this.props.loggedIn} />
+              <SessionFormContainer loggedIn={this.props.loggedIn}/>
             </Modal>
-            <span className='signup'onClick={this.handleModal}>Sign Up</span>
+            <div className ="SignUpButton">
+              <span className='signup'onClick={this.handleModal}>Sign Up</span>
+            </div>
+            <div className ="LogInButton">
             <span className='signin'onClick={this.handleModal}>Log In</span>
+            </div>
           </div>
         </div>
       )
