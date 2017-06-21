@@ -21,8 +21,8 @@
   background-size: contain;
   background-repeat: no-repeat;
   display: inline-block;
-  height: 24px;
-  width: 160px;
+  height: 100px;
+  width: 100px;
 }
 
 .AuthButtons, .SignOutButton .Logo {
@@ -40,7 +40,7 @@
   vertical-align: middle !important;
 }
 
-.AuthButtons, .SignOutButton :hover {
+.AuthButtons, .SignOutButton, .left :hover {
   text-decoration: underline !important;
   cursor: pointer !important;
 }

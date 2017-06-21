@@ -97,7 +97,7 @@ class Header extends React.Component {
     return (
       <div className ="HeaderBar">
         <div className="left">
-          <a className="Logo" onClick={() => hashHistory.push('/')} ></a>
+          <a className="Logo" onClick={() => this.props.history.push('/')} ></a>
         </div>
         {this.logInHeader()}
         {this.loggedInHeader()}
