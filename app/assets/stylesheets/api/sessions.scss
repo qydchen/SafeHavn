@@ -4,7 +4,7 @@
 
 
 .HeaderBar {
-  display: block !important;
+  display: flex !important;
   position: absolute !important;
   width: 100% !important;
   background: #ffffff !important;
@@ -12,10 +12,23 @@
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1) !important;
   height: 105px !important;
   box-sizing: border-box;
+  justify-content: space-between;
 }
 
-.AuthButtons {
+.Logo {
+  background-position: center;
+  background-image: asset-url('SafeHavn.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 24px;
+  width: 160px;
+}
+
+.AuthButtons, .SignOutButton .Logo {
   background: transparent !important;
+  display: flex;
+  align-items: center;
   border: none !important;
   color: inherit !important;
   height: 64px !important;
@@ -28,11 +41,11 @@
 }
 
 .AuthButtons, .SignOutButton :hover {
-  text-decoration: underline;
+  text-decoration: underline !important;
   cursor: pointer !important;
 }
 
-.LogInButton, .SignUpButton, .SignOutButton {
+.LogInButton, .SignUpButton {
   padding: 8px 0 !important;
   vertical-align: middle !important;
   line-height: 1 !important;

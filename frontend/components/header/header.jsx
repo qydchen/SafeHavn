@@ -60,46 +60,50 @@ class Header extends React.Component {
     this.openModal();
   }
 
-  signInOrLogIn(currentUser) {}
-
-  render(){
+  loggedInHeader() {
     if (this.props.currentUser) {
       return (
-        <div className ="HeaderBar">
-          <span className='SignOutButton' onClick={this.handleClick}>Log Out!</span>
-        </div>
-      );
-    } else {
-      return (
-        <div className ="HeaderBar">
-          <div className="AuthButtons">
-            <Modal
-              onRequestClose={this.closeModal}
-              isOpen={this.state.isOpen}
-              style={customStyles}
-              contentLabel="Modal">
-              <SessionFormContainer loggedIn={this.props.loggedIn}/>
-            </Modal>
-            <div className ="SignUpButton">
-              <span className='signup'onClick={this.handleModal}>Sign Up</span>
-            </div>
-            <div className ="LogInButton">
-            <span className='signin'onClick={this.handleModal}>Log In</span>
-            </div>
-          </div>
+        <div className ="SignOutButton">
+          <span onClick={this.handleClick}>Log Out</span>
         </div>
       )
     }
   }
+
+  logInHeader() {
+    if (!this.props.currentUser) {
+      return (
+        <div className="AuthButtons">
+          <Modal
+            onRequestClose={this.closeModal}
+            isOpen={this.state.isOpen}
+            style={customStyles}
+            contentLabel="Modal">
+            <SessionFormContainer loggedIn={this.props.loggedIn}/>
+          </Modal>
+          <div className ="SignUpButton">
+            <span onClick={this.handleModal}>Sign Up</span>
+          </div>
+          <div className ="LogInButton">
+          <span onClick={this.handleModal}>Log In</span>
+          </div>
+        </div>
+      )
+    }
+
+  }
+
+  render(){
+    return (
+      <div className ="HeaderBar">
+        <div className="left">
+          <a className="Logo" onClick={() => hashHistory.push('/')} ></a>
+        </div>
+        {this.logInHeader()}
+        {this.loggedInHeader()}
+      </div>
+    )
+  }
 };
-
+//  <div> className="SearchBar"/></div>
 export default Header;
-
-
-
-
-
-// <button className='signup-main'
-//   onClick={this.handleModal}>
-//     Sign Up for free
-// </button>
