@@ -22,11 +22,8 @@ space       | string    |
 amenity     | string    |
 description | text      | not null
 cancellation| string    | (*Loose*, *Moderate*, or *Strict*)
-city        | string    | not null
-state       | string    | not null
-country     | string    | not null
+address     | string    | not null
 max_guests  | integer   |
-s
 
 ## trips
 column name | data type | details

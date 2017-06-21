@@ -19,7 +19,6 @@ button {
 	border-radius: 3px;
 	transition: background-color 0.3s;
 	font-family: sans-serif;
-	text-transform: uppercase;
 	font-size: 14px;
 	text-align: center;
 }
@@ -121,4 +120,16 @@ hr {
 
 input[type="search"] {
 	padding: 5px;
+}
+
+
+*:before,
+*:after,
+hr,
+hr:before,
+hr:after,
+input[type="search"],
+input[type="search"]:before,
+input[type="search"]:after {
+	box-sizing: border-box;
 }

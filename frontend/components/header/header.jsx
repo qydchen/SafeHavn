@@ -39,10 +39,14 @@ class Header extends React.Component {
       return (
         <div className="AuthButtons">
           <div className ="SignUpButton">
-            <span onClick={() => this.clearErrorsAndOpenModal(<SessionFormContainer formType="signup"/>)}>Sign Up</span>
+            <span onClick={() => this.clearErrorsAndOpenModal(
+              <SessionFormContainer formType="signup"/>)}> Sign Up
+            </span>
           </div>
           <div className ="LogInButton">
-            <span onClick={() => this.clearErrorsAndOpenModal(<SessionFormContainer formType="login"/>)}>Log In</span>
+            <span onClick={() => this.clearErrorsAndOpenModal(
+              <SessionFormContainer formType="login"/>)}> Log In
+            </span>
           </div>
         </div>
       )

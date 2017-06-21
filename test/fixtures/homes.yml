@@ -1,0 +1,56 @@
+# == Schema Information
+#
+# Table name: homes
+#
+#  id           :integer          not null, primary key
+#  host_id      :integer          not null
+#  lat          :float            not null
+#  lng          :float            not null
+#  price        :integer          not null
+#  image_url    :string           not null
+#  title        :string           not null
+#  space        :string
+#  amenity      :string
+#  description  :text             not null
+#  cancellation :text             not null
+#  city         :string           not null
+#  state        :string           not null
+#  country      :string           not null
+#  max_guests   :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  host_id: 1
+  lat: 1.5
+  lng: 1.5
+  price: 1
+  image_url: MyString
+  title: MyString
+  space: MyString
+  amenity: MyString
+  description: MyText
+  cancellation: MyText
+  city: MyString
+  state: MyString
+  country: MyString
+  max_guests: 1
+
+two:
+  host_id: 1
+  lat: 1.5
+  lng: 1.5
+  price: 1
+  image_url: MyString
+  title: MyString
+  space: MyString
+  amenity: MyString
+  description: MyText
+  cancellation: MyText
+  city: MyString
+  state: MyString
+  country: MyString
+  max_guests: 1

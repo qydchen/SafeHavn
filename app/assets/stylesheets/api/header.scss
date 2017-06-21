@@ -1,0 +1,55 @@
+
+
+.HeaderBar {
+  display: flex !important;
+  position: absolute !important;
+  width: 100% !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid #e4e4e4 !important;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1) !important;
+  height: 105px !important;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.Logo {
+  background-image: asset-url('SafeHavn.png');
+  display: block;
+  height: 34px;
+  width: 34px;
+  text-align: center !important;
+  box-sizing: border-box;
+}
+
+.Logo:hover {
+  cursor: pointer !important;
+}
+
+.AuthButtons {
+  background: transparent !important;
+  display: flex;
+  align-items: center;
+  border: none !important;
+  color: inherit !important;
+  height: 64px !important;
+  line-height: 64px !important;
+  margin: 0px;
+  position: relative !important;
+  padding: 0 16px !important;
+  white-space: nowrap !important;
+  vertical-align: middle !important;
+}
+
+.left {
+  display: table-cell !important;
+  height: 64px !important;
+  position: relative !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: 0.25s color !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  padding-top: 12px !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+}

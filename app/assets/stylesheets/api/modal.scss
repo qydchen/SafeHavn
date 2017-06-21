@@ -13,11 +13,16 @@
   z-index: 1000;
   top: 50%;
   left: 50%;
-  width: 500px;
+  width: 568px;
+  height: 100%;
   max-width: 100%;
-  padding: 50px;
+  padding: 32px;
   margin-left: -300px;
   transform: translateY(-50%);
   background: white;
   border-radius: 5px;
+  line-height: 20.02px;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
 }
