@@ -136,8 +136,8 @@ class SessionForm extends React.Component {
     const options = [
       <option value="" key={0}>Month</option>
     ];
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
-      'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+      'August', 'September', 'October', 'November', 'December'];
 
     for (let i = 1; i <= 12; i++) {
       const month = months[i - 1];
@@ -271,6 +271,15 @@ class SessionForm extends React.Component {
         </form>
         <hr className="signup-divider"/>
           {this.footer()}
+          <br />
+          <div className="va-container va-container-h">
+            <span className="switch-to">
+              <div className="account-txt">Try out as Guest? </div>
+            </span>
+            <span className="switch" onClick={() => this.props.guestLogin().then(this.props.closeModal)}>
+              <div className="register-txt"> Guest Login </div>
+            </span>
+          </div>
           {this.renderErrors()}
       </div>
     )
