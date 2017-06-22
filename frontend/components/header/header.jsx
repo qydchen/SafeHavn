@@ -68,7 +68,7 @@ class Header extends React.Component {
                 <div className="geoCompleteContainer">
                   <div className="prefixContainer"/>
                   <div className="inputContainer">
-                    <input classname="anywhereInput">
+                    <input className="anywhereInput">
                     </input>
                   </div>
                 </div>

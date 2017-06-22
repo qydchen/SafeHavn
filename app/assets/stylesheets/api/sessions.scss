@@ -58,7 +58,7 @@
   line-height: 24px !important;
   color: #484848 !important;
   border: 1px solid #DBDBDB;
-  margin-bottom: 8px !important;
+  margin-bottom: 16px !important;
   position: relative !important;
   display: block !important;
   width: 100% !important;
@@ -181,6 +181,7 @@
 	font-size: 14px;
 	text-align: center;
   background-image: asset-url('cross.png');
+  margin-bottom: 16px;
 }
 
 .post-fix {
@@ -212,4 +213,187 @@
   fill: currentcolor;
   height: 1em;
   width: 1em;
+}
+
+.birthdayContainer {
+  box-sizing: border-box;
+  margin-bottom: 16px;
+}
+
+.birthdayTitle {
+  font-weight: normal !important;
+  color: #484848 !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-size: 19px !important;
+  line-height: 24px !important;
+  letter-spacing: undefined !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.birthdayText {
+  font-weight: 300 !important;
+  color: #484848 !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  margin: 0px;
+  margin-top: 8px;
+  word-wrap: break-word !important;
+  font-size: 15px !important;
+  line-height: 18px !important;
+  letter-spacing: 0.2px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.birthdayRow {
+  margin-top: 8px;
+  margin-left: -8px !important;
+  margin-right: -8px !important;
+  box-sizing: border-box;
+  display: inline-flex !important;
+  width: 100%;
+}
+
+
+.bday-column {
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  min-height: 1px !important;
+  position: relative !important;
+  width: 33.33333333333333% !important;
+  float: left !important;
+}
+
+.select-container {
+  padding-right: 8px !important;
+  min-height: 1px !important;
+  position: relative !important;
+  float: left !important;
+  width: 100%;
+}
+
+
+.label-hidden {
+  position: absolute !important;
+  display: block !important;
+  border: 0px !important;
+  margin: -1px !important;
+  padding: 0px !important;
+  height: 1px !important;
+  width: 1px !important;
+  clip: rect(0, 0, 0, 0) !important;
+  overflow: hidden !important;
+}
+
+.select-dd-container {
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 19px !important;
+  line-height: 24px !important;
+  letter-spacing: undefined !important;
+  padding-top: undefined !important;
+  padding-bottom: undefined !important;
+  color: #484848 !important;
+  position: relative !important;
+  display: block !important;
+  background: #ffffff !important;
+  border: 1px solid #DBDBDB !important;
+  border-radius: 2px !important;
+  margin-bottom: 8px !important;
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
+.select-dropdown {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 19px !important;
+  line-height: 24px !important;
+  letter-spacing: undefined !important;
+  padding-top: undefined !important;
+  padding-bottom: undefined !important;
+  color: #484848 !important;
+  font-weight: 300 !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0px !important;
+  padding: 10px !important;
+  padding-right: 40px !important;
+  height: 44px !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+.dropdown-arrow {
+  background-image: asset-url('downarrow.png');
+  position: absolute !important;
+  top: 16px !important;
+  right: 16px !important;
+  line-height: 0 !important;
+  pointer-events: none !important;
+  display: block;
+  fill: rgb(72, 72, 72);
+  height: 16px;
+  width: 16px;
+}
+
+.subscribe-info {
+  font-weight: 300 !important;
+  cursor: pointer !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 15px !important;
+  line-height: 24px !important;
+  letter-spacing: undefined !important;
+  padding-top: undefined !important;
+  padding-bottom: undefined !important;
+  color: #484848 !important;
+  position: relative !important;
+  top: -3px !important;
+  vertical-align: top !important;
+  padding-left: 6px !important;
+  display: table-cell !important;
+  vertical-align: top !important;
+  white-space: normal !important;
+}
+
+.disclaimer {
+  font-weight: normal !important;
+  color: #484848 !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-size: 12px !important;
+  line-height: 16px !important;
+  letter-spacing: 0.4px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.subscribe-lab {
+  background: transparent !important;
+  border: 0px !important;
+  cursor: pointer !important;
+  display: table !important;
+  padding: 0px !important;
+  margin-bottom: 16px;
+}
+
+.subscribe-img {
+  cursor: pointer !important;
+  padding: 0px !important;
+  display: table-cell !important;
+  vertical-align: top !important;
+  white-space: normal !important;
+}
+
+.subbox-input {
+  // -webkit-appearance: none;
+  height: 1.25em;
+  width: 1.25em;
+  margin-bottom: -.25em;
+  margin-right: 5px;
+  vertical-align: top;
 }

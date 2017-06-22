@@ -10,17 +10,24 @@ class SessionForm extends React.Component {
       first: '',
       last: '',
       password: '',
-      month: null,
-      day: null,
-      year: null
+      month: '',
+      day: '',
+      year: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.clearErrorsAndOpenModal = this.clearErrorsAndOpenModal.bind(this);
+    this.handleSelectChange = this.handleSelectChange.bind(this);
   }
 
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
     });
+  }
+
+  clearErrorsAndOpenModal(component){
+    this.props.clearErrors();
+    this.props.openModal(component);
   }
 
   handleSubmit(e) {
@@ -31,7 +38,11 @@ class SessionForm extends React.Component {
  		} else if (this.props.formType === 'signup'){
  			this.props.signup({user}).then(this.props.closeModal);
  		}
-     this.setState({email: '', password: '', first: '', last: '', month: null, day: null, year: null });
+     this.setState({email: '', password: '', first: '', last: '', month: '', day: '', year: '' });
+  }
+
+  handleSelectChange(property) {
+    return e => this.setState({ [property]: e.target.value });
   }
 
   renderErrors() {
@@ -78,7 +89,7 @@ class SessionForm extends React.Component {
           <span className="switch-to">
             <div className="account-txt">Already have a SafeHavn account? </div>
           </span>
-          <span className="switch" onClick={() => this.props.openModal(<SessionFormContainer formType="login"/>)}>
+          <span className="switch" onClick={() => this.clearErrorsAndOpenModal(<SessionFormContainer formType="login"/>)}>
             <div className="register-txt"> Log In </div>
 
           </span>
@@ -90,7 +101,7 @@ class SessionForm extends React.Component {
           <span className="switch-to">
             <div className="account-txt">Don't have a SafeHavn account? </div>
           </span>
-          <span className="switch" onClick={() => this.props.openModal(<SessionFormContainer formType="signup"/>)}>
+          <span className="switch" onClick={() => this.clearErrorsAndOpenModal(<SessionFormContainer formType="signup"/>)}>
             <div className="register-txt"> Sign Up </div>
           </span>
         </div>
@@ -101,15 +112,129 @@ class SessionForm extends React.Component {
   birthday() {
     if (this.props.formType === 'signup') {
       return (
-        <div>
-          <h3 className="bday">Birthday</h3>
-          <br/>
-          <p>To sign up, you must be 18 years or older. Other people won't see your birthday.</p>
-          <p> MONTHDAYYEAR </p>
-          <p> I'd like to receive information about SafeHavn and David Chen. </p>
-          <p> By click Sign up or Continue with, I agree to consider David Chen for potential emplolyment opportunities.</p>
+        <div className="birthdayContainer">
+          <div className="birthdayTitle">Birthday</div>
+          <div className="birthdayText">To sign up, you must be 18 years or older. Other people won't see your birthday.</div>
+
+            <div className="birthdayRow">
+
+                  { this.selectMonth() }
+
+                  { this.selectDay() }
+
+                  { this.selectYear() }
+
+            </div>
+
         </div>
       )
+    }
+  }
+
+
+  selectMonth() {
+    const options = [
+      <option value="" key={0}>Month</option>
+    ];
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
+      'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    for (let i = 1; i <= 12; i++) {
+      const month = months[i - 1];
+
+      options.push(
+        <option value={i}
+          key={i}
+        >{months[i - 1]}</option>
+      );
+    }
+
+    return (
+      <div className="bday-column">
+        <div className='select-container'>
+          <label className="label-hidden"/>
+          <div className='select-dd-container'>
+            <select className='select-dropdown' value={this.state.month}
+              onChange={this.handleSelectChange('month')}
+            >{options}
+            </select>
+            <span className="dropdown-arrow"></span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  selectDay() {
+    const options = [
+      <option value="" key={0}>Day</option>
+    ];
+
+    for (let i = 1; i <= 31; i++) {
+      options.push(
+        <option value={i}
+          key={i}
+        >{i}</option>
+      );
+    }
+
+    return (
+      <div className="bday-column">
+        <div className='select-container'>
+          <label className="label-hidden"/>
+          <div className='select-dd-container'>
+            <select className='select-dropdown' value={this.state.day}
+              onChange={this.handleSelectChange('day')}
+            >{options}</select>
+            <span className="dropdown-arrow"></span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  selectYear() {
+    const options = [
+      <option value="" key={-1}>Year</option>
+    ];
+
+    this.props.years.forEach((year, idx) => (
+      options.push(
+        <option value={year}
+          key={idx}
+        >{year}</option>
+      )
+    ));
+
+    return (
+      <div className="bday-column">
+        <div className='select-container'>
+          <label className="label-hidden"/>
+          <div className='select-dd-container'>
+            <select className='select-dropdown' value={this.state.year}
+              onChange={this.handleSelectChange('year')}
+            >{options}</select>
+            <span className="dropdown-arrow"></span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  subscribe() {
+    if (this.props.formType === 'signup') {
+      return (
+        <div className="subscribeContainer">
+        <label className="subscribe-lab">
+          <div className="subscribe-img">
+            <input type="checkbox" className="subbox-input"/>
+          </div>
+          <div className="subscribe-info"> I'd like to receive information about SafeHavn and David Chen. </div>
+        </label>
+          <div className="disclaimer"> By clicking on Sign up, I agree to consider David Chen for potential employment opportunities.</div>
+        </div>
+      )
+
     }
   }
 
@@ -134,6 +259,10 @@ class SessionForm extends React.Component {
               <svg className="pwico"/>
             </div>
           </div>
+
+          {this.birthday()}
+          {this.subscribe()}
+
           <button className="SubmitButton">
             <span className="btn-text">
               {buttonText}

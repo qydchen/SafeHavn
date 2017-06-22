@@ -2,12 +2,14 @@ import { connect } from 'react-redux';
 import { closeModal, openModal } from '../../actions/modal_actions';
 import { login, logout, signup, clearErrors } from '../../actions/session_actions';
 import SessionForm from './session_form';
+import { yearsRange } from '../../reducers/selectors';
 
 
 const mapStateToProps = ({ session }) => {
   return {
     loggedIn: !!session.currentUser,
     errors: session.errors,
+    years: yearsRange(),
   };
 };
 
@@ -16,7 +18,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     login: (user) => dispatch(login(user)),
     signup: (user) => dispatch(signup(user)),
     logout: (user) => dispatch(logout(user)),
-    clear: () => dispatch(clearErrors()),
+    clearErrors: () => dispatch(clearErrors()),
     closeModal: () => dispatch(closeModal()),
     openModal: (component) => dispatch(openModal(component)),
   };
