@@ -2,12 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.LogInButton:hover, .SignUpButton:hover, .SignOutButton:hover {
+.header-enter:hover, .SignOutButton:hover {
   border-bottom: 2px solid #484848 !important;
   cursor: pointer !important;
 }
 
-.LogInButton, .SignUpButton, .SignOutButton {
+.header-enter, .SignOutButton {
   padding: 8px 0 !important;
   vertical-align: middle !important;
   line-height: 1 !important;
@@ -15,10 +15,10 @@
   float: right;
   margin-left: 16px;
   margin-right: 16px;
+  display: block;
 }
 
-
-.SubmitForm :hover {
+.SubmitButton:hover, .x-close:hover {
   cursor: pointer !important;
 }
 
@@ -26,34 +26,23 @@
   position: relative !important;
   color: #484848 !important;
   border-color: #484848 !important;
-  width: 568px !important;
-  height: 805px;
-}
-
-.SubmitForm > label {
-  margin: 20px;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .ModalErrors {
-  margin: 5px;
+  margin-top: 8px;
 }
 
 .ModalErrors > li {
-  font-size: 16px;
-  margin: 10px;
-}
-
-.ModalErrors:hover, .ModalErrors > li:hover {
-  cursor: inherit !important;
+  font-size: 15px;
+  margin: 8px;
 }
 
 .LastInput, .PasswordInput, .SubmitButton, .EmailInput, .FirstInput {
-  font-family: sans-serif !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
   font-size: 19px !important;
   line-height: 24px !important;
-  letter-spacing: undefined !important;
-  padding-top: undefined !important;
-  padding-bottom: undefined !important;
   color: #484848;
   font-weight: 300 !important;
   background-color: transparent !important;
@@ -62,27 +51,59 @@
   width: 100% !important;
 }
 
+
 .reg-box {
   overflow: hidden !important;
   font-size: 19px !important;
   line-height: 24px !important;
   color: #484848 !important;
-  border: 1px solid #DBDBDB !important;
+  border: 1px solid #DBDBDB;
   margin-bottom: 8px !important;
   position: relative !important;
   display: block !important;
   width: 100% !important;
+  border-radius: 2px;
+}
+
+.reg-box:focus {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px #9ecaed;
 }
 
 .SubmitButton {
   background: #FF5A5F;
-  margin-top: 20px;
+  margin-top: 16px;
   text-align: center !important;
   background: #FF5A5F !important;
+  cursor: pointer !important;
+  -webkit-transition: background 0.3s, border-color 0.3s !important;
+  -moz-transition: background 0.3s, border-color 0.3s !important;
+  transition: background 0.3s, border-color 0.3s !important;
+  position: relative !important;
+  border: 2px solid transparent !important;
+  border-radius: 4px !important;
+  width: 100% !important;
+  font-size: 19px !important;
+  line-height: 22px !important;
+  letter-spacing: undefined !important;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+  color: #484848 !important;
+  font-weight: 700 !important;
+  padding-right: 24px !important;
+  padding-left: 24px !important;
+  min-width: 77.66563145999496px !important;
+  background: #FF5A5F !important;
+  border-color: undefined !important;
+  align-items: flex-start;
+  text-align: center;
 }
 
 .signup-divider {
   position: relative;
+  margin-top: 16px;
+  margin-bottom: 16px
 }
 
 .btn-text {
@@ -104,7 +125,7 @@
 .account-txt {
   font-weight: 300 !important;
   color: #484848 !important;
-  font-family: sans-serif;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
   margin: 0px !important;
   word-wrap: break-word !important;
   font-size: 19px !important;
@@ -128,7 +149,7 @@
   position: relative !important;
   border: 2px solid transparent !important;
   width: auto !important;
-  font-family: sans-serif;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
   font-size: 15px !important;
   line-height: 15px !important;
   padding-top: 8px !important;
@@ -149,5 +170,46 @@
   white-space: normal !important;
   font-weight: 700 !important;
   text-align: center !important;
+}
 
+.x-close {
+  font-weight: bold;
+	padding: 7px 9px;
+	border-radius: 3px;
+	transition: background-color 0.3s;
+	font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+	font-size: 14px;
+	text-align: center;
+  background-image: asset-url('cross.png');
+}
+
+.post-fix {
+  right: 12px !important;
+  padding-top: 11px !important;
+  position: absolute !important;
+  top: 0px !important;
+}
+
+.ltico, .ftico {
+  background-image: asset-url('avatar.png');
+  display: block;
+  fill: currentcolor;
+  height: 1em;
+  width: 1em;
+}
+
+.pwico{
+  background-image: asset-url('lock.png');
+  display: block;
+  fill: currentcolor;
+  height: 1em;
+  width: 1em;
+}
+
+.emico{
+  background-image: asset-url('email.png');
+  display: block;
+  fill: currentcolor;
+  height: 1em;
+  width: 1em;
 }

@@ -46,20 +46,26 @@ class SessionForm extends React.Component {
     );
   }
 
-  LastInput() {
-    if (this.props.formType === 'signup') {
-      return (
-        <div className="reg-box" >
-          <input placeholder="First name" className="FirstInput" onChange={this.update("first")} value={this.state.first}/>
-        </div>
-      )
-    }
-  }
   FirstInput() {
     if (this.props.formType === 'signup') {
       return (
         <div className="reg-box" >
+          <input placeholder="First name" className="FirstInput" onChange={this.update("first")} value={this.state.first}/>
+          <div className="post-fix">
+            <svg className="ftico"/>
+          </div>
+        </div>
+      )
+    }
+  }
+  LastInput() {
+    if (this.props.formType === 'signup') {
+      return (
+        <div className="reg-box" >
           <input placeholder="Last name" className="LastInput" onChange={this.update("last")} value={this.state.last}/>
+          <div className="post-fix">
+            <svg className="ltico"/>
+          </div>
         </div>
       )
     }
@@ -73,7 +79,8 @@ class SessionForm extends React.Component {
             <div className="account-txt">Already have a SafeHavn account? </div>
           </span>
           <span className="switch" onClick={() => this.props.openModal(<SessionFormContainer formType="login"/>)}>
-            <div className="reg-txt"> Log In </div>
+            <div className="register-txt"> Log In </div>
+
           </span>
         </div>
       )
@@ -84,7 +91,7 @@ class SessionForm extends React.Component {
             <div className="account-txt">Don't have a SafeHavn account? </div>
           </span>
           <span className="switch" onClick={() => this.props.openModal(<SessionFormContainer formType="signup"/>)}>
-            <div className="reg-txt"> Sign Up </div>
+            <div className="register-txt"> Sign Up </div>
           </span>
         </div>
       )
@@ -110,16 +117,22 @@ class SessionForm extends React.Component {
     const buttonText = (this.props.formType === 'signup') ? 'Sign up' : 'Log in';
     return (
       <div>
-        <button className="x-close" onClick={() => this.props.closeModal()}>X</button>
+        <button className="x-close" onClick={() => this.props.closeModal()}></button>
 
         <form className="SubmitForm" onSubmit={this.handleSubmit}>
           <div className="reg-box" >
             <input placeholder="Email address" className="EmailInput" onChange={this.update("email")} value={this.state.email}/>
+            <div className="post-fix" >
+              <svg className="emico"/>
+            </div>
           </div>
-          {this.LastInput()}
           {this.FirstInput()}
+          {this.LastInput()}
           <div className="reg-box" >
             <input placeholder="Create a Password" className="PasswordInput" onChange={this.update("password")} type="password"/>
+            <div className="post-fix">
+              <svg className="pwico"/>
+            </div>
           </div>
           <button className="SubmitButton">
             <span className="btn-text">
