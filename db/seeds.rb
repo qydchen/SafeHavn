@@ -25,6 +25,6 @@ Home.create(host_id:3,
   parking:true,
   kitchen:true,
   description:"this is a really long set state",
-  cancellation: "Loose",
+  cancellation: "Flexible",
   max_guests: 6,
   address: "123 Flex Street")

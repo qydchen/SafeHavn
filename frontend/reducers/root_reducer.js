@@ -8,7 +8,7 @@ import home from '.home_reducer';
 const RootReducer = combineReducers({
   session,
   modal,
-  home
+  home,
 });
 
 export default RootReducer;

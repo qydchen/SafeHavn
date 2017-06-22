@@ -31,7 +31,7 @@
 
 class Home < ActiveRecord::Base
   validates :lat, :lng, :price, :host, :image_url, :title, :description, presence: true
-  validates :cancellation, inclusion: { in: %w(Strict Moderate Loose)}
+  validates :cancellation, inclusion: { in: %w(Strict Moderate Flexible)}
 
   belongs_to :host,
     class_name: :User,
