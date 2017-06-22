@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622215605) do
+ActiveRecord::Schema.define(version: 20170622225442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,18 @@ ActiveRecord::Schema.define(version: 20170622215605) do
   add_index "homes", ["parking"], name: "index_homes_on_parking", using: :btree
   add_index "homes", ["property_type"], name: "index_homes_on_property_type", using: :btree
   add_index "homes", ["room_type"], name: "index_homes_on_room_type", using: :btree
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "author_id",  null: false
+    t.integer  "home_id",    null: false
+    t.integer  "rating",     null: false
+    t.string   "body",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reviews", ["author_id"], name: "index_reviews_on_author_id", using: :btree
+  add_index "reviews", ["home_id"], name: "index_reviews_on_home_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "password_digest", null: false

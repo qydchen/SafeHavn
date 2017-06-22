@@ -26,7 +26,6 @@ json.extract! home,
     json.kitchen home.kitchen
   end
 
-
   json.trips do
     json.start_date home.start_date
     json.end_date home.end_date

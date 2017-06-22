@@ -16,7 +16,6 @@ class Header extends React.Component {
     this.props.logout();
   }
 
-
   clearErrorsAndOpenModal(component){
     this.props.clearErrors();
     this.props.openModal(component);
@@ -26,6 +25,15 @@ class Header extends React.Component {
     if (this.props.currentUser) {
       return (
         <div className="AuthButtons">
+          <div className ="header-enter">
+            <span> Host </span>
+          </div>
+          <div className ="header-enter">
+            <span> Messages </span>
+          </div>
+          <div className ="header-enter">
+            <span> Help </span>
+          </div>
           <div className="SignOutButton">
             <span onClick={this.handleClick}>Sign Out</span>
           </div>
@@ -75,21 +83,12 @@ class Header extends React.Component {
               </label>
             </div>
           </div>
-
           <div className="anytimeContainer"></div>
           <div className="guestContainer"></div>
-
-
-
-
-
         </div>
       </div>
-
     )
   }
-
-
   render(){
     return (
       <div className ="HeaderBar">
