@@ -57,13 +57,13 @@ class Api::HomesController < ApplicationController
 
   private
 
-
   def home_params
     params.require(:homes).permit(
       :lat, :lng, :price, :host,
-      :image_url, :title, :space,
-      :amenity, :description, :cancellation,
-      :address, :max_guests, :start_date, :end_date
+      :image_url, :title, :description, :cancellation,
+      :address, :max_guests, :start_date, :end_date, :bathrooms,
+      :property_type, :room_type, :internet, :family,
+      :parking, :kitchen, :acommodates, :beds, :bedrooms
     )
   end
 
@@ -74,6 +74,5 @@ class Api::HomesController < ApplicationController
   def end_date
     params["end_date"]
   end
-
 
 end

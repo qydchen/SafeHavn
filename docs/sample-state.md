@@ -5,7 +5,12 @@
     currentUser: {
       id: 1,
       email: "johndoe69@gmail.com",
+      first: "John",
+      last: "Doe",
       name: "Jaysheezy",
+      month: 5,
+      day: 14,
+      year: 1998
     },
     errors: [],
   }
@@ -47,18 +52,19 @@
       room_type: "Entire home/apt"
     },
     amenity: {
-      "Wireless Internet": true,
-      "Family/kid friendly": true,
-      "Free parking on premises": true,
-      "Kitchen": true
+      internet: true, // "Wireless Internet"
+      family: true, // "Family/kid friendly"
+      parking: true, //"Free parking on premises"
+      kitchen: true // "Kitchen"
     },
     description: "Heart of NYC. Extremely close to bars & nightlife. Close proximity to many attractions!",
     cancellation: "Loose",
     max_guests: 6,
+    address: "123 Flex Street"
     trips: {
       1: {
-        start_date: { month: "Jan", day: 5, year: 2017 }
-        end_date: { month: "Jan", day: 21, year: 2017 }
+        start_date: { month: 1, day: 5, year: 2017 }
+        end_date: { month: 1, day: 21, year: 2017 }
       }
     },
     reviews: {
