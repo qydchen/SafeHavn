@@ -13,12 +13,12 @@
 #  amenity      :string
 #  description  :text             not null
 #  cancellation :text             not null
-#  city         :string           not null
-#  state        :string           not null
-#  country      :string           not null
+#  address      :string           not null
 #  max_guests   :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  start_date   :date
+#  end_date     :date
 #
 
 require 'test_helper'

@@ -16,6 +16,7 @@
   margin-left: 16px;
   margin-right: 16px;
   display: block;
+  background-repeat: no-repeat;
 }
 
 .SubmitButton:hover, .x-close:hover {
@@ -174,7 +175,8 @@
 
 .x-close {
   font-weight: bold;
-	padding: 7px 9px;
+  height: 16px;
+  width: 16px;
 	border-radius: 3px;
 	transition: background-color 0.3s;
 	font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;

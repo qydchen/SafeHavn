@@ -24,9 +24,7 @@
       lng: -111,
       image_url: "apartment.jpg",
       price: 160,
-      city: "New York",
-      state: "NYC",
-      country: "United States",
+      address: "123 Fake Street"
     }
     2: {
     //  ...
@@ -71,6 +69,7 @@
       }
     }
   }
+
 
   trips: {
     1: {
