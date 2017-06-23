@@ -1,52 +1,59 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 import HomeShowContainer from './home_show_container';
-import { asArray } from '../../reducers/selectors.js';
+import HomeDetail from './home_detail';
 
 // shows a single listing
-const cancellationText = {
-  Strict: "Cancel up to 7 days before your trip and get a 50% refund plus service fees back.",
-  Moderate: "Cancel up to 5 days before your trip and get a full refund, including service fees.",
-  Flexible: "Cancel up to 24 hours before your trip and get a full refund, including service fees."
-}
-
 class HomeShow extends React.Component {
   constructor(props) {
     super(props)
-    // this.cancelText = cancellationText[this.props.listing.cancellation];
   }
 
-  componentWillMount(){
+
+  componentDidMount(){
     this.props.fetchHome(this.props.homeid);
   }
 
   componentDidUpdate(){
     if(!this.props.listing.id) {
-      this.props.fetchhome(this.props.homeid);
+      this.props.fetchHome(this.props.homeid);
     }
   }
 
   render() {
-    const { home, homeid, fetchHome } = this.props;
+    const { listing, homeid, fetchHome } = this.props;
+    if (listing === undefined) {
+      return (
+        <div className="loading">Fetching listing</div>
+      );
+    } else {
+      return (
+        <section className="listing-show-page">
+          <div className="single-listing-photo">
+            <div className="single-listing-image"/>
+            <div className="single-listing-viewimage">
+              <button type="button" className="btn">View Photos</button>
+            </div>
+          </div>
+          <div className="main-detail">
+            <div className="container-detail">
+              <div className="sub-container-detail">
+                <div className="navigation-detail">
+                  <div className="navigation-selection">Overview</div>
+                  <div className="navigation-selection">Reviews</div>
+                  <div className="navigation-selection">The Host</div>
+                  <div className="navigation-selection">Location</div>
+                </div>
+              <HomeDetail listing={listing}/>
+              </div>
+            </div>
+          </div>
+        </section>
+      )
+    }
 
-    return (
-      if (home.title === undefined) {
-        return (
-          <div className="loading">Fetching home</div>
-        );
-      } else {
-        
-      }
 
-    )
   }
 }
-
-// <div className="single-listing-photo">
-//   <div className="single-listing-image"/>
-//   <div className="single-listing-viewimage">
-//     <button type="button" className="btn"></button>
-//   </div>
-// </div>
 
 export default HomeShow;

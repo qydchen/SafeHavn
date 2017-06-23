@@ -18,7 +18,13 @@ export const selectHome = ({ entities, reviews }, id) => {
 export const selectAll = (object) => {
   return _.values(object)
 }
-//
-// export const asArray = ( entity ) => (
-//   Object.keys(entity).map(key => entity[key])
-// );
+
+export const trueAmenities = ( amenities ) => {
+  let result = [];
+  for (var key in amenities) {
+    if (amenities[key] === true) {
+      result.push(key);
+    }
+  }
+  return result;
+};

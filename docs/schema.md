@@ -19,7 +19,7 @@ price       | integer   | not null
 image_url   | string    | not null
 title       | string    | not null
 space       | string    |
-amenity     | string    |
+amenity     | string    | 
 description | text      | not null
 cancellation| string    | (*Loose*, *Moderate*, or *Strict*)
 address     | string    | not null

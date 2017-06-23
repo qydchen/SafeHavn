@@ -90,8 +90,9 @@ class Header extends React.Component {
     )
   }
   render(){
+    // const headerClass = (this.props.urlName === "show") ? "headerBar-relative" : "HeaderBar"
     return (
-      <div className ="HeaderBar">
+      <div className="HeaderBar">
         <div className="left">
           <a className="Logo" onClick={() => this.props.history.push("/")} ></a>
         </div>

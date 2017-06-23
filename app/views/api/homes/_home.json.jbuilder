@@ -1,4 +1,5 @@
 json.extract! home,
+  :id,
   :lat,
   :lng,
   :price,
@@ -18,7 +19,7 @@ json.extract! home,
     json.room_type home.room_type
   end
 
-  json.amenity do
+  json.amenities do
     json.internet home.internet
     json.family home.family
     json.parking home.parking

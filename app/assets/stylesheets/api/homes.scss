@@ -1,3 +1,135 @@
 // Place all the styles related to the Api/Homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.single-listing-photo {
+  height: 384px;
+}
+
+.listing-show-page {
+
+}
+
+.main-detail {
+  color: #484848;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+  line-height: 22px;
+}
+
+.container-detail {
+  max-width: 1080px;
+  padding-right: 24px;
+  padding-left: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  display: table !important;
+  clear: both !important;
+}
+
+.sub-container-detail {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.navigation-detail {
+  margin-bottom: -15px;
+  padding-bottom: 15px;
+  height: 100%;
+  overflow-x: scroll;
+  overflow-y: auto;
+  white-space: nowrap;
+}
+
+.navigation-selection {
+  font-size: 19px;
+  line-height: 24px;
+  letter-spacing: undefined;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: #484848;
+  background-color: transparent;
+  border-width: 0px;
+  border-bottom: 2px solid transparent;
+  bottom: -1px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 32px 0 0;
+  padding-left: 0px;
+  padding-right: 0px;
+  text-decoration: none;
+}
+
+// .navigation-selection:focus {
+//   font-size: 19px;
+//   line-height: 24px;
+//   padding-top: 12px;
+//   padding-bottom: 12px;
+//   color: #008489;
+//   background-color: transparent;
+//   border-width: 0px;
+//   border-bottom: 2px solid #008489;
+//   bottom: -1px;
+//   cursor: pointer;
+//   display: inline-block;
+//   margin: 0 32px 0 0;
+//   padding-left: 0px;
+//   padding-right: 0px;
+//   text-decoration: none;
+//   transition-property: color;
+//   transition-duration: 300ms;
+//   transition-timing-function: ease-out;
+// }
+
+.single-listing-container {
+  margin-top: -40px;
+  padding-top: 40px;
+  border: 0 !important;
+}
+
+.summary-box {
+  margin-left: -8px;
+  margin-right: -8px;
+  width: 66.66666666666666%;
+  float: left;
+  padding-left: 8px;
+  padding-right: 8px;
+  min-height: 1px;
+  position: relative;
+}
+
+.hcol {
+  width: 100%;
+  float: left;
+}
+
+.details-row {
+  margin-left: -12px;
+  margin-right: -12px;
+}
+
+.sum-title {
+  width: 83.33333%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-left: 12px;
+  padding-right: 12px;
+  font-size: 36px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.6px !important;
+  line-height: 44px !important;
+  padding-bottom: 6px !important;
+  padding-top: 6px !important;
+  word-wrap: break-word !important;
+  margin-bottom: 6px;
+}
+
+.sum-address {
+  color: inherit;
+}

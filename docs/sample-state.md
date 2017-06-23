@@ -51,7 +51,7 @@
       property_type: "House",
       room_type: "Entire home/apt"
     },
-    amenity: {
+    amenities: {
       internet: true, // "Wireless Internet"
       family: true, // "Family/kid friendly"
       parking: true, //"Free parking on premises"
