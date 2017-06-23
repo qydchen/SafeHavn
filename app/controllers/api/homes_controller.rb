@@ -7,6 +7,10 @@ class Api::HomesController < ApplicationController
     end
   end
 
+  # homes = bounds ? Home.in_bounds(bounds) : Home.all
+  # @homes = visitors? ? homes.can_fit_visitors?(visitors?.to_i) : homes
+  # render :index
+
   def my
     @homes = current_user.homes
     render :index
@@ -58,12 +62,12 @@ class Api::HomesController < ApplicationController
   private
 
   def home_params
-    params.require(:homes).permit(
+    params.require(:home).permit(
       :lat, :lng, :price, :host,
       :image_url, :title, :description, :cancellation,
       :address, :max_guests, :start_date, :end_date, :bathrooms,
       :property_type, :room_type, :internet, :family,
-      :parking, :kitchen, :acommodates, :beds, :bedrooms
+      :parking, :kitchen, :beds, :bedrooms
     )
   end
 

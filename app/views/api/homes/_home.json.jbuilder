@@ -7,11 +7,10 @@ json.extract! home,
   :title,
   :description,
   :cancellation,
-  :address,
-  :max_guests
+  :address
 
   json.space do
-    json.accomodates home.accommodates
+    json.max_guests home.max_guests
     json.bathrooms home.bathrooms
     json.bedrooms home.bedrooms
     json.beds home.beds

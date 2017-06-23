@@ -1,29 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchHome } from '../../actions/home_actions';
+import { selectHome } from '../../reducers/selectors';
+import HomeShow from './home_show';
 
-const cancellationText = {
-  Strict: "Cancel up to 7 days before your trip and get a 50% refund plus service fees back.",
-  Moderate: "Cancel up to 5 days before your trip and get a full refund, including service fees.",
-  Flexible: "Cancel up to 24 hours before your trip and get a full refund, including service fees."
-}
-
-const mapStateToProps = (state) => {
-  space: selectAll(state.space),
-  amenity: selectAll(state.amenity),
-  trips: selectAll(state.trips), // for availability??
-  price,
-  image_url,
-  title,
-  description,
-  cancellation,
-  cancelText: cancellationText[cancellation],
-  address,
-  max_guests,
+const mapStateToProps = (state, {match}) => { //remember the entities is nexted in home which is nested in state
+  const homeid = match.params.homeid;
+  const listing = state.home[homeid];
+  debugger;
+  return {
+    homeid,
+    listing,
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  fetchHome: id => dispatch(fetchHome(id))
+  return {
+    fetchHome: id => dispatch(fetchHome(id)),
+  }
 }
 
 export default connect(

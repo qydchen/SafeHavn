@@ -3,43 +3,30 @@ import { merge } from 'lodash';
 import {
   RECEIVE_HOMES,
   RECEIVE_HOME,
-  RECEIVE_REVIEW
+  RECEIVE_REVIEW,
+  RECEIVE_DELETION,
 } from '../actions/home_actions';
 
-const defaultState = {
-  entities: {}
-  currentHome: null
-};
+const defaultState = {};
+
 
 const HomeReducer = (state = defaultState, action) => {
   Object.freeze(state);
   let newState;
   switch(action.type) {
     case RECEIVE_HOME:
-      newState = merge({}, state,
-        {
-          entities: {
-            [action.home.id]: {action.home},
-          },
-          currentHome: action.home.id
-        }
-      )
+      debugger
+      newState = merge({}, state, {[action.home.id]: action.home})
       return newState;
 
     case RECEIVE_HOMES:
-      newState = merge({}, state,
-        {
-          entities: action.homes
-        }
-      )
+      newState = merge({}, state, action.homes)
       return newState;
 
-    // case RECEIVE_REVIEW:
-    //
-    //   return merge({}, state, { entities: {},
-    //     currentHome
-    //   });
-
+    case RECEIVE_DELETION:
+      newState = Object.assign({}, state);
+      delete newState[action.id];
+      return newState;
     default:
       return state;
   }

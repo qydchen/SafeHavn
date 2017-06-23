@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622225442) do
+ActiveRecord::Schema.define(version: 20170623142037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20170622225442) do
     t.string   "image_url",     null: false
     t.string   "title",         null: false
     t.text     "description",   null: false
-    t.text     "cancellation",  null: false
     t.string   "address",       null: false
     t.integer  "max_guests"
     t.datetime "created_at",    null: false
@@ -40,10 +39,9 @@ ActiveRecord::Schema.define(version: 20170622225442) do
     t.boolean  "kitchen"
     t.integer  "beds"
     t.integer  "bedrooms"
-    t.integer  "accommodates"
+    t.string   "cancellation"
   end
 
-  add_index "homes", ["accommodates"], name: "index_homes_on_accommodates", using: :btree
   add_index "homes", ["bathrooms"], name: "index_homes_on_bathrooms", using: :btree
   add_index "homes", ["bedrooms"], name: "index_homes_on_bedrooms", using: :btree
   add_index "homes", ["beds"], name: "index_homes_on_beds", using: :btree
