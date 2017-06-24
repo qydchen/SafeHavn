@@ -10,19 +10,34 @@
   background-image: asset-url('home2.jpg');
   position: relative;
 }
-@media only screen and (min-height: 700px) {
+@media only screen and (min-height: 850px) and (min-width: 1128px) {
   .single-listing-photocontainer {
-    height: 368px;
+    height: 702px !important;
   }
 }
-@media only screen and (min-height: 744px) {
+@media only screen and (min-height: 700px) and (min-width: 1128px) {
   .single-listing-photocontainer {
     height: 552px;
   }
 }
-@media only screen and (min-height: 1128px) {
+@media only screen and (min-height: 850px) and (min-width: 744px) {
   .single-listing-photocontainer {
-    height: 702px;
+    height: 561.6px;
+  }
+}
+@media only screen and (min-height: 700px) and (min-width: 744px) {
+  .single-listing-photocontainer {
+    height: 441.6px;
+  }
+}
+@media only screen and (min-height: 850px) {
+  .single-listing-photocontainer {
+    height: 468px;
+  }
+}
+@media only screen and (min-height: 700px) {
+  .single-listing-photocontainer {
+    height: 368px;
   }
 }
 
@@ -37,6 +52,47 @@
     bottom: 20px !important;
     left: 20px !important;
   }
+}
+
+.sicon {
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+}
+
+.room-type-icon {
+  background-image: asset-url('house.png');
+  background-repeat: no-repeat;
+  // content: '\f166';
+  // line-height: 1;
+  //
+}
+
+.guests-type-icon{
+  background-image: asset-url('guests.png');
+  background-repeat: no-repeat;
+  // content: '\f166';
+  // line-height: 1;
+  //
+}
+
+.bedrooms-type-icon{
+  background-image: asset-url('bedrooms.png');
+  background-repeat: no-repeat;
+  // content: '\f166';
+  // line-height: 1;
+  //
+}
+
+.beds-icon{
+  background-image: asset-url('bed.png');
+  background-repeat: no-repeat;
+  // content: '\f166';
+  // line-height: 1;
+  //
 }
 
 .view-btn {
@@ -86,14 +142,14 @@
   margin-left: 0;
   margin-right: 0;
   border-bottom: 1px solid #DBDBDB !important;
-  height: 35px;
+  height: 50px;
   width: 66.666666%
 }
 
 .navigation-detail {
   margin-bottom: -15px;
   padding-bottom: 15px;
-  overflow-x: scroll;
+  // overflow-x: scroll;
   overflow-y: auto;
   white-space: nowrap;
 }
@@ -151,6 +207,7 @@
   float: left;
   padding-left: 8px;
   padding-right: 8px;
+  padding-top: 6px;
   min-height: 1px;
   position: relative;
 
@@ -175,7 +232,6 @@
   padding-bottom: 6px !important;
   padding-top: 6px !important;
   word-wrap: break-word !important;
-  margin-bottom: 6px;
   margin-left: -12px;
   margin-right: -12px;
 }
@@ -198,18 +254,18 @@
 }
 
 .sum-col {
-  display: flex;
+  display: table;
   margin-left: -8px;
   margin-right: -8px;
+  text-align: center;
+  width: 100%
 }
 
 .sum-detail-cols {
-  padding-left: 8px;
-  padding-right: 8px;
-  min-height: 1px;
-  position: relative;
-  width: 25%;
-  float: left;
+  min-height: 1px !important;
+  position: relative !important;
+  width: 25% !important;
+  float: left !important;
 }
 
 
@@ -264,10 +320,44 @@
 
 .space-el {
   margin-bottom: 16px;
+  display: flex;
+}
+
+.amenity-container {
+  display: flex;
 }
 
 .amenity-true, .amenity-false {
   margin-bottom: 16px;
+}
+
+.amenity-false {
+  text-decoration: line-through;
+  text-decoration-line: line-through;
+  text-decoration-style: initial;
+  text-decoration-color: initial;
+}
+
+.amen-ico {
+  height: 20px;
+  width: 20px;
+  margin-right: 15px;
+}
+
+.wifi-img {
+  background-image: asset-url('wifi.png');
+}
+
+.family-img {
+  background-image: asset-url('family.png');
+}
+
+.parking-img {
+  background-image: asset-url('parking.png');
+}
+
+.cutlery-img {
+  background-image: asset-url('cutlery.png');
 }
 
 .details-cancellation {
@@ -278,4 +368,9 @@
   letter-spacing: 0.2px;
   line-height: 22px;
   margin-bottom: 15px;
+}
+
+.strong {
+  font-weight: 400 !important;
+  margin-left: 8px;
 }

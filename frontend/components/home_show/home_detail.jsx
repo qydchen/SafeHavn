@@ -18,10 +18,10 @@ const spaceText = {
 }
 
 const amenityText = {
-  internet: "Internet",
-  family: "Family/kid friendly",
-  parking: "Free parking on premises",
-  kitchen: "Kitchen"
+  internet: ["Internet", "wifi-img"],
+  family: ["Family/kid friendly", "family-img"],
+  parking: ["Free parking on premises", "parking-img"],
+  kitchen: ["Kitchen", "cutlery-img"],
 }
 
 class HomeDetail extends React.Component{
@@ -34,19 +34,19 @@ class HomeDetail extends React.Component{
     return (
       <div className="sum-col">
         <div className="sum-detail-cols">
-          <div className="room-type-icon sicon"/>
+          <i className="room-type-icon sicon"></i>
           <div className="summary-icon-desc">{this.space.room_type}</div>
         </div>
         <div className="sum-detail-cols">
-          <div className="max_guests-type-icon sicon"/>
+          <i className="guests-type-icon sicon"></i>
           <div className="summary-icon-desc">{this.space.max_guests} Guests</div>
         </div>
         <div className="sum-detail-cols">
-          <div className="bedrooms-type-icon sicon"/>
+          <i className="bedrooms-type-icon sicon"></i>
           <div className="summary-icon-desc">{this.space.bedrooms} Bedrooms</div>
         </div>
         <div className="sum-detail-cols">
-          <div className="beds-icon sicon"/>
+          <i className="beds-icon sicon"></i>
           <div className="summary-icon-desc">{this.space.beds} Beds</div>
         </div>
       </div>
@@ -55,13 +55,18 @@ class HomeDetail extends React.Component{
 
   theSpace() {
     var s = this.space;
-    var spaceArray = [];
+    var sArr = [];
     for (var key in s) {
-      spaceArray.push([key, s[key]])
+      sArr.push([key, s[key]])
     }
-    const spaceFeats = spaceArray.map((el, idx) => (
-      <div key={idx} className="space-el">{[spaceText[el[0]], el[1]].join(": ")}</div>
+
+    const spaceFeats = sArr.map((el, idx) => (
+      <div key={idx} className="space-el">
+        <div>{spaceText[el[0]]}: </div>
+        <div className="strong">{el[1]}</div>
+      </div>
     ))
+
     return (
       <div className="details-row space-box">
         <div className="details-sub-col1">The space</div>
@@ -84,9 +89,19 @@ class HomeDetail extends React.Component{
     for (var key in amenityText) {
       idx++;
       if (amenitiesArray.indexOf(key) > -1) {
-        confirmedAmenities.push(<div key={idx} className="amenity-true">{amenityText[key]}</div>)
+        confirmedAmenities.push(
+          <div key={idx} className="amenity-container">
+            <div className={"amen-ico " + amenityText[key][1]}></div>
+            <div className="amenity-true">{amenityText[key][0]}</div>
+          </div>
+        )
       } else {
-        confirmedAmenities.push(<div key={idx} className="amenity-false">{amenityText[key]}</div>)
+        confirmedAmenities.push(
+          <div key={idx} className="amenity-container">
+            <div className={"amen-ico " + amenityText[key][1]}></div>
+            <div key={idx} className="amenity-false">{amenityText[key][0]}</div>
+          </div>
+        )
       }
     }
     return (
