@@ -2,12 +2,62 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.single-listing-photo {
-  height: 384px;
+.single-listing-photocontainer {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  height: 320px;
+  background-image: asset-url('home2.jpg');
+  position: relative;
+}
+@media only screen and (min-height: 700px) {
+  .single-listing-photocontainer {
+    height: 368px;
+  }
+}
+@media only screen and (min-height: 744px) {
+  .single-listing-photocontainer {
+    height: 552px;
+  }
+}
+@media only screen and (min-height: 1128px) {
+  .single-listing-photocontainer {
+    height: 702px;
+  }
 }
 
-.listing-show-page {
+.single-listing-viewimage {
+  position: absolute !important;
+  left: auto !important;
+  right: 20px !important;
+  bottom: 30px !important;
+}
+@media only screen and (min-width: 774px) {
+  .single-listing-viewimage {
+    bottom: 20px !important;
+    left: 20px !important;
+  }
+}
 
+.view-btn {
+  border-color: #c4c4c4;
+  background: white;
+  color: #484848;
+  padding: 7px 21px;
+  font-size: 14px;
+  display: inline-block;
+  margin-bottom: 0;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+  line-height: 1.43;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  cursor: pointer;
 }
 
 .main-detail {
@@ -35,12 +85,14 @@
   margin-bottom: 0;
   margin-left: 0;
   margin-right: 0;
+  border-bottom: 1px solid #DBDBDB !important;
+  height: 35px;
+  width: 66.666666%
 }
 
 .navigation-detail {
   margin-bottom: -15px;
   padding-bottom: 15px;
-  height: 100%;
   overflow-x: scroll;
   overflow-y: auto;
   white-space: nowrap;
@@ -95,14 +147,13 @@
 .summary-box {
   margin-left: -8px;
   margin-right: -8px;
-  width: 66.66666666666666%;
+  width: 100%;
   float: left;
   padding-left: 8px;
   padding-right: 8px;
   min-height: 1px;
   position: relative;
-  margin-top: 24px;
-  margin-bottom: 24px;
+
 }
 
 .hcol {
@@ -161,8 +212,9 @@
   float: left;
 }
 
+
 .details-box {
-  width: 66.66666666666666%;
+  width: 100%;
   float: left;
 }
 
@@ -172,6 +224,7 @@
 }
 
 .details-title {
+  margin-bottom: 24px;
   font-size: 22px;
   font-weight: 400;
   letter-spacing: -0.2px;
@@ -186,4 +239,43 @@
 
 .space-box {
   display: flex;
+  width: 100%;
+}
+
+.details-sub-col1 {
+  color: #484848 !important;
+  font-weight: 400 !important;
+  width: 25%;
+}
+
+.details-sub-col2 {
+  width: 75%;
+  float: left;
+}
+
+.details-sub-col3 {
+  float: left;
+  width: 50%;
+}
+
+.cancel-col {
+  width: 75%;
+}
+
+.space-el {
+  margin-bottom: 16px;
+}
+
+.amenity-true, .amenity-false {
+  margin-bottom: 16px;
+}
+
+.details-cancellation {
+  color: #484848;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  line-height: 22px;
+  margin-bottom: 15px;
 }

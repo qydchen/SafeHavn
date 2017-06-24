@@ -28,10 +28,9 @@ class HomeShow extends React.Component {
     } else {
       return (
         <section className="listing-show-page">
-          <div className="single-listing-photo">
-            <div className="single-listing-image"/>
+          <div className="single-listing-photocontainer">
             <div className="single-listing-viewimage">
-              <button type="button" className="btn">View Photos</button>
+              <button type="button" className="view-btn">View Photos</button>
             </div>
           </div>
           <div className="main-detail">

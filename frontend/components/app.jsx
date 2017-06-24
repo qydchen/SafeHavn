@@ -17,7 +17,7 @@ const App = () => (
   <div>
     <header>
       <ModalContainer/>
-      <HeaderContainer/>
+      <Route path="/" component={HeaderContainer}/>
       <Route path="/homes/:homeid" component={HomeShowContainer}/>
     </header>
   </div>

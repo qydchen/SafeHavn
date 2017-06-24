@@ -66,7 +66,12 @@ class HomeDetail extends React.Component{
       <div className="details-row space-box">
         <div className="details-sub-col1">The space</div>
         <div className="details-sub-col2">
-          {spaceFeats}
+          <div className="details-sub-col3">
+            {spaceFeats.slice(0,4)}
+          </div>
+          <div className="details-sub-col3">
+            {spaceFeats.slice(4)}
+          </div>
         </div>
       </div>
     )
@@ -85,10 +90,15 @@ class HomeDetail extends React.Component{
       }
     }
     return (
-      <div className="details-row">
+      <div className="details-row space-box">
         <div className="details-sub-col1">Amenities</div>
         <div className="details-sub-col2">
-          {confirmedAmenities}
+          <div className="details-sub-col3">
+            {confirmedAmenities.slice(0, Math.ceil(confirmedAmenities.length/2))}
+          </div>
+          <div className="details-sub-col3">
+            {confirmedAmenities.slice(Math.ceil(confirmedAmenities.length/2))}
+          </div>
         </div>
       </div>
     )
@@ -96,9 +106,12 @@ class HomeDetail extends React.Component{
 
   cancellationPolicy() {
     return (
-      <div className="details-row">
-        <div className="details-title">{this.props.listing.cancellation}</div>
-        <div className="details-text">{cancellationText[this.props.listing.cancellation]}</div>
+      <div className="details-row space-box">
+        <div className="details-sub-col1">Cancellations</div>
+        <div className="details-sub-col2">
+          <div className="details-cancellation">{this.props.listing.cancellation}</div>
+          <div className="details-text">{cancellationText[this.props.listing.cancellation]}</div>
+        </div>
       </div>
     )
   }
