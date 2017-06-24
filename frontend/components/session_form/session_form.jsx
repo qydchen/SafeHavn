@@ -263,7 +263,7 @@ class SessionForm extends React.Component {
           {this.birthday()}
           {this.subscribe()}
 
-          <button className="SubmitButton">
+          <button className="pinkButton">
             <span className="btn-text">
               {buttonText}
             </span>

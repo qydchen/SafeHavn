@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 import HomeShowContainer from './home_show_container';
 import HomeDetail from './home_detail';
+import BookIt from './book_it'
 
 // shows a single listing
 class HomeShow extends React.Component {
@@ -10,22 +11,33 @@ class HomeShow extends React.Component {
   }
 
   componentDidMount(){
+
     this.props.fetchHome(this.props.homeid);
   }
 
   componentDidUpdate(){
-    if(!this.props.listing.id) {
+
+    if(!this.props.listing) {
       this.props.fetchHome(this.props.homeid);
     }
   }
 
+  // componentWillReceiveProps(ownProps){
+  //   debugger
+  //   if (this.props.homeid !== ownProps.homeid) {
+  //     this.props.fetchHome(this.props.homeid);
+  //   }
+  // }
+
   render() {
     const { listing, homeid, fetchHome } = this.props;
     if (listing === undefined) {
+
       return (
         <div className="loading">Fetching listing</div>
       );
     } else {
+
       return (
         <section className="listing-show-page">
           <div className="single-listing-photocontainer">
@@ -35,15 +47,22 @@ class HomeShow extends React.Component {
           </div>
           <div className="main-detail">
             <div className="container-detail">
+
               <div className="sub-container-detail">
+
                 <div className="navigation-detail">
                   <div className="navigation-selection">Overview</div>
                   <div className="navigation-selection">Reviews</div>
                   <div className="navigation-selection">The Host</div>
                   <div className="navigation-selection">Location</div>
                 </div>
-              <HomeDetail listing={listing}/>
+                <HomeDetail listing={listing}/>
               </div>
+
+              <div className="to-book-it-divider">
+                <BookIt listing={listing}/>
+              </div>
+
             </div>
           </div>
         </section>

@@ -19,7 +19,7 @@
   background-repeat: no-repeat;
 }
 
-.SubmitButton:hover, .x-close:hover {
+.pinkButton:hover, .x-close:hover {
   cursor: pointer !important;
 }
 
@@ -40,16 +40,16 @@
   margin: 8px;
 }
 
-.LastInput, .PasswordInput, .SubmitButton, .EmailInput, .FirstInput {
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-  font-size: 19px !important;
-  line-height: 24px !important;
+.LastInput, .PasswordInput, .EmailInput, .FirstInput {
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  font-size: 19px;
+  line-height: 24px;
   color: #484848;
-  font-weight: 300 !important;
-  background-color: transparent !important;
-  border: 0px !important;
-  padding: 11px !important;
-  width: 100% !important;
+  font-weight: 300;
+  background-color: transparent;
+  border: 0px;
+  padding: 11px;
+  width: 100%;
 }
 
 
@@ -72,14 +72,10 @@
   box-shadow: 0 0 10px #9ecaed;
 }
 
-.SubmitButton {
-  background: #FF5A5F;
+.pinkButton {
   margin-top: 16px;
   text-align: center !important;
-  background: #FF5A5F !important;
   cursor: pointer !important;
-  -webkit-transition: background 0.3s, border-color 0.3s !important;
-  -moz-transition: background 0.3s, border-color 0.3s !important;
   transition: background 0.3s, border-color 0.3s !important;
   position: relative !important;
   border: 2px solid transparent !important;
@@ -87,7 +83,6 @@
   width: 100% !important;
   font-size: 19px !important;
   line-height: 22px !important;
-  letter-spacing: undefined !important;
   padding-top: 12px !important;
   padding-bottom: 12px !important;
   color: #484848 !important;
@@ -96,9 +91,7 @@
   padding-left: 24px !important;
   min-width: 77.66563145999496px !important;
   background: #FF5A5F !important;
-  border-color: undefined !important;
   align-items: flex-start;
-  text-align: center;
 }
 
 .signup-divider {
@@ -308,25 +301,20 @@
 }
 
 .select-dropdown {
-  -webkit-appearance: none !important;
-  -moz-appearance: none !important;
-  appearance: none !important;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-  font-size: 19px !important;
-  line-height: 24px !important;
-  letter-spacing: undefined !important;
-  padding-top: undefined !important;
-  padding-bottom: undefined !important;
-  color: #484848 !important;
-  font-weight: 300 !important;
-  background-color: transparent !important;
-  border: none !important;
-  border-radius: 0px !important;
-  padding: 10px !important;
-  padding-right: 40px !important;
-  height: 44px !important;
-  display: block !important;
-  width: 100% !important;
+  -webkit-appearance: none;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  font-size: 19px;
+  line-height: 24px;
+  color: #484848;
+  font-weight: 300;
+  background-color: transparent;
+  border: none;
+  border-radius: 0px;
+  padding: 10px;
+  padding-right: 40px;
+  height: 44px;
+  display: block;
+  width: 100%;
 }
 
 .dropdown-arrow {

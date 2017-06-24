@@ -6,6 +6,7 @@ import HomeShow from './home_show';
 const mapStateToProps = (state, {match}) => { //remember the entities is nexted in home which is nested in state
   const homeid = match.params.homeid;
   const listing = state.home[homeid];
+
   return {
     homeid,
     listing,

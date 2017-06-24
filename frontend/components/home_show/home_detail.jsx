@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 import { trueAmenities } from '../../reducers/selectors.js';
 
 const cancellationText = {
@@ -25,36 +24,32 @@ const amenityText = {
 }
 
 class HomeDetail extends React.Component{
-  constructor(props) {
-    super(props)
-    this.space = this.props.listing.space
-    this.amenities = this.props.listing.amenities
-  }
+  
   summaryIcons() {
     return (
       <div className="sum-col">
         <div className="sum-detail-cols">
           <i className="room-type-icon sicon"></i>
-          <div className="summary-icon-desc">{this.space.room_type}</div>
+          <div className="summary-icon-desc">{this.props.listing.space.room_type}</div>
         </div>
         <div className="sum-detail-cols">
           <i className="guests-type-icon sicon"></i>
-          <div className="summary-icon-desc">{this.space.max_guests} Guests</div>
+          <div className="summary-icon-desc">{this.props.listing.space.max_guests} Guests</div>
         </div>
         <div className="sum-detail-cols">
           <i className="bedrooms-type-icon sicon"></i>
-          <div className="summary-icon-desc">{this.space.bedrooms} Bedrooms</div>
+          <div className="summary-icon-desc">{this.props.listing.space.bedrooms} Bedrooms</div>
         </div>
         <div className="sum-detail-cols">
           <i className="beds-icon sicon"></i>
-          <div className="summary-icon-desc">{this.space.beds} Beds</div>
+          <div className="summary-icon-desc">{this.props.listing.space.beds} Beds</div>
         </div>
       </div>
     )
   }
 
   theSpace() {
-    var s = this.space;
+    var s = this.props.listing.space;
     var sArr = [];
     for (var key in s) {
       sArr.push([key, s[key]])
@@ -83,7 +78,7 @@ class HomeDetail extends React.Component{
   }
 
   theAmenities() {
-    const amenitiesArray = trueAmenities(this.amenities)
+    const amenitiesArray = trueAmenities(this.props.listing.amenities)
     const confirmedAmenities = []; // confirms if amenity should be crossed out or bolded in Styling
     let idx = 0; // give unique keys
     for (var key in amenityText) {
