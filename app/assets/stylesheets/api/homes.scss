@@ -26,8 +26,8 @@
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  display: table !important;
-  clear: both !important;
+  display: table;
+  clear: both;
 }
 
 .sub-container-detail {
@@ -65,26 +65,26 @@
   text-decoration: none;
 }
 
-// .navigation-selection:focus {
-//   font-size: 19px;
-//   line-height: 24px;
-//   padding-top: 12px;
-//   padding-bottom: 12px;
-//   color: #008489;
-//   background-color: transparent;
-//   border-width: 0px;
-//   border-bottom: 2px solid #008489;
-//   bottom: -1px;
-//   cursor: pointer;
-//   display: inline-block;
-//   margin: 0 32px 0 0;
-//   padding-left: 0px;
-//   padding-right: 0px;
-//   text-decoration: none;
-//   transition-property: color;
-//   transition-duration: 300ms;
-//   transition-timing-function: ease-out;
-// }
+.navigation-selection:focus {
+  font-size: 19px;
+  line-height: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: #008489;
+  background-color: transparent;
+  border-width: 0px;
+  border-bottom: 2px solid #008489;
+  bottom: -1px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 32px 0 0;
+  padding-left: 0px;
+  padding-right: 0px;
+  text-decoration: none;
+  transition-property: color;
+  transition-duration: 300ms;
+  transition-timing-function: ease-out;
+}
 
 .single-listing-container {
   margin-top: -40px;
@@ -101,6 +101,8 @@
   padding-right: 8px;
   min-height: 1px;
   position: relative;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .hcol {
@@ -108,13 +110,8 @@
   float: left;
 }
 
-.details-row {
-  margin-left: -12px;
-  margin-right: -12px;
-}
-
 .sum-title {
-  width: 83.33333%;
+  width: 100%; // 83.33% after user profile
   float: left;
   position: relative;
   min-height: 1px;
@@ -128,8 +125,65 @@
   padding-top: 6px !important;
   word-wrap: break-word !important;
   margin-bottom: 6px;
+  margin-left: -12px;
+  margin-right: -12px;
 }
 
 .sum-address {
   color: inherit;
+}
+
+.rowDivider {
+  margin-bottom: 24px;
+  margin-top: 24px;
+  border: 0;
+  border-top: 1px solid #dce0e0
+}
+
+.hr-abbrev {
+  width: 75%;
+  float: left;
+  margin-left: 25%;
+}
+
+.sum-col {
+  display: flex;
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.sum-detail-cols {
+  padding-left: 8px;
+  padding-right: 8px;
+  min-height: 1px;
+  position: relative;
+  width: 25%;
+  float: left;
+}
+
+.details-box {
+  width: 66.66666666666666%;
+  float: left;
+}
+
+.about-listing {
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.details-title {
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -0.2px;
+  line-height: 28px;
+  text-rendering: optimizelegibility;
+}
+
+.details-text {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.space-box {
+  display: flex;
 }

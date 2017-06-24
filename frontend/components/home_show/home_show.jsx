@@ -9,7 +9,6 @@ class HomeShow extends React.Component {
     super(props)
   }
 
-
   componentDidMount(){
     this.props.fetchHome(this.props.homeid);
   }

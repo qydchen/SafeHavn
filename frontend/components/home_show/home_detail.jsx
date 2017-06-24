@@ -32,20 +32,20 @@ class HomeDetail extends React.Component{
   }
   summaryIcons() {
     return (
-      <div className="details-row">
-        <div className="detail-roomtype">
+      <div className="sum-col">
+        <div className="sum-detail-cols">
           <div className="room-type-icon sicon"/>
           <div className="summary-icon-desc">{this.space.room_type}</div>
         </div>
-        <div className="detail-max_guests">
+        <div className="sum-detail-cols">
           <div className="max_guests-type-icon sicon"/>
           <div className="summary-icon-desc">{this.space.max_guests} Guests</div>
         </div>
-        <div className="detail-bedrooms">
+        <div className="sum-detail-cols">
           <div className="bedrooms-type-icon sicon"/>
           <div className="summary-icon-desc">{this.space.bedrooms} Bedrooms</div>
         </div>
-        <div className="detail-beds">
+        <div className="sum-detail-cols">
           <div className="beds-icon sicon"/>
           <div className="summary-icon-desc">{this.space.beds} Beds</div>
         </div>
@@ -63,7 +63,7 @@ class HomeDetail extends React.Component{
       <div key={idx} className="space-el">{[spaceText[el[0]], el[1]].join(": ")}</div>
     ))
     return (
-      <div className="details-row">
+      <div className="details-row space-box">
         <div className="details-sub-col1">The space</div>
         <div className="details-sub-col2">
           {spaceFeats}
@@ -108,21 +108,31 @@ class HomeDetail extends React.Component{
       <div className="single-listing-container">
         <div className="summary-box">
           <div className="hcol">
-            <div className="details-row title">{this.props.listing.title}</div>
-            <div className="details-row address">{this.props.listing.address}</div>
+            <div className="sum-title">{this.props.listing.title}</div>
+            <div className="sum-address">{this.props.listing.address}</div>
+
+            <hr className="rowDivider"/>
             {this.summaryIcons()}
+
+            <hr className="rowDivider"/>
+
           </div>
         </div>
 
         <div className="details-box">
           <div className="hcol">
-            <div className="details-row">
+            <div className="details-row about-listing">
               <div className="details-title">About this home</div>
               <div className="details-text">{this.props.listing.description}</div>
             </div>
+
+            <hr className="rowDivider"/>
             {this.theSpace()}
+            <hr className="rowDivider hr-abbrev"/>
             {this.theAmenities()}
+            <hr className="rowDivider hr-abbrev"/>
             {this.cancellationPolicy()}
+            <hr className="rowDivider hr-abbrev"/>
           </div>
         </div>
 
