@@ -74,23 +74,23 @@
 
 .pinkButton {
   margin-top: 16px;
-  text-align: center !important;
-  cursor: pointer !important;
-  transition: background 0.3s, border-color 0.3s !important;
-  position: relative !important;
-  border: 2px solid transparent !important;
-  border-radius: 4px !important;
-  width: 100% !important;
-  font-size: 19px !important;
-  line-height: 22px !important;
-  padding-top: 12px !important;
-  padding-bottom: 12px !important;
-  color: #484848 !important;
-  font-weight: 700 !important;
-  padding-right: 24px !important;
-  padding-left: 24px !important;
-  min-width: 77.66563145999496px !important;
-  background: #FF5A5F !important;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s;
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 19px;
+  line-height: 22px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: #484848;
+  font-weight: 700;
+  padding-right: 24px;
+  padding-left: 24px;
+  min-width: 77.66563145999496px;
+  background: #FF5A5F;
   align-items: flex-start;
 }
 
@@ -172,7 +172,11 @@
   width: 16px;
 	border-radius: 3px;
 	transition: background-color 0.3s;
-	font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0px;
+  display: block;
+	font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
 	font-size: 14px;
 	text-align: center;
   background-image: asset-url('cross.png');
@@ -350,16 +354,16 @@
 }
 
 .disclaimer {
-  font-weight: normal !important;
-  color: #484848 !important;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-  margin: 0px !important;
-  word-wrap: break-word !important;
-  font-size: 12px !important;
-  line-height: 16px !important;
-  letter-spacing: 0.4px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
+  font-weight: normal;
+  color: #484848;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  margin: 0px;
+  word-wrap: break-word;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .subscribe-lab {

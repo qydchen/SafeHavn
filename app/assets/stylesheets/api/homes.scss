@@ -10,34 +10,14 @@
   background-image: asset-url('home2.jpg');
   position: relative;
 }
-@media only screen and (min-height: 850px) and (min-width: 1128px) {
+@media (min-height: 850px) and (min-width: 1128px) {
   .single-listing-photocontainer {
     height: 702px !important;
   }
 }
-@media only screen and (min-height: 700px) and (min-width: 1128px) {
+@media (min-height: 700px) and (min-width: 1128px) {
   .single-listing-photocontainer {
-    height: 552px;
-  }
-}
-@media only screen and (min-height: 850px) and (min-width: 744px) {
-  .single-listing-photocontainer {
-    height: 561.6px;
-  }
-}
-@media only screen and (min-height: 700px) and (min-width: 744px) {
-  .single-listing-photocontainer {
-    height: 441.6px;
-  }
-}
-@media only screen and (min-height: 850px) {
-  .single-listing-photocontainer {
-    height: 468px;
-  }
-}
-@media only screen and (min-height: 700px) {
-  .single-listing-photocontainer {
-    height: 368px;
+    height: 550px;
   }
 }
 
@@ -47,7 +27,7 @@
   right: 20px !important;
   bottom: 30px !important;
 }
-@media only screen and (min-width: 774px) {
+@media (min-width: 774px) {
   .single-listing-viewimage {
     bottom: 20px !important;
     left: 20px !important;

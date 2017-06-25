@@ -68,14 +68,14 @@ class BookIt extends React.Component {
 
           </div>
 
-          <button className="pinkButton">
+          <button className="pinkButton book-btn">
             <span className="btn-text">
               Book
             </span>
           </button>
 
           <div className='margin-top-8px'>
-            <span className="disclaimer">You won't be charged yet</span>
+            <span className="disclaimer book-disc">You won't be charged yet, but you'll give me a paycheck soon.</span>
           </div>
         </div>
 
