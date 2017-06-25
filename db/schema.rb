@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170625025145) do
+ActiveRecord::Schema.define(version: 20170625053217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,20 +70,22 @@ ActiveRecord::Schema.define(version: 20170625025145) do
   add_index "reviews", ["home_id"], name: "index_reviews_on_home_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "password_digest", null: false
-    t.string   "session_token",   null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "email",           null: false
-    t.string   "image_url"
-    t.string   "first",           null: false
-    t.string   "last",            null: false
+    t.string   "password_digest",    null: false
+    t.string   "session_token",      null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "email",              null: false
+    t.string   "first",              null: false
+    t.string   "last",               null: false
     t.integer  "month"
     t.integer  "day"
     t.integer  "year"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
-  add_index "users", ["image_url"], name: "index_users_on_image_url", using: :btree
 
 end

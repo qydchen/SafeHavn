@@ -64,10 +64,10 @@ class Api::HomesController < ApplicationController
   def home_params
     params.require(:home).permit(
       :lat, :lng, :price, :host,
-      :image_url, :title, :description, :cancellation,
+      :image, :title, :description, :cancellation,
       :address, :max_guests, :start_date, :end_date, :bathrooms,
       :property_type, :room_type, :internet, :family,
-      :parking, :kitchen, :beds, :bedrooms
+      :parking, :kitchen, :beds, :bedrooms, :image
     )
   end
 

@@ -23,7 +23,7 @@ class HomeShow extends React.Component {
   }
 
   // componentWillReceiveProps(ownProps){
-  //   debugger
+  //   
   //   if (this.props.homeid !== ownProps.homeid) {
   //     this.props.fetchHome(this.props.homeid);
   //   }

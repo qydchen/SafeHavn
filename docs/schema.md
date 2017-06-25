@@ -7,7 +7,6 @@ username        | string    | not null, indexed, unique
 password_digest | string    | not null
 session_token   | string    | not null
 email           | string    | not null, indexed, unique
-image_url       | string    | indexed
 
 ## homes
 column name | data type | details
@@ -16,10 +15,9 @@ host_id     | integer   | not null, foreign key (users), indexed
 lat         | float     | not null
 lng         | float     | not null
 price       | integer   | not null
-image_url   | string    | not null
 title       | string    | not null
 space       | string    |
-amenity     | string    | 
+amenity     | string    |
 description | text      | not null
 cancellation| string    | (*Loose*, *Moderate*, or *Strict*)
 address     | string    | not null
