@@ -10,8 +10,8 @@ class HomeShow extends React.Component {
     super(props)
   }
 
-  componentDidMount(){
 
+  componentDidMount(){
     this.props.fetchHome(this.props.homeid);
   }
 
@@ -21,13 +21,6 @@ class HomeShow extends React.Component {
       this.props.fetchHome(this.props.homeid);
     }
   }
-
-  // componentWillReceiveProps(ownProps){
-  //   
-  //   if (this.props.homeid !== ownProps.homeid) {
-  //     this.props.fetchHome(this.props.homeid);
-  //   }
-  // }
 
   render() {
     const { listing, homeid, fetchHome } = this.props;
@@ -39,12 +32,14 @@ class HomeShow extends React.Component {
     } else {
       return (
         <section className="listing-show-page">
+
           <div className="single-listing-photocontainer">
             <img className="show-photo" src={this.props.listing.image_url}/>
             <div className="single-listing-viewimage">
               <button type="button" className="view-btn">View Photos</button>
             </div>
           </div>
+
           <div className="main-detail">
             <div className="container-detail">
 

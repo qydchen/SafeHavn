@@ -16,9 +16,13 @@ export const createHome = data => (
   $.ajax({
     method: 'POST',
     url: 'api/homes',
-    data
+    data,
+    contentType: false,
+    processData: false,
   })
 );
+
+
 
 export const deleteHome = id => (
   $.ajax({
