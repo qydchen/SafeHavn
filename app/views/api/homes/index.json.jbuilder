@@ -6,12 +6,13 @@
       :lng,
       :price,
       :host_id,
-      :image_url,
       :title,
       :description,
       :address,
       :max_guests,
       :beds,
       :room_type
+
+      json.image_url asset_path(home.image.url)
   end
 end

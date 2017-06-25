@@ -4,11 +4,11 @@ json.extract! home,
   :lng,
   :price,
   :host_id,
-  :image_url,
   :title,
   :description,
   :cancellation,
   :address
+  json.image_url asset_path(home.image.url)
 
   json.space do
     json.max_guests home.max_guests

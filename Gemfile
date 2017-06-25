@@ -26,7 +26,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rename'
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'paperclip', '~> 5.0.0.beta1'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

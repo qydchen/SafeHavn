@@ -3,20 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .single-listing-photocontainer {
+  position: relative;
+}
+
+.show-photo {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
   height: 320px;
-  background-image: asset-url('home2.jpg');
-  position: relative;
 }
+
 @media (min-height: 850px) and (min-width: 1128px) {
-  .single-listing-photocontainer {
+  .show-photo {
     height: 702px !important;
   }
 }
 @media (min-height: 700px) and (min-width: 1128px) {
-  .single-listing-photocontainer {
+  .show-photo {
     height: 550px;
   }
 }

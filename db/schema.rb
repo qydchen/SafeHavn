@@ -11,23 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170623142037) do
+ActiveRecord::Schema.define(version: 20170625025145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "homes", force: :cascade do |t|
-    t.integer  "host_id",       null: false
-    t.float    "lat",           null: false
-    t.float    "lng",           null: false
-    t.integer  "price",         null: false
-    t.string   "image_url",     null: false
-    t.string   "title",         null: false
-    t.text     "description",   null: false
-    t.string   "address",       null: false
+    t.integer  "host_id",            null: false
+    t.float    "lat",                null: false
+    t.float    "lng",                null: false
+    t.integer  "price",              null: false
+    t.string   "title",              null: false
+    t.text     "description",        null: false
+    t.string   "address",            null: false
     t.integer  "max_guests"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.date     "start_date"
     t.date     "end_date"
     t.float    "bathrooms"
@@ -40,6 +39,10 @@ ActiveRecord::Schema.define(version: 20170623142037) do
     t.integer  "beds"
     t.integer  "bedrooms"
     t.string   "cancellation"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "homes", ["bathrooms"], name: "index_homes_on_bathrooms", using: :btree

@@ -37,10 +37,11 @@ class HomeShow extends React.Component {
         <div className="loading">Fetching listing</div>
       );
     } else {
-
+      debugger
       return (
         <section className="listing-show-page">
           <div className="single-listing-photocontainer">
+            <img className="show-photo" src={this.props.listing.image_url}/>
             <div className="single-listing-viewimage">
               <button type="button" className="view-btn">View Photos</button>
             </div>
