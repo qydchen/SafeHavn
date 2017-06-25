@@ -40,7 +40,8 @@ Home.create({"host_id": 1,
   "parking": true,
   "kitchen": true,
   "description": "this is a really long set state",
-  "cancellation": "Flexible"
+  "cancellation": "Flexible",
+  "image": File.open('app/assets/images/houses/001.jpeg')
   })
 
 Home.create({"host_id": 2,
@@ -60,7 +61,8 @@ Home.create({"host_id": 2,
   "parking": true,
   "kitchen": false,
   "description": "test2 I like cake and bunch of text this is a really long set state",
-  "cancellation": "Moderate"
+  "cancellation": "Moderate",
+  "image": File.open('app/assets/images/houses/002.jpeg')
   })
 
 Home.create({"host_id": 2,
@@ -80,7 +82,8 @@ Home.create({"host_id": 2,
   "parking": false,
   "kitchen": true,
   "description": "test3 bunch of text",
-  "cancellation": "Strict"
+  "cancellation": "Strict",
+  "image": File.open('app/assets/images/houses/003.jpeg')
   })
 
 Home.create({"host_id": 2,
@@ -100,5 +103,6 @@ Home.create({"host_id": 2,
   "parking": false,
   "kitchen": false,
   "description": "test4 bunch of text",
-  "cancellation": "Flexible"
+  "cancellation": "Flexible",
+  "image": File.open('app/assets/images/houses/004.jpeg')
   })
