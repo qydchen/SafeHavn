@@ -85,13 +85,17 @@
   cursor: pointer;
 }
 
-.main-detail {
+.main-detail{
   color: #484848;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
   font-size: 17px;
   font-weight: 300;
   letter-spacing: 0.2px;
   line-height: 22px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1080px !important;
+
 }
 
 .container-detail {
@@ -110,17 +114,16 @@
   margin-bottom: 0;
   margin-left: 0;
   margin-right: 0;
-  border-bottom: 1px solid #DBDBDB !important;
-  height: 50px;
   width: 66.666666%
 }
 
 .navigation-detail {
-  margin-bottom: -15px;
-  padding-bottom: 15px;
-  // overflow-x: scroll;
+  // margin-bottom: -15px;
+  // padding-bottom: 15px;
+  overflow-x: auto;
   overflow-y: auto;
   white-space: nowrap;
+  border-bottom: 1px solid #DBDBDB;
 }
 
 .navigation-selection {
@@ -164,9 +167,8 @@
 }
 
 .single-listing-container {
-  margin-top: -40px;
+  margin-top: -25px;
   padding-top: 40px;
-  border: 0 !important;
 }
 
 .summary-box {
@@ -231,10 +233,10 @@
 }
 
 .sum-detail-cols {
-  min-height: 1px !important;
-  position: relative !important;
-  width: 25% !important;
-  float: left !important;
+  min-height: 1px;
+  position: relative;
+  width: 25%;
+  float: left;
 }
 
 

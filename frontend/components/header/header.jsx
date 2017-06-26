@@ -89,6 +89,8 @@ class Header extends React.Component {
       </div>
     )
   }
+
+
   render(){
     // const headerClass = (this.props.urlName === "show") ? "headerBar-relative" : "headerBar"
     return (

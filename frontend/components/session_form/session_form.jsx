@@ -57,11 +57,11 @@ class SessionForm extends React.Component {
     );
   }
 
-  FirstInput() {
+  firstInput() {
     if (this.props.formType === 'signup') {
       return (
         <div className="reg-box" >
-          <input placeholder="First name" className="FirstInput" onChange={this.update("first")} value={this.state.first}/>
+          <input placeholder="First name" className="firstInput" onChange={this.update("first")} value={this.state.first}/>
           <div className="post-fix">
             <svg className="ftico"/>
           </div>
@@ -69,11 +69,11 @@ class SessionForm extends React.Component {
       )
     }
   }
-  LastInput() {
+  lastInput() {
     if (this.props.formType === 'signup') {
       return (
         <div className="reg-box" >
-          <input placeholder="Last name" className="LastInput" onChange={this.update("last")} value={this.state.last}/>
+          <input placeholder="Last name" className="lastInput" onChange={this.update("last")} value={this.state.last}/>
           <div className="post-fix">
             <svg className="ltico"/>
           </div>
@@ -251,8 +251,8 @@ class SessionForm extends React.Component {
               <svg className="emico"/>
             </div>
           </div>
-          {this.FirstInput()}
-          {this.LastInput()}
+          {this.firstInput()}
+          {this.lastInput()}
           <div className="reg-box" >
             <input placeholder="Create a Password" className="PasswordInput" onChange={this.update("password")} type="password"/>
             <div className="post-fix">

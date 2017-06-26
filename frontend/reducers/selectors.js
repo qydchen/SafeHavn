@@ -10,10 +10,10 @@ export const yearsRange = () => {
   return range;
 };
 
-export const selectHome = ({ entities, reviews }, id) => {
-   const home = entities.homes[id] || {};
-   return home
-};
+// export const selectHome = ({ entities, reviews }, id) => {
+//    const home = entities.homes[id] || {};
+//    return home
+// };
 
 export const selectAll = (object) => {
   return _.values(object)

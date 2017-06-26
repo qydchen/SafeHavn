@@ -3,6 +3,7 @@ import { Link, withRouter, Redirect } from 'react-router-dom';
 import HomeShowContainer from './home_show_container';
 import HomeDetail from './home_detail';
 import BookIt from './book_it'
+import Footer from '../footer';
 
 // shows a single listing
 class HomeShow extends React.Component {
@@ -10,14 +11,12 @@ class HomeShow extends React.Component {
     super(props)
   }
 
-
   componentDidMount(){
     this.props.fetchHome(this.props.homeid);
   }
 
   componentDidUpdate(){
-
-    if(!this.props.listing) {
+    if (!this.props.listing.space) { //look at space to handle cases where it wouldnt render from index
       this.props.fetchHome(this.props.homeid);
     }
   }
@@ -59,6 +58,9 @@ class HomeShow extends React.Component {
               </div>
 
             </div>
+          </div>
+          <div className='footer-container'>
+            <Footer/>
           </div>
         </section>
       )

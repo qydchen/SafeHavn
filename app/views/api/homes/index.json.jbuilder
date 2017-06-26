@@ -8,11 +8,13 @@
       :host_id,
       :title,
       :description,
-      :address,
-      :max_guests,
-      :beds,
-      :room_type
+      :address
 
+      json.space do
+        json.max_guests home.max_guests
+        json.beds home.beds
+        json.room_type home.room_type
+      end
       json.image_url asset_path(home.image.url)
   end
 end

@@ -1,6 +1,7 @@
 import React from 'react';
 import { trueAmenities } from '../../reducers/selectors.js';
 
+
 const cancellationText = {
   Strict: "Cancel up to 7 days before your trip and get a 50% refund plus service fees back.",
   Moderate: "Cancel up to 5 days before your trip and get a full refund, including service fees.",
@@ -24,8 +25,9 @@ const amenityText = {
 }
 
 class HomeDetail extends React.Component{
-  
+
   summaryIcons() {
+
     return (
       <div className="sum-col">
         <div className="sum-detail-cols">
@@ -158,6 +160,7 @@ class HomeDetail extends React.Component{
             <hr className="rowDivider hr-abbrev"/>
           </div>
         </div>
+
 
       </div>
     )
