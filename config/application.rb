@@ -15,10 +15,11 @@ module SafeHavnApp
         :bucket => ENV["s3_bucket"],
         :access_key_id => ENV["s3_access_key_id"],
         :secret_access_key => ENV["s3_secret_access_key"],
-        :s3_region => ENV["s3_region"]
+        :s3_region => ENV["s3_region"],
+        :s3_host_name => "s3-us-east-2.amazonaws.com"
       }
     }
-    
+
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
