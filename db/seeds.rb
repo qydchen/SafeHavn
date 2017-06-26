@@ -71,7 +71,7 @@ def kitchen
 end
 
 def description
-  Faker::Lorem.paragraph(2)
+  Faker::Lorem.paragraph(5)
 end
 
 def cancellation
@@ -111,7 +111,7 @@ Home.create({"host_id": 1,
   "family": true,
   "parking": true,
   "kitchen": true,
-  "description": "this is a really long set state",
+  "description": description,
   "cancellation": "Flexible",
   "image": File.open('app/assets/images/houses/001.jpeg')
   })
@@ -132,7 +132,7 @@ Home.create({"host_id": 2,
   "family": false,
   "parking": true,
   "kitchen": false,
-  "description": Faker::Lorem.paragraph(2),
+  "description": description,
   "cancellation": "Moderate",
   "image": File.open('app/assets/images/houses/002.jpeg')
   })
@@ -153,7 +153,7 @@ Home.create({"host_id": 2,
   "family": true,
   "parking": false,
   "kitchen": true,
-  "description": Faker::Lorem.paragraph(2),
+  "description": description,
   "cancellation": "Strict",
   "image": File.open('app/assets/images/houses/003.jpeg')
   })
@@ -174,7 +174,7 @@ Home.create({"host_id": 2,
   "family": false,
   "parking": false,
   "kitchen": false,
-  "description": Faker::Lorem.paragraph(2),
+  "description": description,
   "cancellation": "Flexible",
   "image": File.open('app/assets/images/houses/004.jpeg')
   })
@@ -260,7 +260,7 @@ Home.create({"host_id": host_id,
   "kitchen": kitchen,
   "description": description,
   "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/house-plant-table-271795.jpeg"
+  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/sea-landscape-sunset-290098.jpeg "
 })
 
 Home.create({"host_id": host_id,
@@ -275,7 +275,7 @@ Home.create({"host_id": host_id,
   "beds": beds,
   "property_type": property_type,
   "room_type": room_type,
-  "internet": internet,
+  "internet": internet/   ``
   "family": family,
   "parking": parking,
   "kitchen": kitchen,
