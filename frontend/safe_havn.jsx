@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  window.dispatch = store.dispatch;
-  window.getState = store.getState;
+  // window.dispatch = store.dispatch;
+  // window.getState = store.getState;
   // window.fetchHomes = fetchHomes;
   // window.fetchHome = fetchHome;
 

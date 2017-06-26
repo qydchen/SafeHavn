@@ -1,52 +1,49 @@
 .modal-root {
   z-index: 2000 !important;
-  position: fixed !important;
-  top: 0px !important;
-  right: 0px !important;
-  bottom: 0px !important;
-  left: 0px !important;
-  overflow-y: auto !important;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  overflow-y: auto;
   display: block;
 }
 
 .modal-parent {
-  display: table !important;
-  height: 100% !important;
-  width: 100% !important;
-  background-color: rgba(0, 0, 0, 0.75) !important;
-
+  display: table;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .modal-screen {
-  display: table-cell !important;
-  vertical-align: middle !important;
-  padding: 64px !important;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 64px;
 }
 
 .closeModal {
-  position: fixed !important;
-  z-index: -1 !important;
-  top: 0px !important;
-  right: 0px !important;
-  bottom: 0px !important;
-  left: 0px !important;
-  overflow-y: auto !important;
+  position: fixed;
+  z-index: -1;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  overflow-y: auto;
   display: block;
 }
 
 .modal-wrapper {
-  z-index: 0 !important;
-  background-color: #ffffff !important;
-  margin: auto !important;
-  max-width: 568px !important;
-  width: 100% !important;
-  position: relative !important;
+  z-index: 0;
+  background-color: #ffffff;
+  margin: auto;
+  max-width: 568px;
+  width: 100%;
+  position: relative;
 }
 
 .modal-content {
-  z-index: 2000 !important;
-  background-color: #ffffff !important;
-  padding: 32px !important;
-  -moz-box-sizing: border-box !important;
-  box-sizing: border-box !important;
+  background-color: #ffffff;
+  padding: 32px;
+  box-sizing: border-box;
 }
