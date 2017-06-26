@@ -197,7 +197,7 @@ Home.create({"host_id": host_id,
   "kitchen": kitchen,
   "description": description,
   "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/flowers-garden-house-165884.jpeg"
+  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/sea-landscape-sunset-290098.jpeg"
 })
 
 Home.create({"host_id": host_id,
@@ -218,7 +218,7 @@ Home.create({"host_id": host_id,
   "kitchen": kitchen,
   "description": description,
   "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/wood-landscape-summer-161041.jpeg"
+  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/field-forest-trees-48632.jpeg"
 })
 
 Home.create({"host_id": host_id,
@@ -239,7 +239,7 @@ Home.create({"host_id": host_id,
   "kitchen": kitchen,
   "description": description,
   "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/light-cars-coffee-286483.jpeg"
+  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/clouds-cloudy-building-64287.jpeg"
 })
 
 Home.create({"host_id": host_id,
@@ -275,13 +275,13 @@ Home.create({"host_id": host_id,
   "beds": beds,
   "property_type": property_type,
   "room_type": room_type,
-  "internet": internet/   ``
+  "internet": internet,
   "family": family,
   "parking": parking,
   "kitchen": kitchen,
   "description": description,
   "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/wood-landscape-summer-161041.jpeg"
+  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/city-sky-building-323780.jpeg"
 })
 
 Home.create({"host_id": host_id,
@@ -344,7 +344,7 @@ Home.create({"host_id": host_id,
   "kitchen": kitchen,
   "description": description,
   "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/snow-winter-mountain-91998.jpeg"
+  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/city-road-dawn-147483.jpeg"
 })
 
 Home.create({"host_id": host_id,
