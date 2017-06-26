@@ -201,27 +201,6 @@ Home.create({"host_id": 2,
   "image": File.open('app/assets/images/houses/003.jpeg')
   })
 
-Home.create({"host_id": 2,
-  "lat": 55.11,
-  "lng": -69.67,
-  "title": "Cheap Room",
-  "price": 15,
-  "address": "125 Apt Terrace",
-  "bathrooms": 1,
-  "bedrooms": 1,
-  "max_guests": 1,
-  "beds": 1,
-  "property_type": "RV",
-  "room_type": "Private Room",
-  "internet": false,
-  "family": false,
-  "parking": false,
-  "kitchen": false,
-  "description": description,
-  "cancellation": "Flexible",
-  "image": File.open('app/assets/images/houses/004.jpeg')
-  })
-
 Home.create({"host_id": host_id,
   "lat": lat,
   "lng": lng,
@@ -347,28 +326,6 @@ Home.create({"host_id": host_id,
   "cancellation": cancellation,
   "image": "https://s3.amazonaws.com/safehavns-dev/seeds/landmark-building-forest-24294.jpg"
 })
-
-Home.create({"host_id": host_id,
-  "lat": lat,
-  "lng": lng,
-  "title": title,
-  "price": price,
-  "address": address,
-  "bathrooms": bathrooms,
-  "bedrooms": bedrooms,
-  "max_guests": max_guests,
-  "beds": beds,
-  "property_type": property_type,
-  "room_type": room_type,
-  "internet": internet,
-  "family": family,
-  "parking": parking,
-  "kitchen": kitchen,
-  "description": description,
-  "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/seeds/landscape-landmark-clouds-207684.jpeg"
-})
-
 
 Home.create({"host_id": host_id,
   "lat": lat,
