@@ -6,6 +6,27 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# Home.create({"host_id": host_id,
+#   "lat": lat,
+#   "lng": lng,
+#   "title": title,
+#   "price": price,
+#   "address": address,
+#   "bathrooms": bathrooms,
+#   "bedrooms": bedrooms,
+#   "max_guests": max_guests,
+#   "beds": beds,
+#   "property_type": property_type,
+#   "room_type": room_type,
+#   "internet": internet,
+#   "family": family,
+#   "parking": parking,
+#   "kitchen": kitchen,
+#   "description": description,
+#   "cancellation": cancellation,
+#   "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/sea-landscape-sunset-290098.jpeg"
+# })
+
 def host_id
   (rand(1..2))
 end
@@ -77,6 +98,28 @@ end
 def cancellation
   (["Flexible", "Moderate", "Strict"].sample)
 end
+
+
+Home.create({"host_id": host_id,
+  "lat": lat,
+  "lng": lng,
+  "title": title,
+  "price": price,
+  "address": address,
+  "bathrooms": bathrooms,
+  "bedrooms": bedrooms,
+  "max_guests": max_guests,
+  "beds": beds,
+  "property_type": property_type,
+  "room_type": room_type,
+  "internet": internet,
+  "family": family,
+  "parking": parking,
+  "kitchen": kitchen,
+  "description": description,
+  "cancellation": cancellation,
+  "image": 	"https://s3.amazonaws.com/safehavns-dev/seeds/clouds-cloudy-building-64287.jpeg"
+})
 
 User.create({"email": "guest@live.com",
   "first": "Ronald",
@@ -197,7 +240,7 @@ Home.create({"host_id": host_id,
   "kitchen": kitchen,
   "description": description,
   "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/sea-landscape-sunset-290098.jpeg"
+  "image": "https://s3.amazonaws.com/safehavns-dev/seeds/architecture-castle-england-68683.jpeg"
 })
 
 Home.create({"host_id": host_id,
@@ -218,7 +261,7 @@ Home.create({"host_id": host_id,
   "kitchen": kitchen,
   "description": description,
   "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/field-forest-trees-48632.jpeg"
+  "image": "https://s3.amazonaws.com/safehavns-dev/seeds/cold-snow-nature-24642.jpg"
 })
 
 Home.create({"host_id": host_id,
@@ -239,7 +282,7 @@ Home.create({"host_id": host_id,
   "kitchen": kitchen,
   "description": description,
   "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/clouds-cloudy-building-64287.jpeg"
+  "image": "https://s3.amazonaws.com/safehavns-dev/seeds/dawn-landscape-building-208309.jpeg"
 })
 
 Home.create({"host_id": host_id,
@@ -260,7 +303,7 @@ Home.create({"host_id": host_id,
   "kitchen": kitchen,
   "description": description,
   "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/sea-landscape-sunset-290098.jpeg "
+  "image": "https://s3.amazonaws.com/safehavns-dev/seeds/field-forest-trees-48632.jpeg"
 })
 
 Home.create({"host_id": host_id,
@@ -281,7 +324,7 @@ Home.create({"host_id": host_id,
   "kitchen": kitchen,
   "description": description,
   "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/city-sky-building-323780.jpeg"
+  "image": "https://s3.amazonaws.com/safehavns-dev/seeds/france-landmark-water-34223.jpg"
 })
 
 Home.create({"host_id": host_id,
@@ -302,7 +345,7 @@ Home.create({"host_id": host_id,
   "kitchen": kitchen,
   "description": description,
   "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/wood-landscape-summer-197758.jpeg"
+  "image": "https://s3.amazonaws.com/safehavns-dev/seeds/landmark-building-forest-24294.jpg"
 })
 
 Home.create({"host_id": host_id,
@@ -323,8 +366,9 @@ Home.create({"host_id": host_id,
   "kitchen": kitchen,
   "description": description,
   "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/building-house-roof-186077.jpeg"
+  "image": "https://s3.amazonaws.com/safehavns-dev/seeds/landscape-landmark-clouds-207684.jpeg"
 })
+
 
 Home.create({"host_id": host_id,
   "lat": lat,
@@ -344,8 +388,9 @@ Home.create({"host_id": host_id,
   "kitchen": kitchen,
   "description": description,
   "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/city-road-dawn-147483.jpeg"
+  "image": "https://s3.amazonaws.com/safehavns-dev/seeds/landscape-nature-landmark-390202.jpeg"
 })
+
 
 Home.create({"host_id": host_id,
   "lat": lat,
@@ -365,5 +410,5 @@ Home.create({"host_id": host_id,
   "kitchen": kitchen,
   "description": description,
   "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/building-house-lawn-209296.jpeg"
+  "image": "https://s3.amazonaws.com/safehavns-dev/seeds/light-landscape-forest-206648.jpeg"
 })
