@@ -31,7 +31,7 @@ def address
 end
 
 def bathrooms
-  (rand(0..5)
+  (rand(0..5))
 end
 
 def bedrooms
@@ -365,5 +365,5 @@ Home.create({"host_id": host_id,
   "kitchen": kitchen,
   "description": description,
   "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/sky-architecture-castle-99635.jpeg"
+  "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/building-house-lawn-209296.jpeg"
 })
