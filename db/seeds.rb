@@ -32,11 +32,11 @@ def host_id
 end
 
 def lat # NYC
-  (40.0000 + rand())
+  (40.0000 - rand())
 end
 
 def lng # NYC
-  (-74.0000 + rand())
+  (-74.0000 - rand())
 end
 
 def title

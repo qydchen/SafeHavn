@@ -10,7 +10,7 @@ const getCoordsObj = latLng => ({
 // set the map to show NY
 const mapOptions = {
   center: { lat: 40.7128, lng: -74.0059 }, // this is NY
-  zoom: 9,
+  zoom: 12,
   scrollwheel: false, // turn off scroll wheel
   styles: [
     { featureType: "water", stylers: [{hue: "#A4DDF5"}]}
@@ -24,16 +24,13 @@ class HomeMap extends React.Component {
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
 
-    this.registerListeners();
-    this.MarkerManager.updateMarkers(this.props.homes);
+    if (this.props.singleHome) {
+      this.props.fetchHome(this.props.homeid);
+    } else {
+      this.registerListeners();
+      this.MarkerManager.updateMarkers(this.props.homes);
     }
-   // wrap the mapDOMNode in a Google Ma
-  //     scrollwheel: false,
-  //     navigationControl: false,
-  //     mapTypeControl: false,
-  //     scaleControl: false,
-  //     draggable: false,
-  //     mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
 
   registerListeners() {
     google.maps.event.addListener(this.map, 'idle', () => {
@@ -49,12 +46,18 @@ class HomeMap extends React.Component {
     });
   }
 
-  handleMarkerClick(bench) {
+  handleMarkerClick(home) {
     this.props.history.push(`homes/${home.id}`);
   }
 
   componentDidUpdate() {
-    this.MarkerManager.updateMarkers(this.props.homes);
+    if (this.props.singleHome) {
+      const targetHomeKey = Object.keys(this.props.homes)[0];
+      const targetHome = this.props.homes[targetHomeKey];
+      this.MarkerManager.updateMarkers([targetHome]);
+    } else {
+      this.MarkerManager.updateMarkers(this.props.homes);
+    }
   }
 
   handleClick(coords) {

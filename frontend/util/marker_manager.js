@@ -18,7 +18,6 @@ export default class MarkerManager {
       .filter(homeid => !homesObj[homeid])
       .forEach((homeid) => this.removeMarker(this.markers[homeid]))
   }
-
 // layout.scss for styling
   createMarkerFromHome(home) {
     const lat = home.lat;
@@ -27,7 +26,7 @@ export default class MarkerManager {
       position: {lat, lng},
       label: "$"+String(home.price),
       // labelClass: "maplabels",
-      // icon: {
+      // icon: }
     	// 	url: asset-url('dialogue-box.png')
     	// },
       animation: google.maps.Animation.DROP,

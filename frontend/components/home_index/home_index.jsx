@@ -16,7 +16,9 @@ class HomeIndex extends React.Component {
       <Link to={`/homes/${home.id}`} className="link-to">
         <div className="home-card">
 
-        <img className="show-card" src={home.image_url}/>
+          <div className="show-card-container">
+            <img className="show-card" src={home.image_url}/>
+          </div>
 
           <div className="card-top-row">
             <div className="card-bold">${home.price} {home.title}</div>
