@@ -6,9 +6,9 @@ class HomeIndex extends React.Component {
     super(props)
   }
 
-  componentDidMount(){
-    this.props.fetchHomes();
-  }
+  // componentDidMount(){
+  //   this.props.updateFilter();
+  // }
 
   safeHavn(home) {
 

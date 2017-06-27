@@ -19,16 +19,16 @@
     height: 702px !important;
   }
 }
-// @media (min-height: 750px) and (min-width: 1128px) {
-//   .show-photo {
-//     height: 630px !important;
-//   }
-// }
-@media (min-height: 650px) and (max-height: 749px) and (min-width: 1128px) {
+@media (min-height: 750px) and (min-width: 1128px) {
   .show-photo {
-    height: 550px !important;
+    height: 570px !important;
   }
 }
+// @media (min-height: 650px) and (max-height: 749px) and (min-width: 1128px) {
+//   .show-photo {
+//     height: 550px !important;
+//   }
+// }
 
 .single-listing-viewimage {
   position: absolute !important;

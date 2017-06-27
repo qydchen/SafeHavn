@@ -11,6 +11,19 @@
   justify-content: space-between;
 }
 
+.headerBar-relative { /// if in show page 64px height and  header isnt fixed
+  z-index: 10;
+  display: flex;
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid #e4e4e4;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  height: 64px;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
 .Logo {
   background-image: asset-url('SafeHavn.png');
   display: block;

@@ -31,8 +31,8 @@ export const createReview = review => dispatch => (
   ))
 );
 
-export const fetchHomes = homes => dispatch => ( //filters over homes later?
-  APIUtil.fetchHomes(homes).then(homes => ( //filters over homes later?
+export const fetchHomes = filters => dispatch => (
+  APIUtil.fetchHomes(filters).then(homes => (
     dispatch(receiveHomes(homes))
   ))
 );

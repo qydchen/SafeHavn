@@ -1,18 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchHomes } from '../../actions/home_actions';
 import { selectAll } from '../../reducers/selectors';
+import { updateFilter } from '../../actions/filter_actions.js';
 import Search from './search';
 
-const mapStateToProps = ({ home }) => {
+const mapStateToProps = ({ home, filters }) => {
   return {
-    homes: selectAll(home)
+    homes: selectAll(home),
+    minHousing: filters.minHousing,
+    maxHousing: filters.maxHousing,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchHomes: () => dispatch(fetchHomes())
+    updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
   };
 };
 

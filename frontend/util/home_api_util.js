@@ -1,7 +1,8 @@
-export const fetchHomes = () => (
+export const fetchHomes = (data) => (
   $.ajax({
     method: 'GET',
     url: 'api/homes',
+    data,
   })
 );
 
@@ -21,8 +22,6 @@ export const createHome = data => (
     processData: false,
   })
 );
-
-
 
 export const deleteHome = id => (
   $.ajax({

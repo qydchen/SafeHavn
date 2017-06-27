@@ -1,15 +1,19 @@
 class Api::HomesController < ApplicationController
   def index
     if Home.all.length != 0
-      @homes = Home.all
+      bounds = params[:bounds]
+      @homes = bounds ? Home.in_bounds(bounds) : Home.all
+      if (params[:minHousing] && params[:maxHousing]) #revisit
+        @homes = @homes.where(max_guests: housing_range)
+      end
+      # @homes = visitors? ? homes.can_fit_visitors?(visitors?.to_i) : homes
+      # render :index
+      # @homes = Home.all
     else
       render json: 'There are no homes'
     end
   end
 
-  # homes = bounds ? Home.in_bounds(bounds) : Home.all
-  # @homes = visitors? ? homes.can_fit_visitors?(visitors?.to_i) : homes
-  # render :index
 
   def my
     @homes = current_user.homes
@@ -67,8 +71,12 @@ class Api::HomesController < ApplicationController
       :image, :title, :description, :cancellation,
       :address, :max_guests, :start_date, :end_date, :bathrooms,
       :property_type, :room_type, :internet, :family,
-      :parking, :kitchen, :beds, :bedrooms, :image
+      :parking, :kitchen, :beds, :bedrooms, :image, :bounds
     )
+  end
+
+  def housing_range
+    (params[:minHousing]..params[:maxHousing])
   end
 
   def start_date
