@@ -137,28 +137,6 @@ User.create({
   "day": 12,
   "year": 1991})
 
-
-Home.create({"host_id": 1,
-  "lat": 50,
-  "lng": -77,
-  "title": "SampleHouse",
-  "price": 160,
-  "address": "123 Flex Street",
-  "bathrooms": 1.5,
-  "bedrooms": 2,
-  "max_guests": 6,
-  "beds": 3,
-  "property_type": "House",
-  "room_type": "Entire home/apt",
-  "internet": true,
-  "family": true,
-  "parking": true,
-  "kitchen": true,
-  "description": description,
-  "cancellation": "Flexible",
-  "image": File.open('app/assets/images/houses/001.jpeg')
-  })
-
 Home.create({"host_id": 2,
   "lat": 52,
   "lng": -76.1,

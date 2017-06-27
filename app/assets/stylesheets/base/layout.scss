@@ -17,6 +17,18 @@ a:hover {
 	display: none;
 }
 
+#map-container {
+	z-index: 3;
+	display: block;
+  left: auto;
+  width: 34%;
+	height: auto;
+	position: fixed !important; // keep this to prevent from scrolling
+	top: 0px;
+	bottom: 0px;
+  right: 0px;
+}
+
 /*
 	Font Elements
 */

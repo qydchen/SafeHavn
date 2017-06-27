@@ -1,24 +1,14 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
-import HomeShowContainer from '../home_show/home_show_container.js';
 
 class HomeIndex extends React.Component {
   constructor(props) {
     super(props)
   }
 
-
   componentDidMount(){
     this.props.fetchHomes();
   }
-
-
-  // handleClick(e){
-  //   e.preventDefault;
-  //   this.props.fetchHome(e.id).then(redirect to home url);
-  // }
-
-// <input type="checkbox" className="save-wishlist"></input> for the heart box when ready
 
   safeHavn(home) {
 
@@ -46,6 +36,50 @@ class HomeIndex extends React.Component {
     )
   }
 
+// Room type = { "Entire home": "Have a place to yourself", "Private room": "Have your own room and shares some common spaces", "Shared room": "Stay in shared space, like a common room" }
+// Price range = 2 input fields... min and max
+// Instant Book =
+// More filters
+
+  // <label className="label-hidden"/>
+  // <div className='select-dd-container'>
+  //   <select className='select-dropdown'>
+  //     {options}
+  //   </select>
+  //   <span className="dropdown-arrow"></span>
+  // </div>
+
+  filterBar() {
+    return (
+      <div className="filter-bar-index">
+        <div className="filter-col">
+          <div className="filter-type">Room type</div>
+          <div className="filter-container">
+            <div className="filter-svg"/>
+          </div>
+        </div>
+        <div className="filter-col">
+          <div className="filter-type">Price range</div>
+          <div className="filter-container">
+            <div className="filter-svg"/>
+          </div>
+        </div>
+        <div className="filter-col">
+          <div className="filter-type">Instant Book</div>
+          <div className="filter-container">
+            <div className="filter-svg"/>
+          </div>
+        </div>
+        <div className="filter-col">
+          <div className="filter-type">More filters</div>
+          <div className="filter-container">
+            <div className="filter-svg"/>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   render() {
     const { homes } = this.props;
     const homesIndex = homes.map((home, idx) => {
@@ -56,14 +90,13 @@ class HomeIndex extends React.Component {
       )
     })
     return (
-      <section className='index-container'>
-        <div className="home-card-slider">
-          {homesIndex}
+      // add model for the filters
+      <div className="home-card-slider">
+        {this.filterBar()}
+        <div className="cards">
+        {homesIndex}
         </div>
-        <div className="map-container-rel">
-          <div className="map-abs"></div>
-        </div>
-      </section>
+      </div>
     )
   }
 }

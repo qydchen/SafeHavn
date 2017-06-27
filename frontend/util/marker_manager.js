@@ -4,20 +4,24 @@ export default class MarkerManager {
     this.markers = {};
   }
 
-  updateMarkers(benches) {
+  updateMarkers(homes) {
     let markers = this.markers;
-    benches.forEach(bench => {
-      markers[bench.id] = this.createMarkerFromBench(bench);
+    homes.forEach(home => {
+      markers[home.id] = this.createMarkerFromBench(home);
     });
 
   }
-
-  createMarkerFromBench(bench) {
-    const lat = bench.lat;
-    const lng = bench.lng;
+// layout.scss for styling
+  createMarkerFromBench(home) {
+    const lat = home.lat;
+    const lng = home.lng;
     let marker = new google.maps.Marker({
       position: {lat, lng},
-      title: bench.description,
+      label: "$"+String(home.price),
+      // labelClass: "maplabels",
+      // icon: {
+    	// 	url: asset-url('dialogue-box.png')
+    	// },
       animation: google.maps.Animation.DROP,
       map: this.map
     });

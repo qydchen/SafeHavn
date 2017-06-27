@@ -3,19 +3,19 @@
 }
 
 .index-container {
-  padding-top: 24px;
+  padding-top: 90px;
   margin-left: 16px;
   display: flex;
 }
 
 .home-card-slider {
-  width: 66%;
-  padding-top: 60px;
+  width: 65%;
+  z-index: 1;
+  padding-top: 15px;
   position: relative;
   overflow: hidden;
   overflow-y: hidden !important;
   white-space: normal;
-  margin-right: 16px;
 }
 
 .home-card-container {
@@ -105,10 +105,64 @@
   display: inline;
 }
 
-.map-container-rel {
-  display: block;
-  left: auto;
-  width: 34%;
-  background: red; // for test
-  height: 500px; // for test
+.filter-bar-index {
+  background: #ffffff;
+  height: 43px;
+  border-bottom: 0px;
+  width: 100%;
+  padding: 0px;
+  z-index: 4;
+  position: fixed;
+  padding-top: 16px;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.filter-col {
+  float: left;
+  z-index: 20;
+  margin-right: 8px;
+  cursor: pointer;
+  padding: 0 19px;
+  display: inline-block;
+  height: 32px;
+  color: #767676;
+  background: none;
+  border: none;
+  border-right: none;
+  position: relative;
+  vertical-align: top;
+  font-size: 15px;
+  line-height: 32px;
+  letter-spacing: 0.2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 4px;
+}
+
+.filter-type {
+  display: table-cell;
+  vertical-align: middle;
+  padding-right: 8px;
+}
+
+.filter-container {
+  font-size: 8px;
+  color: #008489;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.filter-svg {
+  background-image: asset-url('small-downarrow.png');
+  height: 9px;
+  width: 9px;
+}
+
+.cards {
+  margin-top: 80px;
+  // width: inherit;
+  // position: relative;
+  // overflow-y: scroll;
 }

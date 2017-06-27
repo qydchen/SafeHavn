@@ -2,7 +2,7 @@ export const OPEN = 'OPEN';
 export const CLOSE = 'CLOSE';
 export const RECEIVE_COMPONENT = 'RECEIVE_COMPONENT';
 
-export const closeModal = (component) => ({
+export const closeModal = () => ({
   type: CLOSE,
   component: null
 });
