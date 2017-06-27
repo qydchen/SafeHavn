@@ -119,7 +119,6 @@
 .account-txt {
   font-weight: 300 !important;
   color: #484848 !important;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
   margin: 0px !important;
   word-wrap: break-word !important;
   font-size: 19px !important;
@@ -133,26 +132,24 @@
 .switch {
   float: right;
   vertical-align: middle;
-  display: inline-block !important;
-  text-align: center !important;
-  text-decoration: none !important;
-  font-weight: 700 !important;
-  border-radius: 4px !important;
-  cursor: pointer !important;
-  transition: background 0.3s, border-color 0.3s !important;
-  position: relative !important;
-  border: 2px solid transparent !important;
-  width: auto !important;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-  font-size: 15px !important;
-  line-height: 15px !important;
-  padding-top: 8px !important;
-  padding-bottom: 8px !important;
-  color: #484848 !important;
-  padding-right: 16px !important;
-  padding-left: 16px !important;
-  background: transparent !important;
-  border-color: #008489 !important;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  border: 2px solid transparent;
+  width: auto;
+  font-size: 15px;
+  line-height: 15px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #484848;
+  padding-right: 16px;
+  padding-left: 16px;
+  background: transparent;
+  border-color: #008489;
 }
 
 .register-txt {
@@ -176,7 +173,6 @@
   background-color: transparent;
   border: 0px;
   display: block;
-	font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
 	font-size: 14px;
 	text-align: center;
   background-image: asset-url('cross.png');
@@ -220,93 +216,89 @@
 }
 
 .birthdayTitle {
-  font-weight: normal !important;
-  color: #484848 !important;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-  margin: 0px !important;
-  word-wrap: break-word !important;
-  font-size: 19px !important;
-  line-height: 24px !important;
-  letter-spacing: undefined !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
+  font-weight: normal;
+  color: #484848;
+  margin: 0px;
+  word-wrap: break-word;
+  font-size: 19px;
+  line-height: 24px;
+  letter-spacing: undefined;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .birthdayText {
-  font-weight: 300 !important;
-  color: #484848 !important;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-weight: 300;
+  color: #484848;
   margin: 0px;
   margin-top: 8px;
-  word-wrap: break-word !important;
-  font-size: 15px !important;
-  line-height: 18px !important;
-  letter-spacing: 0.2px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
+  word-wrap: break-word;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .birthdayRow {
   margin-top: 8px;
-  margin-left: -8px !important;
-  margin-right: -8px !important;
+  margin-left: -8px;
+  margin-right: -8px;
   box-sizing: border-box;
-  display: inline-flex !important;
+  display: inline-flex;
   width: 100%;
 }
 
 
 .bday-column {
-  padding-left: 8px !important;
-  padding-right: 8px !important;
-  min-height: 1px !important;
-  position: relative !important;
-  width: 33.33333333333333% !important;
-  float: left !important;
+  padding-left: 8px;
+  padding-right: 8px;
+  min-height: 1px;
+  position: relative;
+  width: 33.33333333333333%;
+  float: left;
 }
 
 .select-container {
-  padding-right: 8px !important;
-  min-height: 1px !important;
-  position: relative !important;
-  float: left !important;
+  padding-right: 8px;
+  min-height: 1px;
+  position: relative;
+  float: left;
   width: 100%;
 }
 
 
 .label-hidden {
-  position: absolute !important;
-  display: block !important;
-  border: 0px !important;
-  margin: -1px !important;
-  padding: 0px !important;
-  height: 1px !important;
-  width: 1px !important;
-  clip: rect(0, 0, 0, 0) !important;
-  overflow: hidden !important;
+  position: absolute;
+  display: block;
+  border: 0px;
+  margin: -1px;
+  padding: 0px;
+  height: 1px;
+  width: 1px;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
 }
 
 .select-dd-container {
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-  font-size: 19px !important;
-  line-height: 24px !important;
-  letter-spacing: undefined !important;
-  padding-top: undefined !important;
-  padding-bottom: undefined !important;
-  color: #484848 !important;
-  position: relative !important;
-  display: block !important;
-  background: #ffffff !important;
-  border: 1px solid #DBDBDB !important;
-  border-radius: 2px !important;
-  margin-bottom: 8px !important;
-  width: 100% !important;
-  overflow: hidden !important;
+  font-size: 19px;
+  line-height: 24px;
+  letter-spacing: undefined;
+  padding-top: undefined;
+  padding-bottom: undefined;
+  color: #484848;
+  position: relative;
+  display: block;
+  background: #ffffff;
+  border: 1px solid #DBDBDB;
+  border-radius: 2px;
+  margin-bottom: 8px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .select-dropdown {
   -webkit-appearance: none;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
   font-size: 19px;
   line-height: 24px;
   color: #484848;
@@ -335,22 +327,21 @@
 }
 
 .subscribe-info {
-  font-weight: 300 !important;
-  cursor: pointer !important;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-  font-size: 15px !important;
-  line-height: 24px !important;
-  letter-spacing: undefined !important;
-  padding-top: undefined !important;
-  padding-bottom: undefined !important;
-  color: #484848 !important;
-  position: relative !important;
-  top: -3px !important;
-  vertical-align: top !important;
-  padding-left: 6px !important;
-  display: table-cell !important;
-  vertical-align: top !important;
-  white-space: normal !important;
+  font-weight: 300;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: undefined;
+  padding-top: undefined;
+  padding-bottom: undefined;
+  color: #484848;
+  position: relative;
+  top: -3px;
+  vertical-align: top;
+  padding-left: 6px;
+  display: table-cell;
+  vertical-align: top;
+  white-space: normal;
 }
 
 .disclaimer {

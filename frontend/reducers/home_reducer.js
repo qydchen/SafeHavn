@@ -20,8 +20,7 @@ const HomeReducer = (state = defaultState, action) => {
       return newState;
 
     case RECEIVE_HOMES:
-      newState = merge({}, state, action.homes)
-      return newState;
+      return action.homes;
 
     case RECEIVE_DELETION:
       newState = Object.assign({}, state);

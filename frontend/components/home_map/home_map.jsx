@@ -9,7 +9,7 @@ const getCoordsObj = latLng => ({
 });
 // set the map to show NY
 const mapOptions = {
-  center: { lat: 40.8, lng: -74.0 }, // this is NY
+  center: { lat: 40.7128, lng: -74.0059 }, // this is NY
   zoom: 9,
   scrollwheel: false, // turn off scroll wheel
   styles: [

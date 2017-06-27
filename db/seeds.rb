@@ -31,12 +31,12 @@ def host_id
   (rand(1..2))
 end
 
-def lat
-  (rand(0...70) - 140 + rand())
+def lat # NYC
+  (40.0000 + rand())
 end
 
-def lng
-  (rand(0...180) - 180 + rand())
+def lng # NYC
+  (-74.0000 + rand())
 end
 
 def title
@@ -136,48 +136,6 @@ User.create({
   "month": 5,
   "day": 12,
   "year": 1991})
-
-Home.create({"host_id": 2,
-  "lat": 52,
-  "lng": -76.1,
-  "title": "DavidsMansion",
-  "price": 233,
-  "address": "555 Fake Street",
-  "bathrooms": 9,
-  "bedrooms": 12,
-  "max_guests": 11,
-  "beds": 15,
-  "property_type": "Mansion",
-  "room_type": "Entire home/apt",
-  "internet": true,
-  "family": false,
-  "parking": true,
-  "kitchen": false,
-  "description": description,
-  "cancellation": "Moderate",
-  "image": File.open('app/assets/images/houses/002.jpeg')
-  })
-
-Home.create({"host_id": 2,
-  "lat": 51.11,
-  "lng": -77.23,
-  "title": "Lucky House",
-  "price": 125,
-  "address": "888 Lucky Street",
-  "bathrooms": 2.5,
-  "bedrooms": 4,
-  "max_guests": 9,
-  "beds": 6,
-  "property_type": "Apartment Building",
-  "room_type": "Entire home/apt",
-  "internet": true,
-  "family": true,
-  "parking": false,
-  "kitchen": true,
-  "description": description,
-  "cancellation": "Strict",
-  "image": File.open('app/assets/images/houses/003.jpeg')
-  })
 
 Home.create({"host_id": host_id,
   "lat": lat,

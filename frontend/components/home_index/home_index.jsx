@@ -49,36 +49,6 @@ class HomeIndex extends React.Component {
   //   <span className="dropdown-arrow"></span>
   // </div>
 
-  filterBar() {
-    return (
-      <div className="filter-bar-index">
-        <div className="filter-col">
-          <div className="filter-type">Room type</div>
-          <div className="filter-container">
-            <div className="filter-svg"/>
-          </div>
-        </div>
-        <div className="filter-col">
-          <div className="filter-type">Price range</div>
-          <div className="filter-container">
-            <div className="filter-svg"/>
-          </div>
-        </div>
-        <div className="filter-col">
-          <div className="filter-type">Instant Book</div>
-          <div className="filter-container">
-            <div className="filter-svg"/>
-          </div>
-        </div>
-        <div className="filter-col">
-          <div className="filter-type">More filters</div>
-          <div className="filter-container">
-            <div className="filter-svg"/>
-          </div>
-        </div>
-      </div>
-    )
-  }
 
   render() {
     const { homes } = this.props;
@@ -92,7 +62,6 @@ class HomeIndex extends React.Component {
     return (
       // add model for the filters
       <div className="home-card-slider">
-        {this.filterBar()}
         <div className="cards">
         {homesIndex}
         </div>

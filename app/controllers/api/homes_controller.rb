@@ -3,8 +3,11 @@ class Api::HomesController < ApplicationController
     if Home.all.length != 0
       bounds = params[:bounds]
       @homes = bounds ? Home.in_bounds(bounds) : Home.all
-      if (params[:minHousing] && params[:maxHousing]) #revisit
+      if (params[:minHousing] && params[:maxHousing])
         @homes = @homes.where(max_guests: housing_range)
+      end
+      if (params[:minPrice] && params[:maxPrice])
+        @homes = @homes.where(price: price_range)
       end
       # @homes = visitors? ? homes.can_fit_visitors?(visitors?.to_i) : homes
       # render :index
@@ -77,6 +80,10 @@ class Api::HomesController < ApplicationController
 
   def housing_range
     (params[:minHousing]..params[:maxHousing])
+  end
+
+  def price_range
+    (params[:minPrice]..params[:maxPrice])
   end
 
   def start_date
