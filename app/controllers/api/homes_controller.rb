@@ -86,12 +86,12 @@ class Api::HomesController < ApplicationController
     (params[:minPrice]..params[:maxPrice])
   end
 
-  def start_date
-    params["start_date"]
-  end
-
-  def end_date
-    params["end_date"]
-  end
+  # def start_date
+  #   params["start_date"]
+  # end
+  #
+  # def end_date
+  #   params["end_date"]
+  # end
 
 end

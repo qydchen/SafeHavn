@@ -40,8 +40,6 @@ host_id     | integer   | not null, foreign key (users), indexed
 home_id     | integer   | not null, foreign key (homes), indexed
 start_date  | date      | not null
 end_date    | date      | not null
-booked      | boolean   | not null
-cost        | integer   | not null
 
 ## reviews
 column name | data type | details

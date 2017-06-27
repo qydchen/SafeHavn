@@ -1,20 +1,20 @@
 ## Component Hierarchy
 
 **AuthFormContainer**
-- AuthForm: will either display Sign Up/Log In buttons.
+- AuthForm: will either display Sign Up/Log In buttons. DONE
 
 When a user clicks on the Sign Up/Log In buttons it dispatches addContentToModal action with the SignUp or LogIn components, which renders a SignUp or LogIn modal in the middle of the page.
 
 **HeaderContainer**
-- NavbarLoggedIn - NavBar will be set as true if logged in.
-- NavbarLoggedOut - NavBar will be set as false if logged out.
+- NavbarLoggedIn - NavBar will be set as true if logged in. DONE
+- NavbarLoggedOut - NavBar will be set as false if logged out. DONE
 
 **HomesContainer**
-- Header
-- Homes - HomesContainer will hold an array of Homes based on the bounds of the map. Limit 40-50ish.
-- Map - Will hold the Google Map that will feature automatic search and populate the search into Homes.
+- Header - DONE
+- Homes - HomesContainer will hold an array of Homes based on the bounds of the map. Limit 40-50ish. - DONE
+- Map - Will hold the Google Map that will feature automatic search and populate the search into Homes. - DONE
 - Search
-- Sorting/Filter
+- Sorting/Filter - DONE
 
 This will be the Home page.
 
@@ -23,25 +23,20 @@ Search will allow the user to search for a location, have Maps center to the loc
 Sorting will sort and render based on the parameters.
 
 **FooterContainer**
-- Footer - About Us, Careers, my LinkedIn, my GitHub, etc.
+- Footer - About Us, Careers, my LinkedIn, my GitHub, etc. - DONE
 
 **SelectContainer**
-- Header
+- Header DONE
 - PictureModal - will have carousel feature after clicking
-- NavigationContainer - Scrolls down to determined section
-+ SummaryContainer
+- NavigationContainer - Scrolls down to determined section - INCOMPLETE
++ SummaryContainer DONE
 + ReviewsContainer
 + HostInfo? (bonus)
 + Map - Map with a unprecise location (circle)
-- BookingPanelContainer - positioned absolute
-- Footer
+- BookingPanelContainer - positioned absolute - INCOMEPLETE
+- Footer DONE
 
 Select (Details) page will have a header, followed by a PictureModal. On the left, the Navigation Container will assist the user to scroll down to the relevant section (Summary Container, Reviews Container, Host Info, Map). On the right, an absolute BookingPanel will persist.
-
-**SummaryContainer**
-- Summary
-
-Summary will probably be a selector and will map out a render from top to bottom (about, space, amenity, description, cancellation).
 
 **ReviewsContainer**
 - Reviews
@@ -77,14 +72,13 @@ Will render all the trips that the host has to approve under their account
 
 Forms will fill out in order: property_type, space details, max_guests, title and description, amenity, cancellation policy, price
 
-This looks very cumbersome.....
 
 ## Route
 
 |Path	| Component|
 |-----|----------|
-|"/home"	| "HomesContainer"|
+|"/"	| "HomesContainer"|
 |"/listings/:listingId"	| "SelectContainer"|
 |"/user/:id/trips" |	"TripsContainer"|
-|"/user/:id/host/" | "BookingsContainer" |
+|"/user/:id/book/" | "BookingsContainer" |
 |"/user/:id/host/list" | "ListingsContainer" |

@@ -9,6 +9,9 @@ class Home < ActiveRecord::Base
     class_name: :User,
     foreign_key: :host_id
 
+  has_many :trips,
+    class_name: :Trip,
+    foreign_key: :home_id
 
   def self.in_bounds(bounds)
   self.where("lat < ?", bounds[:northEast][:lat])

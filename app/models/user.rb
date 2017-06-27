@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
     class_name: :Home,
     foreign_key: :host_id
 
+  has_many :trips,
+    class_name: :Trip,
+    foreign_key: :visitor_id
+
 	def password=(password)
     @password = password
 		self.password_digest = BCrypt::Password.create(password)
