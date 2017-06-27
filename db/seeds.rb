@@ -68,11 +68,11 @@ def beds
 end
 
 def property_type
-  "House"
+  ["House","Mansion","Farmhouse","RV","Apartment"].sample
 end
 
 def room_type
-  "Entire home/apt"
+  ["Entire home/apt", "Private Room", "Shared Room"].sample
 end
 
 def internet
@@ -92,34 +92,13 @@ def kitchen
 end
 
 def description
-  Faker::Lorem.paragraph(5)
+  Faker::Lorem.paragraph(15)
 end
 
 def cancellation
   (["Flexible", "Moderate", "Strict"].sample)
 end
 
-
-Home.create({"host_id": host_id,
-  "lat": lat,
-  "lng": lng,
-  "title": title,
-  "price": price,
-  "address": address,
-  "bathrooms": bathrooms,
-  "bedrooms": bedrooms,
-  "max_guests": max_guests,
-  "beds": beds,
-  "property_type": property_type,
-  "room_type": room_type,
-  "internet": internet,
-  "family": family,
-  "parking": parking,
-  "kitchen": kitchen,
-  "description": description,
-  "cancellation": cancellation,
-  "image": 	"https://s3.amazonaws.com/safehavns-dev/seeds/clouds-cloudy-building-64287.jpeg"
-})
 
 User.create({"email": "guest@live.com",
   "first": "Ronald",
@@ -137,171 +116,25 @@ User.create({
   "day": 12,
   "year": 1991})
 
-Home.create({"host_id": host_id,
-  "lat": lat,
-  "lng": lng,
-  "title": title,
-  "price": price,
-  "address": address,
-  "bathrooms": bathrooms,
-  "bedrooms": bedrooms,
-  "max_guests": max_guests,
-  "beds": beds,
-  "property_type": property_type,
-  "room_type": room_type,
-  "internet": internet,
-  "family": family,
-  "parking": parking,
-  "kitchen": kitchen,
-  "description": description,
-  "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/seeds/architecture-castle-england-68683.jpeg"
-})
-
-Home.create({"host_id": host_id,
-  "lat": lat,
-  "lng": lng,
-  "title": title,
-  "price": price,
-  "address": address,
-  "bathrooms": bathrooms,
-  "bedrooms": bedrooms,
-  "max_guests": max_guests,
-  "beds": beds,
-  "property_type": property_type,
-  "room_type": room_type,
-  "internet": internet,
-  "family": family,
-  "parking": parking,
-  "kitchen": kitchen,
-  "description": description,
-  "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/seeds/cold-snow-nature-24642.jpg"
-})
-
-Home.create({"host_id": host_id,
-  "lat": lat,
-  "lng": lng,
-  "title": title,
-  "price": price,
-  "address": address,
-  "bathrooms": bathrooms,
-  "bedrooms": bedrooms,
-  "max_guests": max_guests,
-  "beds": beds,
-  "property_type": property_type,
-  "room_type": room_type,
-  "internet": internet,
-  "family": family,
-  "parking": parking,
-  "kitchen": kitchen,
-  "description": description,
-  "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/seeds/dawn-landscape-building-208309.jpeg"
-})
-
-Home.create({"host_id": host_id,
-  "lat": lat,
-  "lng": lng,
-  "title": title,
-  "price": price,
-  "address": address,
-  "bathrooms": bathrooms,
-  "bedrooms": bedrooms,
-  "max_guests": max_guests,
-  "beds": beds,
-  "property_type": property_type,
-  "room_type": room_type,
-  "internet": internet,
-  "family": family,
-  "parking": parking,
-  "kitchen": kitchen,
-  "description": description,
-  "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/seeds/field-forest-trees-48632.jpeg"
-})
-
-Home.create({"host_id": host_id,
-  "lat": lat,
-  "lng": lng,
-  "title": title,
-  "price": price,
-  "address": address,
-  "bathrooms": bathrooms,
-  "bedrooms": bedrooms,
-  "max_guests": max_guests,
-  "beds": beds,
-  "property_type": property_type,
-  "room_type": room_type,
-  "internet": internet,
-  "family": family,
-  "parking": parking,
-  "kitchen": kitchen,
-  "description": description,
-  "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/seeds/france-landmark-water-34223.jpg"
-})
-
-Home.create({"host_id": host_id,
-  "lat": lat,
-  "lng": lng,
-  "title": title,
-  "price": price,
-  "address": address,
-  "bathrooms": bathrooms,
-  "bedrooms": bedrooms,
-  "max_guests": max_guests,
-  "beds": beds,
-  "property_type": property_type,
-  "room_type": room_type,
-  "internet": internet,
-  "family": family,
-  "parking": parking,
-  "kitchen": kitchen,
-  "description": description,
-  "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/seeds/landmark-building-forest-24294.jpg"
-})
-
-Home.create({"host_id": host_id,
-  "lat": lat,
-  "lng": lng,
-  "title": title,
-  "price": price,
-  "address": address,
-  "bathrooms": bathrooms,
-  "bedrooms": bedrooms,
-  "max_guests": max_guests,
-  "beds": beds,
-  "property_type": property_type,
-  "room_type": room_type,
-  "internet": internet,
-  "family": family,
-  "parking": parking,
-  "kitchen": kitchen,
-  "description": description,
-  "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/seeds/landscape-nature-landmark-390202.jpeg"
-})
-
-
-Home.create({"host_id": host_id,
-  "lat": lat,
-  "lng": lng,
-  "title": title,
-  "price": price,
-  "address": address,
-  "bathrooms": bathrooms,
-  "bedrooms": bedrooms,
-  "max_guests": max_guests,
-  "beds": beds,
-  "property_type": property_type,
-  "room_type": room_type,
-  "internet": internet,
-  "family": family,
-  "parking": parking,
-  "kitchen": kitchen,
-  "description": description,
-  "cancellation": cancellation,
-  "image": "https://s3.amazonaws.com/safehavns-dev/seeds/light-landscape-forest-206648.jpeg"
-})
+24.times do |i|
+  Home.create({"host_id": host_id,
+    "lat": lat,
+    "lng": lng,
+    "title": title,
+    "price": price,
+    "address": address,
+    "bathrooms": bathrooms,
+    "bedrooms": bedrooms,
+    "max_guests": max_guests,
+    "beds": beds,
+    "property_type": property_type,
+    "room_type": room_type,
+    "internet": internet,
+    "family": family,
+    "parking": parking,
+    "kitchen": kitchen,
+    "description": description,
+    "cancellation": cancellation,
+    "image": "https://s3.amazonaws.com/safehavns-dev/seeds/#{i}.jpg"
+  })
+end

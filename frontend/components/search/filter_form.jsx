@@ -9,13 +9,13 @@ export const PricingForm = ({ minPrice, maxPrice, updateFilter }) => (
     <label>Minimum Price ($):</label>
     <input className="filter-container"
       type="number"
-      value={minPrice}
+      value={minPrice ? minPrice : 0}
       onChange={handleChange('minPrice', updateFilter)}
     />
     <label>Maximum Price ($):</label>
     <input className="filter-container"
       type="number"
-      value={maxPrice}
+      value={maxPrice ? maxPrice : 0}
       onChange={handleChange('maxPrice', updateFilter)}
     />
   </div>
