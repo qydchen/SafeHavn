@@ -32,11 +32,11 @@ def host_id
 end
 
 def lat # NYC
-  (40.700000 + rand()/10)
+  (40.700000 + rand()/100)
 end
 
 def lng # NYC
-  (-73.900000 + rand()/10)
+  (-74.000000 + rand()/100)
 end
 
 def title
@@ -116,7 +116,7 @@ User.create({
   "day": 12,
   "year": 1991})
 
-24.times do |i|
+65.times do |i|
   Home.create({"host_id": host_id,
     "lat": lat,
     "lng": lng,
