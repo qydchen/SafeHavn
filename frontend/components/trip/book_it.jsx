@@ -40,9 +40,8 @@ class BookIt extends React.Component {
 		if (this.props.currentUser) {
       this.props.receiveInput(input); // after this, move to next screen
       this.navigateToBookTrip();
-      this.setState({startDate: "", endDate: "", guests: ""});
     } else {
-      this.clearErrorsAndOpenModal(<SessionFormContainer formType="signup"/>)
+      this.clearErrorsAndOpenModal(<SessionFormContainer formType="login"/>)
     }
   };
 

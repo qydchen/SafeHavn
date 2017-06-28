@@ -15,11 +15,12 @@ class HomeShow extends React.Component {
     this.props.fetchHome(this.props.homeid);
   }
 
-  componentDidUpdate(){
-    if (!this.props.listing.space) { //look at space to handle cases where it wouldnt render from index
-      this.props.fetchHome(this.props.homeid);
+  componentWillReceiveProps(nextProps) {
+  if (this.props.match.params.id !== nextProps.match.params.id) {
+    this.props.fetchHome(nextProps.match.params.id);
     }
   }
+
 
   render() {
     const { listing, homeid, fetchHome, currentUser, receiveInput, clearErrors, openModal } = this.props;

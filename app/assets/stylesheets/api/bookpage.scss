@@ -2,8 +2,8 @@
   display: flex;
   margin-top: 36px;
   margin-bottom: 36px;
-  padding-left: 116px;
-  padding-right: 116px;
+  padding-left: 24px;
+  padding-right: 24px;
   margin-left: auto;
   margin-right: auto;
   max-width: 1080px;
@@ -39,13 +39,7 @@
 .pet-info {
   margin: 0 16px 0 16px;
   font-size: 16px !important;
-}
-
-.bk-right-panel {
-  float: left;
-  width: 45%;
-  margin: 12px;
-  padding: 16px;
+  font-weight: 400;
 }
 
 .bk-tp-btn {
@@ -80,4 +74,95 @@
   overflow: auto;
   vertical-align: top;
   border: 1px solid #aaa;
+}
+
+.bk-right-panel {
+  margin-bottom: 12px;
+  left: 58.33333%;
+  width: 41.66667%;
+  float: left;
+  margin: 12px;
+  border: 1px solid #aaa;
+}
+
+.bk-title {
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.bk-desc {
+  font-size: 14px;
+  color: #767676;
+  font-weight: 500;
+}
+
+.panel-body:first-child {
+  padding-top: 30px;
+}
+
+.panel-body {
+  padding: 25px 20px;
+}
+
+.panel-body:last-child {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px !important;
+  font-weight: 500;
+}
+
+
+.bk-host {
+  color: #767676;
+  font-weight: 500;
+}
+
+.bk-checkin {
+  font-size: 14px;
+  color: black;
+  font-weight: 500;
+}
+
+.book-div {
+  content: "";
+  top: -1px;
+  height: 1px;
+  left: 20px;
+  right: 20px;
+  width: 80%;
+  margin: 0 auto;
+  border-top: 1px solid #dce0e0;
+}
+
+.calendar-position {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.bk-price-row {
+  display: flex !important;
+  justify-content: space-between;
+  font-weight: 400;
+  color: #484848;
+  word-wrap: break-word;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  display: inline;
+  margin-bottom: 16px;
+}
+
+.cal-col {
+  float: left;
+}
+
+.bk-checkin, .check-col {
+  font-size: 16px;
+  color: #767676;
+  margin-top: 8px;
+  padding: 0 16px 0 16px;
 }

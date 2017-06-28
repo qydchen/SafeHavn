@@ -3,11 +3,13 @@ json.extract! home,
   :lat,
   :lng,
   :price,
-  :host_id,
+  :host,
   :title,
   :description,
   :cancellation,
-  :address
+  :address,
+  :trips
+
   json.image_url asset_path(home.image.url)
 
   json.space do
