@@ -11578,6 +11578,10 @@ return jQuery;
 
 
 }).call(this);
+(function() {
+
+
+}).call(this);
 /******/
  (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -36363,10 +36367,10 @@ var receiveReview = exports.receiveReview = function receiveReview(review) {
   };
 };
 
-var receiveDeletedHome = exports.receiveDeletedHome = function receiveDeletedHome(home) {
+var receiveDeletedHome = exports.receiveDeletedHome = function receiveDeletedHome(id) {
   return {
     type: RECEIVE_DELETION,
-    home: home
+    id: id
   };
 };
 
@@ -36374,6 +36378,8 @@ var createReview = exports.createReview = function createReview(review) {
   return function (dispatch) {
     return APIUtil.createReview(review).then(function (review) {
       return dispatch(receiveReview(review));
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
     });
   };
 };
@@ -36382,6 +36388,8 @@ var fetchHomes = exports.fetchHomes = function fetchHomes(filters) {
   return function (dispatch) {
     return APIUtil.fetchHomes(filters).then(function (homes) {
       return dispatch(receiveHomes(homes));
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
     });
   };
 };
@@ -36390,6 +36398,8 @@ var fetchHome = exports.fetchHome = function fetchHome(id) {
   return function (dispatch) {
     return APIUtil.fetchHome(id).then(function (home) {
       return dispatch(receiveHome(home));
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
     });
   };
 };
@@ -36398,6 +36408,8 @@ var createHome = exports.createHome = function createHome(home) {
   return function (dispatch) {
     return APIUtil.createHome(home).then(function (home) {
       return dispatch(receiveHome(home));
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
     });
   };
 };
@@ -36406,6 +36418,8 @@ var updateHome = exports.updateHome = function updateHome(home) {
   return function (dispatch) {
     return APIUtil.updateHome(home).then(function (home) {
       return dispatch(receiveHome(home));
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
     });
   };
 };
@@ -36414,6 +36428,8 @@ var deleteHome = exports.deleteHome = function deleteHome(id) {
   return function (dispatch) {
     return APIUtil.deleteHome(id).then(function (home) {
       return dispatch(receiveDeletedHome(home));
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
     });
   };
 };
@@ -42252,11 +42268,12 @@ var _reactRouterDom = __webpack_require__(17);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var mapStateToProps = function mapStateToProps(state, _ref) {
-  var match = _ref.match;
+var mapStateToProps = function mapStateToProps(_ref, _ref2) {
+  var home = _ref.home;
+  var match = _ref2.match;
   //remember the entities is nexted in home which is nested in state
   var homeid = match.params.homeid;
-  var listing = state.home[homeid];
+  var listing = home[homeid];
 
   return {
     homeid: homeid,
@@ -55067,13 +55084,22 @@ var _filter_reducer = __webpack_require__(339);
 
 var _filter_reducer2 = _interopRequireDefault(_filter_reducer);
 
+var _trip_reducer = __webpack_require__(401);
+
+var _trip_reducer2 = _interopRequireDefault(_trip_reducer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import inputs from './input_reducer';
+
 
 var RootReducer = (0, _redux.combineReducers)({
   session: _session_reducer2.default,
   modal: _modal_reducer2.default,
   home: _home_reducer2.default,
-  filters: _filter_reducer2.default
+  filters: _filter_reducer2.default,
+  trips: _trip_reducer2.default
+  // inputs
 });
 
 exports.default = RootReducer;
@@ -60384,6 +60410,10 @@ var _search_container = __webpack_require__(395);
 
 var _search_container2 = _interopRequireDefault(_search_container);
 
+var _book_trip_container = __webpack_require__(406);
+
+var _book_trip_container2 = _interopRequireDefault(_book_trip_container);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // const _ensureLoggedIn = (nextState, replace) => {
@@ -60403,7 +60433,8 @@ var App = function App() {
       _react2.default.createElement(_modal_container2.default, null),
       _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _header_container2.default }),
       _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _search_container2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/homes/:homeid', component: _home_show_container2.default })
+      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/homes/:homeid', component: _home_show_container2.default }),
+      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/homes/:homeid/book', component: _book_trip_container2.default })
     )
   );
 };
@@ -62064,10 +62095,12 @@ var _modal_actions = __webpack_require__(45);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var mapStateToProps = function mapStateToProps(state) {
+var mapStateToProps = function mapStateToProps(_ref) {
+  var modal = _ref.modal;
+
   return {
-    isOpen: state.modal.isOpen,
-    component: state.modal.component
+    isOpen: modal.isOpen,
+    component: modal.component
   };
 };
 
@@ -62194,7 +62227,7 @@ var _home_detail = __webpack_require__(392);
 
 var _home_detail2 = _interopRequireDefault(_home_detail);
 
-var _book_it = __webpack_require__(393);
+var _book_it = __webpack_require__(410);
 
 var _book_it2 = _interopRequireDefault(_book_it);
 
@@ -62633,193 +62666,7 @@ var HomeDetail = function (_React$Component) {
 exports.default = HomeDetail;
 
 /***/ }),
-/* 393 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var BookIt = function (_React$Component) {
-  _inherits(BookIt, _React$Component);
-
-  function BookIt(props) {
-    _classCallCheck(this, BookIt);
-
-    var _this = _possibleConstructorReturn(this, (BookIt.__proto__ || Object.getPrototypeOf(BookIt)).call(this, props));
-
-    _this.state = {
-      checkin: "", /// just for now.... bookings not done yet
-      checkout: "",
-      guests: ""
-    };
-    _this.handleSelectChange = _this.handleSelectChange.bind(_this);
-    return _this;
-  }
-
-  _createClass(BookIt, [{
-    key: "handleSelectChange",
-    value: function handleSelectChange(property) {
-      var _this2 = this;
-
-      return function (e) {
-        return _this2.setState(_defineProperty({}, property, e.target.value));
-      };
-    }
-  }, {
-    key: "pricePerNight",
-    value: function pricePerNight() {
-      return _react2.default.createElement(
-        "div",
-        { className: "offers-box" },
-        _react2.default.createElement("div", { className: "thunderbolt" }),
-        _react2.default.createElement(
-          "div",
-          { className: "book-it-price" },
-          "$",
-          this.props.listing.price
-        ),
-        _react2.default.createElement(
-          "div",
-          { className: "per-night" },
-          "per night"
-        )
-      );
-    }
-  }, {
-    key: "bookingForm",
-    value: function bookingForm() {
-      var options = [_react2.default.createElement(
-        "option",
-        { value: "1", key: 1 },
-        "1 guest"
-      )];
-      for (var i = 2; i <= this.props.listing.space.max_guests; i++) {
-
-        options.push(_react2.default.createElement(
-          "option",
-          { value: i, key: i },
-          i,
-          " guests"
-        ));
-      }
-
-      return _react2.default.createElement(
-        "div",
-        null,
-        _react2.default.createElement(
-          "div",
-          { className: "row-condensed" },
-          _react2.default.createElement(
-            "div",
-            null,
-            _react2.default.createElement(
-              "div",
-              { className: "checking-col" },
-              _react2.default.createElement(
-                "label",
-                { className: "guest-check" },
-                "Check In"
-              ),
-              _react2.default.createElement("input", { className: "check-in date-select", placeholder: "mm/dd/yyyy" })
-            ),
-            _react2.default.createElement(
-              "div",
-              { className: "checking-col" },
-              _react2.default.createElement(
-                "label",
-                { className: "guest-check" },
-                "Check Out"
-              ),
-              _react2.default.createElement("input", { className: "check-out date-select", placeholder: "mm/dd/yyyy" })
-            )
-          ),
-          _react2.default.createElement(
-            "div",
-            { className: "guest-dd-container" },
-            _react2.default.createElement(
-              "div",
-              { className: "select-container" },
-              _react2.default.createElement(
-                "label",
-                { className: "guest-check" },
-                "Guests"
-              ),
-              _react2.default.createElement(
-                "div",
-                { className: "select-dd-container" },
-                _react2.default.createElement(
-                  "select",
-                  { className: "select-dropdown guests", value: this.state.guests,
-                    onChange: this.handleSelectChange('guests') },
-                  options
-                ),
-                _react2.default.createElement("span", { className: "dropdown-arrow" })
-              )
-            )
-          ),
-          _react2.default.createElement(
-            "button",
-            { className: "pinkButton book-btn" },
-            _react2.default.createElement(
-              "span",
-              { className: "btn-text" },
-              "Book"
-            )
-          ),
-          _react2.default.createElement(
-            "div",
-            { className: "margin-top-8px" },
-            _react2.default.createElement(
-              "span",
-              { className: "disclaimer book-disc" },
-              "You won't be charged yet, but you'll give me a paycheck soon."
-            )
-          )
-        )
-      );
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return _react2.default.createElement(
-        "div",
-        { className: "book-it" },
-        _react2.default.createElement(
-          "div",
-          { className: "bookItContainer" },
-          this.pricePerNight(),
-          this.bookingForm()
-        )
-      );
-    }
-  }]);
-
-  return BookIt;
-}(_react2.default.Component);
-
-exports.default = BookIt;
-
-/***/ }),
+/* 393 */,
 /* 394 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -62842,8 +62689,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // Footer - About Us, Careers, my LinkedIn, my GitHub, etc.
-
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 // const langArr = ['Dansk', 'Deutsche', 'English', 'Español', 'Italiano', 'Nederlands', '中文', '한국어', '日本語']
 
@@ -63369,7 +63215,11 @@ var HomeIndex = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'home-card' },
-          _react2.default.createElement('img', { className: 'show-card', src: home.image_url }),
+          _react2.default.createElement(
+            'div',
+            { className: 'show-card-container' },
+            _react2.default.createElement('img', { className: 'show-card', src: home.image_url })
+          ),
           _react2.default.createElement(
             'div',
             { className: 'card-top-row' },
@@ -63494,7 +63344,7 @@ var PricingForm = exports.PricingForm = function PricingForm(_ref) {
     _react2.default.createElement(
       "label",
       null,
-      "Minimum Price ($):"
+      "Min. Price ($):"
     ),
     _react2.default.createElement("input", { className: "filter-container",
       type: "number",
@@ -63504,7 +63354,7 @@ var PricingForm = exports.PricingForm = function PricingForm(_ref) {
     _react2.default.createElement(
       "label",
       null,
-      "Maximum Price ($):"
+      "Max. Price ($):"
     ),
     _react2.default.createElement("input", { className: "filter-container",
       type: "number",
@@ -63524,7 +63374,7 @@ var HousingForm = exports.HousingForm = function HousingForm(_ref2) {
     _react2.default.createElement(
       "label",
       null,
-      "Minimum Guests:"
+      "Min. Guests:"
     ),
     _react2.default.createElement("input", { className: "filter-container",
       type: "number",
@@ -63534,7 +63384,7 @@ var HousingForm = exports.HousingForm = function HousingForm(_ref2) {
     _react2.default.createElement(
       "label",
       null,
-      "Maximum Guests:"
+      "Max. Guests:"
     ),
     _react2.default.createElement("input", { className: "filter-container",
       type: "number",
@@ -63543,6 +63393,440 @@ var HousingForm = exports.HousingForm = function HousingForm(_ref2) {
     })
   );
 };
+
+/***/ }),
+/* 401 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _lodash = __webpack_require__(74);
+
+var _trip_actions = __webpack_require__(402);
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var defaultState = {};
+
+var TripReducer = function TripReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultState;
+  var action = arguments[1];
+
+  Object.freeze(state);
+  var newState = void 0;
+  switch (action.type) {
+    case _trip_actions.RECEIVE_TRIP:
+
+      newState = (0, _lodash.merge)({}, state, _defineProperty({}, action.trip.id, action.trip));
+      return newState;
+
+    case _trip_actions.RECEIVE_TRIPS:
+      return action.trips;
+
+    case _trip_actions.RECEIVE_DELETION:
+      newState = Object.assign({}, state);
+      delete newState[action.id];
+      return newState;
+    default:
+      return state;
+  }
+};
+
+exports.default = TripReducer;
+
+/***/ }),
+/* 402 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.deleteTrip = exports.createTrip = exports.fetchTrip = exports.fetchTrips = exports.receiveDeletedTrip = exports.receiveTrip = exports.receiveTrips = exports.RECEIVE_DELETION = exports.RECEIVE_TRIP = exports.RECEIVE_TRIPS = undefined;
+
+var _trip_api_util = __webpack_require__(403);
+
+var APIUtil = _interopRequireWildcard(_trip_api_util);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var RECEIVE_TRIPS = exports.RECEIVE_TRIPS = 'RECEIVE_TRIPS';
+var RECEIVE_TRIP = exports.RECEIVE_TRIP = 'RECEIVE_TRIP';
+var RECEIVE_DELETION = exports.RECEIVE_DELETION = 'RECEIVE_DELETION';
+
+var receiveTrips = exports.receiveTrips = function receiveTrips(trips) {
+  return {
+    type: RECEIVE_TRIPS,
+    trips: trips
+  };
+};
+
+var receiveTrip = exports.receiveTrip = function receiveTrip(trip) {
+  return {
+    type: RECEIVE_TRIP,
+    trip: trip
+  };
+};
+
+var receiveDeletedTrip = exports.receiveDeletedTrip = function receiveDeletedTrip(id) {
+  return {
+    type: RECEIVE_DELETION,
+    id: id
+  };
+};
+
+var fetchTrips = exports.fetchTrips = function fetchTrips() {
+  return function (dispatch) {
+    return APIUtil.fetchTrips().then(function (trips) {
+      return dispatch(receiveTrips(trips));
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
+    });
+  };
+};
+
+var fetchTrip = exports.fetchTrip = function fetchTrip(id) {
+  return function (dispatch) {
+    return APIUtil.fetchTrip(id).then(function (trip) {
+      return dispatch(receiveTrip(trip));
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
+    });
+  };
+};
+
+var createTrip = exports.createTrip = function createTrip(trip) {
+  return function (dispatch) {
+    return APIUtil.createTrip(trip).then(function (trip) {
+      return dispatch(receiveTrip(trip));
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
+    });
+  };
+};
+
+var deleteTrip = exports.deleteTrip = function deleteTrip(id) {
+  return function (dispatch) {
+    return APIUtil.deleteTrip(id).then(function (trip) {
+      return dispatch(receiveDeletedTrip(trip));
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
+    });
+  };
+};
+
+/***/ }),
+/* 403 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var fetchTrips = exports.fetchTrips = function fetchTrips(data) {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/trips',
+    data: data
+  });
+};
+
+var fetchTrip = exports.fetchTrip = function fetchTrip(id) {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/trips/' + id
+  });
+};
+
+var createTrip = exports.createTrip = function createTrip(data) {
+  return $.ajax({
+    method: 'POST',
+    url: 'api/trips',
+    data: data,
+    contentType: false,
+    processData: false
+  });
+};
+
+var deleteTrip = exports.deleteTrip = function deleteTrip(id) {
+  return $.ajax({
+    method: 'DELETE',
+    url: 'api/trips/' + id
+  });
+};
+
+/***/ }),
+/* 404 */,
+/* 405 */,
+/* 406 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(21);
+
+var _trip_actions = __webpack_require__(402);
+
+var _home_actions = __webpack_require__(80);
+
+var _book_it = __webpack_require__(410);
+
+var _book_it2 = _interopRequireDefault(_book_it);
+
+var _reactRouterDom = __webpack_require__(17);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import { receiveInput } from '../../actions/input_actions';
+var mapStateToProps = function mapStateToProps(_ref, _ref2) {
+  var home = _ref.home;
+  var match = _ref2.match;
+
+  var homeid = match.params.homeid;
+  var listing = home[homeid];
+  debugger;
+  return {
+    inputs: inputs,
+    listing: listing
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    createTrip: function createTrip(trip) {
+      return dispatch((0, _trip_actions.createTrip)(trip));
+    },
+    // receiveInput: input => dispatch(receiveInput(input))
+    fetchHome: function fetchHome(id) {
+      return dispatch((0, _home_actions.fetchHome)(id));
+    }
+  };
+};
+
+exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_book_it2.default));
+
+/***/ }),
+/* 407 */,
+/* 408 */,
+/* 409 */,
+/* 410 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var BookIt = function (_React$Component) {
+  _inherits(BookIt, _React$Component);
+
+  function BookIt(props) {
+    _classCallCheck(this, BookIt);
+
+    var _this = _possibleConstructorReturn(this, (BookIt.__proto__ || Object.getPrototypeOf(BookIt)).call(this, props));
+
+    _this.state = {
+      startDate: "", /// just for now... bookings not done yet
+      endDate: "",
+      guests: ""
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    _this.handleSelectChange = _this.handleSelectChange.bind(_this);
+    return _this;
+  }
+
+  _createClass(BookIt, [{
+    key: "handleSelectChange",
+    value: function handleSelectChange(property) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, property, e.target.value));
+      };
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      var input = Object.assign({}, this.state);
+      this.props.receiveInput(input);
+      this.setState({ startDate: "", endDate: "", guests: "" });
+    }
+  }, {
+    key: "pricePerNight",
+    value: function pricePerNight() {
+      return _react2.default.createElement(
+        "div",
+        { className: "offers-box" },
+        _react2.default.createElement("div", { className: "thunderbolt" }),
+        _react2.default.createElement(
+          "div",
+          { className: "book-it-price" },
+          "$",
+          this.props.listing.price
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "per-night" },
+          "per night"
+        )
+      );
+    }
+  }, {
+    key: "bookingForm",
+    value: function bookingForm() {
+      var options = [_react2.default.createElement(
+        "option",
+        { value: "1", key: 1 },
+        "1 guest"
+      )];
+      for (var i = 2; i <= this.props.listing.space.max_guests; i++) {
+
+        options.push(_react2.default.createElement(
+          "option",
+          { value: i, key: i },
+          i,
+          " guests"
+        ));
+      }
+
+      return _react2.default.createElement(
+        "div",
+        null,
+        _react2.default.createElement(
+          "form",
+          { className: "row-condensed" },
+          _react2.default.createElement(
+            "div",
+            null,
+            _react2.default.createElement(
+              "div",
+              { className: "checking-col" },
+              _react2.default.createElement(
+                "label",
+                { className: "guest-check" },
+                "Check In"
+              ),
+              _react2.default.createElement("input", { className: "check-in date-select",
+                onChange: this.handleSelectChange('startDate'),
+                placeholder: "mm/dd/yyyy" })
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "checking-col" },
+              _react2.default.createElement(
+                "label",
+                { className: "guest-check" },
+                "Check Out"
+              ),
+              _react2.default.createElement("input", { className: "check-out date-select",
+                onChange: this.handleSelectChange('endDate'),
+                placeholder: "mm/dd/yyyy" })
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "guest-dd-container" },
+            _react2.default.createElement(
+              "div",
+              { className: "select-container" },
+              _react2.default.createElement(
+                "label",
+                { className: "guest-check" },
+                "Guests"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "select-dd-container" },
+                _react2.default.createElement(
+                  "select",
+                  { className: "select-dropdown guests", value: this.state.guests,
+                    onChange: this.handleSelectChange('guests') },
+                  options
+                ),
+                _react2.default.createElement("span", { className: "dropdown-arrow" })
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "button",
+            { onSubmit: this.handleSubmit,
+              className: "pinkButton book-btn" },
+            _react2.default.createElement(
+              "span",
+              { className: "btn-text" },
+              "Book"
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "margin-top-8px" },
+            _react2.default.createElement(
+              "span",
+              { className: "disclaimer book-disc" },
+              "You won't be charged yet, but you'll give me a paycheck soon."
+            )
+          )
+        )
+      );
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      debugger;
+      return _react2.default.createElement(
+        "div",
+        { className: "book-it" },
+        _react2.default.createElement(
+          "div",
+          { className: "bookItContainer" },
+          this.pricePerNight(),
+          this.bookingForm()
+        )
+      );
+    }
+  }]);
+
+  return BookIt;
+}(_react2.default.Component);
+
+exports.default = BookIt;
 
 /***/ })
 /******/ ]);
