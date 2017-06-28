@@ -3,17 +3,24 @@ import React from 'react';
 class BookIt extends React.Component {
   constructor(props) {
     super(props)
-
     this.state = {
-      start_date: "", /// just for now.... bookings not done yet
-      end_date: "",
+      startDate: "", /// just for now... bookings not done yet
+      endDate: "",
       guests: ""
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
   }
 
   handleSelectChange(property) {
     return e => this.setState({ [property]: e.target.value });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const input = Object.assign({}, this.state);
+		this.props.receiveInput(input);
+    this.setState({startDate: "", endDate: "", guests: ""});
   }
 
   pricePerNight(){
@@ -39,14 +46,14 @@ class BookIt extends React.Component {
 
     return (
       <div>
-        <div className="row-condensed">
+        <form className="row-condensed">
           <div>
 
             <div className="checking-col">
               <label className="guest-check">Check In</label>
 
               <input className="check-in date-select"
-                onChange={this.handleSelectChange('start_date')}
+                onChange={this.handleSelectChange('startDate')}
                 placeholder="mm/dd/yyyy"/>
             </div>
 
@@ -54,7 +61,7 @@ class BookIt extends React.Component {
               <label className="guest-check">Check Out</label>
 
               <input className="check-out date-select"
-                onChange={this.handleSelectChange('end_date')}
+                onChange={this.handleSelectChange('endDate')}
                 placeholder="mm/dd/yyyy"/>
             </div>
 
@@ -71,30 +78,29 @@ class BookIt extends React.Component {
                 </div>
 
           </div>
-          <button className="pinkButton book-btn">
-            <span className="btn-text">
-              Book
-            </span>
+
+          <button onSubmit={this.handleSubmit}
+            className="pinkButton book-btn">
+            <span className="btn-text">Book</span>
           </button>
 
           <div className='margin-top-8px'>
             <span className="disclaimer book-disc">You won't be charged yet, but you'll give me a paycheck soon.</span>
           </div>
-        </div>
+        </form>
 
       </div>
     )
   }
 
   render() {
+    debugger
     return (
       <div className="book-it">
         <div className="bookItContainer">
           {this.pricePerNight()}
           {this.bookingForm()}
         </div>
-
-
       </div>
     )
   }

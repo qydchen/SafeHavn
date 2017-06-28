@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 	validates :email, :password_digest, :session_token, presence: true
 	validates :email, uniqueness: true
 	validates :password, length: { minimum: 6, allow_nil: true }
+  validate :validate_age
 
 	after_initialize :ensure_session_token
 	before_validation :ensure_session_token_uniqueness
@@ -38,13 +39,13 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
 
-
   def reset_session_token!
     self.session_token = User.generate_session_token
     ensure_session_token_uniqueness
     self.save!
     self.session_token
   end
+
 
   private
   def ensure_session_token
@@ -57,4 +58,14 @@ class User < ActiveRecord::Base
 			self.session_token = new_session_token
 		end
 	end
+
+  def birth_date
+    Date.parse("#{month}/#{day}/#{year}")
+  end
+
+  def validate_age
+    if birth_date.present? && birth_date > 18.years.ago
+      errors.add(:birth_day, 'is under 18 years.')
+    end
+  end
 end

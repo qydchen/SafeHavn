@@ -1,8 +1,7 @@
 json.extract! trip,
   :id,
-  :visitor_id,
-  :home_id,
-  :host_id,
+  :home,
+  :visitor,
   :start_date,
   :end_date,
   :num_guests

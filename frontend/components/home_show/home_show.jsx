@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 import HomeShowContainer from './home_show_container';
 import HomeDetail from './home_detail';
-import BookIt from './book_it'
+import BookIt from '../trip/book_it';
 import Footer from '../footer';
 
 // shows a single listing

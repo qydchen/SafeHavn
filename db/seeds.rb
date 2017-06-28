@@ -44,7 +44,7 @@ def title
 end
 
 def price
-  (rand(0..500))
+  (rand(49..500))
 end
 
 def address
@@ -52,19 +52,19 @@ def address
 end
 
 def bathrooms
-  (rand(0..5))
+  (rand(1..5))
 end
 
 def bedrooms
-  (rand(0..6))
+  (rand(1..6))
 end
 
 def max_guests
-  (rand(0..12))
+  (rand(2..12))
 end
 
 def beds
-  (rand(0..8))
+  (rand(1..8))
 end
 
 def property_type

@@ -4,9 +4,9 @@ import { fetchHome } from '../../actions/home_actions';
 import HomeShow from './home_show';
 import { withRouter } from 'react-router-dom';
 
-const mapStateToProps = (state, {match}) => { //remember the entities is nexted in home which is nested in state
+const mapStateToProps = ({ home }, {match}) => { //remember the entities is nexted in home which is nested in state
   const homeid = match.params.homeid;
-  const listing = state.home[homeid];
+  const listing = home[homeid];
 
   return {
     homeid,
