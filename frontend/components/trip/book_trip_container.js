@@ -1,33 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createTrip } from '../../actions/trip_actions';
-import { fetchHome } from '../../actions/home_actions';
 import { receiveInput } from '../../actions/input_actions';
-import BookIt from './book_it';
 import BookTrip from './book_trip';
 import { withRouter } from 'react-router-dom';
+import { fetchHome } from '../../actions/home_actions';
+import { createTrip } from '../../actions/trip_actions';
 
-const mapStateToProps = ({home, inputs, trips, session}, {match}) => {
+const mapStateToProps = ({session, home, inputs}, {match}) => {
   const homeid = match.params.homeid;
   const listing = home[homeid];
   return {
-    inputs,
-    listing,
-    trips,
+    currentUser: session.currentUser,
     homeid,
-    currentUser: session.currentUser
+    listing,
+    inputs
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     createTrip: trip => dispatch(createTrip(trip)),
-    receiveInput: inputs => dispatch(receiveInput(inputs)),
-    fetchHome: id => dispatch(fetchHome(id)),
+    fetchHome: id => dispatch(fetchHome(id))
   }
 };
 
 export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(BookIt));
+)(BookTrip));

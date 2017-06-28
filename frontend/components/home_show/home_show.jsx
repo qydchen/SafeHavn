@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 import HomeShowContainer from './home_show_container';
 import HomeDetail from './home_detail';
-import BookTripContainer from '../trip/book_trip_container';
+import BookIt from '../trip/book_it';
 import Footer from '../footer';
 
 // shows a single listing
@@ -22,7 +22,7 @@ class HomeShow extends React.Component {
   }
 
   render() {
-    const { listing, homeid, fetchHome } = this.props;
+    const { listing, homeid, fetchHome, currentUser, receiveInput, clearErrors, openModal } = this.props;
     if (listing === undefined) {
 
       return (
@@ -54,7 +54,12 @@ class HomeShow extends React.Component {
               </div>
 
               <div className="to-book-it-divider">
-                <BookTripContainer/>
+                <BookIt
+                  listing={listing}
+                  currentUser={currentUser}
+                  receiveInput={receiveInput}
+                  openModal={openModal}
+                  clearErrors={clearErrors}/>
               </div>
 
             </div>

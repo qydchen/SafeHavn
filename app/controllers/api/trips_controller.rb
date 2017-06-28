@@ -8,7 +8,7 @@ class Api::TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.find_by(trip_params)
+    @trip = Trip.new(trip_params)
     if @trip.save
       render :show
     else

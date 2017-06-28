@@ -1,0 +1,8 @@
+SafeHavn@1.0.0 /Users/qyc/Desktop/SafeHavn
+├── moment@2.18.1 
+├── react@15.6.1 
+├── react-addons-shallow-compare@15.6.0 
+├── react-dates@12.2.1 
+├── react-dom@15.6.1 
+└── UNMET PEER DEPENDENCY webpack@3.0.0
+

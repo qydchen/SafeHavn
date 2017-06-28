@@ -4,57 +4,79 @@ import { withRouter } from 'react-router-dom';
 class BookTrip extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   guests: ""
-    // };
+    this.state = {
+      num_guests: ""
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     // this.handleSelectChange = this.handleSelectChange.bind(this);
   }
 
+  componentDidMount() {
+    if (this.props.currentUser) {
+      this.props.fetchHome(this.props.homeid);
+      this.setState({num_guests: this.props.inputs.guests})
+    } else {
+      return (
+        <div className="loading">You are not logged in</div>
+      )
+    }
+  };
+
+  componentDidUpdate() {
+    if (this.props.currentUser === null) {
+      this.props.history.push(`/`);
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    const input = Object.assign({}, this.state, this.props.inputs);
-		this.props.receiveInput(input); // after this, move to next screen
-  }
+    const trip = {
+      visitor_id: this.props.currentUser.id,
+      home_id: this.props.homeid,
+      start_date: this.props.inputs.startDate,
+      end_date: this.props.inputs.endDate,
+      num_guests: this.state.num_guests
+    };
+
+		this.props.createTrip(trip).then(this.props.history.push(`/`));
+  };
 
   handleSelectChange(property) {
     return e => this.setState({ [property]: e.target.value });
-  }
+  };
 
-  // selectGuests() {
-  //   const options = [
-  //     <option value={this.props.guests} key={0}>{this.props.guests} guests</option>
-  //   ];
-  //   for (let i = 1; i <= this.props.listing.max_guests; i++) {
-  //     if (i === 1) {
-  //       options.push(
-  //         <option value={i}
-  //           key={i}
-  //         >{i} guest</option>
-  //       );
-  //     } else {
-  //       options.push(
-  //         <option value={i}
-  //         key={i}
-  //         >{i} guests</option>
-  //       );
-  //     }
-  //   }
-  //
-  //   return (
-  //     <div className="book-column">
-  //       <div className='select-container'>
-  //         <label className="book-label"/>Who's coming?
-  //         <div className='select-dd-container'>
-  //           <select className='select-dropdown' value={this.state.guests}
-  //             onChange={this.handleSelectChange('guests')}
-  //           >{options}</select>
-  //           <span className="dropdown-arrow"></span>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
+
+  // cost() {
+  //   return this.listing.price *
   // }
+
+  selectGuests() {
+    debugger
+    const options = [
+      <option value="1" key={1}>1 guest</option>
+    ];
+    for (let i = 2; i <= this.props.listing.space.max_guests; i++) {
+      options.push(
+        <option value={i}
+        key={i}
+        >{i} guests</option>
+      )
+    };
+
+    return (
+      <div className="book-column">
+        <div className='select-container book-txt'>
+          <label className="book-label"/>Who's coming?
+          <div className='select-dd-container book-dd'>
+            <select className='select-dropdown select-bk-dd' value={this.state.num_guests}
+              onChange={this.handleSelectChange('num_guests')}
+            >{options}</select>
+            <span className="dropdown-arrow"></span>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   bookingRightPanel() {
     return (
@@ -70,7 +92,7 @@ class BookTrip extends React.Component {
           <div className="post-fix">
             <svg className="emico"/>>
           </div>
-          <div className="tot-price">${this.cost()}</div>
+          <div className="tot-price">$THIS DOT COST</div>
         </div>
 
         <div className="bk-price-row">
@@ -90,33 +112,39 @@ class BookTrip extends React.Component {
     )
 
   }
-  // {this.selectGuests()}
 
-  render () {
-    return (
-      <section className="book-trip-page">
-        <form className="book-trip-form" onSubmit={this.handleSubmit}>
+  render() {
+    if (this.props.listing === undefined) {
+      return (
+        <div className="loading">Fetching listing</div>
+      );
+    } else {
+      return (
+        <section className="book-trip-page">
+          <form className="book-trip-form" onSubmit={this.handleSubmit}>About Your Trip
 
-          <label className="subscribe-lab">
-            <div className="subscribe-img">
-              <input type="checkbox" className="subbox-input"/>
+          {this.selectGuests()}
+            <label className="subscribe-lab">
+              <div className="subscribe-img">
+                <input type="checkbox" className="subbox-input subscribe-info "/>
+              </div>
+              <div className="subscribe-info pet-info">Bringing a pet?</div>
+            </label>
+
+            <div className="say-hello-container">Say hello to your host and tell them why you're coming:
+              <textarea className="say-hello" placeholder="Visiting family or friends? See the sights? This helps your host plan for your trip."/>
             </div>
-            <div className="subscribe-info">Bringing a pet?</div>
-          </label>
+            <button className="pinkButton bk-tp-btn">
+              <span className="btn-text">
+                Book
+              </span>
+            </button>
+          </form>
 
-          <div className="say-hello-container">Say hello to your host and tell them why you're coming:
-            <textbox className="say-hello" placeholder="Visiting family or friends? See the sights? This helps your host plan for your trip."/>
-          </div>
-          <button className="pinkButton">
-            <span className="btn-text">
-              Book
-            </span>
-          </button>
-        </form>
-
-        {this.bookingRightPanel()}
-      </section>
-    )
+          {this.bookingRightPanel()}
+        </section>
+      )
+    }
   }
 }
 

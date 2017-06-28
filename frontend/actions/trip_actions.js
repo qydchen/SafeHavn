@@ -21,28 +21,24 @@ export const receiveDeletedTrip = id => ({
 
 export const fetchTrips = () => dispatch => (
   APIUtil.fetchTrips().then(trips => (
-    dispatch(receiveTrips(trips))),
-    (err => dispatch(receiveErrors(err.responseJSON)))
+    dispatch(receiveTrips(trips)))
   )
 );
 
 export const fetchTrip = id => dispatch => (
   APIUtil.fetchTrip(id).then(trip => (
-    dispatch(receiveTrip(trip))),
-    (err => dispatch(receiveErrors(err.responseJSON)))
+    dispatch(receiveTrip(trip)))
   )
 );
 
 export const createTrip = trip => dispatch => (
   APIUtil.createTrip(trip).then(trip => (
-    dispatch(receiveTrip(trip))),
-    (err => dispatch(receiveErrors(err.responseJSON)))
+    dispatch(receiveTrip(trip)))
   )
 );
 
 export const deleteTrip = id => dispatch => (
   APIUtil.deleteTrip(id).then(trip => (
-    dispatch(receiveDeletedTrip(trip))),
-    (err => dispatch(receiveErrors(err.responseJSON)))
+    dispatch(receiveDeletedTrip(trip)))
   )
 )

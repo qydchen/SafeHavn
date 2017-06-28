@@ -6,8 +6,8 @@ const defaultState = {
   startDate: "",
   endDate: "",
   guests: 0,
-  showPayment: false,
-  pageToShow: 1
+  // showPayment: false,
+  // pageToShow: 1
 };
 
 
@@ -20,7 +20,7 @@ const UserInputReducer = (state = defaultState, action) => {
       let endDate = action.endDate;
       let guests = action.guests;
       if (startDate && endDate && guests) {
-          return newState = merge({}, state, { startDate, endDate, guests, showPayment: true, pageToShow: 2 })
+          return newState = merge({}, state, { startDate, endDate, guests })
       } else {
         return state;
       };

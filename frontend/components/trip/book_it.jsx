@@ -1,6 +1,10 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import BookTrip from './book_trip';
+import Modal from "react-modal";
+import SessionFormContainer from "../session_form/session_form_container";
+import { DateRangePicker } from 'react-dates';
+import { START_DATE, END_DATE } from 'react-dates/constants;'
+
 
 class BookIt extends React.Component {
   constructor(props) {
@@ -9,28 +13,38 @@ class BookIt extends React.Component {
       startDate: "", /// just for now... bookings not done yet
       endDate: "",
       guests: ""
-    }
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
-    this.navigateToPayment = this.navigateToPayment.bind(this);
+    this.navigateToBookTrip = this.navigateToBookTrip.bind(this);
+    this.clearErrorsAndOpenModal = this.clearErrorsAndOpenModal.bind(this);
+  };
+
+  clearErrorsAndOpenModal(component){
+    this.props.clearErrors();
+    this.props.openModal(component);
   }
 
   handleSelectChange(property) {
     return e => this.setState({ [property]: e.target.value });
-  }
+  };
 
-  navigateToPayment() {
+  navigateToBookTrip() {
     const url = `/homes/${this.props.match.params.homeid}/book`
     this.props.history.push(url);
-  }
+  };
 
   handleSubmit(e) {
     e.preventDefault();
     const input = Object.assign({}, this.state);
-		this.props.receiveInput(input); // after this, move to next screen
-    this.navigateToPayment();
-    this.setState({startDate: "", endDate: "", guests: ""});
-  }
+		if (this.props.currentUser) {
+      this.props.receiveInput(input); // after this, move to next screen
+      this.navigateToBookTrip();
+      this.setState({startDate: "", endDate: "", guests: ""});
+    } else {
+      this.clearErrorsAndOpenModal(<SessionFormContainer formType="signup"/>)
+    }
+  };
 
   pricePerNight(){
     return (
@@ -40,7 +54,17 @@ class BookIt extends React.Component {
         <div className="per-night">per night</div>
       </div>
     )
-  }
+  };
+
+  // renderErrors() {
+  //   if (!this.props.currentUser) {
+  //     return (<li><h2>Not Logged In</h2></li>);
+  //   } else if (this.props.errors) {
+  //     return (this.props.errors.map((err, idx) => {
+  //       return (<li key={idx}>{ err }</li>);
+  //     }));
+  //   }
+  // }
 
   bookingForm() {
     const options = [
@@ -53,26 +77,41 @@ class BookIt extends React.Component {
       );
     }
 
+    // <div className="checking-col">
+    // <label className="guest-check">Check In</label>
+    //
+    // <input className="check-in date-select"
+    // onChange={this.handleSelectChange('startDate')}
+    // placeholder="mm/dd/yyyy"/>
+    // </div>
+    //
+    // <div className="checking-col">
+    // <label className="guest-check">Check Out</label>
+    //
+    // <input className="check-out date-select"
+    // onChange={this.handleSelectChange('endDate')}
+    // placeholder="mm/dd/yyyy"/>
+    // </div>
     return (
       <div>
         <form className="row-condensed">
           <div>
 
-            <div className="checking-col">
-              <label className="guest-check">Check In</label>
+          <div className="guest-check">
+            <p>Check In</p>
+            <p>Check Out</p>
+          </div>
 
-              <input className="check-in date-select"
-                onChange={this.handleSelectChange('startDate')}
-                placeholder="mm/dd/yyyy"/>
+          <div className="checking-col">
+            <div className="date-range-calendar">
+              <DateRangePicker
+                startDate={ this.state.startDate }
+                endDate={ this.state.endDate }
+                onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
+                focusedInput={ this.state.focusedInput }
+                onFocusChange={ focusedInput => this.setState({ focusedInput }) } />
             </div>
-
-            <div className="checking-col">
-              <label className="guest-check">Check Out</label>
-
-              <input className="check-out date-select"
-                onChange={this.handleSelectChange('endDate')}
-                placeholder="mm/dd/yyyy"/>
-            </div>
+          </div>
 
           </div>
         <div className="guest-dd-container">
@@ -100,32 +139,20 @@ class BookIt extends React.Component {
 
       </div>
     )
-  }
+  };
 
-  pageToShow() {
-    if (this.props.pageToShow === 1) {
-      return (
+  render() {
+    return (
+      <div className="book-body">
         <div className="book-it">
           <div className="bookItContainer">
             {this.pricePerNight()}
             {this.bookingForm()}
           </div>
         </div>
-      );
-    } else if (this.props.pageToShow === 2) {
-      return (
-        <BookTrip />
-      )
-    }
-  }
-
-  render() {
-    return (
-      <div className="book-body">
-        {this.pageToShow()}
       </div>
     )
-  }
+  };
 
 }
 
