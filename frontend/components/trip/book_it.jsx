@@ -1,4 +1,6 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+import BookTrip from './book_trip';
 
 class BookIt extends React.Component {
   constructor(props) {
@@ -10,16 +12,23 @@ class BookIt extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
+    this.navigateToPayment = this.navigateToPayment.bind(this);
   }
 
   handleSelectChange(property) {
     return e => this.setState({ [property]: e.target.value });
   }
 
+  navigateToPayment() {
+    const url = `/homes/${this.props.match.params.homeid}/book`
+    this.props.history.push(url);
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const input = Object.assign({}, this.state);
-		this.props.receiveInput(input);
+		this.props.receiveInput(input); // after this, move to next screen
+    this.navigateToPayment();
     this.setState({startDate: "", endDate: "", guests: ""});
   }
 
@@ -79,7 +88,7 @@ class BookIt extends React.Component {
 
           </div>
 
-          <button onSubmit={this.handleSubmit}
+          <button onClick={this.handleSubmit}
             className="pinkButton book-btn">
             <span className="btn-text">Book</span>
           </button>
@@ -93,18 +102,31 @@ class BookIt extends React.Component {
     )
   }
 
-  render() {
-    debugger
-    return (
-      <div className="book-it">
-        <div className="bookItContainer">
-          {this.pricePerNight()}
-          {this.bookingForm()}
+  pageToShow() {
+    if (this.props.pageToShow === 1) {
+      return (
+        <div className="book-it">
+          <div className="bookItContainer">
+            {this.pricePerNight()}
+            {this.bookingForm()}
+          </div>
         </div>
+      );
+    } else if (this.props.pageToShow === 2) {
+      return (
+        <BookTrip />
+      )
+    }
+  }
+
+  render() {
+    return (
+      <div className="book-body">
+        {this.pageToShow()}
       </div>
     )
   }
 
 }
 
-export default BookIt;
+export default withRouter(BookIt);

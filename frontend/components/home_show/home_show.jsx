@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 import HomeShowContainer from './home_show_container';
 import HomeDetail from './home_detail';
-import BookIt from '../trip/book_it';
+import BookTripContainer from '../trip/book_trip_container';
 import Footer from '../footer';
 
 // shows a single listing
@@ -54,7 +54,7 @@ class HomeShow extends React.Component {
               </div>
 
               <div className="to-book-it-divider">
-                <BookIt listing={listing}/>
+                <BookTripContainer/>
               </div>
 
             </div>

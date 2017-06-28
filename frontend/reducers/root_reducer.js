@@ -5,7 +5,7 @@ import modal from './modal_reducer';
 import home from './home_reducer';
 import filters from './filter_reducer';
 import trips from './trip_reducer';
-// import inputs from './input_reducer';
+import inputs from './input_reducer';
 
 
 const RootReducer = combineReducers({
@@ -14,7 +14,7 @@ const RootReducer = combineReducers({
   home,
   filters,
   trips,
-  // inputs
+  inputs
 });
 
 export default RootReducer;
