@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
     class_name: :Trip,
     foreign_key: :visitor_id
 
+
 	def password=(password)
     @password = password
 		self.password_digest = BCrypt::Password.create(password)

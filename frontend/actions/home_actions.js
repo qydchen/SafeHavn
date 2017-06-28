@@ -20,43 +20,48 @@ export const receiveReview = review => ({
   review
 });
 
-export const receiveDeletedHome = home => ({
+export const receiveDeletedHome = id => ({
   type: RECEIVE_DELETION,
-  home
+  id
 });
 
 export const createReview = review => dispatch => (
   APIUtil.createReview(review).then(review => (
-    dispatch(receiveReview(review))
-  ))
+    dispatch(receiveReview(review))),
+    (err => dispatch(receiveErrors(err.responseJSON)))
+  )
 );
 
 export const fetchHomes = filters => dispatch => (
   APIUtil.fetchHomes(filters).then(homes => (
-    dispatch(receiveHomes(homes))
-  ))
+    dispatch(receiveHomes(homes))),
+    (err => dispatch(receiveErrors(err.responseJSON)))
+  )
 );
 
 export const fetchHome = id => dispatch => (
   APIUtil.fetchHome(id).then(home => (
-    dispatch(receiveHome(home))
-  ))
+    dispatch(receiveHome(home))),
+    (err => dispatch(receiveErrors(err.responseJSON)))
+  )
 );
 
 export const createHome = home => dispatch => (
   APIUtil.createHome(home).then(home => (
-    dispatch(receiveHome(home))
-  ))
+    dispatch(receiveHome(home))),
+    (err => dispatch(receiveErrors(err.responseJSON))))
 );
 
 export const updateHome = home => dispatch => (
   APIUtil.updateHome(home).then(home => (
-    dispatch(receiveHome(home))
-  ))
+    dispatch(receiveHome(home))),
+    (err => dispatch(receiveErrors(err.responseJSON)))
+  )
 );
 
 export const deleteHome = id => dispatch => (
   APIUtil.deleteHome(id).then(home => (
-    dispatch(receiveDeletedHome(home))
-  ))
-)
+    dispatch(receiveDeletedHome(home))),
+    (err => dispatch(receiveErrors(err.responseJSON)))
+  )
+);

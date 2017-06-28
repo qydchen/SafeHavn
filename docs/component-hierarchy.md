@@ -25,7 +25,7 @@ Sorting will sort and render based on the parameters.
 **FooterContainer**
 - Footer - About Us, Careers, my LinkedIn, my GitHub, etc. - DONE
 
-**SelectContainer**
+**HomeShowContainer**
 - Header DONE
 - PictureModal - will have carousel feature after clicking
 - NavigationContainer - Scrolls down to determined section - INCOMPLETE
@@ -78,7 +78,7 @@ Forms will fill out in order: property_type, space details, max_guests, title an
 |Path	| Component|
 |-----|----------|
 |"/"	| "HomesContainer"|
-|"/listings/:listingId"	| "SelectContainer"|
-|"/user/:id/trips" |	"TripsContainer"|
-|"/user/:id/book/" | "BookingsContainer" |
-|"/user/:id/host/list" | "ListingsContainer" |
+|"/homes/:homeid"	| "HomeShowContainer"|
+|"/users/:id/trips" |	"TripsContainer"|
+|"/homes/:id/book/" | "BookingsContainer" |
+|"/homes/:id/list/" | "ListingsContainer" |

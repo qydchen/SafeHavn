@@ -1,11 +1,12 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Route, Redirect, Switch, hashHistory } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import HeaderContainer from './header/header_container';
 import ModalContainer from './modal/modal_container';
 import HomeShowContainer from './home_show/home_show_container';
 import SearchContainer from './search/search_container.js';
+// import BookTripContainer from './trip/book_trip_container.js';
 
 // const _ensureLoggedIn = (nextState, replace) => {
 //   const currentUser = store.getState().session.currentUser;
@@ -24,5 +25,6 @@ const App = () => (
     </header>
   </div>
 );
+// <Route exact path="/homes/:homeid/book" component={BookTripContainer}/>
 
 export default App;

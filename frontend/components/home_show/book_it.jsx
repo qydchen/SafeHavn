@@ -5,8 +5,8 @@ class BookIt extends React.Component {
     super(props)
 
     this.state = {
-      checkin: "", /// just for now.... bookings not done yet
-      checkout: "",
+      start_date: "", /// just for now.... bookings not done yet
+      end_date: "",
       guests: ""
     }
     this.handleSelectChange = this.handleSelectChange.bind(this);
@@ -45,13 +45,17 @@ class BookIt extends React.Component {
             <div className="checking-col">
               <label className="guest-check">Check In</label>
 
-              <input className="check-in date-select" placeholder="mm/dd/yyyy"/>
+              <input className="check-in date-select"
+                onChange={this.handleSelectChange('start_date')}
+                placeholder="mm/dd/yyyy"/>
             </div>
 
             <div className="checking-col">
               <label className="guest-check">Check Out</label>
 
-              <input className="check-out date-select" placeholder="mm/dd/yyyy"/>
+              <input className="check-out date-select"
+                onChange={this.handleSelectChange('end_date')}
+                placeholder="mm/dd/yyyy"/>
             </div>
 
           </div>
@@ -67,7 +71,6 @@ class BookIt extends React.Component {
                 </div>
 
           </div>
-
           <button className="pinkButton book-btn">
             <span className="btn-text">
               Book

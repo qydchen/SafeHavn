@@ -58,7 +58,7 @@
       kitchen: true // "Kitchen"
     },
     description: "Heart of NYC. Extremely close to bars & nightlife. Close proximity to many attractions!",
-    cancellation: "Loose",
+    cancellation: "Flex",
     max_guests: 6,
     address: "123 Flex Street"
     trips: {
@@ -82,7 +82,7 @@
       visitor_id: 1,
       home_id: 1,
       host_id: 2,
-      start_date: { month: "Dec", day: 31, year: 2016 }
+      start_date: "11/11/2016"
       end_date: { month: "Jan", day: 3, year: 2017 }
     }
   }

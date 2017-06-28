@@ -6,13 +6,13 @@ const handleChange = (filter, updateFilter) => e => (
 
 export const PricingForm = ({ minPrice, maxPrice, updateFilter }) => (
   <div className="filter-col">
-    <label>Minimum Price ($):</label>
+    <label>Min. Price ($):</label>
     <input className="filter-container"
       type="number"
       value={minPrice ? minPrice : 0}
       onChange={handleChange('minPrice', updateFilter)}
     />
-    <label>Maximum Price ($):</label>
+    <label>Max. Price ($):</label>
     <input className="filter-container"
       type="number"
       value={maxPrice ? maxPrice : 0}
@@ -23,13 +23,13 @@ export const PricingForm = ({ minPrice, maxPrice, updateFilter }) => (
 
 export const HousingForm = ({ minHousing, maxHousing, updateFilter }) => (
   <div className="filter-col">
-    <label>Minimum Guests:</label>
+    <label>Min. Guests:</label>
     <input className="filter-container"
       type="number"
       value={minHousing ? minHousing : 1}
       onChange={handleChange('minHousing', updateFilter)}
     />
-    <label>Maximum Guests:</label>
+    <label>Max. Guests:</label>
     <input className="filter-container"
       type="number"
       value={maxHousing ? maxHousing : 12}
