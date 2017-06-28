@@ -6,12 +6,7 @@ class HomeIndex extends React.Component {
     super(props)
   }
 
-  // componentDidMount(){
-  //   this.props.updateFilter();
-  // }
-
   safeHavn(home) {
-
     return (
       <Link to={`/homes/${home.id}`} className="link-to">
         <div className="home-card">
@@ -38,20 +33,6 @@ class HomeIndex extends React.Component {
     )
   }
 
-// Room type = { "Entire home": "Have a place to yourself", "Private room": "Have your own room and shares some common spaces", "Shared room": "Stay in shared space, like a common room" }
-// Price range = 2 input fields... min and max
-// Instant Book =
-// More filters
-
-  // <label className="label-hidden"/>
-  // <div className='select-dd-container'>
-  //   <select className='select-dropdown'>
-  //     {options}
-  //   </select>
-  //   <span className="dropdown-arrow"></span>
-  // </div>
-
-
   render() {
     const { homes } = this.props;
     const homesIndex = homes.map((home, idx) => {
@@ -62,7 +43,6 @@ class HomeIndex extends React.Component {
       )
     })
     return (
-      // add model for the filters
       <div className="home-card-slider">
         <div className="cards">
         {homesIndex}

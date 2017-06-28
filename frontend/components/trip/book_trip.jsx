@@ -28,12 +28,6 @@ class BookTrip extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-  if (this.props.match.params.id !== nextProps.match.params.id) {
-    this.props.fetchHome(nextProps.match.params.id);
-    }
-  }
-
   handleSubmit(e) {
     e.preventDefault();
     const trip = {

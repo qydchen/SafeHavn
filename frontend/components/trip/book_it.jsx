@@ -1,8 +1,9 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import Modal from "react-modal";
 import SessionFormContainer from "../session_form/session_form_container";
 import { DateRangePicker } from 'react-dates';
+// import BookTripContainer from './book_trip_container.js';
 // import { START_DATE, END_DATE } from 'react-dates/constants;'
 
 
@@ -30,8 +31,9 @@ class BookIt extends React.Component {
   };
 
   navigateToBookTrip() {
-    const url = `/homes/${this.props.match.params.homeid}/book`
+    const url = `/homes/${this.props.match.params.homeid}/book`;
     this.props.history.push(url);
+    // <Link to={`/homes/${this.props.match.params.homeid}/book`} component={BookTripContainer} />
   };
 
   handleSubmit(e) {
