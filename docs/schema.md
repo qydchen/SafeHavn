@@ -36,7 +36,6 @@ room_type   | string   |
 column name | data type | details
 ------------|-----------|-----------------------
 visitor_id  | integer   | not null, foreign key (users), indexed
-host_id     | integer   | not null, foreign key (users), indexed
 home_id     | integer   | not null, foreign key (homes), indexed
 start_date  | date      | not null
 end_date    | date      | not null

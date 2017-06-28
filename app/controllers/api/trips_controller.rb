@@ -9,6 +9,7 @@ class Api::TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
+    @trip.visitor = current_user
     if @trip.save
       render :show
     else
@@ -38,7 +39,7 @@ class Api::TripsController < ApplicationController
 
   private
   def trip_params
-    params.require(:trip).permit(:home_id, :visitor_id, :start_date, :end_date, :num_guests)
+    params.require(:trip).permit(:home_id, :host_id, :start_date, :end_date, :num_guests)
   end
 
 end

@@ -13,13 +13,13 @@ export const fetchTrip = id => (
   })
 );
 
-export const createTrip = data => (
+export const createTrip = trip => (
   $.ajax({
     method: 'POST',
     url: 'api/trips',
-    data,
-    contentType: false,
-    processData: false,
+    data: trip,
+    // contentType: false,
+    // processData: false,
   })
 );
 

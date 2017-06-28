@@ -3,15 +3,15 @@ import { withRouter } from 'react-router-dom';
 import Modal from "react-modal";
 import SessionFormContainer from "../session_form/session_form_container";
 import { DateRangePicker } from 'react-dates';
-import { START_DATE, END_DATE } from 'react-dates/constants;'
+// import { START_DATE, END_DATE } from 'react-dates/constants;'
 
 
 class BookIt extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      startDate: "", /// just for now... bookings not done yet
-      endDate: "",
+      startDate: null, /// just for now... bookings not done yet
+      endDate: null,
       guests: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -77,40 +77,22 @@ class BookIt extends React.Component {
       );
     }
 
-    // <div className="checking-col">
-    // <label className="guest-check">Check In</label>
-    //
-    // <input className="check-in date-select"
-    // onChange={this.handleSelectChange('startDate')}
-    // placeholder="mm/dd/yyyy"/>
-    // </div>
-    //
-    // <div className="checking-col">
-    // <label className="guest-check">Check Out</label>
-    //
-    // <input className="check-out date-select"
-    // onChange={this.handleSelectChange('endDate')}
-    // placeholder="mm/dd/yyyy"/>
-    // </div>
     return (
       <div>
         <form className="row-condensed">
           <div>
-
-          <div className="guest-check">
-            <p>Check In</p>
-            <p>Check Out</p>
-          </div>
-
-          <div className="checking-col">
-            <div className="date-range-calendar">
-              <DateRangePicker
-                startDate={ this.state.startDate }
-                endDate={ this.state.endDate }
-                onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
-                focusedInput={ this.state.focusedInput }
-                onFocusChange={ focusedInput => this.setState({ focusedInput }) } />
+            <div className="guest-header">
+              <div className="guest-check">Check In</div>
+              <div className="guest-check">Check Out</div>
             </div>
+          <div className="date-range-calendar" placeholder='mm/dd/yyyy'>
+            <DateRangePicker
+              startDate={ this.state.startDate }
+              endDate={ this.state.endDate }
+              onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
+              focusedInput={ this.state.focusedInput }
+              onFocusChange={ focusedInput => this.setState({ focusedInput }) }
+              />
           </div>
 
           </div>

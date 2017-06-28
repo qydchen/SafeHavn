@@ -8,7 +8,7 @@ class BookTrip extends React.Component {
       num_guests: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleSelectChange = this.handleSelectChange.bind(this);
+    this.handleSelectChange = this.handleSelectChange.bind(this);
   }
 
   componentDidMount() {
@@ -29,16 +29,16 @@ class BookTrip extends React.Component {
   }
 
   handleSubmit(e) {
+    debugger;
     e.preventDefault();
     const trip = {
-      visitor_id: this.props.currentUser.id,
       home_id: this.props.homeid,
-      start_date: this.props.inputs.startDate,
-      end_date: this.props.inputs.endDate,
-      num_guests: this.state.num_guests
+      start_date: this.props.inputs.startDate.toDate(),
+      end_date: this.props.inputs.endDate.toDate(),
+      num_guests: parseInt(this.state.num_guests)
     };
-
-		this.props.createTrip(trip).then(this.props.history.push(`/`));
+    debugger;
+		this.props.createTrip({trip}).then(this.props.history.push(`/`));
   };
 
   handleSelectChange(property) {
@@ -51,7 +51,6 @@ class BookTrip extends React.Component {
   // }
 
   selectGuests() {
-    debugger
     const options = [
       <option value="1" key={1}>1 guest</option>
     ];
@@ -121,7 +120,7 @@ class BookTrip extends React.Component {
     } else {
       return (
         <section className="book-trip-page">
-          <form className="book-trip-form" onSubmit={this.handleSubmit}>About Your Trip
+          <form className="book-trip-form">About Your Trip
 
           {this.selectGuests()}
             <label className="subscribe-lab">
@@ -134,7 +133,7 @@ class BookTrip extends React.Component {
             <div className="say-hello-container">Say hello to your host and tell them why you're coming:
               <textarea className="say-hello" placeholder="Visiting family or friends? See the sights? This helps your host plan for your trip."/>
             </div>
-            <button className="pinkButton bk-tp-btn">
+            <button className="pinkButton bk-tp-btn" onClick={(e) => this.handleSubmit(e)}>
               <span className="btn-text">
                 Book
               </span>

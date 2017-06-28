@@ -71,10 +71,8 @@
   align-content: center;
 }
 
-.checking-col {
-  display: inline-block;
-  margin: 0;
-  width: 50%;
+.guest-header {
+  display: flex;
 }
 
 .guest-check {
@@ -82,6 +80,7 @@
   padding-bottom: 8px;
   font-weight: 400;
   font-size: 15px !important;
+  width: 50%;
 }
 
 .guest-dd-container {

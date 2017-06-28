@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170627213804) do
+ActiveRecord::Schema.define(version: 20170628193951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(version: 20170627213804) do
 
   create_table "trips", force: :cascade do |t|
     t.integer  "visitor_id", null: false
-    t.integer  "host_id",    null: false
     t.integer  "home_id",    null: false
     t.date     "start_date", null: false
     t.date     "end_date",   null: false
@@ -81,7 +80,6 @@ ActiveRecord::Schema.define(version: 20170627213804) do
   end
 
   add_index "trips", ["home_id"], name: "index_trips_on_home_id", using: :btree
-  add_index "trips", ["host_id"], name: "index_trips_on_host_id", using: :btree
   add_index "trips", ["visitor_id"], name: "index_trips_on_visitor_id", using: :btree
 
   create_table "users", force: :cascade do |t|
