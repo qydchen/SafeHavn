@@ -136,4 +136,4 @@ class BookIt extends React.Component {
 
 }
 
-export default BookIt;
+export default withRouter(BookIt);

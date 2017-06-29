@@ -11,6 +11,10 @@ class TripIndex extends React.Component {
     this.props.fetchTrips();
   }
 
+  // componentWillReceiveProps() {
+  //
+  // }
+
   render() {;
     const tripsIndex = this.props.trips.map((trip, idx) => {
       return (
