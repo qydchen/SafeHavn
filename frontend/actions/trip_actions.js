@@ -14,9 +14,9 @@ export const receiveTrip = trip => ({
   trip
 });
 
-export const receiveDeletedTrip = id => ({
+export const receiveDeletedTrip = trip => ({
   type: RECEIVE_DELETION,
-  id
+  trip
 });
 
 export const fetchTrips = (visitorid) => dispatch => (
@@ -37,8 +37,8 @@ export const createTrip = trip => dispatch => (
   )
 );
 
-export const deleteTrip = id => dispatch => (
-  APIUtil.deleteTrip(id).then(trip => (
+export const deleteTrip = trip => dispatch => (
+  APIUtil.deleteTrip(trip).then(trip => (
     dispatch(receiveDeletedTrip(trip)))
   )
 )

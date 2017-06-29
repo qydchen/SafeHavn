@@ -10,7 +10,7 @@ class BookIt extends React.Component {
     this.state = {
       startDate: null, /// just for now... bookings not done yet
       endDate: null,
-      guests: 1,
+      num_guests: 1,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
@@ -35,11 +35,14 @@ class BookIt extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    
     const input = Object.assign({}, this.state);
 		if (this.props.currentUser) {
+      
       this.props.receiveInput(input); // after this, move to next screen
       this.navigateToBookTrip();
     } else {
+      
       this.clearErrorsAndOpenModal(<SessionFormContainer formType="login"/>)
     }
   };
@@ -98,8 +101,8 @@ class BookIt extends React.Component {
             <div className='select-container'>
               <label className="guest-check">Guests</label>
                 <div className='select-dd-container'>
-                  <select className='select-dropdown guests' value={this.state.guests}
-                      onChange={this.handleSelectChange('guests')}>{options}
+                  <select className='select-dropdown guests' value={this.state.num_guests}
+                      onChange={this.handleSelectChange('num_guests')}>{options}
                   </select>
                     <span className="dropdown-arrow"></span>
                   </div>

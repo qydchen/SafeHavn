@@ -17,6 +17,7 @@ class HomeShow extends React.Component {
 
   componentWillReceiveProps(nextProps) {
   if (this.props.match.params.homeid !== nextProps.match.params.homeid) {
+    
     this.props.fetchHome(nextProps.match.params.homeid);
     }
   }

@@ -9,26 +9,31 @@ class TripIndexItem extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
+    
     this.props.deleteTrip(this.props.trip);
   }
 
   render() {
     const {trip} = this.props;
+    
     return (
       <div className='trip-card'>
         <div className='trip-padding'>
+          <div className='trip-image-container'>
+            <img className='trip-image' src={trip.image_url}/>
+          </div>
           <div className='trip-text'>
 
             <div className='trip-time'>
               <div className='scheduled-box'>
-                <div className='address-box'>{trip.home.address}</div>
-                <div>{trip.start_date} · {trip.num_guests} guests</div>
-                <div>{trip.home.description}</div>
+                <div className='address-box'>{trip.home.title}</div>
+                <div className="space-top">{trip.start_date} · {trip.num_guests} guests</div>
+                <div className="space-top">{trip.home.address}</div>
               </div>
             </div>
 
             <div className='trip-actions-wrap'>
-              <div className='trip-actions'>View Receipt</div>
+              <div className='trip-actions'>Paid ${trip.totalcost}</div>
             </div>
 
             <div className='trip-actions-wrap'>

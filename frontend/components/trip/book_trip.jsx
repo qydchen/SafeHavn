@@ -4,26 +4,34 @@ import React from 'react';
 class BookTrip extends React.Component {
   constructor(props) {
     super(props);
+    const end = this.props.inputs.endDate; //calculates the difference between days
+    const beg = this.props.inputs.startDate;
+    this.days = (end.diff(beg,"days"));
+    this.cost = this.props.listing.price * this.days;
+    this.cleaning = 20;
+    this.service = 35;
+    this.totalcost = this.cost + this.cleaning + this.service;
+    this.utcBeg = beg.format('MMM D, YYYY'); // makes days read like english
+    this.utcEnd = end.format('MMM D, YYYY');
     this.state = {
-      num_guests: ""
+      num_guests: this.props.inputs.num_guests,
+      totalcost: this.totalcost,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
   }
 
   componentDidMount() {
-    if (this.props.currentUser) {
-      this.setState({num_guests: this.props.inputs.guests});
+    if (this.props.loggedIn && this.props.inputs) {
+      
       this.props.fetchHome(this.props.homeid);
     } else {
-      return (
-        <div className="loading">You are not logged in</div>
-      )
+      return (<div className="loading">You are not logged in</div>)
     }
   };
 
   componentDidUpdate() {
-    if (this.props.currentUser === null) {
+    if (!this.props.loggedIn) {
       this.props.history.push(`/homes`);
     }
   }
@@ -34,7 +42,8 @@ class BookTrip extends React.Component {
       home_id: this.props.homeid,
       start_date: this.props.inputs.startDate.toDate(),
       end_date: this.props.inputs.endDate.toDate(),
-      num_guests: parseInt(this.state.num_guests)
+      num_guests: parseInt(this.state.num_guests),
+      totalcost: this.state.totalcost,
     }
 		this.props.createTrip({trip}).then(this.props.history.push(`/homes`));
   };
@@ -60,7 +69,7 @@ class BookTrip extends React.Component {
         <div className='select-container book-txt'>
           <label className="book-label"/>Who's coming?
           <div className='select-dd-container book-dd'>
-            <select className='select-dropdown select-bk-dd' value={this.state.num_guests}
+            <select className='select-dropdown select-bk-dd' value={this.props.inputs.num_guests}
               onChange={this.handleSelectChange('num_guests')}
             >{options}</select>
             <span className="dropdown-arrow"></span>
@@ -72,12 +81,6 @@ class BookTrip extends React.Component {
 
   bookingRightPanel() {
     const {inputs, listing} = this.props;
-    const end = inputs.endDate; //calculates the difference between days
-    const beg = inputs.startDate;
-    const days = (end.diff(beg,"days"));
-    const cost = listing.price * days;
-    const utcBeg = beg.format('MMM D, YYYY') // makes days read like english
-    const utcEnd = end.format('MMM D, YYYY')
     return (
       <section className="bk-right-panel">
         <div className="bk-pic-container">
@@ -93,47 +96,50 @@ class BookTrip extends React.Component {
         <div className="panel-body check-col calendar-position">
           <div className="cal-col">
             <div className="check-col">Check-in</div>
-            <div className="bk-checkin">{utcBeg}</div>
+            <div className="bk-checkin">{this.utcBeg}</div>
           </div>
           <div className="cal-col">
             <div className="check-col">Checkout</div>
-            <div className="bk-checkin">{utcEnd}</div>
+            <div className="bk-checkin">{this.utcEnd}</div>
           </div>
         </div>
         <div className="book-div"/>
         <div className="panel-body">
           <div className="bk-price-row">
-            <div className="price-calc">${listing.price} x {days} nights</div>
-            <div className="tot-price">${cost}</div>
+            <div className="price-calc">${listing.price} x {this.days} nights</div>
+            <div className="tot-price">${this.cost}</div>
           </div>
           <div className="bk-price-row">
             <div className="price-calc">Cleaning fee</div>
-            <div className="tot-price">$20</div>
+            <div className="tot-price">${this.cleaning}</div>
           </div>
           <div className="bk-price-row">
             <div className="price-calc">Service fee</div>
-            <div className="tot-price">$35</div>
+            <div className="tot-price">${this.service}</div>
           </div>
 
         </div>
         <div className="book-div"/>
         <div className="panel-body">
           <div className="total-txt">Total</div>
-          <div className="total-txt">${cost + 20 + 35}</div>
+          <div className="total-txt">${this.totalcost}</div>
         </div>
-
       </section>
     )
-
   }
 
   render() {
+    //or we can do querystring.... regardless this has to be in preloadedState...
 
+    //local storage - not stored in route or database; preloadedState...
+    
     if (this.props.listing === undefined) {
+      
       return (
         <div className="loading">Fetching listing</div>
       );
     } else {
+      
       return (
         <section className="book-trip-page">
           <form className="book-trip-form">About Your Trip

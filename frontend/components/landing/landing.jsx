@@ -13,8 +13,8 @@ class Landing extends React.Component {
 
   safeHavn(home) {
     return (
-      <Link to={`/homes/${home.id}`} className="link-to">
-        <div className="home-card">
+      <div className="home-card">
+        <Link to={`/homes/${home.id}`} className="link-to">
 
           <div className="show-card-container">
             <img className="show-card" src={home.image_url}/>
@@ -33,8 +33,8 @@ class Landing extends React.Component {
             <div className="reviews">DO THIS LATER reviews</div>
           </div>
 
-        </div>
-      </Link>
+        </Link>
+      </div>
     )
   }
 

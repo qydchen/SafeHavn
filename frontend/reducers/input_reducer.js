@@ -3,9 +3,9 @@ import { merge } from 'lodash';
 import { RECEIVE_INPUT } from '../actions/input_actions';
 
 const defaultState = {
-  startDate: "",
-  endDate: "",
-  guests: 0,
+  startDate: null,
+  endDate: null,
+  num_guests: 0,
   // showPayment: false,
   // pageToShow: 1
 };
@@ -18,9 +18,9 @@ const UserInputReducer = (state = defaultState, action) => {
     case RECEIVE_INPUT:
       let startDate = action.startDate;
       let endDate = action.endDate;
-      let guests = action.guests;
-      if (startDate && endDate && guests) {
-          return newState = merge({}, state, { startDate, endDate, guests })
+      let num_guests = action.num_guests;
+      if (startDate && endDate && num_guests) {
+        return newState = merge({}, state, { startDate, endDate, num_guests })
       } else {
         return state;
       };

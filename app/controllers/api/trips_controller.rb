@@ -1,7 +1,7 @@
 class Api::TripsController < ApplicationController
   def index
     if Trip.all.length != 0
-      @trips = Tripss.where(user_id: current_user.id)
+      @trips = Trip.where(visitor_id: current_user.id).includes(:home)
     else
       render json: "There are no booked trips"
     end
@@ -31,7 +31,7 @@ class Api::TripsController < ApplicationController
 
     if @trip.destroy
       @trip = current_user.trips
-      render :index
+      render :show
     else
       render json: @trip.errors.full_messages, status: 404
     end
@@ -39,7 +39,7 @@ class Api::TripsController < ApplicationController
 
   private
   def trip_params
-    params.require(:trip).permit(:home_id, :host_id, :start_date, :end_date, :num_guests)
+    params.require(:trip).permit(:home_id, :host_id, :start_date, :end_date, :num_guests, :totalcost)
   end
 
 end

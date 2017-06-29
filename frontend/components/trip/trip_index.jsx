@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 import TripIndexItem from './trip_index_item';
 
+
 class TripIndex extends React.Component {
   constructor(props) {
     super(props)
@@ -11,11 +12,8 @@ class TripIndex extends React.Component {
     this.props.fetchTrips();
   }
 
-  // componentWillReceiveProps() {
-  //
-  // }
-
-  render() {;
+  render() {
+    const { deleteTrip } = this.props;
     const tripsIndex = this.props.trips.map((trip, idx) => {
       return (
         <div className="trip-card-container" key={idx}>
@@ -26,9 +24,9 @@ class TripIndex extends React.Component {
 
     return (
       <div className="trip-slider">
-        <span className="trip-tit">Trips</span>
+        <span className="trip-tit">Your Trips</span>
         <div className="trip-cards">
-        {tripsIndex}
+          {tripsIndex}
         </div>
       </div>
     )

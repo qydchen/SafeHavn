@@ -22,7 +22,7 @@ class Header extends React.Component {
   }
 
   loggedInHeader() {
-    if (this.props.currentUser) {
+    if (this.props.loggedIn) {
       return (
         <div className="AuthButtons">
           <div className ="header-enter">
@@ -46,7 +46,7 @@ class Header extends React.Component {
   }
 
   logInHeader() {
-    if (!this.props.currentUser) {
+    if (!this.props.loggedIn) {
       return (
         <div className="AuthButtons">
           <div className ="header-enter">
@@ -67,38 +67,38 @@ class Header extends React.Component {
       )
     }
   }
-
-  filterHeader() {
-    return (
-      <div className="filter-header">
-        <div className="searchBarWrapper">
-          <div className="container">
-
-            <div className="searchContainer">
-              <label className="hidden">
-                <div className="geoCompleteContainer">
-                  <div className="prefixContainer"/>
-                  <div className="inputContainer">
-                    <input className="anywhereInput">
-                    </input>
-                  </div>
-                </div>
-              </label>
-            </div>
-          </div>
-          <div className="anytimeContainer">Anytime</div>
-          <div className="guestContainer">Guest</div>
-        </div>
-      </div>
-    )
-  }
+  //
+  // filterHeader() {
+  //   return (
+  //     <div className="filter-header">
+  //       <div className="searchBarWrapper">
+  //         <div className="container">
+  //
+  //           <div className="searchContainer">
+  //             <label className="hidden">
+  //               <div className="geoCompleteContainer">
+  //                 <div className="prefixContainer"/>
+  //                 <div className="inputContainer">
+  //                   <input className="anywhereInput">
+  //                   </input>
+  //                 </div>
+  //               </div>
+  //             </label>
+  //           </div>
+  //         </div>
+  //         <div className="anytimeContainer">Anytime</div>
+  //         <div className="guestContainer">Guest</div>
+  //       </div>
+  //     </div>
+  //   )
+  // }
 
   verticalNavWrapper() {
     let navWrap;
     let navCol1;
     let navCol2;
     let path = this.props.history.location.pathname;
-    if (path.match("/homes/")) {
+    if (path.match("/homes/") || path.match("/user/")) {
       navWrap = 'hidden';
     } else {
       navWrap = 'vertical-nav-wrapper';
@@ -124,13 +124,12 @@ class Header extends React.Component {
 
   render(){
     let path = this.props.history.location.pathname;
-    const headerClass = (path.match("/homes/")) ? "headerBar-relative show-page-bool" : "headerBar";
+    const headerClass = (path.match("/homes/") || path.match("/user/")) ? "headerBar-relative show-page-bool" : "headerBar";
     return (
       <div className={headerClass}>
         <div className="left">
           <a className="Logo" onClick={() => this.props.history.push("/")} ></a>
         </div>
-        {this.filterHeader()}
         {this.verticalNavWrapper()}
         {this.logInHeader()}
         {this.loggedInHeader()}
@@ -138,5 +137,6 @@ class Header extends React.Component {
     )
   }
 };
+// {this.filterHeader()}
 
 export default Header;

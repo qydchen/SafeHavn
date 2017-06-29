@@ -10,7 +10,7 @@ const mapStateToProps = ({session, homes, inputs}, {match}) => {
   const homeid = match.params.homeid;
   const listing = homes[homeid];
   return {
-    currentUser: session.currentUser,
+    loggedIn: Boolean(session.currentUser),
     homeid,
     listing,
     inputs

@@ -27,16 +27,12 @@
 #   "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/sea-landscape-sunset-290098.jpeg"
 # })
 
-def host_id
-  (rand(1..2))
-end
-
 def lat # NYC
-  (40.400000 + rand()*1.2)
+  (40.400000 + rand()*1)
 end
 
 def lng # NYC
-  (-74.100000 + rand()*1.2)
+  (-74.00000 + rand()*1.2)
 end
 
 def title
@@ -99,14 +95,14 @@ def cancellation
   (["Flexible", "Moderate", "Strict"].sample)
 end
 
-
+users = [
 User.create({"email": "guest@live.com",
   "first": "Ronald",
   "last": "McDonald",
   "password": "asdf1234",
   "month": 5,
   "day": 11,
-  "year": 1980})
+  "year": 1980}),
 User.create({
   "email": "david@qydc.com",
   "first": "Dav",
@@ -115,9 +111,10 @@ User.create({
   "month": 5,
   "day": 12,
   "year": 1991})
+]
 
 101.times do |i|
-  Home.create({"host_id": host_id,
+  Home.create({"host_id": users.sample.id,
     "lat": lat,
     "lng": lng,
     "title": title,
@@ -137,4 +134,18 @@ User.create({
     "cancellation": cancellation,
     "image": "https://s3.amazonaws.com/safehavns-dev/seeds/#{i}.jpg"
   })
+end
+
+
+
+500.times do |i|
+  Trip.create({
+    visitor_id: User.all.sample.id,
+    home_id: Home.all.sample.id,
+    start_date: Time.at(rand * Time.now.to_i),
+    end_date: Time.at(rand * Time.now.to_i),
+    num_guests: 1,
+    totalcost: rand(200..5000),
+    }
+  )
 end

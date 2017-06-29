@@ -23,7 +23,7 @@ const TripReducer = (state = defaultState, action) => {
 
     case RECEIVE_DELETION:
       newState = Object.assign({}, state);
-      delete newState[action.id];
+      delete newState[action.trip.id];
       return newState;
     default:
       return state;
