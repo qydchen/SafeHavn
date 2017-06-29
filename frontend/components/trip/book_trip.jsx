@@ -24,7 +24,7 @@ class BookTrip extends React.Component {
 
   componentDidUpdate() {
     if (this.props.currentUser === null) {
-      this.props.history.push(`/`);
+      this.props.history.push(`/homes`);
     }
   }
 
@@ -36,7 +36,7 @@ class BookTrip extends React.Component {
       end_date: this.props.inputs.endDate.toDate(),
       num_guests: parseInt(this.state.num_guests)
     }
-		this.props.createTrip({trip}).then(this.props.history.push(`/`));
+		this.props.createTrip({trip}).then(this.props.history.push(`/homes`));
   };
 
   handleSelectChange(property) {

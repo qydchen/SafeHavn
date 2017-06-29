@@ -4,9 +4,9 @@ import { selectAll } from '../../reducers/selectors';
 import { updateFilter } from '../../actions/filter_actions.js';
 import Search from './search';
 
-const mapStateToProps = ({ home, filters }) => {
+const mapStateToProps = ({ homes, filters }) => {
   return {
-    homes: selectAll(home),
+    homes: selectAll(homes),
     minHousing: filters.minHousing,
     maxHousing: filters.maxHousing,
     minPrice: filters.minPrice,

@@ -5,7 +5,6 @@ import { HousingForm, PricingForm } from './filter_form';
 
 class Search extends React.Component {
 
-
   filterBar() {
     return (
       <div className="filter-bar-index">
@@ -24,7 +23,6 @@ class Search extends React.Component {
       </div>
     )
   };
-
 
   render() {
     return (

@@ -79,6 +79,6 @@ Forms will fill out in order: property_type, space details, max_guests, title an
 |-----|----------|
 |"/"	| "HomesContainer"|
 |"/homes/:homeid"	| "HomeShowContainer"|
-|"/users/:id/trips" |	"TripsContainer"|
+|"/user/:id/trips" |	"TripsContainer"|
 |"/homes/:id/book/" | "BookingsContainer" |
 |"/homes/:id/list/" | "ListingsContainer" |

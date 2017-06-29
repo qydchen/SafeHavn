@@ -7,7 +7,7 @@ import ModalContainer from './modal/modal_container';
 import HomeShowContainer from './home_show/home_show_container';
 import SearchContainer from './search/search_container';
 import BookTripContainer from './trip/book_trip_container';
-
+import LandingContainer from './landing/landing_container';
 
 // const _ensureLoggedIn = (nextState, replace) => {
 //   const currentUser = store.getState().session.currentUser;
@@ -21,7 +21,8 @@ const App = () => (
     <header>
       <ModalContainer/>
       <Route path="/" component={HeaderContainer}/>
-      <Route exact path="/" component={SearchContainer}/>
+      <Route exact path="/" component={LandingContainer}/>
+      <Route exact path="/homes/" component={SearchContainer}/>
       <Route exact path="/homes/:homeid" component={HomeShowContainer}/>
       <Route exact path="/homes/:homeid/book" component={BookTripContainer}/>
     </header>

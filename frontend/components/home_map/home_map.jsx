@@ -62,7 +62,7 @@ class HomeMap extends React.Component {
 
   handleClick(coords) {
     this.props.history.push({
-      pathname: '/',
+      pathname: '/homes',
       search: `lat=${coords.lat}&lng=${coords.lng})`
     })
   }

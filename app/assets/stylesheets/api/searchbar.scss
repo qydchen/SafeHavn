@@ -1,109 +1,106 @@
-// 
+//
 // .filter-header {
-//   display: table-cell !important;
-//   width: 100% !important;
-//   vertical-align: middle !important;
+//   display: table-cell;
+//   width: 100%;
+//   vertical-align: middle;
 // }
 //
 // .searchBarWrapper {
-//   width: 572px !important;
-//   display: block !important;
-//   position: relative !important;
-//   top: 10px !important;
-//   right: 12px !important;
-//   z-index: 100 !important;
+//   width: 572px;
+//   display: block;
+//   position: relative;
+//   top: 10px;
+//   right: 12px;
+//   z-index: 100;
 // }
 //
 // .container {
-//   display: block !important;
-//   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-//   font-size: 19px !important;
-//   line-height: 24px !important;
-//   letter-spacing: undefined !important;
-//   padding-top: 0px !important;
-//   padding-bottom: 0px !important;
-//   color: #484848 !important;
-//   border-radius: 4px !important;
-//   border: 1px solid #DBDBDB !important;
-//   box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.08) !important;
-//   padding: 0px !important;
-//   display: table !important;
-//   table-layout: fixed !important;
-//   width: 100% !important;
-//   position: relative !important;
+//   display: block;
+//   font-size: 19px;
+//   line-height: 24px;
+//   letter-spacing: undefined;
+//   padding-top: 0px;
+//   padding-bottom: 0px;
+//   color: #484848;
+//   border-radius: 4px;
+//   border: 1px solid #DBDBDB;
+//   box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.08);
+//   padding: 0px;
+//   display: table;
+//   table-layout: fixed;
+//   width: 100%;
+//   position: relative;
 // }
 //
 // .searchContainer {
 //   background-image: asset-url('magnify.png');
 //
-//   display: table-cell !important;
-//   vertical-align: middle !important;
-//   position: relative !important;
-//   -webkit-transition: width 0.3s !important;
-//   -moz-transition: width 0.3s !important;
-//   transition: width 0.3s !important;
+//   display: table-cell;
+//   vertical-align: middle;
+//   position: relative;
+//   -webkit-transition: width 0.3s;
+//   -moz-transition: width 0.3s;
+//   transition: width 0.3s;
 //   width: 100%;
-//   z-index: 1 !important;
+//   z-index: 1;
 // }
 //
 // .hidden {
-//   position: absolute !important;
-//   display: block !important;
-//   border: 0px !important;
-//   margin: -1px !important;
-//   padding: 0px !important;
-//   height: 1px !important;
-//   width: 1px !important;
-//   clip: rect(0, 0, 0, 0) !important;
-//   overflow: hidden !important;
+//   position: absolute;
+//   display: block;
+//   border: 0px;
+//   margin: -1px;
+//   padding: 0px;
+//   height: 1px;
+//   width: 1px;
+//   clip: rect(0, 0, 0, 0);
+//   overflow: hidden;
 // }
 //
 // .geoCompleteContainer {
-//   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-//   font-size: 15px !important;
-//   line-height: 18px !important;
-//   letter-spacing: 0.2px !important;
-//   padding-top: 0px !important;
-//   padding-bottom: 0px !important;
-//   color: #484848 !important;
-//   border-width: 1px !important;
-//   border-style: solid !important;
-//   border-color: #ffffff !important;
-//   border-radius: 2px !important;
-//   background-color: #ffffff !important;
-//   margin-bottom: 0px !important;
-//   position: relative !important;
-//   z-index: 0 !important;
-//   margin-top: 0px !important;
-//   margin-left: 0px !important;
-//   margin-right: 0px !important;
-//   display: block !important;
-//   width: 100% !important;
+//   font-size: 15px;
+//   line-height: 18px;
+//   letter-spacing: 0.2px;
+//   padding-top: 0px;
+//   padding-bottom: 0px;
+//   color: #484848;
+//   border-width: 1px;
+//   border-style: solid;
+//   border-color: #ffffff;
+//   border-radius: 2px;
+//   background-color: #ffffff;
+//   margin-bottom: 0px;
+//   position: relative;
+//   z-index: 0;
+//   margin-top: 0px;
+//   margin-left: 0px;
+//   margin-right: 0px;
+//   display: block;
+//   width: 100%;
 // }
 //
 // .prefixContainer {
-//   float: left !important
+//   float: left
 // }
 //
 // .inputContainer {
-//   overflow: hidden !important;
-//   position: relative !important;
+//   overflow: hidden;
+//   position: relative;
 // }
 //
 // .anywhereInput {
-//   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-//   font-size: 15px !important;
-//   line-height: 18px !important;
-//   letter-spacing: 0.2px !important;
-//   padding-top: 0px !important;
-//   padding-bottom: 0px !important;
-//   color: #484848 !important;
-//   font-weight: normal !important;
-//   background-color: transparent !important;
-//   border: 0px !important;
-//   padding: 11px !important;
-//   width: 100% !important;
-//   text-overflow: ellipsis !important;
+//   font-size: 15px;
+//   line-height: 18px;
+//   letter-spacing: 0.2px;
+//   padding-top: 0px;
+//   padding-bottom: 0px;
+//   color: #484848;
+//   font-weight: normal;
+//   background-color: transparent;
+//   border: 0px;
+//   padding: 11px;
+//   width: 100%;
+//   text-overflow: ellipsis;
 // }
 //
 //

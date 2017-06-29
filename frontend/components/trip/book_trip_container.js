@@ -6,9 +6,9 @@ import { withRouter } from 'react-router-dom';
 import { fetchHome } from '../../actions/home_actions';
 import { createTrip } from '../../actions/trip_actions';
 
-const mapStateToProps = ({session, home, inputs}, {match}) => {
+const mapStateToProps = ({session, homes, inputs}, {match}) => {
   const homeid = match.params.homeid;
-  const listing = home[homeid];
+  const listing = homes[homeid];
   return {
     currentUser: session.currentUser,
     homeid,
