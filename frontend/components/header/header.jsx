@@ -26,7 +26,7 @@ class Header extends React.Component {
       return (
         <div className="AuthButtons">
           <div className ="header-enter">
-            <Link to={`/user/${this.props.currentUser.id}/trips`}>Your Trips</Link>
+            <Link to={`/user/${this.props.currentUser.id}/trips`} className="trip-link">Your Trips</Link>
           </div>
           <div className ="header-enter">
             <span> Host </span>

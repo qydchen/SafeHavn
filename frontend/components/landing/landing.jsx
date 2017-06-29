@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
+import Footer from '../footer';
 
 class Landing extends React.Component {
   constructor(props) {
@@ -52,6 +53,9 @@ class Landing extends React.Component {
         <span className="landing-tit">Homes</span>
         <div className="landing-cards">
         {homesIndex}
+        </div>
+        <div className='landing-footer'>
+          <Footer/>
         </div>
       </div>
     )
