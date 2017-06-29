@@ -1,3 +1,63 @@
 // Place all the styles related to the api/trips controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.trip-card {
+  border: 0;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.trip-padding {
+  width: 100%;
+  height: auto;
+  padding-bottom: 230px;
+  border: 1px #dce0e0 solid !important;
+  position: relative;
+}
+
+.trip-text {
+  text-align: center;
+  padding: 0;
+  margin-top: 0;
+  position: relative;
+  top: 230px;
+  font-size: 16px;
+}
+
+.trip-time {
+  width: 100%;
+  padding-bottom: 27px;
+  text-align: center;
+}
+
+.trip-actions-wrap {
+  padding: 0 20px;
+  height: auto;
+  text-align: center;
+}
+
+.scheduled-box {
+  padding: 0 20px;
+  color: #484848;
+}
+
+.address-box {
+  margin-bottom: 18px;
+}
+
+.trip-actions {
+  border: 0;
+  height: auto;
+  padding: 0 10px;
+}
+
+.trip-action-row {
+  border-top: 1px solid #bbb;
+  width: 100%;
+  padding: 15px 5px;
+  float: left;
+}

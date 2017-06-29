@@ -76,4 +76,4 @@ class HomeShow extends React.Component {
   }
 }
 
-export default HomeShow;
+export default withRouter(HomeShow);

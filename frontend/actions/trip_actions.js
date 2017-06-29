@@ -19,8 +19,8 @@ export const receiveDeletedTrip = id => ({
   id
 });
 
-export const fetchTrips = () => dispatch => (
-  APIUtil.fetchTrips().then(trips => (
+export const fetchTrips = (visitorid) => dispatch => (
+  APIUtil.fetchTrips(visitorid).then(trips => (
     dispatch(receiveTrips(trips)))
   )
 );

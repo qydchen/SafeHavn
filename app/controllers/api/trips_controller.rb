@@ -1,7 +1,7 @@
 class Api::TripsController < ApplicationController
   def index
     if Trip.all.length != 0
-      @trips = Trip.all
+      @trips = Tripss.where(user_id: current_user.id)
     else
       render json: "There are no booked trips"
     end

@@ -3,9 +3,6 @@ import { Link, withRouter } from 'react-router-dom';
 import Modal from "react-modal";
 import SessionFormContainer from "../session_form/session_form_container";
 import { DateRangePicker } from 'react-dates';
-// import BookTripContainer from './book_trip_container.js';
-// import { START_DATE, END_DATE } from 'react-dates/constants;'
-
 
 class BookIt extends React.Component {
   constructor(props) {
@@ -13,7 +10,7 @@ class BookIt extends React.Component {
     this.state = {
       startDate: null, /// just for now... bookings not done yet
       endDate: null,
-      guests: ""
+      guests: 1,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
@@ -139,4 +136,4 @@ class BookIt extends React.Component {
 
 }
 
-export default withRouter(BookIt);
+export default BookIt;

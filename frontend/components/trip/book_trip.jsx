@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
 
 class BookTrip extends React.Component {
   constructor(props) {
@@ -163,4 +163,4 @@ class BookTrip extends React.Component {
   }
 }
 
-export default withRouter(BookTrip);
+export default BookTrip;
