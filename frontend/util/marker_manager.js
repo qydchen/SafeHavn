@@ -20,15 +20,19 @@ export default class MarkerManager {
   }
 // layout.scss for styling
   createMarkerFromHome(home) {
+    const image = "https://s3.amazonaws.com/safehavns-dev/mark.png";
     const lat = home.lat;
     const lng = home.lng;
     let marker = new google.maps.Marker({
       position: {lat, lng},
-      label: "$"+String(home.price),
-      // labelClass: "maplabels",
-      // icon: }
-    	// 	url: asset-url('dialogue-box.png')
-    	// },
+      label: {
+        color: "#ffffff",
+        fontFamily: "Helvetica",
+        text: "$"+String(home.price),
+        fontSize: "14.5px",
+        fontWeight: "700",
+      },
+      icon: image,
       animation: google.maps.Animation.DROP,
       map: this.map,
       homeid: home.id
