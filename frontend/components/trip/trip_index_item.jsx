@@ -16,7 +16,7 @@ class TripIndexItem extends React.Component {
     const {trip} = this.props;
 
     return (
-      <div className='trip-card'>
+      <Link to={`/homes/${trip.home.id}`} className='trip-card'>
         <div className='trip-padding'>
           <div className='trip-image-container'>
             <img className='trip-image' src={trip.image_url}/>
@@ -41,7 +41,7 @@ class TripIndexItem extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </Link>
     )
   }
 }

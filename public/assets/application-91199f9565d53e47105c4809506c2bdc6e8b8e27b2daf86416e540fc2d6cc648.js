@@ -97273,8 +97273,8 @@ var TripIndexItem = function (_React$Component) {
 
 
       return _react2.default.createElement(
-        'div',
-        { className: 'trip-card' },
+        _reactRouterDom.Link,
+        { to: '/homes/' + trip.home.id, className: 'trip-card' },
         _react2.default.createElement(
           'div',
           { className: 'trip-padding' },
