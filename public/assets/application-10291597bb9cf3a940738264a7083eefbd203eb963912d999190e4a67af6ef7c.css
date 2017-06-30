@@ -1063,6 +1063,17 @@
   width: inherit;
 }
 /* line 1, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/footer.scss */
+.landing-footer {
+  padding-top: 48px;
+  padding-bottom: 48px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 224px;
+  padding-right: 24px;
+  border-top: 1px solid #DBDBDB;
+}
+
+/* line 11, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/footer.scss */
 .footer-container {
   padding-top: 48px;
   padding-bottom: 48px;
@@ -1074,7 +1085,7 @@
   border-top: 1px solid #DBDBDB;
 }
 
-/* line 12, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/footer.scss */
+/* line 22, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/footer.scss */
 .footer-links {
   font-weight: normal;
   color: #484848;
@@ -1089,7 +1100,7 @@
   width: 100%;
 }
 
-/* line 26, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/footer.scss */
+/* line 36, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/footer.scss */
 .footer-links-column {
   float: left;
   margin-left: 8.3333333333333%;
@@ -1099,7 +1110,7 @@
   position: relative;
 }
 
-/* line 35, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/footer.scss */
+/* line 45, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/footer.scss */
 .footer-column-category {
   font-weight: bold;
   font-size: 15px;
@@ -1107,22 +1118,22 @@
   display: block;
 }
 
-/* line 42, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/footer.scss */
+/* line 52, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/footer.scss */
 .dummy-link:hover {
   cursor: pointer;
 }
 
-/* line 46, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/footer.scss */
+/* line 56, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/footer.scss */
 .dummy-link {
   margin-bottom: 4px;
 }
 
-/* line 50, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/footer.scss */
+/* line 60, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/footer.scss */
 .bio {
   font-size: 16px;
 }
 
-/* line 54, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/footer.scss */
+/* line 64, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/footer.scss */
 .bio-link {
   font-size: 20px;
   color: blue;
@@ -1130,7 +1141,7 @@
   margin-bottom: 8px;
 }
 
-/* line 61, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/footer.scss */
+/* line 71, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/footer.scss */
 .bio-link:hover {
   opacity: 0.6;
 }
@@ -1205,6 +1216,83 @@
   padding-top: 12px !important;
   vertical-align: middle !important;
   white-space: nowrap !important;
+}
+
+/* line 68, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/header.scss */
+.vertical-nav-wrapper {
+  position: absolute;
+  left: 24px;
+  top: 64px;
+}
+
+/* line 74, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/header.scss */
+.nav-list {
+  border-bottom: none;
+  position: relative;
+}
+
+/* line 79, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/header.scss */
+.landing-card-container {
+  width: 25%;
+  display: inline-block;
+  vertical-align: top;
+  white-space: normal;
+  padding: 8px 0 12px 0;
+  position: relative;
+  background: #ffffff;
+  color: #484848;
+  height: 100%;
+}
+
+/* line 91, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/header.scss */
+.nav-cols1-select, .nav-cols2-select {
+  margin: 0 32px 0 0;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: #008489;
+  background-color: transparent;
+  border-width: 0px;
+  border-bottom: 2px solid #008489;
+  bottom: -1px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+  -moz-transition-property: color;
+  transition-property: color;
+  transition-duration: 300ms;
+  transition-timing-function: ease-out;
+}
+
+/* line 113, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/header.scss */
+.nav-cols1, .nav-cols2 {
+  margin: 0 32px 0 0;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: #484848;
+  border-width: 0px;
+  border-bottom: 2px solid transparent;
+  bottom: -1px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* line 130, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/header.scss */
+.nav-cols1-select:hover, .nav-cols2-select:hover, .nav-cols1:hover, .nav-cols2:hover {
+  text-decoration: none;
+}
+
+/* line 134, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/header.scss */
+.trip-link:hover {
+  text-decoration: none;
 }
 /* line 5, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/homes.scss */
 .single-listing-photocontainer {
@@ -1626,7 +1714,7 @@
 
 /* line 30, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/homes_index.scss */
 .home-card-container {
-  width: 33.3333333333% !important;
+  width: 33.333333% !important;
   display: inline-block !important;
   vertical-align: top;
   white-space: normal;
@@ -1781,6 +1869,119 @@
 /* line 179, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/homes_index.scss */
 .cards {
   margin-top: 80px;
+}
+/* line 1, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/landing.scss */
+.landing-tit {
+  font-family: sans-serif;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: -0.2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  color: #484848;
+  font-weight: 700;
+  margin-bottom: 0px;
+  margin-left: 32px;
+}
+
+/* line 15, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/landing.scss */
+.landing-slider {
+  width: 100%;
+  top: 115px;
+  z-index: 1;
+  padding-top: 15px;
+  position: relative;
+  overflow: hidden;
+  overflow-y: hidden;
+  white-space: normal;
+  margin-bottom: 0px;
+  padding: 0px;
+  overflow: visible;
+  white-space: normal;
+  margin-top: 0px;
+}
+
+/* line 31, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/landing.scss */
+.landing-slider:hover {
+  text-decoration: none;
+}
+/* line 1, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/map.scss */
+#description {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+/* line 7, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/map.scss */
+#infowindow-content .title {
+  font-weight: bold;
+}
+
+/* line 11, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/map.scss */
+#infowindow-content {
+  display: none;
+}
+
+/* line 15, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/map.scss */
+#map #infowindow-content {
+  display: inline;
+}
+
+/* line 19, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/map.scss */
+.pac-card {
+  margin: 10px 10px 0 0;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  font-family: Roboto;
+}
+
+/* line 30, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/map.scss */
+#pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
+
+/* line 35, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/map.scss */
+.pac-controls {
+  display: inline-block;
+  padding: 5px 11px;
+}
+
+/* line 40, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/map.scss */
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+/* line 46, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/map.scss */
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 400px;
+}
+
+/* line 57, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/map.scss */
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+/* line 61, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/map.scss */
+#title {
+  color: #fff;
+  background-color: #4d90fe;
+  font-size: 25px;
+  font-weight: 500;
+  padding: 6px 12px;
 }
 /* line 1, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/modal.scss */
 .modal-root {
@@ -2249,6 +2450,150 @@
   margin-bottom: -.25em;
   margin-right: 5px;
   vertical-align: top;
+}
+/* line 5, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+.trip-slider {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  width: 1080px;
+  padding-left: 24px;
+  padding-right: 24px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 15, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+.trip-tit {
+  color: #2d2d2d;
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 15px;
+  line-height: 1.1;
+  text-rendering: optimizelegibility;
+  margin-top: 0;
+}
+
+/* line 25, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+.trip-card-container {
+  width: 32.0%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 12px;
+}
+
+/* line 33, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+.trip-image-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* line 40, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+.trip-image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-position: 50% 50%;
+  object-fit: cover;
+}
+
+/* line 50, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+.trip-cards {
+  width: 100%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-bottom: 0px;
+  padding: 0px;
+  overflow: visible;
+  white-space: normal;
+  margin-top: 0px;
+}
+
+/* line 65, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+.trip-card {
+  border: 0;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  font-size: 16px;
+  margin-top: 20px;
+  border: 1px #dce0e0 solid !important;
+}
+
+/* line 75, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+.trip-padding {
+  width: 100%;
+  height: 500px;
+  position: relative;
+}
+
+/* line 81, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+.trip-text {
+  text-align: center;
+  padding: 0;
+  margin-top: 0;
+  position: relative;
+  font-size: 16px;
+  color: #2d2d2d;
+}
+
+/* line 90, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+.trip-time {
+  width: 100%;
+  padding-bottom: 27px;
+  text-align: center;
+}
+
+/* line 96, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+.trip-actions-wrap {
+  padding: 0 20px;
+  height: auto;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 400;
+  color: #2d2d2d;
+}
+
+/* line 105, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+.scheduled-box {
+  padding: 0 20px;
+  color: #484848;
+}
+
+/* line 110, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+.address-box {
+  margin-bottom: 18px;
+  margin-top: 18px;
+  font-size: 36px;
+  color: #2d2d2d;
+}
+
+/* line 117, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+.space-top {
+  margin-top: 6px;
+}
+
+/* line 121, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+.trip-actions {
+  color: #2d2d2d;
+  border: 0;
+  height: auto;
+  padding: 0 10px;
+}
+
+/* line 128, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+.trip-action-row {
+  border-top: 1px solid #bbb;
+  width: 100%;
+  padding: 15px 5px;
+  float: left;
 }
 /* line 1, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/base/layout.scss */
 html {
