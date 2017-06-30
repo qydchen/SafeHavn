@@ -89051,7 +89051,7 @@ var BookIt = function (_React$Component) {
         this.navigateToBookTrip();
       } else {
 
-        this.clearErrorsAndOpenModal(_react2.default.createElement(_session_form_container2.default, { formType: 'login' }));
+        this.clearErrorsAndOpenModal(_react2.default.createElement(_session_form_container2.default, { formType: 'signup' }));
       }
     }
   }, {
@@ -97143,11 +97143,13 @@ var TripIndex = function (_React$Component) {
     value: function componentDidMount() {
       this.props.fetchTrips();
     }
-    //
-    // componentDidUpdate() {
-    //   this.props.fetchTrips();
-    // }
-
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      if (!this.props.currentUser) {
+        this.props.history.push('/homes');
+      }
+    }
   }, {
     key: 'render',
     value: function render() {
@@ -97161,27 +97163,49 @@ var TripIndex = function (_React$Component) {
         );
       });
 
-      return _react2.default.createElement(
-        'div',
-        { className: 'trip-slider' },
-        _react2.default.createElement(
-          'span',
-          { className: 'trip-tit' },
-          'Your Trips'
-        ),
-        _react2.default.createElement(
+      if (tripsIndex.length > 0) {
+        return _react2.default.createElement(
           'div',
-          { className: 'trip-cards' },
-          tripsIndex
-        )
-      );
+          { className: 'trip-slider' },
+          _react2.default.createElement(
+            'span',
+            { className: 'trip-tit' },
+            'Your Trips'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'trip-cards' },
+            tripsIndex
+          )
+        );
+      } else {
+        return _react2.default.createElement(
+          'div',
+          { className: 'trip-slider' },
+          _react2.default.createElement(
+            'span',
+            { className: 'trip-tit' },
+            'Your Trips'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'trip-cards-txt' },
+            'You have no upcoming trips.'
+          ),
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/homes', className: 'pinkButton book-btn trip-button' },
+            'Book a trip!'
+          )
+        );
+      }
     }
   }]);
 
   return TripIndex;
 }(_react2.default.Component);
 
-exports.default = TripIndex;
+exports.default = (0, _reactRouterDom.withRouter)(TripIndex);
 
 /***/ }),
 /* 671 */
@@ -97288,15 +97312,6 @@ var TripIndexItem = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'trip-actions-wrap' },
-              _react2.default.createElement(
-                'div',
-                { className: 'trip-actions' },
-                'Make a Review'
-              )
-            ),
-            _react2.default.createElement(
-              'div',
               { className: 'trip-actions-wrap', onClick: this.handleClick },
               'Cancel Trip'
             )
@@ -97308,6 +97323,9 @@ var TripIndexItem = function (_React$Component) {
 
   return TripIndexItem;
 }(_react2.default.Component);
+// <div className='trip-actions-wrap'>
+// <div className='trip-actions'>Make a Review</div>
+// </div>
 
 exports.default = TripIndexItem;
 

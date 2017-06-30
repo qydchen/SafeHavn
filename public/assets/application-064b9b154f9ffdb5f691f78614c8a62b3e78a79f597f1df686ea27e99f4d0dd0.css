@@ -2595,6 +2595,22 @@
   padding: 15px 5px;
   float: left;
 }
+
+/* line 135, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+.trip-card-txt {
+  font-size: 26px;
+}
+
+/* line 139, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+.trip-button {
+  color: white;
+  width: 35% !important;
+}
+
+/* line 144, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+.trip-button:hover {
+  text-decoration: none;
+}
 /* line 1, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/base/layout.scss */
 html {
   position: relative;
