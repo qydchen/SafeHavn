@@ -31,8 +31,12 @@ class BookIt extends React.Component {
     if (this.state.startDate && this.state.endDate) {
       const url = `/homes/${this.props.match.params.homeid}/book`;
       this.props.history.push(url);
-    }
-    // <Link to={`/homes/${this.props.match.params.homeid}/book`} component={BookTripContainer} />
+    } else {
+      this.props.openModal(
+      <div className="prompt-box">
+        <div className="no-date-prompt">Which days are you interested in booking?</div>
+      </div>
+    )}
   };
 
   handleSubmit(e) {

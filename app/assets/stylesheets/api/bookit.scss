@@ -1,3 +1,17 @@
+.prompt-box {
+  box-sizing: border-box;
+  border: 1px transparent;
+  border-radius: 6px;
+}
+
+.no-date-prompt {
+  text-align: center;
+  font-weight: 500;
+  padding: 9px;
+  font-size: 16px;
+
+}
+
 .to-book-it-divider {
   width: 33.33333333333333% !important;
   float: left !important;
