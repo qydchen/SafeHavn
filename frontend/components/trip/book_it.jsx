@@ -28,8 +28,10 @@ class BookIt extends React.Component {
   };
 
   navigateToBookTrip() {
-    const url = `/homes/${this.props.match.params.homeid}/book`;
-    this.props.history.push(url);
+    if (this.state.startDate && this.state.endDate) {
+      const url = `/homes/${this.props.match.params.homeid}/book`;
+      this.props.history.push(url);
+    }
     // <Link to={`/homes/${this.props.match.params.homeid}/book`} component={BookTripContainer} />
   };
 
