@@ -28,11 +28,11 @@
 # })
 
 def lat # NYC
-  (40.400000 + rand()*1)
+  (40.350000 + rand()*1.2)
 end
 
 def lng # NYC
-  (-74.00000 + rand()*1.2)
+  (-73.90000 + rand()*1.2)
 end
 
 def title
