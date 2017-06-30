@@ -35,15 +35,15 @@ class BookIt extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    
+
     const input = Object.assign({}, this.state);
 		if (this.props.currentUser) {
-      
+
       this.props.receiveInput(input); // after this, move to next screen
       this.navigateToBookTrip();
     } else {
-      
-      this.clearErrorsAndOpenModal(<SessionFormContainer formType="login"/>)
+
+      this.clearErrorsAndOpenModal(<SessionFormContainer formType="signup"/>)
     }
   };
 

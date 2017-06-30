@@ -35,9 +35,6 @@ class TripIndexItem extends React.Component {
               <div className='trip-actions'>Paid ${trip.totalcost}</div>
             </div>
 
-            <div className='trip-actions-wrap'>
-              <div className='trip-actions'>Make a Review</div>
-            </div>
 
             <div className="trip-actions-wrap" onClick={this.handleClick}>
               Cancel Trip
@@ -48,5 +45,8 @@ class TripIndexItem extends React.Component {
     )
   }
 }
+// <div className='trip-actions-wrap'>
+// <div className='trip-actions'>Make a Review</div>
+// </div>
 
 export default TripIndexItem;

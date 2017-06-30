@@ -11,10 +11,12 @@ class TripIndex extends React.Component {
   componentDidMount() {
     this.props.fetchTrips();
   }
-  //
-  // componentDidUpdate() {
-  //   this.props.fetchTrips();
-  // }
+
+  componentDidUpdate() {
+    if (!this.props.currentUser) {
+      this.props.history.push(`/homes`);
+    }
+  }
 
   render() {
     const { deleteTrip } = this.props;
@@ -26,15 +28,29 @@ class TripIndex extends React.Component {
       )
     });
 
-    return (
-      <div className="trip-slider">
+    if (tripsIndex.length > 0) {
+      return (
+        <div className="trip-slider">
         <span className="trip-tit">Your Trips</span>
-        <div className="trip-cards">
+          <div className="trip-cards">
           {tripsIndex}
+          </div>
         </div>
-      </div>
-    )
+      )
+    } else {
+      return (
+        <div className="trip-slider">
+        <span className="trip-tit">Your Trips</span>
+          <div className="trip-cards-txt">
+          You have no upcoming trips.
+          </div>
+          <Link to={`/homes`} className="pinkButton book-btn trip-button">Book a trip!</Link>
+        </div>
+      )
+    }
+
+
   }
 }
 
-export default TripIndex;
+export default withRouter(TripIndex);
