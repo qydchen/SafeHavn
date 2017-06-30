@@ -31,7 +31,7 @@ All homes are stored in the database, which contains columns for:
   * `description` of the home
   * `cancellation` policy
   * the `address` of home
-  * An `image_url` referencing it's picture hosted in AWS
+  * an `image_url` referencing it's picture hosted in AWS
   * `max_guests`, the maximum number of guests for the home
   * the number of `bathrooms` (can also be float to accommodate for 1.5 bathrooms, etc.)
   * the number of `bedrooms`
@@ -95,7 +95,7 @@ All trips (bookings) are stored in one table in the database, which contains col
 ![safehavn-book](/app/assets/images/demo/SafeHavnBook.png)
 
 ### Viewing trips
-Only the user can view their own trips. The user can then view details about their trip, the amount they paid, and if they have to, cancel their trips. If the user has no trips, a link will allow the user redirect them back to the home index page.
+Only the user can view their own trips. The user can then view details about their trip, the amount they paid, and if they have to, cancel their trips. If the user has no trips, a link will allow the user to redirect back to the home index page.
 
 ![safehavn-trip](/app/assets/images/demo/SafeHavnTrip.png)
 
