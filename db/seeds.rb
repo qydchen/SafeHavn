@@ -32,7 +32,7 @@ def lat # NYC
 end
 
 def lng # NYC
-  (-73.90000 + rand()*1.2)
+  (-75.00000 + rand()*1.2)
 end
 
 def title
@@ -138,7 +138,7 @@ end
 
 
 
-50.times do |i|
+10.times do |i|
   Trip.create({
     visitor_id: User.all.sample.id,
     home_id: Home.all.sample.id,
