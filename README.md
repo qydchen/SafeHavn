@@ -46,8 +46,9 @@ All homes are stored in the database, which contains columns for:
 ![safehavn-show](/app/assets/images/demo/SafeHavnShow.png)
 
 ### Instant Map Filters
+SafeHavn offers real-time filtering based on party size and price (per night). The Redux state is updated with a list of all the homes matching both the filter query and location bounds. Map markers are then populated on the map as an overlay for every location stored in the state. With every filter or idle state of the map, old map markers are replaced with new map markers; the bounds also resize automatically when zooming in or out of the map.
 
-SafeHavn offers real-time filtering based on party size and price (per night). The Redux state is updated with a list of all the homes matching both the filter query and location bounds. Map markers are then populated on the map as an overlay for every location stored in the state. With every filter or idle state of the map, old map markers are replaced with new map markers; the bounds also resize automatically.
+![filter-map](/app/assets/images/demo/filter-map.gif)
 
 #### Implementation
 
@@ -86,12 +87,17 @@ Here is an example of a filter state slice:
   }
 ```
 
+![map-drag](/app/assets/images/demo/map-drag.gif)
+
 ### Booking a Trip
-All trips (bookings) are stored in one table in the database, which contains columns for `id`, the `visitor_id` that references a visitor (user), the `home_id` that references the booked home, `start_date` and `end_date` of the trip.
+All trips (bookings) are stored in one table in the database, which contains columns for `id`, the `visitor_id` that references a visitor (user), the `home_id` that references the booked home, and the `start_date` and `end_date` of the trip.
 
 ![safehavn-book](/app/assets/images/demo/SafeHavnBook.png)
 
 ### Viewing trips
+Only the user can view their own trips. The user can then view details about their trip, the amount they paid, and if they have to, cancel their trips. If the user has no trips, a link will allow the user redirect them back to the home index page.
+
+![safehavn-trip](/app/assets/images/demo/SafeHavnTrip.png)
 
 ## Future Concepts
 During my two week course of development, I discovered many more implementation that can deliver a better user experience listed below:
