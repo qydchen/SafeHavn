@@ -52,7 +52,7 @@ class Landing extends React.Component {
       <div className="landing-slider">
         <div className="landing-container">
           <div className="landing-blurb">
-            <span className="color-blurb">Safehavn </span>
+            <span className="color-blurb">SafeHavn </span>
             Find your refuge.
           </div>
         </div>
