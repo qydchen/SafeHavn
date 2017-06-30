@@ -58,6 +58,7 @@
   padding-right: 12px;
   margin-bottom: 0px;
   padding: 0px;
+  padding-top: 20px;
   overflow: visible;
   white-space: normal;
   margin-top: 0px;
@@ -101,6 +102,7 @@
 .trip-time {
   width: 100%;
   padding-bottom: 27px;
+  padding-top: 20px;
   text-align: center;
 }
 
@@ -163,10 +165,6 @@
   width: 80%;
   margin: 0 auto;
   border-top: 1px solid #bbb;
-}
-
-.address-box:hover {
-  text-decoration: underline;
 }
 
 .cancel-trip:hover {

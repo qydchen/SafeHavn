@@ -27,7 +27,7 @@ class TripIndexItem extends React.Component {
 
             <div className='trip-time'>
               <div className='scheduled-box'>
-                <Link to={`/homes/${trip.home.id}`} className='address-box'>{trip.home.title}</Link>
+                <div className='address-box'>{trip.home.title}</div>
 
                 <div className="space-top">{trip.start_date} to {trip.end_date} · {trip.num_guests} guests</div>
                 <div className="space-top">{trip.home.address}</div>

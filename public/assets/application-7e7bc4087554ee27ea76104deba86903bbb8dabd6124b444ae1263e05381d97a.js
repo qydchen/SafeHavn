@@ -97301,8 +97301,8 @@ var TripIndexItem = function (_React$Component) {
                 'div',
                 { className: 'scheduled-box' },
                 _react2.default.createElement(
-                  _reactRouterDom.Link,
-                  { to: '/homes/' + trip.home.id, className: 'address-box' },
+                  'div',
+                  { className: 'address-box' },
                   trip.home.title
                 ),
                 _react2.default.createElement(
