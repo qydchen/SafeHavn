@@ -1,14 +1,12 @@
 # SafeHavn
 URL: [safehavn.herokuapp.com](https://safehavn.herokuapp.com)
 
-![safehavn-Landing]
-[safehavn-Landing]: /app/assets/images/demo/SafeHavnLanding.png "safehavn-Landing"
+![safehavn-Landing](/app/assets/images/demo/SafeHavnLanding.png)
 
-**SafeHavn draws inspiration from AirBnB that helps users find unique locations. The user can filter these locations, book them, and manage them in a clear, intuitive, user-friendly navigation.
+SafeHavn draws inspiration from AirBnB that helps users find unique locations. The user can filter these locations, book them, and manage them in a clear, intuitive, user-friendly navigation.
 
 ## Project Information
 This project was developed in two weeks utilizing Ruby on Rails, React, Redux, Google Maps, and Amazon S3.
-
 
 ## Features
   * Account creation and authentication
@@ -45,12 +43,11 @@ All homes are stored in the database, which contains columns for:
   * a boolean that determines if the host provides the free-`parking` amenity
   * a boolean that determines if the host provides a `kitchen`
 
-  ![safehavn-show]
-  [safehavn-show]: /app/assets/images/demo/SafeHavnShow.png "safehavn-show"
+![safehavn-show](/app/assets/images/demo/SafeHavnShow.png)
 
 ### Instant Map Filters
 
-SafeHavn offers real-time filtering based on party size and price (per night). The first filter is based on the current map boundaries within Google Maps. Then, users can reduce their query by filtering based on their budget and guest size.
+SafeHavn offers real-time filtering based on party size and price (per night). The Redux state is updated with a list of all the homes matching both the filter query and location bounds. Map markers are then populated on the map as an overlay for every location stored in the state. With every filter or idle state of the map, old map markers are replaced with new map markers; the bounds also resize automatically.
 
 #### Implementation
 
@@ -90,12 +87,11 @@ Here is an example of a filter state slice:
 ```
 
 ### Booking a Trip
+All trips (bookings) are stored in one table in the database, which contains columns for `id`, the `visitor_id` that references a visitor (user), the `home_id` that references the booked home, `start_date` and `end_date` of the trip.
 
+![safehavn-book](/app/assets/images/demo/SafeHavnBook.png)
 
-``` JavaScript
-
-}
-```
+### Viewing trips
 
 ## Future Concepts
 During my two week course of development, I discovered many more implementation that can deliver a better user experience listed below:
