@@ -10,6 +10,7 @@
   padding-right: 24px;
   margin-left: auto;
   margin-right: auto;
+  font-family: Helvetica !important;
 }
 
 .trip-tit {
@@ -73,7 +74,7 @@
   border-radius: 1px;
   font-size: 16px;
   margin-top: 20px;
-  border: 1px #dce0e0 solid !important;
+
 }
 
 .trip-card:hover {
@@ -82,8 +83,10 @@
 
 .trip-padding {
   width: 100%;
-  height: 500px;
+  height: 490px;
   position: relative;
+  border: 1px #dce0e0 solid !important;
+  margin-top: 24px;
 }
 
 .trip-text {
@@ -130,7 +133,8 @@
   color: #2d2d2d;
   border: 0;
   height: auto;
-  padding: 0 10px;
+  padding: 20px 0 10px 0;
+  font-family: Helvetica !important;
 }
 
 .trip-action-row {
@@ -151,4 +155,22 @@
 
 .trip-button:hover {
   text-decoration: none;
+}
+
+.trip-div {
+  content: "";
+  top: -1px;
+  width: 80%;
+  margin: 0 auto;
+  border-top: 1px solid #bbb;
+}
+
+.address-box:hover {
+  text-decoration: underline;
+}
+
+.cancel-trip:hover {
+  text-decoration: underline;
+  color: #008489;
+  cursor: pointer;
 }

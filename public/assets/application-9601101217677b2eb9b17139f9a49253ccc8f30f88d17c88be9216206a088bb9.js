@@ -37839,7 +37839,7 @@ module.exports = baseGetTag;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.deleteHome = exports.updateHome = exports.createHome = exports.fetchHome = exports.fetchHomes = exports.createReview = exports.receiveDeletedHome = exports.receiveReview = exports.receiveHome = exports.receiveHomes = exports.RECEIVE_DELETION = exports.RECEIVE_REVIEW = exports.RECEIVE_HOME = exports.RECEIVE_HOMES = undefined;
+exports.deleteHome = exports.updateHome = exports.createHome = exports.fetchHome = exports.fetchHomes = exports.receiveDeletedHome = exports.receiveHome = exports.receiveHomes = exports.RECEIVE_DELETION = exports.RECEIVE_HOME = exports.RECEIVE_HOMES = undefined;
 
 var _home_api_util = __webpack_require__(544);
 
@@ -37849,7 +37849,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 var RECEIVE_HOMES = exports.RECEIVE_HOMES = 'RECEIVE_HOMES';
 var RECEIVE_HOME = exports.RECEIVE_HOME = 'RECEIVE_HOME';
-var RECEIVE_REVIEW = exports.RECEIVE_REVIEW = 'RECEIVE_REVIEW';
+// export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 var RECEIVE_DELETION = exports.RECEIVE_DELETION = 'RECEIVE_DELETION';
 
 var receiveHomes = exports.receiveHomes = function receiveHomes(homes) {
@@ -37866,12 +37866,10 @@ var receiveHome = exports.receiveHome = function receiveHome(home) {
   };
 };
 
-var receiveReview = exports.receiveReview = function receiveReview(review) {
-  return {
-    type: RECEIVE_REVIEW,
-    review: review
-  };
-};
+// export const receiveReview = review => ({
+//   type: RECEIVE_REVIEW,
+//   review
+// });
 
 var receiveDeletedHome = exports.receiveDeletedHome = function receiveDeletedHome(id) {
   return {
@@ -37880,15 +37878,12 @@ var receiveDeletedHome = exports.receiveDeletedHome = function receiveDeletedHom
   };
 };
 
-var createReview = exports.createReview = function createReview(review) {
-  return function (dispatch) {
-    return APIUtil.createReview(review).then(function (review) {
-      return dispatch(receiveReview(review));
-    }, function (err) {
-      return dispatch(receiveErrors(err.responseJSON));
-    });
-  };
-};
+// export const createReview = review => dispatch => (
+//   APIUtil.createReview(review).then(review => (
+//     dispatch(receiveReview(review))),
+//     (err => dispatch(receiveErrors(err.responseJSON)))
+//   )
+// );
 
 var fetchHomes = exports.fetchHomes = function fetchHomes(filters) {
   return function (dispatch) {
@@ -50363,10 +50358,8 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     clearErrors: function clearErrors() {
       return dispatch((0, _session_actions.clearErrors)());
-    },
-    createReview: function createReview(review) {
-      return dispatch((0, _home_actions.createReview)(review));
     }
+    // createReview: (review) => dispatch(createReview(review)),
   };
 };
 
@@ -88527,6 +88520,10 @@ var _footer = __webpack_require__(355);
 
 var _footer2 = _interopRequireDefault(_footer);
 
+var _selectors = __webpack_require__(58);
+
+var _selectors2 = _interopRequireDefault(_selectors);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -88554,7 +88551,6 @@ var HomeShow = function (_React$Component) {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
       if (this.props.match.params.homeid !== nextProps.match.params.homeid) {
-
         this.props.fetchHome(nextProps.match.params.homeid);
       }
     }
@@ -88569,6 +88565,7 @@ var HomeShow = function (_React$Component) {
           receiveInput = _props.receiveInput,
           clearErrors = _props.clearErrors,
           openModal = _props.openModal;
+
 
       if (listing === undefined) {
 
@@ -88649,9 +88646,6 @@ var HomeShow = function (_React$Component) {
           )
         );
       }
-      // <div className="review-container">
-      //   <div className="rev"
-      // </div>
     }
   }]);
 
@@ -97283,15 +97277,19 @@ var TripIndexItem = function (_React$Component) {
 
 
       return _react2.default.createElement(
-        _reactRouterDom.Link,
-        { to: '/homes/' + trip.home.id, className: 'trip-card' },
+        'div',
+        { className: 'trip-card' },
         _react2.default.createElement(
           'div',
           { className: 'trip-padding' },
           _react2.default.createElement(
             'div',
             { className: 'trip-image-container' },
-            _react2.default.createElement('img', { className: 'trip-image', src: trip.image_url })
+            _react2.default.createElement(
+              _reactRouterDom.Link,
+              { to: '/homes/' + trip.home.id },
+              _react2.default.createElement('img', { className: 'trip-image', src: trip.image_url })
+            )
           ),
           _react2.default.createElement(
             'div',
@@ -97303,8 +97301,8 @@ var TripIndexItem = function (_React$Component) {
                 'div',
                 { className: 'scheduled-box' },
                 _react2.default.createElement(
-                  'div',
-                  { className: 'address-box' },
+                  _reactRouterDom.Link,
+                  { to: '/homes/' + trip.home.id, className: 'address-box' },
                   trip.home.title
                 ),
                 _react2.default.createElement(
@@ -97324,6 +97322,7 @@ var TripIndexItem = function (_React$Component) {
                 )
               )
             ),
+            _react2.default.createElement('div', { className: 'trip-div' }),
             _react2.default.createElement(
               'div',
               { className: 'trip-actions-wrap' },
@@ -97334,10 +97333,15 @@ var TripIndexItem = function (_React$Component) {
                 trip.totalcost
               )
             ),
+            _react2.default.createElement('div', { className: 'trip-div' }),
             _react2.default.createElement(
               'div',
-              { className: 'trip-actions-wrap', onClick: this.handleClick },
-              'Cancel Trip'
+              { className: 'trip-actions-wrap' },
+              _react2.default.createElement(
+                'div',
+                { className: 'trip-actions cancel-trip', onClick: this.handleClick },
+                'Cancel Trip'
+              )
             )
           )
         )

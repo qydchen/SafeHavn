@@ -2478,9 +2478,10 @@
   padding-right: 24px;
   margin-left: auto;
   margin-right: auto;
+  font-family: Helvetica !important;
 }
 
-/* line 15, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+/* line 16, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
 .trip-tit {
   color: #2d2d2d;
   font-size: 32px;
@@ -2491,7 +2492,7 @@
   margin-top: 0;
 }
 
-/* line 25, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+/* line 26, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
 .trip-card-container {
   width: 32.0%;
   float: left;
@@ -2500,7 +2501,7 @@
   padding-right: 12px;
 }
 
-/* line 33, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+/* line 34, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
 .trip-image-container {
   position: relative;
   width: 100%;
@@ -2508,7 +2509,7 @@
   object-fit: cover;
 }
 
-/* line 40, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+/* line 41, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
 .trip-image {
   position: absolute;
   top: 0;
@@ -2519,7 +2520,7 @@
   object-fit: cover;
 }
 
-/* line 50, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+/* line 51, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
 .trip-cards {
   width: 100%;
   float: left;
@@ -2534,12 +2535,12 @@
   margin-top: 0px;
 }
 
-/* line 65, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+/* line 66, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
 .trip-cards-txt {
   margin: 16px 0 16px 0;
 }
 
-/* line 69, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+/* line 70, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
 .trip-card {
   border: 0;
   -webkit-border-radius: 1px;
@@ -2547,22 +2548,23 @@
   border-radius: 1px;
   font-size: 16px;
   margin-top: 20px;
-  border: 1px #dce0e0 solid !important;
 }
 
-/* line 79, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+/* line 80, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
 .trip-card:hover {
   text-decoration: none;
 }
 
-/* line 83, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+/* line 84, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
 .trip-padding {
   width: 100%;
-  height: 500px;
+  height: 490px;
   position: relative;
+  border: 1px #dce0e0 solid !important;
+  margin-top: 24px;
 }
 
-/* line 89, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+/* line 92, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
 .trip-text {
   text-align: center;
   padding: 0;
@@ -2572,14 +2574,14 @@
   color: #2d2d2d;
 }
 
-/* line 98, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+/* line 101, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
 .trip-time {
   width: 100%;
   padding-bottom: 27px;
   text-align: center;
 }
 
-/* line 104, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+/* line 107, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
 .trip-actions-wrap {
   padding: 0 20px;
   height: auto;
@@ -2589,13 +2591,13 @@
   color: #2d2d2d;
 }
 
-/* line 113, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+/* line 116, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
 .scheduled-box {
   padding: 0 20px;
   color: #484848;
 }
 
-/* line 118, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+/* line 121, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
 .address-box {
   margin-bottom: 18px;
   margin-top: 18px;
@@ -2603,20 +2605,21 @@
   color: #2d2d2d;
 }
 
-/* line 125, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+/* line 128, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
 .space-top {
   margin-top: 6px;
 }
 
-/* line 129, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+/* line 132, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
 .trip-actions {
   color: #2d2d2d;
   border: 0;
   height: auto;
-  padding: 0 10px;
+  padding: 20px 0 10px 0;
+  font-family: Helvetica !important;
 }
 
-/* line 136, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+/* line 140, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
 .trip-action-row {
   border-top: 1px solid #bbb;
   width: 100%;
@@ -2624,20 +2627,41 @@
   float: left;
 }
 
-/* line 143, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+/* line 147, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
 .trip-card-txt {
   font-size: 26px;
 }
 
-/* line 147, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+/* line 151, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
 .trip-button {
   color: white;
   width: 35% !important;
 }
 
-/* line 152, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+/* line 156, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
 .trip-button:hover {
   text-decoration: none;
+}
+
+/* line 160, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+.trip-div {
+  content: "";
+  top: -1px;
+  width: 80%;
+  margin: 0 auto;
+  border-top: 1px solid #bbb;
+}
+
+/* line 168, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+.address-box:hover {
+  text-decoration: underline;
+}
+
+/* line 172, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/trips.scss */
+.cancel-trip:hover {
+  text-decoration: underline;
+  color: #008489;
+  cursor: pointer;
 }
 /* line 1, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/base/layout.scss */
 html {

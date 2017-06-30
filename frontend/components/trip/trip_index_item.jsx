@@ -16,32 +16,36 @@ class TripIndexItem extends React.Component {
     const {trip} = this.props;
 
     return (
-      <Link to={`/homes/${trip.home.id}`} className='trip-card'>
+      <div className='trip-card'>
         <div className='trip-padding'>
           <div className='trip-image-container'>
-            <img className='trip-image' src={trip.image_url}/>
+            <Link to={`/homes/${trip.home.id}`} >
+              <img className='trip-image' src={trip.image_url}/>
+            </Link>
           </div>
           <div className='trip-text'>
 
             <div className='trip-time'>
               <div className='scheduled-box'>
-                <div className='address-box'>{trip.home.title}</div>
+                <Link to={`/homes/${trip.home.id}`} className='address-box'>{trip.home.title}</Link>
+
                 <div className="space-top">{trip.start_date} to {trip.end_date} · {trip.num_guests} guests</div>
                 <div className="space-top">{trip.home.address}</div>
               </div>
             </div>
 
+            <div className="trip-div"/>
             <div className='trip-actions-wrap'>
               <div className='trip-actions'>Paid ${trip.totalcost}</div>
             </div>
 
-
-            <div className="trip-actions-wrap" onClick={this.handleClick}>
-              Cancel Trip
+            <div className="trip-div"/>
+            <div className="trip-actions-wrap">
+              <div className='trip-actions cancel-trip' onClick={this.handleClick}>Cancel Trip</div>
             </div>
           </div>
         </div>
-      </Link>
+      </div>
     )
   }
 }
