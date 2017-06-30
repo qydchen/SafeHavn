@@ -29,14 +29,14 @@ class Landing extends React.Component {
           </div>
 
           <div className="card-review">
-            <div className="card-review-stars">* * * * *</div>
-            <div className="reviews">DO THIS LATER reviews</div>
           </div>
 
         </Link>
       </div>
     )
   }
+  // <div className="card-review-stars">* * * * *</div>
+  // <div className="reviews">DO THIS LATER reviews</div>
 
   render() {
     const { homes } = this.props;
