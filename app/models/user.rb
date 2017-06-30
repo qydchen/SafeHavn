@@ -20,6 +20,9 @@ class User < ActiveRecord::Base
     class_name: :Trip,
     foreign_key: :visitor_id
 
+  has_many :reviews,
+    class_name: :Review,
+    foreign_key: :author_id
 
 	def password=(password)
     @password = password

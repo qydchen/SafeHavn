@@ -8,7 +8,8 @@ json.extract! home,
   :description,
   :cancellation,
   :address,
-  :trips
+  :trips,
+  :reviews
 
   json.image_url asset_path(home.image.url)
 
@@ -26,4 +27,6 @@ json.extract! home,
     json.family home.family
     json.parking home.parking
     json.kitchen home.kitchen
-  end
+
+
+end

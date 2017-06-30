@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchHome } from '../../actions/home_actions';
+import { fetchHome, createReview } from '../../actions/home_actions';
 import { receiveInput } from '../../actions/input_actions';
 import HomeShow from './home_show';
 import { withRouter } from 'react-router-dom';
@@ -24,6 +24,7 @@ const mapDispatchToProps = (dispatch) => {
     receiveInput: input => dispatch(receiveInput(input)),
     openModal: (component) => dispatch(openModal(component)),
     clearErrors: () => dispatch(clearErrors()),
+    createReview: (review) => dispatch(createReview(review)),
   }
 }
 

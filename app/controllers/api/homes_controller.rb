@@ -9,9 +9,7 @@ class Api::HomesController < ApplicationController
       if (params[:minPrice] && params[:maxPrice])
         @homes = @homes.where(price: price_range)
       end
-      # @homes = visitors? ? homes.can_fit_visitors?(visitors?.to_i) : homes
-      # render :index
-      # @homes = Home.all
+    
     else
       render json: 'There are no homes'
     end

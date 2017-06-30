@@ -50363,6 +50363,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     clearErrors: function clearErrors() {
       return dispatch((0, _session_actions.clearErrors)());
+    },
+    createReview: function createReview(review) {
+      return dispatch((0, _home_actions.createReview)(review));
     }
   };
 };
@@ -83499,6 +83502,10 @@ var HomeReducer = function HomeReducer() {
       newState = Object.assign({}, state);
       delete newState[action.id];
       return newState;
+
+    // case RECEIVE_REVIEW:
+    //   newState = merge({}, state, {reviews: action.review})
+    //   return newState;
     default:
       return state;
   }
@@ -88642,6 +88649,9 @@ var HomeShow = function (_React$Component) {
           )
         );
       }
+      // <div className="review-container">
+      //   <div className="rev"
+      // </div>
     }
   }]);
 

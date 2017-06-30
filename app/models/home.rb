@@ -13,6 +13,10 @@ class Home < ActiveRecord::Base
     class_name: :Trip,
     foreign_key: :home_id
 
+  has_many :reviews,
+    class_name: :Review,
+    foreign_key: :home_id
+
   def self.in_bounds(bounds)
   self.where("lat < ?", bounds[:northEast][:lat])
       .where("lat > ?", bounds[:southWest][:lat])

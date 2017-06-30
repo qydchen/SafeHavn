@@ -3,7 +3,7 @@ import { merge } from 'lodash';
 import {
   RECEIVE_HOMES,
   RECEIVE_HOME,
-  RECEIVE_REVIEW,
+  // RECEIVE_REVIEW,
   RECEIVE_DELETION,
 } from '../actions/home_actions';
 
@@ -26,6 +26,10 @@ const HomeReducer = (state = defaultState, action) => {
       newState = Object.assign({}, state);
       delete newState[action.id];
       return newState;
+
+    // case RECEIVE_REVIEW:
+    //   newState = merge({}, state, {reviews: action.review})
+    //   return newState;
     default:
       return state;
   }

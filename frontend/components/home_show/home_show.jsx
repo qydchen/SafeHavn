@@ -17,7 +17,7 @@ class HomeShow extends React.Component {
 
   componentWillReceiveProps(nextProps) {
   if (this.props.match.params.homeid !== nextProps.match.params.homeid) {
-    
+
     this.props.fetchHome(nextProps.match.params.homeid);
     }
   }
@@ -53,6 +53,9 @@ class HomeShow extends React.Component {
                   <div className="navigation-selection">Location</div>
                 </div>
                 <HomeDetail listing={listing}/>
+
+
+
               </div>
 
               <div className="to-book-it-divider">
@@ -72,7 +75,9 @@ class HomeShow extends React.Component {
         </section>
       )
     }
-
+    // <div className="review-container">
+    //   <div className="rev"
+    // </div>
 
   }
 }
