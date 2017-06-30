@@ -9,13 +9,12 @@ class TripIndexItem extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
-    
     this.props.deleteTrip(this.props.trip);
   }
 
   render() {
     const {trip} = this.props;
-    
+
     return (
       <div className='trip-card'>
         <div className='trip-padding'>
@@ -27,7 +26,7 @@ class TripIndexItem extends React.Component {
             <div className='trip-time'>
               <div className='scheduled-box'>
                 <div className='address-box'>{trip.home.title}</div>
-                <div className="space-top">{trip.start_date} · {trip.num_guests} guests</div>
+                <div className="space-top">{trip.start_date} to {trip.end_date} · {trip.num_guests} guests</div>
                 <div className="space-top">{trip.home.address}</div>
               </div>
             </div>

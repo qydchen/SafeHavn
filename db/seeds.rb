@@ -138,7 +138,7 @@ end
 
 
 
-500.times do |i|
+50.times do |i|
   Trip.create({
     visitor_id: User.all.sample.id,
     home_id: Home.all.sample.id,
