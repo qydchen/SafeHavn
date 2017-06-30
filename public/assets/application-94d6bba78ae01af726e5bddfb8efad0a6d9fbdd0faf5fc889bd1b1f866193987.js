@@ -89042,8 +89042,17 @@ var BookIt = function (_React$Component) {
       if (this.state.startDate && this.state.endDate) {
         var url = '/homes/' + this.props.match.params.homeid + '/book';
         this.props.history.push(url);
+      } else {
+        this.props.openModal(_react2.default.createElement(
+          'div',
+          { className: 'prompt-box' },
+          _react2.default.createElement(
+            'div',
+            { className: 'no-date-prompt' },
+            'Which days are you interested in booking?'
+          )
+        ));
       }
-      // <Link to={`/homes/${this.props.match.params.homeid}/book`} component={BookTripContainer} />
     }
   }, {
     key: 'handleSubmit',

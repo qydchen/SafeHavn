@@ -743,6 +743,21 @@
     width: 14px;
     vertical-align: middle; }
 /* line 1, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
+.prompt-box {
+  box-sizing: border-box;
+  border: 1px transparent;
+  border-radius: 6px;
+}
+
+/* line 7, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
+.no-date-prompt {
+  text-align: center;
+  font-weight: 500;
+  padding: 9px;
+  font-size: 16px;
+}
+
+/* line 15, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
 .to-book-it-divider {
   width: 33.33333333333333% !important;
   float: left !important;
@@ -750,20 +765,20 @@
   margin-left: 16px;
 }
 
-/* line 8, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
+/* line 22, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
 .bookItContainer {
   position: absolute;
   z-index: 1;
   border-top: 0;
 }
 
-/* line 14, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
+/* line 28, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
 .book-it {
   margin-top: -50px;
   position: relative;
 }
 
-/* line 19, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
+/* line 33, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
 .offers-box {
   background-color: rgba(60, 63, 64, 0.9);
   border: 0;
@@ -776,7 +791,7 @@
   display: -webkit-inline-box;
 }
 
-/* line 31, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
+/* line 45, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
 .thunderbolt {
   margin-right: 2px;
   margin-top: 6px;
@@ -786,7 +801,7 @@
   width: 16px;
 }
 
-/* line 40, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
+/* line 54, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
 .book-it-price {
   font-weight: 700;
   color: #ffffff;
@@ -799,7 +814,7 @@
   margin-right: 6px;
 }
 
-/* line 52, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
+/* line 66, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
 .per-night {
   font-weight: normal;
   color: #ffffff;
@@ -812,7 +827,7 @@
   padding-top: 8px;
 }
 
-/* line 64, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
+/* line 78, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
 .row-condensed {
   padding: 14px;
   border: 1px solid #dce0e0;
@@ -823,12 +838,12 @@
   align-content: center;
 }
 
-/* line 74, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
+/* line 88, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
 .guest-header {
   display: flex;
 }
 
-/* line 78, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
+/* line 92, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
 .guest-check {
   display: block;
   padding-bottom: 8px;
@@ -838,32 +853,32 @@
   margin-left: 8px;
 }
 
-/* line 87, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
+/* line 101, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
 .guest-dd-container {
   margin-top: 18px;
   display: flow-root;
 }
 
-/* line 92, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
+/* line 106, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
 .guests {
   font-size: 15px !important;
   font-weight: 400 !important;
 }
 
-/* line 97, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
+/* line 111, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
 .margin-top-8px {
   margin-top: 8px;
   text-align: center;
 }
 
-/* line 102, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
+/* line 116, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
 .book-btn {
   display: table;
   margin: 0 auto;
   width: 97.5% !important;
 }
 
-/* line 108, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
+/* line 122, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
 .book-disc {
   display: table;
   max-width: 210px;
@@ -1304,7 +1319,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
-  height: 450px;
+  height: 500px;
   object-fit: cover;
 }
 
