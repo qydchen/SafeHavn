@@ -22,7 +22,7 @@ This project was developed in two weeks utilizing Ruby on Rails, React, Redux, G
 ### User Authentication
 On the back-end, an encrypted, hashed password is stored in the database (passwords are never saved to the database). On log-in, the provided password is rehashed and compared to the encrypted password in order to verify the log-in.
 
-### Home show page
+### Home Show Page
 All homes are stored in the database, which contains columns for:
   * the home `id`
   * the Geographic location (`lat` and `lng`)
@@ -102,13 +102,20 @@ Only the user can view their own trips. The user can then view details about the
 ## Future Concepts
 During my two week course of development, I discovered many more implementation that can deliver a better user experience listed below:
 
+#### Reviews
+Making reviews will improve the utility of the app as it will give users better tools for decision making.
+
 #### User Profile Pages
+Along with reviews, adding user profiles will improve the utility of the app and give a social element to the app.
 
-
-#### Booking
-
-#### Efficient Friend Search
-The current search method sends a request to the API to return a list of all potential friends matching a query string. Bright minds have invested a lot of time developing strong search utilities and I would like to implement a 3rd party tool for search.
+#### Improved Booking
+There is currently no model validation or validations to determine if the home is reserved, making double-booking permissible. I hope to tackle this problem by graying out dates in the calendar and also add a front-end validation as well as adding a model level validation.
 
 #### Port to React Native
 Integration with mobile using React Native.
+
+#### More Filters
+Filtering by amenities and housing accommodations will improve usability. Adding dropdowns and modals will allow the expansion of such filters.
+
+#### Improved Styling/Design
+Compared with AirBnB, there are countless design tweaks that I can improve on such as: adding a carousel that spins through photos of the home. Adding a slider bar to filter budgets and guest size.
