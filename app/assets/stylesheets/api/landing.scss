@@ -1,3 +1,18 @@
+.landing-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 16px 0 32px 0;
+}
+
+.landing-blurb, .color-blurb {
+  font-size: 48px;
+}
+
+.color-blurb {
+  color: #FF5A5F;
+  font-weight: 700;
+}
+
 .landing-tit {
   font-family: sans-serif;
   font-size: 22px;

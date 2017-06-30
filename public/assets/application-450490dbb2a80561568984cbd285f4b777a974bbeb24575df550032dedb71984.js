@@ -97023,6 +97023,20 @@ var Landing = function (_React$Component) {
         'div',
         { className: 'landing-slider' },
         _react2.default.createElement(
+          'div',
+          { className: 'landing-container' },
+          _react2.default.createElement(
+            'div',
+            { className: 'landing-blurb' },
+            _react2.default.createElement(
+              'span',
+              { className: 'color-blurb' },
+              'Safehavn '
+            ),
+            'Find your refuge.'
+          )
+        ),
+        _react2.default.createElement(
           'span',
           { className: 'landing-tit' },
           'Homes'

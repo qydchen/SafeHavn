@@ -1871,6 +1871,24 @@
   margin-top: 80px;
 }
 /* line 1, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/landing.scss */
+.landing-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 16px 0 32px 0;
+}
+
+/* line 7, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/landing.scss */
+.landing-blurb, .color-blurb {
+  font-size: 48px;
+}
+
+/* line 11, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/landing.scss */
+.color-blurb {
+  color: #FF5A5F;
+  font-weight: 700;
+}
+
+/* line 16, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/landing.scss */
 .landing-tit {
   font-family: sans-serif;
   font-size: 22px;
@@ -1884,7 +1902,7 @@
   margin-left: 32px;
 }
 
-/* line 15, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/landing.scss */
+/* line 30, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/landing.scss */
 .landing-slider {
   width: 100%;
   top: 115px;
@@ -1901,7 +1919,7 @@
   margin-top: 0px;
 }
 
-/* line 31, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/landing.scss */
+/* line 46, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/landing.scss */
 .landing-slider:hover {
   text-decoration: none;
 }

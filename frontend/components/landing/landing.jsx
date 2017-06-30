@@ -50,6 +50,12 @@ class Landing extends React.Component {
 
     return (
       <div className="landing-slider">
+        <div className="landing-container">
+          <div className="landing-blurb">
+            <span className="color-blurb">Safehavn </span>
+            Find your refuge.
+          </div>
+        </div>
         <span className="landing-tit">Homes</span>
         <div className="landing-cards">
         {homesIndex}
