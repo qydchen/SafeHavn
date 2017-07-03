@@ -49,12 +49,6 @@ class Header extends React.Component {
     if (!this.props.loggedIn) {
       return (
         <div className="AuthButtons">
-          <div className ="header-enter">
-            <span> Become a Host </span>
-          </div>
-          <div className ="header-enter">
-            <span> Help </span>
-          </div>
           <div className ="header-enter" onClick={() => this.clearErrorsAndOpenModal(
             <SessionFormContainer formType="signup"/>)}>
             <span> Sign Up </span>
@@ -67,7 +61,13 @@ class Header extends React.Component {
       )
     }
   }
-  //
+  // <div className ="header-enter">
+  // <span> Become a Host </span>
+  // </div>
+  // <div className ="header-enter">
+  // <span> Help </span>
+  // </div>
+
   // filterHeader() {
   //   return (
   //     <div className="filter-header">
