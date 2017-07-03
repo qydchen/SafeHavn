@@ -6,8 +6,10 @@ import HomeShow from './home_show';
 import { withRouter } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
 import { clearErrors } from '../../actions/session_actions'
+import { createReview, fetchReviews } from '../../actions/review_actions';
+import { selectAll } from '../../reducers/selectors';
 
-const mapStateToProps = ({ homes, session }, {match}) => { //remember the entities is nexted in home which is nested in state
+const mapStateToProps = ({ homes, session, reviews }, {match}) => { //remember the entities is nexted in home which is nested in state
   const homeid = match.params.homeid;
   const listing = homes[homeid];
 
@@ -15,6 +17,7 @@ const mapStateToProps = ({ homes, session }, {match}) => { //remember the entiti
     homeid,
     listing,
     currentUser: session.currentUser,
+    reviews: selectAll(reviews),
   }
 }
 
@@ -24,7 +27,8 @@ const mapDispatchToProps = (dispatch) => {
     receiveInput: input => dispatch(receiveInput(input)),
     openModal: (component) => dispatch(openModal(component)),
     clearErrors: () => dispatch(clearErrors()),
-    // createReview: (review) => dispatch(createReview(review)),
+    createReview: (review) => dispatch(createReview(review)),
+    fetchReviews: () => dispatch(fetchReviews()),
   }
 }
 

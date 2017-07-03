@@ -38,6 +38,15 @@ export const updateHome = data => (
   })
 );
 
+export const fetchReviews = data => (
+  $.ajax({
+    method: 'POST',
+    url: 'api/reviews',
+    data
+  })
+);
+
+
 export const createReview = data => (
   $.ajax({
     method: 'POST',

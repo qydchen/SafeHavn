@@ -2,7 +2,8 @@ import { merge } from 'lodash';
 
 import {
   RECEIVE_REVIEW,
-  RECEIVE_REVIEWS
+  RECEIVE_REVIEWS,
+  RECEIVE_DELETION,
 } from '../actions/review_actions';
 
 const defaultState = {};

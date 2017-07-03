@@ -13,7 +13,6 @@ export const receiveReviews = reviews => ({
   reviews
 });
 
-
 export const receiveDeletedReview = id => ({
   type: RECEIVE_DELETION,
   id
@@ -21,28 +20,24 @@ export const receiveDeletedReview = id => ({
 
 export const createReview = review => dispatch => (
   APIUtil.createReview(review).then(review => (
-    dispatch(receiveReview(review))),
-    (err => dispatch(receiveErrors(err.responseJSON)))
+    dispatch(receiveReview(review)))
   )
 );
 
 export const fetchReviews = homeid => dispatch => (
   APIUtil.fetchReviews(homeid).then(reviews => (
-    dispatch(receiveReviews(reviews))),
-    (err => dispatch(receiveErrors(err.responseJSON)))
+    dispatch(receiveReviews(reviews)))
   )
 );
 
-export const updateReview = revoew => dispatch => (
-  APIUtil.updateReview(revoew).then(revoew => (
-    dispatch(receiveReview(revoew))),
-    (err => dispatch(receiveErrors(err.responseJSON)))
+export const updateReview = review => dispatch => (
+  APIUtil.updateReview(review).then(review => (
+    dispatch(receiveReview(review)))
   )
 );
 
 export const deleteReview = id => dispatch => (
   APIUtil.deleteReview(id).then(review => (
-    dispatch(receiveDeletedReview(review))),
-    (err => dispatch(receiveErrors(err.responseJSON)))
+    dispatch(receiveDeletedReview(review)))
   )
 );

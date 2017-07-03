@@ -4,7 +4,6 @@ import HomeShowContainer from './home_show_container';
 import HomeDetail from './home_detail';
 import BookIt from '../trip/book_it';
 import Footer from '../footer';
-import selectAll from '../../reducers/selectors';
 
 // shows a single listing
 class HomeShow extends React.Component {
@@ -14,6 +13,7 @@ class HomeShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchHome(this.props.homeid);
+    this.props.fetchReviews(this.props.homeid);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -21,6 +21,21 @@ class HomeShow extends React.Component {
     this.props.fetchHome(nextProps.match.params.homeid);
     }
   }
+
+  displayReviews() {
+    return this.props.reviews.map((review, idx) => {
+      return (
+        <div key={idx} className="review-container">
+          <div className="review-author">
+            {review.author.first}
+          </div>
+          <div className="review-body">
+            {review.body}
+          </div>
+        </div>
+      )
+    })
+  };
 
   render() {
     const { listing, homeid, fetchHome, currentUser, receiveInput, clearErrors, openModal } = this.props;
@@ -55,8 +70,9 @@ class HomeShow extends React.Component {
                 </div>
                 <HomeDetail listing={listing}/>
 
-
-
+                <div className="review-container">
+                  {this.displayReviews()}
+                </div>
               </div>
 
               <div className="to-book-it-divider">

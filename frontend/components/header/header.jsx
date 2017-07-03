@@ -28,15 +28,6 @@ class Header extends React.Component {
           <div className ="header-enter">
             <Link to={`/user/${this.props.currentUser.id}/trips`} className="trip-link">Your Trips</Link>
           </div>
-          <div className ="header-enter">
-            <span> Host </span>
-          </div>
-          <div className ="header-enter">
-            <span> Messages </span>
-          </div>
-          <div className ="header-enter">
-            <span> Help </span>
-          </div>
           <div className="SignOutButton">
             <span onClick={this.handleClick}>Sign Out</span>
           </div>
@@ -44,6 +35,15 @@ class Header extends React.Component {
       )
     }
   }
+  // <div className ="header-enter">
+  // <span> Host </span>
+  // </div>
+  // <div className ="header-enter">
+  // <span> Messages </span>
+  // </div>
+  // <div className ="header-enter">
+  // <span> Help </span>
+  // </div>
 
   logInHeader() {
     if (!this.props.loggedIn) {
