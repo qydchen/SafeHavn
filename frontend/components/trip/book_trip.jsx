@@ -1,5 +1,5 @@
 import React from 'react';
-// import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class BookTrip extends React.Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class BookTrip extends React.Component {
 
   componentDidMount() {
     if (this.props.loggedIn && this.props.inputs) {
-      
+
       this.props.fetchHome(this.props.homeid);
     } else {
       return (<div className="loading">You are not logged in</div>)
@@ -45,7 +45,7 @@ class BookTrip extends React.Component {
       num_guests: parseInt(this.state.num_guests),
       totalcost: this.state.totalcost,
     }
-		this.props.createTrip({trip}).then(this.props.history.push(`/homes`));
+		this.props.createTrip({trip}).then(this.props.history.push(`/user/${this.props.currentUser.id}/trips`));
   };
 
   handleSelectChange(property) {
@@ -132,14 +132,14 @@ class BookTrip extends React.Component {
     //or we can do querystring.... regardless this has to be in preloadedState...
 
     //local storage - not stored in route or database; preloadedState...
-    
+
     if (this.props.listing === undefined) {
-      
+
       return (
         <div className="loading">Fetching listing</div>
       );
     } else {
-      
+
       return (
         <section className="book-trip-page">
           <form className="book-trip-form">About Your Trip
@@ -169,4 +169,4 @@ class BookTrip extends React.Component {
   }
 }
 
-export default BookTrip;
+export default withRouter(BookTrip);
