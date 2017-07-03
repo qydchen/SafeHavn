@@ -884,6 +884,11 @@
   max-width: 210px;
   margin: 0 auto !important;
 }
+
+/* line 128, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookit.scss */
+.dash {
+  background-image: url(/assets/small-downarrow-bf673aba7a3821d2c2fc02b0ed12aabbab2cb113a6b397886af6e006d334489e.png);
+}
 /* line 1, /Users/qyc/Desktop/SafeHavn/app/assets/stylesheets/api/bookpage.scss */
 .book-trip-page {
   display: flex;

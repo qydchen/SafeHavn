@@ -37849,7 +37849,6 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 var RECEIVE_HOMES = exports.RECEIVE_HOMES = 'RECEIVE_HOMES';
 var RECEIVE_HOME = exports.RECEIVE_HOME = 'RECEIVE_HOME';
-// export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 var RECEIVE_DELETION = exports.RECEIVE_DELETION = 'RECEIVE_DELETION';
 
 var receiveHomes = exports.receiveHomes = function receiveHomes(homes) {
@@ -37866,24 +37865,12 @@ var receiveHome = exports.receiveHome = function receiveHome(home) {
   };
 };
 
-// export const receiveReview = review => ({
-//   type: RECEIVE_REVIEW,
-//   review
-// });
-
 var receiveDeletedHome = exports.receiveDeletedHome = function receiveDeletedHome(id) {
   return {
     type: RECEIVE_DELETION,
     id: id
   };
 };
-
-// export const createReview = review => dispatch => (
-//   APIUtil.createReview(review).then(review => (
-//     dispatch(receiveReview(review))),
-//     (err => dispatch(receiveErrors(err.responseJSON)))
-//   )
-// );
 
 var fetchHomes = exports.fetchHomes = function fetchHomes(filters) {
   return function (dispatch) {
@@ -50328,11 +50315,16 @@ var _modal_actions = __webpack_require__(53);
 
 var _session_actions = __webpack_require__(72);
 
+var _review_actions = __webpack_require__(672);
+
+var _selectors = __webpack_require__(58);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(_ref, _ref2) {
   var homes = _ref.homes,
-      session = _ref.session;
+      session = _ref.session,
+      reviews = _ref.reviews;
   var match = _ref2.match;
   //remember the entities is nexted in home which is nested in state
   var homeid = match.params.homeid;
@@ -50341,7 +50333,8 @@ var mapStateToProps = function mapStateToProps(_ref, _ref2) {
   return {
     homeid: homeid,
     listing: listing,
-    currentUser: session.currentUser
+    currentUser: session.currentUser,
+    reviews: (0, _selectors.selectAll)(reviews)
   };
 };
 
@@ -50358,8 +50351,13 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     clearErrors: function clearErrors() {
       return dispatch((0, _session_actions.clearErrors)());
+    },
+    createReview: function createReview(review) {
+      return dispatch((0, _review_actions.createReview)(review));
+    },
+    fetchReviews: function fetchReviews() {
+      return dispatch((0, _review_actions.fetchReviews)());
     }
-    // createReview: (review) => dispatch(createReview(review)),
   };
 };
 
@@ -68444,8 +68442,8 @@ document.addEventListener('DOMContentLoaded', function () {
     store = (0, _store2.default)();
   }
 
-  window.dispatch = store.dispatch;
-  window.getState = store.getState;
+  // window.dispatch = store.dispatch;
+  // window.getState = store.getState;
   // window.fetchHomes = fetchHomes;
   // window.fetchHome = fetchHome;
 
@@ -81210,6 +81208,9 @@ var _input_reducer2 = _interopRequireDefault(_input_reducer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import reviews from './review_reducer';
+
+
 var RootReducer = (0, _redux.combineReducers)({
   session: _session_reducer2.default,
   modal: _modal_reducer2.default,
@@ -81217,6 +81218,7 @@ var RootReducer = (0, _redux.combineReducers)({
   filters: _filter_reducer2.default,
   trips: _trip_reducer2.default,
   inputs: _input_reducer2.default
+  // reviews
 });
 
 exports.default = RootReducer;
@@ -83552,6 +83554,14 @@ var updateHome = exports.updateHome = function updateHome(data) {
   return $.ajax({
     method: 'PATCH',
     url: 'api/homes/' + id,
+    data: data
+  });
+};
+
+var fetchReviews = exports.fetchReviews = function fetchReviews(data) {
+  return $.ajax({
+    method: 'POST',
+    url: 'api/reviews',
     data: data
   });
 };
@@ -86831,33 +86841,6 @@ var Header = function (_React$Component) {
           ),
           _react2.default.createElement(
             "div",
-            { className: "header-enter" },
-            _react2.default.createElement(
-              "span",
-              null,
-              " Host "
-            )
-          ),
-          _react2.default.createElement(
-            "div",
-            { className: "header-enter" },
-            _react2.default.createElement(
-              "span",
-              null,
-              " Messages "
-            )
-          ),
-          _react2.default.createElement(
-            "div",
-            { className: "header-enter" },
-            _react2.default.createElement(
-              "span",
-              null,
-              " Help "
-            )
-          ),
-          _react2.default.createElement(
-            "div",
             { className: "SignOutButton" },
             _react2.default.createElement(
               "span",
@@ -86868,6 +86851,16 @@ var Header = function (_React$Component) {
         );
       }
     }
+    // <div className ="header-enter">
+    // <span> Host </span>
+    // </div>
+    // <div className ="header-enter">
+    // <span> Messages </span>
+    // </div>
+    // <div className ="header-enter">
+    // <span> Help </span>
+    // </div>
+
   }, {
     key: "logInHeader",
     value: function logInHeader() {
@@ -86877,24 +86870,6 @@ var Header = function (_React$Component) {
         return _react2.default.createElement(
           "div",
           { className: "AuthButtons" },
-          _react2.default.createElement(
-            "div",
-            { className: "header-enter" },
-            _react2.default.createElement(
-              "span",
-              null,
-              " Become a Host "
-            )
-          ),
-          _react2.default.createElement(
-            "div",
-            { className: "header-enter" },
-            _react2.default.createElement(
-              "span",
-              null,
-              " Help "
-            )
-          ),
           _react2.default.createElement(
             "div",
             { className: "header-enter", onClick: function onClick() {
@@ -86920,7 +86895,13 @@ var Header = function (_React$Component) {
         );
       }
     }
-    //
+    // <div className ="header-enter">
+    // <span> Become a Host </span>
+    // </div>
+    // <div className ="header-enter">
+    // <span> Help </span>
+    // </div>
+
     // filterHeader() {
     //   return (
     //     <div className="filter-header">
@@ -88520,10 +88501,6 @@ var _footer = __webpack_require__(355);
 
 var _footer2 = _interopRequireDefault(_footer);
 
-var _selectors = __webpack_require__(58);
-
-var _selectors2 = _interopRequireDefault(_selectors);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -88546,6 +88523,7 @@ var HomeShow = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.props.fetchHome(this.props.homeid);
+      this.props.fetchReviews(this.props.homeid);
     }
   }, {
     key: 'componentWillReceiveProps',
@@ -88553,6 +88531,26 @@ var HomeShow = function (_React$Component) {
       if (this.props.match.params.homeid !== nextProps.match.params.homeid) {
         this.props.fetchHome(nextProps.match.params.homeid);
       }
+    }
+  }, {
+    key: 'displayReviews',
+    value: function displayReviews() {
+      return this.props.reviews.map(function (review, idx) {
+        return _react2.default.createElement(
+          'div',
+          { key: idx, className: 'review-container' },
+          _react2.default.createElement(
+            'div',
+            { className: 'review-author' },
+            review.author.first
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'review-body' },
+            review.body
+          )
+        );
+      });
     }
   }, {
     key: 'render',
@@ -88625,7 +88623,12 @@ var HomeShow = function (_React$Component) {
                     'Location'
                   )
                 ),
-                _react2.default.createElement(_home_detail2.default, { listing: listing })
+                _react2.default.createElement(_home_detail2.default, { listing: listing }),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'review-container' },
+                  this.displayReviews()
+                )
               ),
               _react2.default.createElement(
                 'div',
@@ -96505,6 +96508,7 @@ var mapStateToProps = function mapStateToProps(_ref, _ref2) {
   var listing = homes[homeid];
   return {
     loggedIn: Boolean(session.currentUser),
+    currentUser: session.currentUser,
     homeid: homeid,
     listing: listing,
     inputs: inputs
@@ -96541,6 +96545,8 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRouterDom = __webpack_require__(13);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -96550,8 +96556,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-// import { withRouter } from 'react-router-dom';
 
 var BookTrip = function (_React$Component) {
   _inherits(BookTrip, _React$Component);
@@ -96611,7 +96615,7 @@ var BookTrip = function (_React$Component) {
         num_guests: parseInt(this.state.num_guests),
         totalcost: this.state.totalcost
       };
-      this.props.createTrip({ trip: trip }).then(this.props.history.push('/homes'));
+      this.props.createTrip({ trip: trip }).then(this.props.history.push('/user/' + this.props.currentUser.id + '/trips'));
     }
   }, {
     key: 'handleSelectChange',
@@ -96876,7 +96880,7 @@ var BookTrip = function (_React$Component) {
   return BookTrip;
 }(_react2.default.Component);
 
-exports.default = BookTrip;
+exports.default = (0, _reactRouterDom.withRouter)(BookTrip);
 
 /***/ }),
 /* 667 */
@@ -97367,6 +97371,81 @@ var TripIndexItem = function (_React$Component) {
 // </div>
 
 exports.default = TripIndexItem;
+
+/***/ }),
+/* 672 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.deleteReview = exports.updateReview = exports.fetchReviews = exports.createReview = exports.receiveDeletedReview = exports.receiveReviews = exports.receiveReview = exports.RECEIVE_DELETION = exports.RECEIVE_REVIEWS = exports.RECEIVE_REVIEW = undefined;
+
+var _home_api_util = __webpack_require__(544);
+
+var APIUtil = _interopRequireWildcard(_home_api_util);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var RECEIVE_REVIEW = exports.RECEIVE_REVIEW = 'RECEIVE_REVIEW';
+var RECEIVE_REVIEWS = exports.RECEIVE_REVIEWS = 'RECEIVE_REVIEWS';
+var RECEIVE_DELETION = exports.RECEIVE_DELETION = 'RECEIVE_DELETION';
+
+var receiveReview = exports.receiveReview = function receiveReview(review) {
+  return {
+    type: RECEIVE_REVIEW,
+    review: review
+  };
+};
+
+var receiveReviews = exports.receiveReviews = function receiveReviews(reviews) {
+  return {
+    type: RECEIVE_REVIEWS,
+    reviews: reviews
+  };
+};
+
+var receiveDeletedReview = exports.receiveDeletedReview = function receiveDeletedReview(id) {
+  return {
+    type: RECEIVE_DELETION,
+    id: id
+  };
+};
+
+var createReview = exports.createReview = function createReview(review) {
+  return function (dispatch) {
+    return APIUtil.createReview(review).then(function (review) {
+      return dispatch(receiveReview(review));
+    });
+  };
+};
+
+var fetchReviews = exports.fetchReviews = function fetchReviews(homeid) {
+  return function (dispatch) {
+    return APIUtil.fetchReviews(homeid).then(function (reviews) {
+      return dispatch(receiveReviews(reviews));
+    });
+  };
+};
+
+var updateReview = exports.updateReview = function updateReview(review) {
+  return function (dispatch) {
+    return APIUtil.updateReview(review).then(function (review) {
+      return dispatch(receiveReview(review));
+    });
+  };
+};
+
+var deleteReview = exports.deleteReview = function deleteReview(id) {
+  return function (dispatch) {
+    return APIUtil.deleteReview(id).then(function (review) {
+      return dispatch(receiveDeletedReview(review));
+    });
+  };
+};
 
 /***/ })
 /******/ ]);
