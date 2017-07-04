@@ -7,7 +7,6 @@ import { withRouter } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
 import { clearErrors } from '../../actions/session_actions'
 import { createReview, fetchReviews } from '../../actions/review_actions';
-// import { selectAll } from '../../reducers/selectors';
 
 const mapStateToProps = ({ homes, session, reviews }, {match}) => { //remember the entities is nexted in home which is nested in state
   const homeid = match.params.homeid;

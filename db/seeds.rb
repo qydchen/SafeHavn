@@ -102,7 +102,8 @@ User.create({"email": "guest@live.com",
   "password": "asdf1234",
   "month": 5,
   "day": 11,
-  "year": 1980}),
+  "year": 1980,
+  "image": ADD HALJORDAN}),
 User.create({
   "email": "david@qydc.com",
   "first": "Dav",
@@ -110,7 +111,8 @@ User.create({
   "password": "password123",
   "month": 5,
   "day": 12,
-  "year": 1991})
+  "year": 1991,
+  "image": ADD MY FACE})
 ]
 
 101.times do |i|

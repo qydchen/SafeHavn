@@ -4,6 +4,7 @@ import HomeShowContainer from './home_show_container';
 import HomeDetail from './home_detail';
 import BookIt from '../trip/book_it';
 import Footer from '../footer';
+import Reviews from '../review/reviews';
 
 // shows a single listing
 class HomeShow extends React.Component {
@@ -22,29 +23,15 @@ class HomeShow extends React.Component {
     }
   }
 
-  displayReviews() {
-    return this.props.reviews.map((review, idx) => {
-      return (
-        <div key={idx} className="review-container">
-          <div className="review-author">
-            {review.author}
-          </div>
-          <div className="review-body">
-            {review.body}
-          </div>
-        </div>
-      )
-    })
-  };
-
   render() {
-    const { listing, homeid, fetchHome, currentUser, receiveInput, clearErrors, openModal } = this.props;
+    const { listing, reviews, homeid, fetchHome, currentUser, receiveInput, clearErrors, openModal } = this.props;
     if (listing === undefined) {
 
       return (
         <div className="loading">Fetching listing</div>
       );
     } else {
+
       return (
         <section className="listing-show-page">
 
@@ -68,8 +55,9 @@ class HomeShow extends React.Component {
                 </div>
                 <HomeDetail listing={listing}/>
 
-                <div className="review-container">
-                  {this.displayReviews()}
+                <div className="review-divider">
+                  <Reviews
+                    reviews={reviews}/>
                 </div>
               </div>
 
