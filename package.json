@@ -8,7 +8,8 @@
     "test": "test"
   },
   "scripts": {
-    "postinstall": "webpack"
+    "postinstall": "webpack",
+    "webpack": "webpack --watch"
   },
   "engines": {
     "node": "6.9.5",
@@ -42,8 +43,10 @@
     "react-redux-modal": "^0.5.2",
     "react-router-dom": "^4.1.1",
     "redux": "^3.7.0",
-    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "webpack": "^3.0.0"
+  },
+  "devDependencies": {
+    "redux-logger": "^2.8.1"
   }
 }
