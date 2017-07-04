@@ -1,10 +1,4 @@
-@reviews.each do |review|
-  json.set! review.id do
-    json.extract! review,
-      :id,
-      :author,
-      :body,
-      :rating,
-      :home_id
-  end
+json.array! @reviews do |review|
+  json.extract! review, :id, :body, :home_id, :author_id, :rating
+  json.first review.user.first
 end

@@ -39,8 +39,6 @@ class HomeShow extends React.Component {
 
   render() {
     const { listing, homeid, fetchHome, currentUser, receiveInput, clearErrors, openModal } = this.props;
-
-
     if (listing === undefined) {
 
       return (
