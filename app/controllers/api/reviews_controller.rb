@@ -1,5 +1,4 @@
 class Api::ReviewsController < ApplicationController
-  before_action :require_logged_in
 
   def index
     @reviews = Review.where(home_id: params[:home_id])
@@ -9,7 +8,7 @@ class Api::ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.author_id = current_user.id
     if @review.save
-      render json: @review
+      render :show
     else
       render json: @review.errors.full_messages
     end

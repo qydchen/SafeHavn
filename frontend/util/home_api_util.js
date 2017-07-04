@@ -38,11 +38,11 @@ export const updateHome = data => (
   })
 );
 
-export const fetchReviews = data => (
+export const fetchReviews = home_id => (
   $.ajax({
-    method: 'POST',
+    method: 'GET',
     url: 'api/reviews',
-    data
+    data: { home_id }
   })
 );
 

@@ -28,7 +28,7 @@ const mapDispatchToProps = (dispatch) => {
     openModal: (component) => dispatch(openModal(component)),
     clearErrors: () => dispatch(clearErrors()),
     createReview: (review) => dispatch(createReview(review)),
-    fetchReviews: (homeid) => dispatch(fetchReviews(homeid)),
+    fetchReviews: (id) => dispatch(fetchReviews(id)),
   }
 }
 

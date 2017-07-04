@@ -27,7 +27,7 @@ class HomeShow extends React.Component {
       return (
         <div key={idx} className="review-container">
           <div className="review-author">
-            {review.author.first}
+            {review.author}
           </div>
           <div className="review-body">
             {review.body}

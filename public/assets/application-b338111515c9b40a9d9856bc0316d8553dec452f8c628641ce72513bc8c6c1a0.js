@@ -20052,11 +20052,6 @@ var yearsRange = exports.yearsRange = function yearsRange() {
   return range;
 };
 
-// export const selectHome = ({ entities, reviews }, id) => {
-//    const home = entities.homes[id] || {};
-//    return home
-// };
-
 var selectAll = exports.selectAll = function selectAll(object) {
   return _.values(object);
 };
@@ -49456,11 +49451,11 @@ var updateHome = exports.updateHome = function updateHome(data) {
   });
 };
 
-var fetchReviews = exports.fetchReviews = function fetchReviews(data) {
+var fetchReviews = exports.fetchReviews = function fetchReviews(home_id) {
   return $.ajax({
-    method: 'POST',
+    method: 'GET',
     url: 'api/reviews',
-    data: data
+    data: { home_id: home_id }
   });
 };
 
@@ -50421,8 +50416,8 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     createReview: function createReview(review) {
       return dispatch((0, _review_actions.createReview)(review));
     },
-    fetchReviews: function fetchReviews(homeid) {
-      return dispatch((0, _review_actions.fetchReviews)(homeid));
+    fetchReviews: function fetchReviews(id) {
+      return dispatch((0, _review_actions.fetchReviews)(id));
     }
   };
 };
@@ -81271,10 +81266,11 @@ var _input_reducer = __webpack_require__(547);
 
 var _input_reducer2 = _interopRequireDefault(_input_reducer);
 
+var _review_reducer = __webpack_require__(673);
+
+var _review_reducer2 = _interopRequireDefault(_review_reducer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// import reviews from './review_reducer';
-
 
 var RootReducer = (0, _redux.combineReducers)({
   session: _session_reducer2.default,
@@ -81282,8 +81278,8 @@ var RootReducer = (0, _redux.combineReducers)({
   homes: _home_reducer2.default,
   filters: _filter_reducer2.default,
   trips: _trip_reducer2.default,
-  inputs: _input_reducer2.default
-  // reviews
+  inputs: _input_reducer2.default,
+  reviews: _review_reducer2.default
 });
 
 exports.default = RootReducer;
@@ -88549,7 +88545,7 @@ var HomeShow = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'review-author' },
-            review.author.first
+            review.author
           ),
           _react2.default.createElement(
             'div',
@@ -95922,7 +95918,7 @@ module.exports =
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.deleteReview = exports.updateReview = exports.fetchReviews = exports.createReview = exports.receiveDeletedReview = exports.receiveReviews = exports.receiveReview = exports.RECEIVE_DELETION = exports.RECEIVE_REVIEWS = exports.RECEIVE_REVIEW = undefined;
+exports.fetchReviews = exports.createReview = exports.receiveReviews = exports.RECEIVE_REVIEWS = undefined;
 
 var _home_api_util = __webpack_require__(177);
 
@@ -95930,16 +95926,14 @@ var APIUtil = _interopRequireWildcard(_home_api_util);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-var RECEIVE_REVIEW = exports.RECEIVE_REVIEW = 'RECEIVE_REVIEW';
+// export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 var RECEIVE_REVIEWS = exports.RECEIVE_REVIEWS = 'RECEIVE_REVIEWS';
-var RECEIVE_DELETION = exports.RECEIVE_DELETION = 'RECEIVE_DELETION';
+// export const RECEIVE_DELETION = 'RECEIVE_DELETION';
 
-var receiveReview = exports.receiveReview = function receiveReview(review) {
-  return {
-    type: RECEIVE_REVIEW,
-    review: review
-  };
-};
+// export const receiveReview = review => ({
+//   type: RECEIVE_REVIEW,
+//   review
+// });
 
 var receiveReviews = exports.receiveReviews = function receiveReviews(reviews) {
   return {
@@ -95948,12 +95942,10 @@ var receiveReviews = exports.receiveReviews = function receiveReviews(reviews) {
   };
 };
 
-var receiveDeletedReview = exports.receiveDeletedReview = function receiveDeletedReview(id) {
-  return {
-    type: RECEIVE_DELETION,
-    id: id
-  };
-};
+// export const receiveDeletedReview = id => ({
+//   type: RECEIVE_DELETION,
+//   id
+// });
 
 var createReview = exports.createReview = function createReview(review) {
   return function (dispatch) {
@@ -95971,21 +95963,17 @@ var fetchReviews = exports.fetchReviews = function fetchReviews(homeid) {
   };
 };
 
-var updateReview = exports.updateReview = function updateReview(review) {
-  return function (dispatch) {
-    return APIUtil.updateReview(review).then(function (review) {
-      return dispatch(receiveReview(review));
-    });
-  };
-};
+// export const updateReview = review => dispatch => (
+//   APIUtil.updateReview(review).then(review => (
+//     dispatch(receiveReview(review)))
+//   )
+// );
 
-var deleteReview = exports.deleteReview = function deleteReview(id) {
-  return function (dispatch) {
-    return APIUtil.deleteReview(id).then(function (review) {
-      return dispatch(receiveDeletedReview(review));
-    });
-  };
-};
+// export const deleteReview = id => dispatch => (
+//   APIUtil.deleteReview(id).then(review => (
+//     dispatch(receiveDeletedReview(review)))
+//   )
+// );
 
 /***/ }),
 /* 660 */
@@ -97452,6 +97440,50 @@ var TripIndexItem = function (_React$Component) {
 // </div>
 
 exports.default = TripIndexItem;
+
+/***/ }),
+/* 673 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _lodash = __webpack_require__(53);
+
+var _review_actions = __webpack_require__(659);
+
+var defaultState = [];
+
+var ReviewReducer = function ReviewReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultState;
+  var action = arguments[1];
+
+  Object.freeze(state);
+  var newState = void 0;
+  switch (action.type) {
+    // case RECEIVE_REVIEW:
+    //
+    //   newState = merge({}, state, {[action.review.id]: action.review})
+    //   return newState;
+    //
+    case _review_actions.RECEIVE_REVIEWS:
+      return action.reviews;
+    //
+    // case RECEIVE_DELETION:
+    //   newState = Object.assign({}, state);
+    //   delete newState[action.id];
+    //   return newState;
+    //
+    default:
+      return state;
+  }
+};
+
+exports.default = ReviewReducer;
 
 /***/ })
 /******/ ]);

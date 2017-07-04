@@ -6,7 +6,7 @@ import homes from './home_reducer';
 import filters from './filter_reducer';
 import trips from './trip_reducer';
 import inputs from './input_reducer';
-// import reviews from './review_reducer';
+import reviews from './review_reducer';
 
 
 const RootReducer = combineReducers({
@@ -16,7 +16,7 @@ const RootReducer = combineReducers({
   filters,
   trips,
   inputs,
-  // reviews
+  reviews
 });
 
 export default RootReducer;
