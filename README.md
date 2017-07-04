@@ -14,7 +14,7 @@ This project was developed in two weeks utilizing Ruby on Rails, React, Redux, G
   * View homes' show page
   * Displays home details (address, amenities, space details)
   * Book a home
-  * Manage bookings and view all trips.
+  * Manage bookings and view trips.
   * Users may only view trips that they booked personally
 
 ## Key Features & Implementation
@@ -95,7 +95,7 @@ All trips (bookings) are stored in one table in the database, which contains col
 ![safehavn-book](/app/assets/images/demo/SafeHavnBook.png)
 
 ### Viewing trips
-Only the user can view their own trips. The user can then view details about their trip, the amount they paid, and if they have to, cancel their trips. If the user has no trips, a link will allow the user to redirect back to the home index page.
+Only the user can view their own trips. The user can view details about their trip, the amount they paid, and if they have to, cancel their trips. If the user has no trips, a link will allow the user to redirect back to the home index page.
 
 ![safehavn-trip](/app/assets/images/demo/SafeHavnTrip.png)
 
@@ -118,4 +118,4 @@ Integration with mobile using React Native.
 Filtering by amenities and housing accommodations will improve usability. Adding dropdowns and modals will allow the expansion of such filters.
 
 #### Improved Styling/Design
-Compared with AirBnB, there are countless design tweaks that I can improve on such as: adding a carousel that spins through photos of the home. Adding a slider bar to filter budgets and guest size.
+Compared with AirBnB, there are countless UX design tweaks that I can improve on such as: adding a carousel that spins through photos of the home. Adding a slider bar to filter budgets and guest size.
