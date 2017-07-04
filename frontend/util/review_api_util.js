@@ -7,10 +7,10 @@ export const fetchReviews = home_id => (
 );
 
 
-export const createReview = data => (
+export const createReview = review => (
   $.ajax({
     method: 'POST',
     url: 'api/reviews',
-    data
+    data: { review }
   })
 );

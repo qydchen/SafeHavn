@@ -80662,9 +80662,7 @@ var middlewares = [_reduxThunk2.default];
 
 if (process.env.NODE_ENV !== 'production') {
   // must use 'require' (import only allowed at top of file)
-  var _require = __webpack_require__(552),
-      createLogger = _require.createLogger;
-
+  var createLogger = __webpack_require__(552);
   middlewares.push(createLogger());
 }
 
@@ -83884,11 +83882,11 @@ var fetchReviews = exports.fetchReviews = function fetchReviews(home_id) {
   });
 };
 
-var createReview = exports.createReview = function createReview(data) {
+var createReview = exports.createReview = function createReview(review) {
   return $.ajax({
     method: 'POST',
     url: 'api/reviews',
-    data: data
+    data: { review: review }
   });
 };
 
