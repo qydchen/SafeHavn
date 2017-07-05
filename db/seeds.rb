@@ -103,7 +103,7 @@ User.create({"email": "guest@live.com",
   "month": 5,
   "day": 11,
   "year": 1980,
-  "image": ADD HALJORDAN}),
+  }),
 User.create({
   "email": "david@qydc.com",
   "first": "Dav",
@@ -112,7 +112,7 @@ User.create({
   "month": 5,
   "day": 12,
   "year": 1991,
-  "image": ADD MY FACE})
+  })
 ]
 
 101.times do |i|
