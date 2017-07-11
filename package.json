@@ -2,7 +2,7 @@
   "name": "SafeHavn",
   "version": "1.0.0",
   "description": "== README",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "directories": {
     "doc": "docs",
     "test": "test"
