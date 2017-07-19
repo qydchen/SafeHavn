@@ -357,6 +357,16 @@ User.create({
   "day": 4,
   "year": 1991,
   "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/scarlett.jpg"
+}),
+User.create({
+  "email": "loralee@doublel.com",
+  "first": "Lora",
+  "last": "Lee",
+  "password": "appacademyll",
+  "month": 11,
+  "day": 27,
+  "year": 1990,
+  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/lora.jpg"
 })
 ]
 
