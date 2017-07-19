@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 	after_initialize :ensure_session_token
 	before_validation :ensure_session_token_uniqueness
 
-  has_attached_file :image, default_url: "haljordan.jpg"
+  has_attached_file :image, default_url: "defaultuser.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   has_many :homes,
@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
 	end
 
   def birth_date
-    Date.parse("#{month}/#{day}/#{year}")
+    Date.parse("#{day}/#{month}/#{year}")
   end
 
   def validate_age

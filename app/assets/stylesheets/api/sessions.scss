@@ -7,6 +7,23 @@
   cursor: pointer !important;
 }
 
+.image-hov:hover {
+  border-bottom: 2px solid #484848 !important;
+}
+
+.image-hov {
+  height: 44px;
+  width: 44px;
+  margin: 0 12px 0 12px;
+}
+
+.pic-head {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
 .header-enter, .SignOutButton {
   padding: 8px 0 !important;
   vertical-align: middle !important;

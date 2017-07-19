@@ -31,6 +31,9 @@ class Header extends React.Component {
           <div className="SignOutButton">
             <span onClick={this.handleClick}>Sign Out</span>
           </div>
+          <div className="image-hov">
+            <img className="pic-head" src={this.props.currentUser.image_url}/>
+          </div>
         </div>
       )
     }

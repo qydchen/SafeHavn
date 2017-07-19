@@ -4,7 +4,6 @@ import HomeShowContainer from './home_show_container';
 import HomeDetail from './home_detail';
 import BookIt from '../trip/book_it';
 import Footer from '../footer';
-import Reviews from '../review/reviews';
 
 // shows a single listing
 class HomeShow extends React.Component {
@@ -44,11 +43,9 @@ class HomeShow extends React.Component {
                 <div className="navigation-detail">
                   <div className="navigation-selection">Overview</div>
                 </div>
-                <HomeDetail listing={listing}/>
 
-                <div className="review-divider">
-                  <Reviews reviews={reviews}/>
-                </div>
+                <HomeDetail listing={listing} reviews={reviews}/>
+
               </div>
 
               <div className="to-book-it-divider">

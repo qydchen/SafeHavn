@@ -1,32 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-# Home.create({"host_id": host_id,
-#   "lat": lat,
-#   "lng": lng,
-#   "title": title,
-#   "price": price,
-#   "address": address,
-#   "bathrooms": bathrooms,
-#   "bedrooms": bedrooms,
-#   "max_guests": max_guests,
-#   "beds": beds,
-#   "property_type": property_type,
-#   "room_type": room_type,
-#   "internet": internet,
-#   "family": family,
-#   "parking": parking,
-#   "kitchen": kitchen,
-#   "description": description,
-#   "cancellation": cancellation,
-#   "image": "https://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/sea-landscape-sunset-290098.jpeg"
-# })
-
 def lat # NYC
   (40.350000 + rand()*1.2)
 end
@@ -249,22 +220,144 @@ end
 
 users = [
 User.create({"email": "guest@live.com",
-  "first": "Ronald",
-  "last": "McDonald",
+  "first": "Oprah",
+  "last": "Winfrey",
   "password": "asdf1234",
   "month": 5,
   "day": 11,
   "year": 1980,
-  }),
+  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/oprah.jpg"
+}),
 User.create({
   "email": "david@qydc.com",
-  "first": "Dav",
+  "first": "David",
   "last": "Chen",
   "password": "password123",
   "month": 5,
   "day": 12,
   "year": 1991,
-  })
+  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/david.jpg"
+}),
+User.create({
+  "email": "iheartjay@recordlabel.com",
+  "first": "Beyonce",
+  "last": "Knowles",
+  "password": "qwerty55",
+  "month": 2,
+  "day": 12,
+  "year": 1984,
+  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/beyonce.jpg"
+}),
+User.create({
+  "email": "conan@conaco.com",
+  "first": "Conan",
+  "last": "Obrien",
+  "password": "funny69lol",
+  "month": 2,
+  "day": 12,
+  "year": 1968,
+  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/conan.jpg"
+}),
+User.create({
+  "email": "candaceswan@victoria.com",
+  "first": "Candice",
+  "last": "Swanpoele",
+  "password": "victoriasecret99",
+  "month": 2,
+  "day": 12,
+  "year": 1989,
+  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/candice.jpg"
+}),
+User.create({
+  "email": "deadpool@marvel.com",
+  "first": "Deadpool",
+  "last": "Wilson",
+  "password": "chalupas55",
+  "month": 8,
+  "day": 22,
+  "year": 1979,
+  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/deadpool.jpg"
+}),
+User.create({
+  "email": "ollivander@wand.com",
+  "first": "Emma",
+  "last": "Watson",
+  "password": "iloveron1",
+  "month": 3,
+  "day": 13,
+  "year": 1990,
+  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/emma.jpg"
+}),
+User.create({
+  "email": "kungfu@comedy.com",
+  "first": "Jackie",
+  "last": "Chan",
+  "password": "policestory3",
+  "month": 7,
+  "day": 13,
+  "year": 1977,
+  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/jackie.jpg"
+}),
+User.create({
+  "email": "action@comedy.com",
+  "first": "Jet",
+  "last": "Li",
+  "password": "taichumaster44",
+  "month": 11,
+  "day": 21,
+  "year": 1984,
+  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/jet.jpg"
+}),
+User.create({
+  "email": "lovekanya@west.com",
+  "first": "Kim",
+  "last": "Kardashian",
+  "password": "graduationday",
+  "month": 12,
+  "day": 12,
+  "year": 1989,
+  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/kim.jpg"
+}),
+User.create({
+  "email": "petlife@comedian.com",
+  "first": "Louis",
+  "last": "CK",
+  "password": "amazingeyelashes",
+  "month": 4,
+  "day": 14,
+  "year": 1979,
+  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/louis.jpg"
+}),
+User.create({
+  "email": "wolfofwall@street.com",
+  "first": "Margot",
+  "last": "Robbie",
+  "password": "queloods55",
+  "month": 8,
+  "day": 18,
+  "year": 1990,
+  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/margot.jpg"
+}),
+User.create({
+  "email": "rapper@gangsta.com",
+  "first": "Nicki",
+  "last": "Minaj",
+  "password": "ilovepinkhair",
+  "month": 5,
+  "day": 26,
+  "year": 1987,
+  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/nicki.jpg"
+}),
+User.create({
+  "email": "scarlett@marvel.com",
+  "first": "Scarlett",
+  "last": "Johansson",
+  "password": "ghostinshell33",
+  "month": 1,
+  "day": 4,
+  "year": 1991,
+  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/scarlett.jpg"
+})
 ]
 
 101.times do |i|
@@ -276,8 +369,8 @@ User.create({
     "address": address,
     "bathrooms": bathrooms,
     "bedrooms": bedrooms,
-    "max_guests": max_guests,
-    "beds": beds,
+    "max_guests": bedrooms * 2,
+    "beds": bedrooms * 2,
     "property_type": property_type,
     "room_type": room_type,
     "internet": internet,
@@ -292,7 +385,7 @@ end
 
 
 
-10.times do |i|
+3.times do |i|
   Trip.create({
     visitor_id: User.all.sample.id,
     home_id: Home.all.sample.id,
@@ -302,4 +395,13 @@ end
     totalcost: rand(200..5000),
     }
   )
+end
+
+600.times do |i|
+  Review.create({
+    author_id: User.all.sample.id,
+    home_id: Home.all.sample.id,
+    rating: rand(1..5),
+    body: Faker::Hipster.paragraph(2, false, 2)
+  })
 end

@@ -1,5 +1,6 @@
 import React from 'react';
 import { trueAmenities } from '../../reducers/selectors.js';
+import Reviews from '../review/reviews';
 
 const cancellationText = {
   Strict: "Cancel up to 7 days before your trip and get a 50% refund plus service fees back.",
@@ -127,6 +128,7 @@ class HomeDetail extends React.Component{
   }
 
   render() {
+    const { reviews } = this.props;
     return (
       <div className="single-listing-container">
         <div className="summary-box">
@@ -155,10 +157,16 @@ class HomeDetail extends React.Component{
             {this.theAmenities()}
             <hr className="rowDivider hr-abbrev"/>
             {this.cancellationPolicy()}
-            <hr className="rowDivider hr-abbrev"/>
+            <hr className="rowDivider"/>
           </div>
         </div>
+
+        <div className="review-divider">
+          <Reviews reviews={reviews}/>
+        </div>
+
       </div>
+
     )
   }
 
