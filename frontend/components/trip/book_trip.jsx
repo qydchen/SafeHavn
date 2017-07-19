@@ -23,7 +23,6 @@ class BookTrip extends React.Component {
 
   componentDidMount() {
     if (this.props.loggedIn && this.props.inputs) {
-
       this.props.fetchHome(this.props.homeid);
     } else {
       return (<div className="loading">You are not logged in</div>)
@@ -129,21 +128,15 @@ class BookTrip extends React.Component {
   }
 
   render() {
-    //or we can do querystring.... regardless this has to be in preloadedState...
-
-    //local storage - not stored in route or database; preloadedState...
-
+    // has to be in preloadedState...
     if (this.props.listing === undefined) {
-
       return (
         <div className="loading">Fetching listing</div>
       );
     } else {
-
       return (
         <section className="book-trip-page">
           <form className="book-trip-form">About Your Trip
-
           {this.selectGuests()}
             <label className="subscribe-lab">
               <div className="subscribe-img">
@@ -151,7 +144,6 @@ class BookTrip extends React.Component {
               </div>
               <div className="subscribe-info pet-info">Bringing a pet?</div>
             </label>
-
             <div className="say-hello-container">Say hello to your host and tell them why you're coming:
               <textarea className="say-hello" placeholder="Visiting family or friends? See the sights? This helps your host plan for your trip."/>
             </div>
@@ -161,7 +153,6 @@ class BookTrip extends React.Component {
               </span>
             </button>
           </form>
-
           {this.bookingRightPanel()}
         </section>
       )

@@ -8,7 +8,6 @@ import trips from './trip_reducer';
 import inputs from './input_reducer';
 import reviews from './review_reducer';
 
-
 const RootReducer = combineReducers({
   session,
   modal,

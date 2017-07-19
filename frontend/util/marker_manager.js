@@ -18,7 +18,7 @@ export default class MarkerManager {
       .filter(homeid => !homesObj[homeid])
       .forEach((homeid) => this.removeMarker(this.markers[homeid]))
   }
-// layout.scss for styling
+
   createMarkerFromHome(home) {
     const image = "https://s3.amazonaws.com/safehavns-dev/mark.png";
     const lat = home.lat;

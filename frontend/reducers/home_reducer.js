@@ -3,12 +3,10 @@ import { merge } from 'lodash';
 import {
   RECEIVE_HOMES,
   RECEIVE_HOME,
-  // RECEIVE_REVIEW,
   RECEIVE_DELETION,
 } from '../actions/home_actions';
 
 const defaultState = {};
-
 
 const HomeReducer = (state = defaultState, action) => {
   Object.freeze(state);
@@ -27,9 +25,6 @@ const HomeReducer = (state = defaultState, action) => {
       delete newState[action.id];
       return newState;
 
-    // case RECEIVE_REVIEW:
-    //   newState = merge({}, state, {reviews: action.review})
-    //   return newState;
     default:
       return state;
   }

@@ -8,7 +8,7 @@ class BookIt extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      startDate: null, /// just for now... bookings not done yet
+      startDate: null,
       endDate: null,
       num_guests: 1,
     };
@@ -41,11 +41,9 @@ class BookIt extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
     const input = Object.assign({}, this.state);
 		if (this.props.currentUser) {
-
-      this.props.receiveInput(input); // after this, move to next screen
+      this.props.receiveInput(input);
       this.navigateToBookTrip();
     } else {
 
@@ -63,22 +61,11 @@ class BookIt extends React.Component {
     )
   };
 
-  // renderErrors() {
-  //   if (!this.props.currentUser) {
-  //     return (<li><h2>Not Logged In</h2></li>);
-  //   } else if (this.props.errors) {
-  //     return (this.props.errors.map((err, idx) => {
-  //       return (<li key={idx}>{ err }</li>);
-  //     }));
-  //   }
-  // }
-
   bookingForm() {
     const options = [
       <option value="1" key={1}>1 guest</option>
     ];
     for (let i = 2; i <= this.props.listing.space.max_guests; i++) {
-
       options.push(
         <option value={i} key={i}>{i} guests</option>
       );
@@ -106,15 +93,14 @@ class BookIt extends React.Component {
         <div className="guest-dd-container">
             <div className='select-container'>
               <label className="guest-check">Guests</label>
-                <div className='select-dd-container'>
-                  <select className='select-dropdown guests' value={this.state.num_guests}
-                      onChange={this.handleSelectChange('num_guests')}>{options}
-                  </select>
-                    <span className="dropdown-arrow"></span>
-                  </div>
-                </div>
-
-          </div>
+              <div className='select-dd-container'>
+                <select className='select-dropdown guests' value={this.state.num_guests}
+                    onChange={this.handleSelectChange('num_guests')}>{options}
+                </select>
+                <span className="dropdown-arrow"></span>
+              </div>
+            </div>
+        </div>
 
           <button onClick={this.handleSubmit}
             className="pinkButton book-btn">

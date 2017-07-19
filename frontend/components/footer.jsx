@@ -1,7 +1,5 @@
 import React from 'react';
 
-// const langArr = ['Dansk', 'Deutsche', 'English', 'Español', 'Italiano', 'Nederlands', '中文', '한국어', '日本語']
-
 class Footer extends React.Component {
   render() {
     return (

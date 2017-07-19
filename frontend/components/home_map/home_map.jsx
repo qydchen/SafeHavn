@@ -7,11 +7,12 @@ const getCoordsObj = latLng => ({
   lat: latLng.lat(),
   lng: latLng.lng()
 });
+
 // set the map to show NY
 const mapOptions = {
   center: { lat: 40.7128, lng: -74.0059 }, // this is NY
   zoom: 12,
-  scrollwheel: false, // turn off scroll wheel
+  scrollwheel: false,
   styles: [
     { featureType: "water", stylers: [{hue: "#A4DDF5"}]}
   ]

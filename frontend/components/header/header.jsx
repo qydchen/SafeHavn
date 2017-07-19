@@ -35,15 +35,6 @@ class Header extends React.Component {
       )
     }
   }
-  // <div className ="header-enter">
-  // <span> Host </span>
-  // </div>
-  // <div className ="header-enter">
-  // <span> Messages </span>
-  // </div>
-  // <div className ="header-enter">
-  // <span> Help </span>
-  // </div>
 
   logInHeader() {
     if (!this.props.loggedIn) {
@@ -61,37 +52,6 @@ class Header extends React.Component {
       )
     }
   }
-  // <div className ="header-enter">
-  // <span> Become a Host </span>
-  // </div>
-  // <div className ="header-enter">
-  // <span> Help </span>
-  // </div>
-
-  // filterHeader() {
-  //   return (
-  //     <div className="filter-header">
-  //       <div className="searchBarWrapper">
-  //         <div className="container">
-  //
-  //           <div className="searchContainer">
-  //             <label className="hidden">
-  //               <div className="geoCompleteContainer">
-  //                 <div className="prefixContainer"/>
-  //                 <div className="inputContainer">
-  //                   <input className="anywhereInput">
-  //                   </input>
-  //                 </div>
-  //               </div>
-  //             </label>
-  //           </div>
-  //         </div>
-  //         <div className="anytimeContainer">Anytime</div>
-  //         <div className="guestContainer">Guest</div>
-  //       </div>
-  //     </div>
-  //   )
-  // }
 
   verticalNavWrapper() {
     let navWrap;
@@ -137,6 +97,6 @@ class Header extends React.Component {
     )
   }
 };
-// {this.filterHeader()}
+
 
 export default Header;

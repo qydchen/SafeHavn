@@ -27,7 +27,6 @@ class TripIndex extends React.Component {
         </div>
       )
     });
-
     if (tripsIndex.length > 0) {
       return (
         <div className="trip-slider">
@@ -48,8 +47,6 @@ class TripIndex extends React.Component {
         </div>
       )
     }
-
-
   }
 }
 

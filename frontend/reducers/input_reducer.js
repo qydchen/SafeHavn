@@ -6,10 +6,7 @@ const defaultState = {
   startDate: null,
   endDate: null,
   num_guests: 0,
-  // showPayment: false,
-  // pageToShow: 1
 };
-
 
 const UserInputReducer = (state = defaultState, action) => {
   Object.freeze(state);

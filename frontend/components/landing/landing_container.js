@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { selectAll } from '../../reducers/selectors';
 import Landing from './landing';
 
-const mapStateToProps = ({ homes }, {match}) => { //remember the entities is nexted in home which is nested in state
+const mapStateToProps = ({ homes }, {match}) => {
   return {
     homes: selectAll(homes),
   }

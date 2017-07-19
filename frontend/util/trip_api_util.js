@@ -18,8 +18,6 @@ export const createTrip = trip => (
     method: 'POST',
     url: 'api/trips',
     data: trip,
-    // contentType: false,
-    // processData: false,
   })
 );
 

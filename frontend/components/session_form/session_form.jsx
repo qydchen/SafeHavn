@@ -69,6 +69,7 @@ class SessionForm extends React.Component {
       )
     }
   }
+
   lastInput() {
     if (this.props.formType === 'signup') {
       return (
@@ -91,7 +92,6 @@ class SessionForm extends React.Component {
           </span>
           <span className="switch" onClick={() => this.clearErrorsAndOpenModal(<SessionFormContainer formType="login"/>)}>
             <div className="register-txt"> Log In </div>
-
           </span>
         </div>
       )
@@ -115,17 +115,11 @@ class SessionForm extends React.Component {
         <div className="birthdayContainer">
           <div className="birthdayTitle">Birthday</div>
           <div className="birthdayText">To sign up, you must be 18 years or older. Other people won't see your birthday.</div>
-
             <div className="birthdayRow">
-
-                  { this.selectMonth() }
-
-                  { this.selectDay() }
-
-                  { this.selectYear() }
-
+              { this.selectMonth() }
+              { this.selectDay() }
+              { this.selectYear() }
             </div>
-
         </div>
       )
     }
@@ -138,17 +132,14 @@ class SessionForm extends React.Component {
     ];
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
       'August', 'September', 'October', 'November', 'December'];
-
     for (let i = 1; i <= 12; i++) {
       const month = months[i - 1];
-
       options.push(
         <option value={i}
           key={i}
         >{months[i - 1]}</option>
       );
     }
-
     return (
       <div className="bday-column">
         <div className='select-container'>
@@ -169,7 +160,6 @@ class SessionForm extends React.Component {
     const options = [
       <option value="" key={0}>Day</option>
     ];
-
     for (let i = 1; i <= 31; i++) {
       options.push(
         <option value={i}
@@ -177,7 +167,6 @@ class SessionForm extends React.Component {
         >{i}</option>
       );
     }
-
     return (
       <div className="bday-column">
         <div className='select-container'>
@@ -197,7 +186,6 @@ class SessionForm extends React.Component {
     const options = [
       <option value="" key={-1}>Year</option>
     ];
-
     this.props.years.forEach((year, idx) => (
       options.push(
         <option value={year}
@@ -205,7 +193,6 @@ class SessionForm extends React.Component {
         >{year}</option>
       )
     ));
-
     return (
       <div className="bday-column">
         <div className='select-container'>
@@ -234,7 +221,6 @@ class SessionForm extends React.Component {
           <div className="disclaimer"> By clicking on Sign up, I agree to consider David Chen for potential employment opportunities.</div>
         </div>
       )
-
     }
   }
 
@@ -243,7 +229,6 @@ class SessionForm extends React.Component {
     return (
       <div>
         <button className="x-close" onClick={() => this.props.closeModal()}></button>
-
         <form className="SubmitForm" onSubmit={this.handleSubmit}>
           <div className="reg-box" >
             <input placeholder="Email address" className="EmailInput" onChange={this.update("email")} value={this.state.email}/>
@@ -259,10 +244,8 @@ class SessionForm extends React.Component {
               <svg className="pwico"/>
             </div>
           </div>
-
           {this.birthday()}
           {this.subscribe()}
-
           <button className="pinkButton">
             <span className="btn-text">
               {buttonText}

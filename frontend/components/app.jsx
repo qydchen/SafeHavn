@@ -10,13 +10,6 @@ import BookTripContainer from './trip/book_trip_container';
 import LandingContainer from './landing/landing_container';
 import TripsContainer from './trip/trip_index_container';
 
-// const _ensureLoggedIn = (nextState, replace) => {
-//   const currentUser = store.getState().session.currentUser;
-//   if (!currentUser) {
-//     replace('/homes');
-//   }
-// };
-
 const App = () => (
   <div>
     <header>
