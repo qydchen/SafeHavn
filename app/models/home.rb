@@ -17,6 +17,14 @@ class Home < ActiveRecord::Base
     class_name: :Review,
     foreign_key: :home_id
 
+  def average_review
+    sum = 0
+    self.reviews.each do |review|
+      sum += review.rating
+    end
+    sum/self.reviews.length
+  end
+
   def self.in_bounds(bounds)
   self.where("lat < ?", bounds[:northEast][:lat])
       .where("lat > ?", bounds[:southWest][:lat])

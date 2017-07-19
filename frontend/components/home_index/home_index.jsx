@@ -18,8 +18,7 @@ class HomeIndex extends React.Component {
           </div>
           <div className="card-bot-row">
             <div className="card-norm">{home.space.room_type} · {home.space.beds} beds</div>
-          </div>
-          <div className="card-review">
+            <div className="card-norm">Rated {home.avg} out of 10 · {home.reviews} reviews</div>
           </div>
         </Link>
       </div>

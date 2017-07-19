@@ -401,7 +401,7 @@ end
   Review.create({
     author_id: User.all.sample.id,
     home_id: Home.all.sample.id,
-    rating: rand(1..5),
+    rating: rand(5..10),
     body: Faker::Hipster.paragraph(2, false, 2)
   })
 end
