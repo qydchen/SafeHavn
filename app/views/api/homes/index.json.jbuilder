@@ -9,7 +9,7 @@
       :title,
       :description,
       :address
-      json.reviews home.reviews.length
+      json.revcount home.reviews.length
       json.avg home.average_review
 
       json.space do

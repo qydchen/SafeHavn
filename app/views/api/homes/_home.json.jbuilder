@@ -8,8 +8,7 @@ json.extract! home,
   :description,
   :cancellation,
   :address,
-  :trips,
-  :reviews
+  :trips
 
   json.image_url asset_path(home.image.url)
 

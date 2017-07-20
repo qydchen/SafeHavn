@@ -18,7 +18,7 @@ class HomeIndex extends React.Component {
           </div>
           <div className="card-bot-row">
             <div className="card-norm">{home.space.room_type} · {home.space.beds} beds</div>
-            <div className="card-norm">Rated {home.avg} out of 10 · {home.reviews} reviews</div>
+            <div className="card-norm">Rated {home.avg} out of 10 · {home.revcount} reviews</div>
           </div>
         </Link>
       </div>
@@ -37,7 +37,7 @@ class HomeIndex extends React.Component {
     return (
       <div className="home-card-slider">
         <div className="cards">
-        {homesIndex}
+          {homesIndex}
         </div>
       </div>
     )
