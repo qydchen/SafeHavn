@@ -393,8 +393,6 @@ User.create({
   })
 end
 
-
-
 3.times do |i|
   Trip.create({
     visitor_id: User.all.sample.id,
