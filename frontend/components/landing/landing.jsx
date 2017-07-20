@@ -26,7 +26,7 @@ class Landing extends React.Component {
 
           <div className="card-bot-row">
             <div className="card-norm">{home.space.room_type} · {home.space.beds} beds</div>
-            <div className="card-norm">Rated {home.avg} out of 10 · {home.reviews} reviews</div>
+            <div className="card-norm">Rated {home.avg} out of 10 · {home.revcount} reviews</div>
           </div>
 
         </Link>
