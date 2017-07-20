@@ -367,6 +367,56 @@ User.create({
   "day": 27,
   "year": 1990,
   "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/lora.jpg"
+}),
+User.create({
+  "email": "worldpeace@nobel.com",
+  "first": "Malala",
+  "last": "Yousafzai",
+  "password": "lovepeace",
+  "month": 4,
+  "day": 27,
+  "year": 1994,
+  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/malala.jpg"
+}),
+User.create({
+  "email": "doomfist@overwatch.com",
+  "first": "Terry",
+  "last": "Crews",
+  "password": "ultimate1",
+  "month": 9,
+  "day": 15,
+  "year": 1980,
+  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/lora.jpg"
+}),
+User.create({
+  "email": "seeds@apple.com",
+  "first": "Johnny",
+  "last": "Appleseed",
+  "password": "talltale",
+  "month": 3,
+  "day": 13,
+  "year": 1983,
+  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/michael.jpg"
+}),
+User.create({
+  "email": "steph@henk.com",
+  "first": "Stephanie",
+  "last": "Henkoff",
+  "password": "appacademybrooklyn",
+  "month": 7,
+  "day": 21,
+  "year": 1991,
+  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/stephanie.jpg"
+}),
+User.create({
+  "email": "wadah@appacademybrooklyn.com",
+  "first": "Wadah",
+  "last": "Adlan",
+  "password": "ilovememes",
+  "month": 6,
+  "day": 16,
+  "year": 1989,
+  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/wadah.jpg"
 })
 ]
 
