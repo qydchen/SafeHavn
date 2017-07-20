@@ -62,13 +62,12 @@ class BookTrip extends React.Component {
         >{i} guests</option>
       )
     };
-
     return (
       <div className="book-column">
         <div className='select-container book-txt'>
           <label className="book-label"/>Who's coming?
           <div className='select-dd-container book-dd'>
-            <select className='select-dropdown select-bk-dd' value={this.props.inputs.num_guests}
+            <select className='select-dropdown select-bk-dd' value={this.state.num_guests}
               onChange={this.handleSelectChange('num_guests')}
             >{options}</select>
             <span className="dropdown-arrow"></span>
