@@ -48,7 +48,6 @@ class ProfilePicForm extends React.Component {
     }
   }
 
-  // <input className="file-up" type="file" onChange={this.updateFile}/>
   render(){
     if (this.props.currentUser) {
       return (
