@@ -9,12 +9,11 @@ class Api::HomesController < ApplicationController
       if (params[:minPrice] && params[:maxPrice])
         @homes = @homes.where(price: price_range)
       end
-    
+
     else
       render json: 'There are no homes'
     end
   end
-
 
   def my
     @homes = current_user.homes

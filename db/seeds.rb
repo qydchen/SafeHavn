@@ -386,7 +386,7 @@ User.create({
   "month": 9,
   "day": 15,
   "year": 1980,
-  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/lora.jpg"
+  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/terry.jpg"
 }),
 User.create({
   "email": "seeds@apple.com",
