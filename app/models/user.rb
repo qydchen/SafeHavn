@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
   validate :validate_age
 
 	after_initialize :ensure_session_token
-	before_validation :ensure_session_token_uniqueness
 
   has_attached_file :image, default_url: "defaultuser.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
@@ -44,7 +43,6 @@ class User < ActiveRecord::Base
 
   def reset_session_token!
     self.session_token = User.generate_session_token
-    ensure_session_token_uniqueness
     self.save!
     self.session_token
   end
@@ -54,13 +52,6 @@ class User < ActiveRecord::Base
   def ensure_session_token
     self.session_token ||= User.generate_session_token
   end
-
-
-	def ensure_session_token_uniqueness
-		while User.find_by(session_token: self.session_token)
-			self.session_token = new_session_token
-		end
-	end
 
   def birth_date
     Date.parse("#{day}/#{month}/#{year}")

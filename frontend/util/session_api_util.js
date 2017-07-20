@@ -20,3 +20,13 @@ export const logout = () => (
     url: '/api/session'
   })
 );
+
+export const editProfile = (formData, userid) => (
+  $.ajax({
+    method: 'PATCH',
+    url: `/api/users/${userid}`,
+    contentType: false,
+    processData: false,
+    data: formData,
+  })
+);

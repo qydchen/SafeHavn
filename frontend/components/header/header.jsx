@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Modal from "react-modal";
 import SessionFormContainer from "../session_form/session_form_container";
+import ProfilePicFormContainer from "./profile_pic_form_container";
 import { Route, Redirect } from "react-router-dom";
 
 class Header extends React.Component {
@@ -31,7 +31,7 @@ class Header extends React.Component {
           <div className="SignOutButton">
             <span onClick={this.handleClick}>Sign Out</span>
           </div>
-          <div className="image-hov">
+          <div className="image-hov" onClick={() => this.clearErrorsAndOpenModal(<ProfilePicFormContainer/>)}>
             <img className="pic-head" src={this.props.currentUser.image_url}/>
           </div>
         </div>

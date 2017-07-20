@@ -4,7 +4,6 @@ export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
-
 export const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
   currentUser
@@ -42,6 +41,15 @@ export const logout = () => {
     return APIUtil.logout()
       .then(() => dispatch(receiveCurrentUser(null))),
       (err => dispatch(receiveErrors(err.responseJSON))
+    )
+  };
+};
+
+export const editProfile = (formData, email) => {
+  return (dispatch) => {
+    return APIUtil.editProfile(formData, email)
+      .then(user => (dispatch(receiveCurrentUser(user))),
+      (err => dispatch(receiveErrors(err.responseJSON)))
     )
   };
 };
