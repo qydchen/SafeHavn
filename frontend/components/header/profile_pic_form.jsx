@@ -52,17 +52,17 @@ class ProfilePicForm extends React.Component {
   render(){
     if (this.props.currentUser) {
       return (
-        <div className="pf-pic-cont">Edit Profile Picture
+        <div className="pf-pic-cont">Your Profile Picture
           <div className='upload-cont'>
             <Dropzone className="upload-box" onDrop={this.updateDraggedFile}>
               <div className="parent-img">
                 <img className="upload-img" src={this.state.imageUrl}/>
               </div>
-              <div className="register-txt upload-txt">Upload a file or drag image here</div>
+              <div className="register-txt upload-txt">Drag image or upload a image here</div>
             </Dropzone>
 
           </div>
-          <button className="pinkButton upload-btn" onClick={this.handleSubmit}>Upload Picture</button>
+          <button className="pinkButton upload-btn" onClick={this.handleSubmit}>Edit Picture</button>
         </div>
       )
     } else {
