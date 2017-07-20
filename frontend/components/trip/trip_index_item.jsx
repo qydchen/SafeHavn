@@ -1,4 +1,5 @@
 import React from 'react';
+import ReviewFormContainer from '../review/review_form_container.js';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 
 class TripIndexItem extends React.Component {
@@ -31,12 +32,16 @@ class TripIndexItem extends React.Component {
               </div>
             </div>
             <div className="trip-div"/>
+            <div className="trip-actions-wrap">
+              <div className='trip-actions trip-hov' onClick={() => this.props.openModal(<ReviewFormContainer homeid={trip.home.id}/>)}>Write a Review</div>
+            </div>
+            <div className="trip-div"/>
             <div className='trip-actions-wrap'>
               <div className='trip-actions'>Paid ${trip.totalcost}</div>
             </div>
             <div className="trip-div"/>
             <div className="trip-actions-wrap">
-              <div className='trip-actions cancel-trip' onClick={this.handleClick}>Cancel Trip</div>
+              <div className='trip-actions trip-hov' onClick={this.handleClick}>Cancel Trip</div>
             </div>
           </div>
         </div>

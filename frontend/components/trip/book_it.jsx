@@ -46,7 +46,6 @@ class BookIt extends React.Component {
       this.props.receiveInput(input);
       this.navigateToBookTrip();
     } else {
-
       this.clearErrorsAndOpenModal(<SessionFormContainer formType="signup"/>)
     }
   };

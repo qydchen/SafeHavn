@@ -23,7 +23,18 @@ class HomeShow extends React.Component {
   }
 
   render() {
-    const { listing, reviews, homeid, fetchHome, currentUser, receiveInput, clearErrors, openModal } = this.props;
+    const {
+      listing,
+      reviews,
+      homeid,
+      fetchHome,
+      currentUser,
+      receiveInput,
+      clearErrors,
+      openModal,
+      createReview
+    } = this.props;
+
     if (listing === undefined) {
       return (
         <div className="loading">Fetching listing</div>
@@ -31,7 +42,6 @@ class HomeShow extends React.Component {
     } else {
       return (
         <section className="listing-show-page">
-
           <div className="single-listing-photocontainer">
             <img className="show-photo" src={listing.image_url}/>
           </div>
@@ -42,9 +52,7 @@ class HomeShow extends React.Component {
                 <div className="navigation-detail">
                   <div className="navigation-selection">Overview</div>
                 </div>
-
-                <HomeDetail listing={listing} reviews={reviews}/>
-
+                <HomeDetail listing={listing} reviews={reviews} createReview={createReview}/>
               </div>
 
               <div className="to-book-it-divider">

@@ -102,7 +102,7 @@
 
 .trip-time {
   width: 100%;
-  padding-bottom: 27px;
+  padding-bottom: 20px;
   padding-top: 20px;
   text-align: center;
 }
@@ -136,7 +136,7 @@
   color: #2d2d2d;
   border: 0;
   height: auto;
-  padding: 20px 0 10px 0;
+  padding: 10px 0 0 0;
   font-family: Helvetica !important;
 }
 
@@ -168,7 +168,7 @@
   border-top: 1px solid #bbb;
 }
 
-.cancel-trip:hover {
+.trip-hov:hover {
   text-decoration: underline;
   color: #008489;
   cursor: pointer;
