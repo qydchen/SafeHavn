@@ -21,34 +21,30 @@ export const receiveDeletedHome = id => ({
 
 export const fetchHomes = filters => dispatch => (
   APIUtil.fetchHomes(filters).then(homes => (
-    dispatch(receiveHomes(homes))),
-    (err => dispatch(receiveErrors(err.responseJSON)))
+    dispatch(receiveHomes(homes)))
   )
 );
 
 export const fetchHome = id => dispatch => (
   APIUtil.fetchHome(id).then(home => (
-    dispatch(receiveHome(home))),
-    (err => dispatch(receiveErrors(err.responseJSON)))
+    dispatch(receiveHome(home)))
   )
 );
 
 export const createHome = home => dispatch => (
   APIUtil.createHome(home).then(home => (
-    dispatch(receiveHome(home))),
-    (err => dispatch(receiveErrors(err.responseJSON))))
+    dispatch(receiveHome(home)))
+  )
 );
 
 export const updateHome = home => dispatch => (
   APIUtil.updateHome(home).then(home => (
-    dispatch(receiveHome(home))),
-    (err => dispatch(receiveErrors(err.responseJSON)))
+    dispatch(receiveHome(home)))
   )
 );
 
 export const deleteHome = id => dispatch => (
   APIUtil.deleteHome(id).then(home => (
-    dispatch(receiveDeletedHome(home))),
-    (err => dispatch(receiveErrors(err.responseJSON)))
+    dispatch(receiveDeletedHome(home)))
   )
 );
