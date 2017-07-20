@@ -102,9 +102,6 @@ Only the user can view their own trips. The user can view details about their tr
 ## Future Concepts
 During my two week course of development, I discovered many more implementation that can deliver a better user experience listed below:
 
-#### Reviews
-Making reviews will improve the utility of the app as it will give users better tools for decision making.
-
 #### User Profile Pages
 Along with reviews, adding user profiles will improve the utility of the app and give a social element to the app.
 
