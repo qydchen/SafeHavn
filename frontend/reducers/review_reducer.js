@@ -16,7 +16,6 @@ const ReviewReducer = (state = defaultState, action) => {
       return action.reviews;
     case RECEIVE_REVIEW:
       newState = state.concat(action.review);
-      debugger;
       return newState
     default:
       return state;

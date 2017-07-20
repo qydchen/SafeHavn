@@ -23,7 +23,7 @@ class Reviews extends React.Component{
       rating: this.state.rating,
       body: this.state.body
     }
-    
+
     if (this.props.currentUser) {
       this.props.createReview(review).then(this.props.closeModal());
     }
@@ -32,14 +32,14 @@ class Reviews extends React.Component{
   reviewForm() {
     return (
       <section className="book-trip-page">
-        <form className="book-trip-form">Write a review
+        <form className="book-trip-form review-form">Write a review
           {this.selectRating()}
           <div className="say-hello-container">Tell everyone about your stay:
             <textarea className="say-hello" placeholder="Write your review here"
             value={this.state.body} onChange={this.handleSelectChange('body')}
             />
           </div>
-          <button className="pinkButton bk-tp-btn" onClick={(e) => this.handleSubmit(e)}>
+          <button className="pinkButton bk-tp-btn post-review" onClick={(e) => this.handleSubmit(e)}>
             <span className="btn-text">
               Post Review
             </span>
@@ -61,7 +61,7 @@ class Reviews extends React.Component{
     return (
       <div className="book-column">
         <div className='select-container book-txt'>
-          <label className="book-label"/>Pick a rating
+          <label className="book-label"/>How would you rate your stay?
           <div className='select-dd-container book-dd'>
             <select className='select-dropdown select-bk-dd' value={this.state.rating}
               onChange={this.handleSelectChange('rating')}
