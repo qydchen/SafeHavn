@@ -5,10 +5,11 @@
       :lat,
       :lng,
       :price,
-      :host_id,
       :title,
       :description,
-      :address
+      :address,
+      :host
+
       json.revcount home.reviews.length
       json.avg home.average_review
 

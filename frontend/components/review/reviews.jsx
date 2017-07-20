@@ -1,9 +1,14 @@
 import React from 'react';
 
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+  'August', 'September', 'October', 'November', 'December'];
+
 class Reviews extends React.Component{
 
   displayReviews() {
     return this.props.reviews.map((review, idx) => {
+      const year = review.created_at.slice(0,4);
+      const month = months[parseInt(review.created_at.slice(5,7)) - 1];
       return (
         <div key={idx} className="review-container">
           <div className="review-top">
@@ -14,7 +19,7 @@ class Reviews extends React.Component{
                   {review.author}
                 </div>
                 <div className="review-timestamp">
-                  {review.created_at.slice(0,7)}
+                  {month} {year}
                 </div>
               </div>
             </div>
@@ -32,7 +37,6 @@ class Reviews extends React.Component{
   };
 
   render() {
-
     return (
       <div className="all-review-container">
         {this.displayReviews()}

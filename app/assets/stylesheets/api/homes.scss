@@ -196,6 +196,34 @@
   float: left;
 }
 
+.top-row-sum {
+  position: relative;
+}
+
+.sum-abs {
+  position: absolute;
+  left: 85%
+}
+
+.show-name{
+  margin-right: 30px;
+  text-align: center;
+}
+
+.show-pfpic {
+  height: 64px;
+  width: 64px;
+  backface-visibility: hidden;
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  overflow: hidden;
+  background-color: #bbb;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  margin-right: 30px;
+}
+
 .sum-title {
   width: 100%; // 83.33% after user profile
   float: left;

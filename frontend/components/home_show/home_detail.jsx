@@ -128,13 +128,19 @@ class HomeDetail extends React.Component{
   }
 
   render() {
-    const { reviews } = this.props;
+    const { reviews, listing } = this.props;
     return (
       <div className="single-listing-container">
         <div className="summary-box">
           <div className="hcol">
-            <div className="sum-title">{this.props.listing.title}</div>
-            <div className="sum-address">{this.props.listing.address}</div>
+            <div className="top-row-sum">
+              <div className="sum-title">{listing.title}</div>
+              <div className="sum-abs">
+                <img className="show-pfpic" src={listing.host_image_url}></img>
+                <div className="show-name">{listing.host.first}</div>
+              </div>
+            </div>
+            <div className="sum-address">{listing.address}</div>
 
             <hr className="rowDivider"/>
             {this.summaryIcons()}
@@ -148,7 +154,7 @@ class HomeDetail extends React.Component{
           <div className="hcol">
             <div className="details-row about-listing">
               <div className="details-title">About this home</div>
-              <div className="details-text">{this.props.listing.description}</div>
+              <div className="details-text">{listing.description}</div>
             </div>
 
             <hr className="rowDivider"/>

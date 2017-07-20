@@ -9,7 +9,7 @@ json.extract! home,
   :cancellation,
   :address,
   :trips
-
+  json.host_image_url asset_path(home.host.image.url)
   json.image_url asset_path(home.image.url)
 
   json.space do

@@ -25,7 +25,6 @@ class HomeShow extends React.Component {
   render() {
     const { listing, reviews, homeid, fetchHome, currentUser, receiveInput, clearErrors, openModal } = this.props;
     if (listing === undefined) {
-
       return (
         <div className="loading">Fetching listing</div>
       );
@@ -34,7 +33,7 @@ class HomeShow extends React.Component {
         <section className="listing-show-page">
 
           <div className="single-listing-photocontainer">
-            <img className="show-photo" src={this.props.listing.image_url}/>
+            <img className="show-photo" src={listing.image_url}/>
           </div>
 
           <div className="main-detail">
