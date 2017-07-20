@@ -371,6 +371,8 @@ User.create({
 ]
 
 101.times do |i|
+  rooms = bedrooms
+  max_and_bed = 2 * rooms
   Home.create({"host_id": users.sample.id,
     "lat": lat,
     "lng": lng,
@@ -378,9 +380,9 @@ User.create({
     "price": price,
     "address": address,
     "bathrooms": bathrooms,
-    "bedrooms": bedrooms,
-    "max_guests": bedrooms * 2,
-    "beds": bedrooms * 2,
+    "bedrooms": rooms,
+    "max_guests": max_and_bed,
+    "beds": max_and_bed,
     "property_type": property_type,
     "room_type": room_type,
     "internet": internet,
