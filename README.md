@@ -1,5 +1,5 @@
 # SafeHavn
-URL: [safehavn.herokuapp.com](https://safehavn.herokuapp.com)
+URL: [Live Link](http://www.safehavn.site/#/)
 
 ![safehavn-Landing](/app/assets/images/demo/SafeHavnLanding.png)
 
@@ -25,6 +25,7 @@ This project was developed in two weeks utilizing Ruby on Rails, React.js with R
   * Book a home
   * Manage bookings and view trips.
   * Users may only view trips that they booked personally
+  * Visitors may only post reviews on homes that they visit
 
 ## User Authentication
 On the back-end, an encrypted, hashed password is stored in the database (passwords are never saved to the database). On log-in, the provided password is rehashed and compared to the encrypted password in order to verify the log-in.
