@@ -7,9 +7,11 @@
       :price,
       :title,
       :description,
-      :address,
-      :host
-
+      :address
+      json.host do
+        json.first home.host.first
+        json.last home.host.last
+      end
       json.revcount home.reviews.length
       json.avg home.average_review
 
