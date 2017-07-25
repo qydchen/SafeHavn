@@ -5,8 +5,18 @@ URL: [safehavn.herokuapp.com](https://safehavn.herokuapp.com)
 
 SafeHavn draws inspiration from AirBnB that helps users find unique locations. The user can filter these locations, book them, and manage them in a clear, intuitive, user-friendly navigation.
 
+## Contents
+**Features**
+
+* [User Authentication](#user-authentication)
+* [Home Show Page](#home-show-page)
+* [Instant Map Filters](#instant-map-filters)
+* [Booking a Trip](#booking-a-trip)
+* [Reviews](#reviews)
+
 ## Project Information
 This project was developed in two weeks utilizing Ruby on Rails, React, Redux, Google Maps, and Amazon S3.
+
 
 ## Features
   * Account creation and authentication
@@ -17,12 +27,12 @@ This project was developed in two weeks utilizing Ruby on Rails, React, Redux, G
   * Manage bookings and view trips.
   * Users may only view trips that they booked personally
 
-## Key Features & Implementation
+### Key Features & Implementation
 
-### User Authentication
+## User Authentication
 On the back-end, an encrypted, hashed password is stored in the database (passwords are never saved to the database). On log-in, the provided password is rehashed and compared to the encrypted password in order to verify the log-in.
 
-### Home Show Page
+## Home Show Page
 All homes are stored in the database, which contains columns for:
   * the home `id`
   * the Geographic location (`lat` and `lng`)
@@ -143,7 +153,7 @@ Below is an example of a state shape for the home show page:
 
 ![safehavn-show](/app/assets/images/demo/SafeHavnShow.png)
 
-### Instant Map Filters
+## Instant Map Filters
 SafeHavn offers real-time filtering based on party size and price (per night). The Redux state is updated with a list of all the homes matching both the filter query and location bounds. Map markers are then populated on the map as an overlay for every location stored in the state. With every filter or idle state of the map, old map markers are replaced with new map markers; the bounds also resize automatically when zooming in or out of the map.
 
 ![filter-map](/app/assets/images/demo/filter-map.gif)
@@ -187,19 +197,19 @@ Here is an example of a filter state slice:
 
 ![map-drag](/app/assets/images/demo/map-drag.gif)
 
-### Booking a Trip
+## Booking a Trip
 All trips (bookings) are stored in one table in the database, which contains columns for `id`, the `visitor_id` that references a visitor (user), the `home_id` that references the booked home, and the `start_date` and `end_date` of the trip.
 
 ![safehavn-book](/app/assets/images/demo/SafeHavnBook.png)
 
-### Viewing trips
+### Viewing Trips
 Only the user can view their own trips. The user can view details about their trip, the amount they paid, and if they have to, cancel their trips. If the user has no trips, a link will allow the user to redirect back to the home index page.
 
 This is the page where the user can post a review of their trips.
 
 ![safehavn-trip](/app/assets/images/demo/SafeHavnTrip.png)
 
-### Reviews
+## Reviews
 
 Only visitors can make a review of the homes they visit. A review requires a rating and a body. The rating has to be between 1-10 and the body has to be less than 500 characters just like AirBnB. Upon creating a review, the review will be posted on the respective home show page. In the backend, each review will be tallied and the average rating calculated. This information will be displayed on the home index page.
 
