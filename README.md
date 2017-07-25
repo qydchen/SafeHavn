@@ -15,8 +15,7 @@ SafeHavn draws inspiration from AirBnB that helps users find unique locations. T
 * [Reviews](#reviews)
 
 ## Project Information
-This project was developed in two weeks utilizing Ruby on Rails, React, Redux, Google Maps, and Amazon S3.
-
+This project was developed in two weeks utilizing Ruby on Rails, React.js with Redux, Google Maps, and Amazon S3.
 
 ## Features
   * Account creation and authentication
@@ -26,8 +25,6 @@ This project was developed in two weeks utilizing Ruby on Rails, React, Redux, G
   * Book a home
   * Manage bookings and view trips.
   * Users may only view trips that they booked personally
-
-### Key Features & Implementation
 
 ## User Authentication
 On the back-end, an encrypted, hashed password is stored in the database (passwords are never saved to the database). On log-in, the provided password is rehashed and compared to the encrypted password in order to verify the log-in.
