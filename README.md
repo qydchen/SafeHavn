@@ -97,7 +97,15 @@ All trips (bookings) are stored in one table in the database, which contains col
 ### Viewing trips
 Only the user can view their own trips. The user can view details about their trip, the amount they paid, and if they have to, cancel their trips. If the user has no trips, a link will allow the user to redirect back to the home index page.
 
+This is the page where the user can post their reviews of a trip.
+
 ![safehavn-trip](/app/assets/images/demo/SafeHavnTrip.png)
+
+### Reviews
+
+Only visitors can make a review. A review requires a rating and a body. The rating has to be between 1-10 and the body has to be less than 500 characters just like AirBnB. Upon creating a review, the review will be posted on the respective home show page.
+
+Furthermore, in the backend each review will be tallied and the average rating calculated. This information will be displayed on the home index page.
 
 ## Future Concepts
 During my two week course of development, I discovered many more implementation that can deliver a better user experience listed below:
