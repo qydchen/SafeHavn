@@ -55,18 +55,18 @@ Below is an example of a state shape for the home index page:
     title: "Three Island",
     description: "Classic Brooklyn Brownstone. Suite 627 is a spacious 1 bedroom apt with private entry. Living room, full kitchen and bath on the second floor on quiet tree-lined block in historic Bedford-Stuyvesant, Brooklyn. Built in 1899, Suite 627 features original architectural details, such as hardwood floors, fireplaces and built-ins. Accommodates 4 with a queen bed and convertible sofa. Close to subway for easy access to Manhattan. Short cab ride from both JFK and LaGuardia airports. The space Suite 627 is a comfortable oasis. You have the entire floor and features a private entryway. All inclusive amenities include Wi-fi, air conditioning, laptop work-space and smart TV to access your favorite apps. Perfect for couples retreat, family get-a-way or business traveler. Interaction with guests My family and I occupy the lower levels of the home and have been residents of Bedford Stuyvesant for over 20 years. We enjoy everything about our neighborhood--friends, family, and friends who are extended family. I am a self professed HGTV enthusiast. I love watching the magic that happens when people love their house and transform it into a home. I apply these learnings to my own home and by extension Suite 627. Suite 627 is waiting for you to join in on the good people, great diverse food, beautiful art and non-stop culture. So many things to do and see! Don't wait, book Suite 627 now! We can't wait to have you as our guest!",
     address: "79886 Skiles Mission, Lake Marlee, Mauritania",
-  host: {
-    first: "Kim",
-    last: "Kardashian"
-  },
-  revcount: 9,
-  avg: 7,
-  space: {
-    max_guests: 12,
-    beds: 12,
-    room_type: "Private Room"
-  },
-  image_url: "http://s3.amazonaws.com/safehavns-dev/homes/images/000/000/001/original/0.jpg?1500573048"
+    host: {
+      first: "Kim",
+      last: "Kardashian"
+    },
+    revcount: 9,
+    avg: 7,
+    space: {
+      max_guests: 12,
+      beds: 12,
+      room_type: "Private Room"
+    },
+    image_url: "http://s3.amazonaws.com/safehavns-dev/homes/images/000/000/001/original/0.jpg?1500573048"
   },
   2: {
     id: 2,
@@ -76,18 +76,18 @@ Below is an example of a state shape for the home index page:
     title: "Icirrus City",
     description: "Beautiful, newly renovated apartment. Very clean(really) and quiet. Has a fully equipped kitchen, cable tv, smart tv, wifi troughout. Located a stone throw away from the Freedom tower, Wall Street, NYSE, Shopping malls, Battery Park City, Hudson River boardwalk, Statue of Liberty ferry, Federal Reserve Bank, Goldman Sachs and more. All within 5 min walk from my place. I would love to share my love of New York City with you. Я говорю по русски. Пишите, спрашивайте. Thank you and see you soon. The space Designed with home in mind, all of the pieces were carefully selected to make you feel cozy. Lots of clean towels, sheets and essentials for a comfortable stay in my place. Interaction with guests I love New York, especially Downtown and Finacial district, Battery Park city promenade and the marina. Got my sailors license there. Would love to show you my favorite places or advice you on where to go. We have it all down here! And the clean air, and water, and beautiful parks.",
     address: "7547 Franz Falls, Dooleyport, Honduras",
-  host: {
-    first: "Emma",
-    last: "Watson"
-  },
-  revcount: 4,
-  avg: 7,
-  space: {
-    max_guests: 12,
-    beds: 12,
-    room_type: "Entire home/apt"
-  },
-  image_url: "http://s3.amazonaws.com/safehavns-dev/homes/images/000/000/002/original/1.jpg?1500573048"
+    host: {
+      first: "Emma",
+      last: "Watson"
+    },
+    revcount: 4,
+    avg: 7,
+    space: {
+      max_guests: 12,
+      beds: 12,
+      room_type: "Entire home/apt"
+    },
+    image_url: "http://s3.amazonaws.com/safehavns-dev/homes/images/000/000/002/original/1.jpg?1500573048"
   }
 }
 ```
