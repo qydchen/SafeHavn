@@ -3,12 +3,16 @@ json.extract! home,
   :lat,
   :lng,
   :price,
-  :host,
   :title,
   :description,
   :cancellation,
   :address,
   :trips
+  json.host do
+    json.id home.host.id
+    json.first home.host.first
+    json.last home.host.last
+  end
   json.host_image_url asset_path(home.host.image.url)
   json.image_url asset_path(home.image.url)
 

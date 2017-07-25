@@ -14,7 +14,6 @@
       end
       json.revcount home.reviews.length
       json.avg home.average_review
-
       json.space do
         json.max_guests home.max_guests
         json.beds home.beds
