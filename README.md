@@ -39,7 +39,7 @@ All homes are stored in the database, which contains columns for:
   * `description` of the home
   * `cancellation` policy
   * the `address` of home
-  * an `image_url` referencing it's picture hosted in AWS
+  * an `image_url` referencing its picture hosted in AWS
   * `max_guests`, the maximum number of guests for the home
   * the number of `bathrooms` (can also be float to accommodate for 1.5 bathrooms, etc.)
   * the number of `bedrooms`
