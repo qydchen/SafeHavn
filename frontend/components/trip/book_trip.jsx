@@ -6,7 +6,7 @@ class BookTrip extends React.Component {
     super(props);
     const end = this.props.inputs.endDate; //calculates the difference between days
     const beg = this.props.inputs.startDate;
-    this.days = (end.diff(beg,"days"));
+    this.days = end.diff(beg,"days");
     this.cost = this.props.listing.price * this.days;
     this.cleaning = 20;
     this.service = 35;
