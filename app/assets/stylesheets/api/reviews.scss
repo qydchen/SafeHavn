@@ -2,6 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.review-stats {
+  display: flex;
+  margin-bottom: 52px;
+  justify-content: space-between;
+}
+
+.rev {
+  font-size: 24px;
+  font-weight: 400;
+}
+
 .review-top {
   display: flex;
   justify-content: space-between;

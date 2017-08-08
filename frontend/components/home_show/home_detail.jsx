@@ -169,6 +169,11 @@ class HomeDetail extends React.Component{
         </div>
 
         <Element name="scroll-to-review" className="review-divider">
+          <div className="review-stats">
+            <div className="rev">{listing.revcount} Total Reviews</div>
+            <div className="rev">Rated<span className="stronger green">{listing.avg} </span>out of 10</div>
+          </div>
+
           <Reviews reviews={reviews}/>
         </Element>
 
