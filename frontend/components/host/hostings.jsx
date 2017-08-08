@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 class Hostings extends React.Component {
   constructor(props){
-   super(props);
+    super(props);
   }
 
   componentDidMount() {

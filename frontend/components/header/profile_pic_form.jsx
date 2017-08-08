@@ -5,14 +5,14 @@ import { Route, Redirect } from "react-router-dom";
 
 class ProfilePicForm extends React.Component {
   constructor(props){
-   super(props);
-   this.state = {
-     imageFile: null,
-     imageUrl: this.props.currentUser.image_url,
-   }
-   this.handleSubmit = this.handleSubmit.bind(this);
-   this.updateFile = this.updateFile.bind(this);
-   this.updateDraggedFile = this.updateDraggedFile.bind(this);
+    super(props);
+    this.state = {
+      imageFile: null,
+      imageUrl: this.props.currentUser.image_url,
+    }
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateFile = this.updateFile.bind(this);
+    this.updateDraggedFile = this.updateDraggedFile.bind(this);
   }
 
   handleSubmit(e) {
