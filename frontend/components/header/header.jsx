@@ -34,7 +34,6 @@ class Header extends React.Component {
             <Link to={`/user/${this.props.currentUser.id}/hostings`} className="trip-link">Your Hostings</Link>
           </div>
 
-
           <div className ="header-enter">
             <Link to={`/user/${this.props.currentUser.id}/trips`} className="trip-link">Your Trips</Link>
           </div>
