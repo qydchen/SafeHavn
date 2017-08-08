@@ -58,7 +58,7 @@ class HomeShow extends React.Component {
                   <Link activeClass="active" to="scroll-to-overview" spy={true} smooth={true} offset={40} duration={500} onSetActive={this.handleSetActive} className="navigation-selection">
                     Overview
                   </Link>
-                  <Link activeClass="active" to="scroll-to-review" spy={true} smooth={true} offset={-30} duration={500} onSetActive={this.handleSetActive} className="navigation-selection">
+                  <Link activeClass="active" to="scroll-to-review" spy={true} smooth={true} offset={-20} duration={500} onSetActive={this.handleSetActive} className="navigation-selection">
                     Review
                   </Link>
                 </div>
