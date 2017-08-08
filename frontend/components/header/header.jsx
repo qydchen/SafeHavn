@@ -21,10 +21,20 @@ class Header extends React.Component {
     this.props.openModal(component);
   }
 
+// DO HOSTINGS
   loggedInHeader() {
     if (this.props.loggedIn) {
       return (
         <div className="AuthButtons">
+
+          <div className ="header-enter">
+            <Link to={`/user/${this.props.currentUser.id}/host`} className="trip-link">Host</Link>
+          </div>
+          <div className ="header-enter">
+            <Link to={`/user/${this.props.currentUser.id}/hostings`} className="trip-link">Your Hostings</Link>
+          </div>
+
+
           <div className ="header-enter">
             <Link to={`/user/${this.props.currentUser.id}/trips`} className="trip-link">Your Trips</Link>
           </div>

@@ -45,9 +45,9 @@ export const logout = () => {
   };
 };
 
-export const editProfile = (formData, email) => {
+export const editProfile = (formData, userid) => {
   return (dispatch) => {
-    return APIUtil.editProfile(formData, email)
+    return APIUtil.editProfile(formData, userid)
       .then(user => (dispatch(receiveCurrentUser(user)))
     )
   };
