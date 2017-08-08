@@ -51,6 +51,7 @@ class HomeShow extends React.Component {
               <div className="sub-container-detail">
                 <div className="navigation-detail">
                   <div className="navigation-selection">Overview</div>
+                  <div className="navigation-selection">Review</div>
                 </div>
                 <HomeDetail listing={listing} reviews={reviews} createReview={createReview}/>
               </div>
