@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, withRouter, Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import { Link } from 'react-scroll';
 import HomeShowContainer from './home_show_container';
 import HomeDetail from './home_detail';
 import BookIt from '../trip/book_it';
@@ -20,6 +21,10 @@ class HomeShow extends React.Component {
   if (this.props.match.params.homeid !== nextProps.match.params.homeid) {
     this.props.fetchHome(nextProps.match.params.homeid);
     }
+  }
+
+  handleSetActive(to) {
+    console.log(to);
   }
 
   render() {
@@ -50,8 +55,12 @@ class HomeShow extends React.Component {
             <div className="container-detail">
               <div className="sub-container-detail">
                 <div className="navigation-detail">
-                  <div className="navigation-selection">Overview</div>
-                  <div className="navigation-selection">Review</div>
+                  <Link activeClass="active" to="scroll-to-overview" spy={true} smooth={true} offset={50} duration={500} onSetActive={this.handleSetActive} className="navigation-selection">
+                    Overview
+                  </Link>
+                  <Link activeClass="active" to="scroll-to-review" spy={true} smooth={true} offset={-40} duration={500} onSetActive={this.handleSetActive} className="navigation-selection">
+                    Review
+                  </Link>
                 </div>
                 <HomeDetail listing={listing} reviews={reviews} createReview={createReview}/>
               </div>

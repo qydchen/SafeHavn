@@ -1,4 +1,5 @@
 import React from 'react';
+import { Element } from 'react-scroll';
 import { trueAmenities } from '../../reducers/selectors.js';
 import Reviews from '../review/reviews';
 
@@ -130,7 +131,7 @@ class HomeDetail extends React.Component{
   render() {
     const { reviews, listing } = this.props;
     return (
-      <div className="single-listing-container">
+      <Element name="scroll-to-overview" className="single-listing-container">
         <div className="summary-box">
           <div className="hcol">
             <div className="top-row-sum">
@@ -167,11 +168,11 @@ class HomeDetail extends React.Component{
           </div>
         </div>
 
-        <div className="review-divider">
+        <Element name="scroll-to-review" className="review-divider">
           <Reviews reviews={reviews}/>
-        </div>
+        </Element>
 
-      </div>
+      </Element>
 
     )
   }
