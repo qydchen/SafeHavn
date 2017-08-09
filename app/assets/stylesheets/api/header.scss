@@ -195,3 +195,23 @@
   left: 0;
   right: 0;
 }
+
+.tt {
+  color: #484848;
+  border: 1px solid #e4e4e4;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+  margin-top: 16px !important;
+}
+
+.tt-txt {
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.tt-txt:first-child {
+  padding-top: 8px;
+}
+.tt-txt:last-child {
+  padding-bottom: 8px;
+}

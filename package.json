@@ -46,6 +46,7 @@
     "react-router-dom": "^4.1.1",
     "react-scroll": "^1.5.4",
     "react-tap-event-plugin": "^2.0.1",
+    "react-tooltip": "^3.3.0",
     "redux": "^3.7.0",
     "redux-thunk": "^2.2.0",
     "webpack": "^3.0.0"

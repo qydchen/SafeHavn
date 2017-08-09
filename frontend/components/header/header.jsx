@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ReactTooltip from 'react-tooltip';
 import SessionFormContainer from "../session_form/session_form_container";
 import ProfilePicFormContainer from "./profile_pic_form_container";
 import { Route, Redirect } from "react-router-dom";
@@ -22,16 +23,23 @@ class Header extends React.Component {
   }
 
   // <div className ="header-enter">
-    // <Link to={`/user/${this.props.currentUser.id}/host`} className="trip-link">Host</Link>
+  //   <Link to={`/user/${this.props.currentUser.id}/host`} className="trip-link">Host</Link>
   // </div>
   // <div className ="header-enter">
-    // <Link to={`/user/${this.props.currentUser.id}/hostings`} className="trip-link">Your Hostings</Link>
+  //   <Link to={`/user/${this.props.currentUser.id}/hostings`} className="trip-link">Your Hostings</Link>
   // </div>
 
   loggedInHeader() {
     if (this.props.loggedIn) {
       return (
         <div className="AuthButtons">
+          <div className ="header-enter">
+            <p data-tip="tool-tip" className="trip-link">Need help hosting?</p>
+            <ReactTooltip className="tt" place="bottom" type="light" effect="solid">
+              <span className="tt-txt">Find an experienced co-host who can help you earn money</span>
+              <span className="tt-txt">by renting your extra space to travelers.</span>
+            </ReactTooltip>
+          </div>
           <div className ="header-enter">
             <Link to={`/user/${this.props.currentUser.id}/trips`} className="trip-link">Your Trips</Link>
           </div>
@@ -50,6 +58,13 @@ class Header extends React.Component {
     if (!this.props.loggedIn) {
       return (
         <div className="AuthButtons">
+          <div className ="header-enter">
+            <p data-tip="tool-tip" className="trip-link">Get hosting help</p>
+            <ReactTooltip className="tt" place="bottom" type="light" effect="solid">
+              <span className="tt-txt">Find an experienced co-host who can help you earn money</span>
+              <span className="tt-txt">by renting your extra space to travelers.</span>
+            </ReactTooltip>
+          </div>
           <div className ="header-enter" onClick={() => this.clearErrorsAndOpenModal(
             <SessionFormContainer formType="signup"/>)}>
             <span> Sign Up </span>
