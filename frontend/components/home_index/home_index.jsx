@@ -6,6 +6,14 @@ class HomeIndex extends React.Component {
     super(props)
   }
 
+  favorite(home) {
+    if (home.featured) {
+      return (
+        <div className="mini"></div>
+      )
+    }
+  }
+
   safeHavn(home) {
     return (
       <div className="home-card">
@@ -17,7 +25,7 @@ class HomeIndex extends React.Component {
             <div className="card-bold">${home.price} {home.title}</div>
           </div>
           <div className="card-bot-row">
-            <div className="card-norm">{home.space.room_type} · {home.space.beds} beds</div>
+            <div className="card-norm">{home.space.room_type}{this.favorite(home)} · {home.space.beds} beds</div>
             <div className="card-norm">Rated {home.avg} out of 10 · {home.revcount} reviews</div>
           </div>
         </Link>

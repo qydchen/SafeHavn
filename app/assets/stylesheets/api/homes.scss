@@ -252,6 +252,13 @@
   width: 32px;
 }
 
+.mini {
+  height: 16px;
+  width: 16px;
+  background-image: asset-url('favoritemini.png');
+  display: inline-block;
+}
+
 .sum-address {
   color: inherit;
 }
