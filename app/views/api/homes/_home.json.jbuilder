@@ -15,7 +15,7 @@ json.extract! home,
   end
   json.host_image_url asset_path(home.host.image.url)
   json.image_url asset_path(home.image.url)
-  
+
   json.revcount home.reviews.length
   json.avg home.average_review
 

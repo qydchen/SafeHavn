@@ -17,6 +17,10 @@ class Home < ActiveRecord::Base
     class_name: :Review,
     foreign_key: :home_id
 
+  has_many :visitors,
+    through: :trips,
+    source: :visitor
+
   def average_review
     sum = 0
     self.reviews.each do |review|
