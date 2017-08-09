@@ -218,6 +218,10 @@ def cancellation
   (["Flexible", "Moderate", "Strict"].sample)
 end
 
+def featured
+  ([true, false].sample)
+end
+
 users = [
 User.create({"email": "guest@live.com",
   "first": "Oprah",
@@ -441,7 +445,8 @@ User.create({
     "kitchen": kitchen,
     "description": description,
     "cancellation": cancellation,
-    "image": "https://s3.amazonaws.com/safehavns-dev/seeds/#{i}.jpg"
+    "image": "https://s3.amazonaws.com/safehavns-dev/seeds/#{i}.jpg",
+    "featured": featured
   })
 end
 
@@ -457,7 +462,7 @@ end
   )
 end
 
-600.times do |i|
+700.times do |i|
   Review.create({
     author_id: User.all.sample.id,
     home_id: Home.all.sample.id,

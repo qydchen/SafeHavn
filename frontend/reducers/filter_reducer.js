@@ -8,6 +8,7 @@ const defaultFilters = Object.freeze({
   maxHousing: "12",
   minPrice: "0",
   maxPrice: "500",
+  featured: false,
 });
 
 const FilterReducer = (state = defaultFilters, action) => {

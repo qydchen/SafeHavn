@@ -16,7 +16,7 @@
 
 @media (min-height: 850px) and (min-width: 1128px) {
   .show-photo {
-    height: 672px !important;
+    height: 742px !important;
   }
 }
 @media (min-height: 700px) and (max-height: 849px) and (min-width: 1128px) {
@@ -24,11 +24,6 @@
     height: 558px !important;
   }
 }
-// @media (min-height: 650px) and (max-height: 749px) and (min-width: 1128px) {
-//   .show-photo {
-//     height: 550px !important;
-//   }
-// }
 
 .single-listing-viewimage {
   position: absolute !important;
@@ -241,6 +236,20 @@
   word-wrap: break-word !important;
   margin-left: -12px;
   margin-right: -12px;
+}
+
+.favorite {
+  background-image: asset-url('favorite.png');
+  margin-left: 12px;
+  margin-bottom: 10px;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  display: inline-block;
+  height: 32px;
+  width: 32px;
 }
 
 .sum-address {

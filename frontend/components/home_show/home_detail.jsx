@@ -128,6 +128,14 @@ class HomeDetail extends React.Component{
     )
   }
 
+  favorite() {
+    if (this.props.listing.featured) {
+      return (
+        <div className="favorite"></div>
+      )
+    }
+  }
+
   render() {
     const { reviews, listing } = this.props;
     return (
@@ -135,7 +143,9 @@ class HomeDetail extends React.Component{
         <div className="summary-box">
           <div className="hcol">
             <div className="top-row-sum">
-              <div className="sum-title">{listing.title}</div>
+              <div className="sum-title">{listing.title}
+                {this.favorite()}
+              </div>
               <div className="sum-abs">
                 <img className="show-pfpic" src={listing.host_image_url}></img>
                 <div className="show-name">{listing.host.first}</div>

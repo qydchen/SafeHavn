@@ -1,7 +1,7 @@
 class Api::ReviewsController < ApplicationController
 
   def index
-    @reviews = Review.where(home_id: params[:home_id])
+    @reviews = Review.includes(:author).where(home_id: params[:home_id])
   end
 
   def create

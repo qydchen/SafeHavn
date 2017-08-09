@@ -1,12 +1,25 @@
 class Api::HomesController < ApplicationController
   def index
     if Home.all.length != 0
-      @homes = params[:bounds] ? Home.includes(:reviews).includes(:host).in_bounds(params[:bounds]) : Home.includes(:reviews).includes(:host)
+      @homes = params[:bounds] ?
+        Home
+          .includes(:reviews)
+          .includes(:host)
+          .in_bounds(params[:bounds])
+        :
+        Home
+          .where(featured: true)
+          .includes(:reviews)
+          .includes(:host)
+
       if (params[:minHousing] && params[:maxHousing])
         @homes = @homes.where(max_guests: housing_range)
       end
       if (params[:minPrice] && params[:maxPrice])
         @homes = @homes.where(price: price_range)
+      end
+      if (params[:featured] == true)
+        @homes = @homes.where(featured: true)
       end
 
     else
@@ -70,7 +83,7 @@ class Api::HomesController < ApplicationController
       :image, :title, :description, :cancellation,
       :address, :max_guests, :start_date, :end_date, :bathrooms,
       :property_type, :room_type, :internet, :family,
-      :parking, :kitchen, :beds, :bedrooms, :image, :bounds
+      :parking, :kitchen, :beds, :bedrooms, :image, :bounds, :featured
     )
   end
 

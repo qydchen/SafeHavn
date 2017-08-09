@@ -7,12 +7,13 @@
       :price,
       :title,
       :description,
-      :address
+      :address,
+      :featured
       json.host do
         json.first home.host.first
         json.last home.host.last
       end
-      json.revcount home.reviews.length
+      json.revcount home.review_count
       json.avg home.average_review
       json.space do
         json.max_guests home.max_guests

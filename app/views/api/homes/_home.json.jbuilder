@@ -7,7 +7,8 @@ json.extract! home,
   :description,
   :cancellation,
   :address,
-  :trips
+  :trips,
+  :featured
   json.host do
     json.id home.host.id
     json.first home.host.first

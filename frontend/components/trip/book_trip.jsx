@@ -79,7 +79,6 @@ class BookTrip extends React.Component {
 
   bookingRightPanel() {
     const {inputs, listing} = this.props;
-    debugger;
     return (
       <section className="bk-right-panel">
         <div className="bk-pic-container">

@@ -26,7 +26,11 @@ class Home < ActiveRecord::Base
     self.reviews.each do |review|
       sum += review.rating
     end
-    sum/self.reviews.length
+    sum/review_count
+  end
+
+  def review_count
+    self.reviews.length
   end
 
   def self.in_bounds(bounds)
