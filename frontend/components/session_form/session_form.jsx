@@ -57,6 +57,14 @@ class SessionForm extends React.Component {
     );
   }
 
+  logInHeader() {
+    if (this.props.formType === 'login') {
+      return (
+        <div className="stronger login-header">Log in to continue</div>
+      )
+    }
+  }
+
   firstInput() {
     if (this.props.formType === 'signup') {
       return (
@@ -230,6 +238,7 @@ class SessionForm extends React.Component {
       <div>
         <button className="x-close" onClick={() => this.props.closeModal()}></button>
         <form className="SubmitForm" onSubmit={this.handleSubmit}>
+          {this.logInHeader()}
           <div className="reg-box" >
             <input placeholder="Email address" className="EmailInput" onChange={this.update("email")} value={this.state.email}/>
             <div className="post-fix" >
