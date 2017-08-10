@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
+import { safeHavn } from './safehavn.jsx';
 
 class HomeIndex extends React.Component {
   constructor(props) {
