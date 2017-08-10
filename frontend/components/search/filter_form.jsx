@@ -24,6 +24,7 @@ for (let i = 1; i <= 12; i++) {
 
 export const PricingForm = ({ minPrice, maxPrice, updateFilter }) => (
   <div className="filter-col">
+
     <label>Min. Price:</label>
     <div className='select-dd-container filter-dd-cont'>
       <select className='select-dropdown filter-dd' value={minPrice ? minPrice : 0}
@@ -31,6 +32,7 @@ export const PricingForm = ({ minPrice, maxPrice, updateFilter }) => (
       >{priceOptions}</select>
       <span className="dropdown-arrow"></span>
     </div>
+
     <label>Max. Price:</label>
     <div className='select-dd-container filter-dd-cont'>
       <select className='select-dropdown filter-dd' value={maxPrice ? maxPrice : 500}
@@ -38,11 +40,13 @@ export const PricingForm = ({ minPrice, maxPrice, updateFilter }) => (
       >{priceOptions}</select>
       <span className="dropdown-arrow"></span>
     </div>
+
   </div>
 );
 
 export const HousingForm = ({ minHousing, maxHousing, updateFilter }) => (
   <div className="filter-col">
+
     <label>Min. Guests:</label>
     <div className='select-dd-container filter-dd-cont'>
       <select className='select-dropdown filter-dd' value={minHousing ? minHousing : 0}
@@ -50,6 +54,7 @@ export const HousingForm = ({ minHousing, maxHousing, updateFilter }) => (
       >{guestOptions}</select>
       <span className="dropdown-arrow"></span>
     </div>
+
     <label>Max. Guests:</label>
     <div className='select-dd-container filter-dd-cont'>
       <select className='select-dropdown filter-dd' value={maxHousing ? maxHousing : 12}
@@ -57,5 +62,6 @@ export const HousingForm = ({ minHousing, maxHousing, updateFilter }) => (
       >{guestOptions}</select>
       <span className="dropdown-arrow"></span>
     </div>
+
   </div>
 );

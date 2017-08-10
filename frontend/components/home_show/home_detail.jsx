@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactTooltip from 'react-tooltip';
 import { Element } from 'react-scroll';
 import { trueAmenities } from '../../reducers/selectors.js';
 import Reviews from '../review/reviews';
@@ -131,7 +132,7 @@ class HomeDetail extends React.Component{
   favorite() {
     if (this.props.listing.featured) {
       return (
-        <div className="favorite"></div>
+        <div data-tip data-for="star-tt" className="favorite"></div>
       )
     }
   }
@@ -160,6 +161,11 @@ class HomeDetail extends React.Component{
 
           </div>
         </div>
+
+        <ReactTooltip className="fav-tt" id="star-tt" place="top" type="light" effect="solid">
+          <span className="tt-txt">This place is very popular</span>
+          <span className="tt-txt">amongst SafeHavn users!</span>
+        </ReactTooltip>
 
         <div className="details-box">
           <div className="hcol">

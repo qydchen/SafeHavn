@@ -22,6 +22,14 @@ class Header extends React.Component {
     this.props.openModal(component);
   }
 
+  tooltip() {
+    return (
+      <ReactTooltip className="tt-hook" id="auth-tool-tip" place="bottom" type="light" effect="solid">
+        <span className="tt-txt">Find an experienced co-host who can help you earn money</span>
+        <span className="tt-txt">by renting your extra space to travelers.</span>
+      </ReactTooltip>
+    )
+  }
   // <div className ="header-enter">
   //   <Link to={`/user/${this.props.currentUser.id}/host`} className="trip-link">Host</Link>
   // </div>
@@ -32,13 +40,10 @@ class Header extends React.Component {
   loggedInHeader() {
     if (this.props.loggedIn) {
       return (
-        <div className="AuthButtons">
-          <div className ="header-enter">
-            <p data-tip="tool-tip" className="trip-link">Need help hosting?</p>
-            <ReactTooltip className="tt" place="bottom" type="light" effect="solid">
-              <span className="tt-txt">Find an experienced co-host who can help you earn money</span>
-              <span className="tt-txt">by renting your extra space to travelers.</span>
-            </ReactTooltip>
+        <div className="auth-buttons">
+          <div data-tip data-for="auth-tool-tip" className="header-enter">
+            <p className="trip-link">Need help hosting?</p>
+            {this.tooltip()}
           </div>
           <div className ="header-enter">
             <Link to={`/user/${this.props.currentUser.id}/trips`} className="trip-link">Your Trips</Link>
@@ -57,13 +62,10 @@ class Header extends React.Component {
   logInHeader() {
     if (!this.props.loggedIn) {
       return (
-        <div className="AuthButtons">
-          <div className ="header-enter">
-            <p data-tip="tool-tip" className="trip-link">Get hosting help</p>
-            <ReactTooltip className="tt" place="bottom" type="light" effect="solid">
-              <span className="tt-txt">Find an experienced co-host who can help you earn money</span>
-              <span className="tt-txt">by renting your extra space to travelers.</span>
-            </ReactTooltip>
+        <div className="auth-buttons">
+          <div data-tip data-for="auth-tool-tip" className="header-enter">
+            <p className="trip-link">Get hosting help</p>
+            {this.tooltip()}
           </div>
           <div className ="header-enter" onClick={() => this.clearErrorsAndOpenModal(
             <SessionFormContainer formType="signup"/>)}>

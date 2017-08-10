@@ -27,9 +27,9 @@ class Search extends React.Component {
   render() {
     return (
       <section className='index-container'>
-      <HomeMap homes={this.props.homes} updateFilter={this.props.updateFilter}  />
+      <HomeMap homes={this.props.homes} updateFilter={this.props.updateFilter}/>
       {this.filterBar()}
-      <HomeIndex homes={this.props.homes} />
+      <HomeIndex homes={this.props.homes}/>
       </section>
     );
   }

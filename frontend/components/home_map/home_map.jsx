@@ -25,7 +25,7 @@ class HomeMap extends React.Component {
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
 
-    if (this.props.singleHome) {
+    if (this.props.homeid) {
       this.props.fetchHome(this.props.homeid);
     } else {
       this.registerListeners();
@@ -38,7 +38,8 @@ class HomeMap extends React.Component {
       const { north, south, east, west } = this.map.getBounds().toJSON();
       const bounds = {
         northEast: { lat: north, lng: east },
-        southWest: { lat: south, lng: west } };
+        southWest: { lat: south, lng: west }
+      };
       this.props.updateFilter('bounds', bounds);
     });
     google.maps.event.addListener(this.map, 'click', (event) => {
@@ -47,12 +48,16 @@ class HomeMap extends React.Component {
     });
   }
 
+  componentWillUnmount() {
+    google.maps.event.clearListeners(this.map);
+  }
+
   handleMarkerClick(home) {
     this.props.history.push(`homes/${home.id}`);
   }
 
   componentDidUpdate() {
-    if (this.props.singleHome) {
+    if (this.props.homeid) {
       const targetHomeKey = Object.keys(this.props.homes)[0];
       const targetHome = this.props.homes[targetHomeKey];
       this.MarkerManager.updateMarkers([targetHome]);
