@@ -1,7 +1,6 @@
 import React from "react";
 import Dropzone from 'react-dropzone';
-import { Link } from "react-router-dom";
-import { Route, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 class ProfilePicForm extends React.Component {
   constructor(props){
@@ -48,7 +47,7 @@ class ProfilePicForm extends React.Component {
     }
   }
 
-  render(){
+  render() {
     if (this.props.currentUser) {
       return (
         <div className="pf-pic-cont">Your Profile Picture
