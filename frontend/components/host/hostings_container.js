@@ -15,7 +15,7 @@ const mapStateToProps = ({session, homes}, {match}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchHomes: id => dispatch(fetchHomes(id))
+    fetchHomes: (id) => dispatch(fetchHomes(id))
   }
 };
 
