@@ -5,7 +5,7 @@ const handleChange = (filter, updateFilter) => e => (
 );
 
 const priceOptions = [];
-for (let i = 1; i <= 20; i++) {
+for (let i = 0; i <= 20; i++) {
   priceOptions.push(
     <option value={i * 50}
     key={i}
