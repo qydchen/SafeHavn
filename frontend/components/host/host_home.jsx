@@ -32,11 +32,12 @@ class HostTrip extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    let home = Object.assign({}, this.state);
     let formData = new FormData();
     if (this.state.imageFile) {
       formData.append("home[image]", this.state.imageFile);
     }
-    this.props.createHome(this.state);
+    this.props.createHome({home});
   }
 
   updateFile(e) {

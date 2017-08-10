@@ -33,7 +33,7 @@ export const deleteHome = id => (
 export const updateHome = data => (
   $.ajax({
     method: 'PATCH',
-    url: `api/homes/${id}`,
+    url: `api/homes/${data.id}`,
     data
   })
 );
