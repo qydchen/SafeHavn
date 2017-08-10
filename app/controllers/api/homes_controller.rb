@@ -44,7 +44,7 @@ class Api::HomesController < ApplicationController
 
   def create
     @home = Home.new(home_params)
-
+    @home.host_id = current_user.id
     if @home.save
       render :show
     else

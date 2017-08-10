@@ -5,14 +5,22 @@ class HostTrip extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      someshit: ""
+      price: 0,
+      title: "",
+      description: "",
+      address: "",
+      max_guests: 2,
+      
+
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     let userid = this.props.currentUser.id;
+
     this.props.createHome(this.state);
   }
 
