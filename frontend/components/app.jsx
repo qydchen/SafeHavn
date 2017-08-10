@@ -9,8 +9,8 @@ import SearchContainer from './search/search_container';
 import BookTripContainer from './trip/book_trip_container';
 import LandingContainer from './landing/landing_container';
 import TripsContainer from './trip/trip_index_container';
-import HostTripContainer from './host/host_trip_container';
-import HostingsContainer from './host/hostings_container';
+import HostHomeContainer from './host/host_home_container';
+import HostingsIndexContainer from './host/hostings_index_container';
 
 const App = () => (
   <div>
@@ -22,8 +22,8 @@ const App = () => (
       <Route exact path="/homes/:homeid" component={HomeShowContainer}/>
       <Route exact path="/homes/:homeid/book" component={BookTripContainer}/>
       <Route exact path="/user/:userid/trips" component={TripsContainer}/>
-      <Route exact path="/user/:userid/host" component={HostTripContainer}/>
-      <Route exact path="/user/:userid/hostings" component={HostingsContainer}/>
+      <Route exact path="/user/:userid/host" component={HostHomeContainer}/>
+      <Route exact path="/user/:userid/hostings" component={HostingsIndexContainer}/>
     </header>
   </div>
 );

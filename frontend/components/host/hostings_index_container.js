@@ -1,5 +1,5 @@
 import React from 'react';
-import Hostings from './hostings';
+import Hostings from './hostings_index';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchHomes } from '../../actions/home_actions';

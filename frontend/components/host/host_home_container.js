@@ -1,5 +1,5 @@
 import React from 'react';
-import HostTrip from './host_trip';
+import HostTrip from './host_home';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchHome, createHome } from '../../actions/home_actions';
