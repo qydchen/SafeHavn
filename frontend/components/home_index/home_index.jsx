@@ -1,37 +1,9 @@
 import React from 'react';
-import { Link, withRouter, Redirect } from 'react-router-dom';
-import { safeHavn } from './safehavn.jsx';
+import { homeCard } from './home_card';
 
 class HomeIndex extends React.Component {
   constructor(props) {
-    super(props)
-  }
-
-  favorite(home) {
-    if (home.featured) {
-      return (
-        <div className="mini"></div>
-      )
-    }
-  }
-
-  safeHavn(home) {
-    return (
-      <div className="home-card">
-        <Link to={`/homes/${home.id}`} className="link-to">
-          <div className="show-card-container">
-            <img className="show-card" src={home.image_url}/>
-          </div>
-          <div className="card-top-row">
-            <div className="card-bold">${home.price} {home.title}</div>
-          </div>
-          <div className="card-bot-row">
-            <div className="card-norm">{home.space.room_type}{this.favorite(home)} · {home.space.beds} beds</div>
-            <div className="card-norm">Rated {home.avg} out of 10 · {home.revcount} reviews</div>
-          </div>
-        </Link>
-      </div>
-    )
+    super(props);
   }
 
   render() {
@@ -39,7 +11,7 @@ class HomeIndex extends React.Component {
     const homesIndex = homes.map((home, idx) => {
       return (
         <div className="home-card-container" key={idx}>
-          {this.safeHavn(home)}
+          {homeCard(home)}
         </div>
       )
     })
