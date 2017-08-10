@@ -11,6 +11,7 @@ class Api::HomesController < ApplicationController
           .where(featured: true)
           .includes(:reviews)
           .includes(:host)
+          .limit(8)
 
       if (params[:minHousing] && params[:maxHousing])
         @homes = @homes.where(max_guests: housing_range)
