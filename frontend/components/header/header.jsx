@@ -36,7 +36,7 @@ class Header extends React.Component {
       return (
         <div className="auth-buttons">
           <div data-tip data-for="auth-tool-tip" className="header-enter">
-            <p className="trip-link">Need help hosting?</p>
+            <p className="trip-link">No time to host?</p>
             {this.tooltip()}
           </div>
           <div className ="header-enter">
@@ -63,13 +63,9 @@ class Header extends React.Component {
     if (!this.props.loggedIn) {
       return (
         <div className="auth-buttons">
-          <div data-tip data-for="auth-tool-tip" className="header-enter">
-            <p className="trip-link">Get hosting help</p>
-            {this.tooltip()}
-          </div>
           <div className ="header-enter" onClick={() => this.clearErrorsAndOpenModal(
             <SessionFormContainer formType="login"/>)}>
-            <span> Host </span>
+            <span> Become a Host </span>
           </div>
           <div className ="header-enter" onClick={() => this.clearErrorsAndOpenModal(
             <SessionFormContainer formType="signup"/>)}>
