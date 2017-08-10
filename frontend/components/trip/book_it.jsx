@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactTooltip from 'react-tooltip';
 import { Link, withRouter } from 'react-router-dom';
 import Modal from "react-modal";
 import SessionFormContainer from "../session_form/session_form_container";
@@ -53,7 +54,7 @@ class BookIt extends React.Component {
   pricePerNight(){
     return (
       <div className="offers-box">
-        <div className="thunderbolt"/>
+        <div data-tip data-for="thunder-tt" className="thunderbolt"/>
         <div className="book-it-price">${this.props.listing.price}</div>
         <div className="per-night">per night</div>
       </div>
@@ -78,15 +79,15 @@ class BookIt extends React.Component {
               <div className="guest-check">Check In</div>
               <div className="guest-check">Check Out</div>
             </div>
-          <div className="date-range-calendar" placeholder='mm/dd/yyyy'>
-            <DateRangePicker
-              startDate={ this.state.startDate }
-              endDate={ this.state.endDate }
-              onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
-              focusedInput={ this.state.focusedInput }
-              onFocusChange={ focusedInput => this.setState({ focusedInput }) }
-              />
-          </div>
+            <div className="date-range-calendar" placeholder='mm/dd/yyyy'>
+              <DateRangePicker
+                startDate={ this.state.startDate }
+                endDate={ this.state.endDate }
+                onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
+                focusedInput={ this.state.focusedInput }
+                onFocusChange={ focusedInput => this.setState({ focusedInput }) }
+                />
+            </div>
 
           </div>
         <div className="guest-dd-container">
@@ -124,6 +125,11 @@ class BookIt extends React.Component {
             {this.bookingForm()}
           </div>
         </div>
+        <ReactTooltip className="fav-tt" id="thunder-tt" place="top" type="light" effect="solid">
+          <span className="tt-txt stronger">Instant Book</span>
+          <br />
+          <span className="tt-txt">Book without waiting for the host to respond</span>
+        </ReactTooltip>
       </div>
     )
   };
