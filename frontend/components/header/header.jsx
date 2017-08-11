@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ReactTooltip from 'react-tooltip';
 import SessionFormContainer from "../session_form/session_form_container";
 import ProfilePicFormContainer from "./profile_pic_form_container";
+import SearchBarContainer from "../search/search_bar_container.js";
 import { Route, Redirect } from "react-router-dom";
 
 class Header extends React.Component {
@@ -117,6 +118,7 @@ class Header extends React.Component {
         <div className="left">
           <a className="Logo" onClick={() => this.props.history.push("/")} ></a>
         </div>
+        <SearchBarContainer/>
         {this.verticalNavWrapper()}
         {this.logInHeader()}
         {this.loggedInHeader()}

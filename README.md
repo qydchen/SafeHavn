@@ -183,8 +183,8 @@ Here is an example of a filter state slice:
 ```
   {
     bounds: {
-      northEast: {lat: 39.123551, lng: -73.951231},
-      southWest: {lat: 41.139024, lng: -69.994121}
+      northeast: {lat: 39.123551, lng: -73.951231},
+      southwest: {lat: 41.139024, lng: -69.994121}
     }
     minHousing: 2,
     maxHousing: 4,
