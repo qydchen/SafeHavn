@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter} from 'react-router-dom';
 import { findLatLng } from '../../util/home_api_util';
 
 class SearchBar extends React.Component {
@@ -32,7 +33,7 @@ class SearchBar extends React.Component {
       .then(res => {
         bounds = res.results[0].geometry.viewport;
       });
-    this.props.updateFilter('bounds', bounds)
+    this.props.updateFilter('bounds', bounds);
   }
 
   render() {
@@ -41,8 +42,7 @@ class SearchBar extends React.Component {
         <input
           type="search"
           id="search-field"
-          className="search-bar"
-          placeholder="Search..."
+          placeholder="Anywhere"
           ref={input => this.input = input}
           onChange={this.update('place')}
         />
@@ -51,4 +51,4 @@ class SearchBar extends React.Component {
   }
 };
 
-export default SearchBar;
+export default withRouter(SearchBar);

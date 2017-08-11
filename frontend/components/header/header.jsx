@@ -110,15 +110,15 @@ class Header extends React.Component {
     )
   }
 
-  render(){
+  render() {
     let path = this.props.history.location.pathname;
     const headerClass = (path.match("/homes/") || path.match("/user/")) ? "headerBar-relative show-page-bool" : "headerBar";
     return (
       <div className={headerClass}>
         <div className="left">
           <a className="Logo" onClick={() => this.props.history.push("/")} ></a>
+          <SearchBarContainer/>
         </div>
-        <SearchBarContainer/>
         {this.verticalNavWrapper()}
         {this.logInHeader()}
         {this.loggedInHeader()}

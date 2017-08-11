@@ -24,7 +24,6 @@ class HomeMap extends React.Component {
     const map = this.refs.map;
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
-
     if (this.props.homeid) {
       this.props.fetchHome(this.props.homeid);
     } else {
