@@ -10,7 +10,6 @@ json.extract! home,
   :trips,
   :featured
   json.host do
-    json.id home.host.id
     json.first home.host.first
     json.last home.host.last
   end

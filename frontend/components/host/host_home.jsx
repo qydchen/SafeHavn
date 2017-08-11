@@ -79,7 +79,6 @@ class HostTrip extends React.Component {
               </div>
               <div className="register-txt upload-txt">Drag image or upload a image here</div>
             </Dropzone>
-
           </div>
           <button className="pinkButton upload-btn" onClick={this.handleSubmit}>Edit Picture</button>
         </div>
