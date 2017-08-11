@@ -55,10 +55,10 @@ class HomeShow extends React.Component {
             <div className="container-detail">
               <div className="sub-container-detail">
                 <div className="navigation-detail">
-                  <Link activeClass="active" to="scroll-to-overview" spy={true} smooth={true} offset={40} duration={500} onSetActive={this.handleSetActive} className="navigation-selection">
+                  <Link activeClass="active" to="scroll-to-overview" spy={true} smooth={'easeOutQuad'} offset={40} duration={1000} onSetActive={this.handleSetActive} className="navigation-selection">
                     Overview
                   </Link>
-                  <Link activeClass="active" to="scroll-to-review" spy={true} smooth={true} offset={-20} duration={500} onSetActive={this.handleSetActive} className="navigation-selection">
+                  <Link activeClass="active" to="scroll-to-review" spy={true} smooth={'easeOutQuad'} offset={-20} duration={1000} onSetActive={this.handleSetActive} className="navigation-selection">
                     Review
                   </Link>
                 </div>
