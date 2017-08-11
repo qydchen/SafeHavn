@@ -36,14 +36,12 @@ class HomeDetail extends React.Component{
     for (var key in s) {
       sArr.push([key, s[key]])
     }
-
     const spaceFeats = sArr.map((el, idx) => (
       <div key={idx} className="space-el">
         <div>{spaceText[el[0]]}: </div>
         <div className="strong">{el[1]}</div>
       </div>
     ))
-
     return (
       <div className="details-row space-box">
         <div className="details-sub-col1">The space</div>
@@ -132,12 +130,9 @@ class HomeDetail extends React.Component{
               </div>
             </div>
             <div className="sum-address">{listing.address}</div>
-
             <hr className="rowDivider"/>
             {this.summaryIcons()}
-
             <hr className="rowDivider"/>
-
           </div>
         </div>
 
@@ -168,7 +163,6 @@ class HomeDetail extends React.Component{
             <div className="rev">{listing.revcount} Total Reviews</div>
             <div className="rev">Rated<span className="stronger green">{listing.avg} </span>out of 10</div>
           </div>
-
           <Reviews reviews={reviews}/>
         </Element>
 

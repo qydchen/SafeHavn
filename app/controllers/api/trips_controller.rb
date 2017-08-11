@@ -28,7 +28,6 @@ class Api::TripsController < ApplicationController
 
   def destroy
     @trip = Trip.find(params[:id])
-
     if @trip.destroy
       @trips = current_user.trips
       render :index
