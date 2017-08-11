@@ -44,7 +44,6 @@ class Api::HomesController < ApplicationController
 
   def update
     @home = current_user.homes.find(params[:id])
-
     if @home.update(home_params)
       render :show
     else
