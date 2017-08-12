@@ -248,7 +248,7 @@ To illustrate the importance of avoiding N+1 queries, observe the server logs be
 
 Below is a GET request for the index of trips with the proper includes method:
 ``` Ruby
-  @trips = Trip.where(visitor_id: current_user.id).includes(:home)
+@trips = Trip.where(visitor_id: current_user.id).includes(:home)
 ```
 
 ```
@@ -282,7 +282,7 @@ Completed 200 OK in 78ms (Views: 48.8ms | ActiveRecord: 26.3ms)
 
 Below is a GET request for the index of trips without the includes method:
 ``` Ruby
-  @trips = Trip.where(visitor_id: current_user.id)
+@trips = Trip.where(visitor_id: current_user.id)
 ```
 
 ```
