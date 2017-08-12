@@ -19,3 +19,5 @@ export const amenityText = {
   parking: ["Free parking on premises", "parking-img"],
   kitchen: ["Kitchen", "cutlery-img"],
 }
+
+export const roomText = [  "Entire home/apt", "Private Room", "Shared Room" ]
