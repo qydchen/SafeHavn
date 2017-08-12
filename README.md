@@ -13,6 +13,7 @@ SafeHavn draws inspiration from AirBnB that helps users find unique locations. T
 * [Instant Map Filters](#instant-map-filters)
 * [Booking a Trip](#booking-a-trip)
 * [Reviews](#reviews)
+* [Preventing N+1 Queries](#eager-loading)
 
 ## Project Information
 This project was developed in two weeks utilizing Ruby on Rails, React.js with Redux, Google Maps API, and AWS S3.
@@ -222,7 +223,7 @@ This is the page where the user can post a review of their trips.
 
 Only visitors can make a review of the homes they visit. A review requires a rating and a body. The rating has to be between 1-10 and the body has to be less than 500 characters just like AirBnB. Upon creating a review, the review will be posted on the respective home show page. In the backend, each review will be tallied and the average rating calculated. This information will be displayed on the home index page as well as the home show page.
 
-## Preventing N+1 Queries
+## Eager Loading
 
 N+1 queries are an inefficient way to query a database.
 
