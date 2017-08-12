@@ -321,7 +321,7 @@ Completed 200 OK in 163ms (Views: 110.0ms | ActiveRecord: 34.0ms)
 Completed 200 OK in 163ms (Views: 110.0ms | ActiveRecord: 34.0ms)
 ```
 
-Observe that the first server log shows a 'batch' query, compared to the second server log that queries each home individually. The request was completed in 78ms for the former compared to 163ms for the latter, more than 50% improvement in time.
+Observe that the first server log shows a 'batch' query, compared to the second server log that queries each home individually. The request was completed in 78ms for the former, compared to 163ms for the latter, a 50% improvement in time. When an application needs to be scaled and optimized, this performance time is paramount. The easiest area of improvement is reducing the number of queries.
 
 ## Future Concepts
 During my two week course of development, I discovered many more implementation that can deliver a better user experience listed below:
