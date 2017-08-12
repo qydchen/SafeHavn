@@ -224,6 +224,8 @@ Only visitors can make a review of the homes they visit. A review requires a rat
 
 ## Preventing N+1 Queries
 
+N+1 queries are an inefficient way to query a database.
+
 Active Record allows eager loading of all the associations with a single Model. This is possible by specifying the includes method. With this method, Active Record ensures that all of the specified associations are loaded using the minimum possible number of queries.
 
 Below are snippets of such queries:
@@ -232,11 +234,94 @@ Below are snippets of such queries:
 @homes = params[:bounds]
   ? Home.includes(:reviews, :host).in_bounds(params[:bounds]) : Home.where(featured: true).includes(:reviews, :host).limit(8)
 
+@home = Home.includes(:visitors).find(params[:id])
+
 @reviews = Review.includes(:author).where(home_id: params[:home_id])
 
 @trips = Trip.where(visitor_id: current_user.id).includes(:home)
 ```
 
+#### What's the difference?
+
+To illustrate the importance of avoiding N+1 queries, observe the server logs below.
+
+Below is a GET request for the index of trips with the proper includes method:
+``` Ruby
+  @trips = Trip.where(visitor_id: current_user.id).includes(:home)
+```
+
+```
+Started GET "/api/trips" for ::1 at 2017-08-12 01:19:26 -0400
+Started GET "/api/trips" for ::1 at 2017-08-12 01:19:26 -0400
+Processing by Api::TripsController#index as JSON
+Processing by Api::TripsController#index as JSON
+Trip Load (0.5ms)  SELECT "trips".* FROM "trips"
+Trip Load (0.5ms)  SELECT "trips".* FROM "trips"
+User Load (0.3ms)  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "--W3-aI5WhDz0v_Zhndn5g"]]
+User Load (0.3ms)  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "--W3-aI5WhDz0v_Zhndn5g"]]
+Trip Load (0.5ms)  SELECT "trips".* FROM "trips" WHERE "trips"."visitor_id" = $1  [["visitor_id", 1]]
+Trip Load (0.5ms)  SELECT "trips".* FROM "trips" WHERE "trips"."visitor_id" = $1  [["visitor_id", 1]]
+Home Load (24.2ms)  SELECT "homes".* FROM "homes" WHERE "homes"."id" IN (9, 2, 8, 13, 7)
+Home Load (24.2ms)  SELECT "homes".* FROM "homes" WHERE "homes"."id" IN (9, 2, 8, 13, 7)
+User Load (0.7ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+User Load (0.7ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+CACHE (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+CACHE (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+CACHE (0.0ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+CACHE (0.0ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+CACHE (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+CACHE (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+CACHE (0.0ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+CACHE (0.0ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Rendered api/trips/index.json.jbuilder (66.6ms)
+Rendered api/trips/index.json.jbuilder (66.6ms)
+Completed 200 OK in 78ms (Views: 48.8ms | ActiveRecord: 26.3ms)
+Completed 200 OK in 78ms (Views: 48.8ms | ActiveRecord: 26.3ms)
+```
+
+Below is a GET request for the index of trips without the includes method:
+``` Ruby
+  @trips = Trip.where(visitor_id: current_user.id)
+```
+
+```
+Started GET "/api/trips" for ::1 at 2017-08-12 01:20:19 -0400
+Started GET "/api/trips" for ::1 at 2017-08-12 01:20:19 -0400
+Processing by Api::TripsController#index as JSON
+Processing by Api::TripsController#index as JSON
+Trip Load (0.7ms)  SELECT "trips".* FROM "trips"
+Trip Load (0.7ms)  SELECT "trips".* FROM "trips"
+User Load (7.3ms)  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "--W3-aI5WhDz0v_Zhndn5g"]]
+User Load (7.3ms)  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "--W3-aI5WhDz0v_Zhndn5g"]]
+Trip Load (12.6ms)  SELECT "trips".* FROM "trips" WHERE "trips"."visitor_id" = $1  [["visitor_id", 1]]
+Trip Load (12.6ms)  SELECT "trips".* FROM "trips" WHERE "trips"."visitor_id" = $1  [["visitor_id", 1]]
+Home Load (0.6ms)  SELECT  "homes".* FROM "homes" WHERE "homes"."id" = $1 LIMIT 1  [["id", 9]]
+Home Load (0.6ms)  SELECT  "homes".* FROM "homes" WHERE "homes"."id" = $1 LIMIT 1  [["id", 9]]
+User Load (0.4ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+User Load (0.4ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Home Load (0.5ms)  SELECT  "homes".* FROM "homes" WHERE "homes"."id" = $1 LIMIT 1  [["id", 2]]
+Home Load (0.5ms)  SELECT  "homes".* FROM "homes" WHERE "homes"."id" = $1 LIMIT 1  [["id", 2]]
+CACHE (0.0ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+CACHE (0.0ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Home Load (0.5ms)  SELECT  "homes".* FROM "homes" WHERE "homes"."id" = $1 LIMIT 1  [["id", 8]]
+Home Load (0.5ms)  SELECT  "homes".* FROM "homes" WHERE "homes"."id" = $1 LIMIT 1  [["id", 8]]
+CACHE (0.0ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+CACHE (0.0ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Home Load (0.6ms)  SELECT  "homes".* FROM "homes" WHERE "homes"."id" = $1 LIMIT 1  [["id", 13]]
+Home Load (0.6ms)  SELECT  "homes".* FROM "homes" WHERE "homes"."id" = $1 LIMIT 1  [["id", 13]]
+CACHE (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+CACHE (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Home Load (0.5ms)  SELECT  "homes".* FROM "homes" WHERE "homes"."id" = $1 LIMIT 1  [["id", 7]]
+Home Load (0.5ms)  SELECT  "homes".* FROM "homes" WHERE "homes"."id" = $1 LIMIT 1  [["id", 7]]
+CACHE (0.0ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+CACHE (0.0ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Rendered api/trips/index.json.jbuilder (119.0ms)
+Rendered api/trips/index.json.jbuilder (119.0ms)
+Completed 200 OK in 163ms (Views: 110.0ms | ActiveRecord: 34.0ms)
+Completed 200 OK in 163ms (Views: 110.0ms | ActiveRecord: 34.0ms)
+```
+
+Observe that the first server log shows a 'batch' query, compared to the second server log that queries each home individually. The request was completed in 78ms for the former compared to 163ms for the latter, more than 50% improvement in time.
 
 ## Future Concepts
 During my two week course of development, I discovered many more implementation that can deliver a better user experience listed below:

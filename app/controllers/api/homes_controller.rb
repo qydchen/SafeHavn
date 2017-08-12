@@ -23,7 +23,7 @@ class Api::HomesController < ApplicationController
   end
 
   def show
-    @home = Home.find(params[:id])
+    @home = Home.includes(:visitors).find(params[:id])
     if @home
       render :show
     else
