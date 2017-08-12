@@ -13,7 +13,6 @@ SafeHavn draws inspiration from AirBnB that helps users find unique locations. T
 * [Instant Map Filters](#instant-map-filters)
 * [Booking a Trip](#booking-a-trip)
 * [Reviews](#reviews)
-* [Preventing N+1 Queries](#preventing-N+1-queries)
 
 ## Project Information
 This project was developed in two weeks utilizing Ruby on Rails, React.js with Redux, Google Maps API, and AWS S3.
