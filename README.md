@@ -15,7 +15,7 @@ SafeHavn draws inspiration from AirBnB that helps users find unique locations. T
 * [Reviews](#reviews)
 
 ## Project Information
-This project was developed in two weeks utilizing Ruby on Rails, React.js with Redux, Google Maps, and Amazon S3.
+This project was developed in two weeks utilizing Ruby on Rails, React.js with Redux, Google Maps API, and AWS S3.
 
 ## Features
   * Account creation and authentication
@@ -29,6 +29,24 @@ This project was developed in two weeks utilizing Ruby on Rails, React.js with R
 
 ## User Authentication
 On the back-end, an encrypted, hashed password is stored in the database (passwords are never saved to the database). On log-in, the provided password is rehashed and compared to the encrypted password in order to verify the log-in.
+
+When signing up for a SafeHavn account, the user has to be 18 years or older just like the real AirBnB.
+
+``` Ruby
+  validate :validate_age
+
+  private
+
+  def birth_date
+    Date.parse("#{day}/#{month}/#{year}")
+  end
+
+  def validate_age
+    if birth_date.present? && birth_date > 18.years.ago
+      errors.add(:birth_day, 'is under 18 years.')
+    end
+  end
+```
 
 ## Home Show Page
 All homes are stored in the database, which contains columns for:
@@ -50,53 +68,56 @@ All homes are stored in the database, which contains columns for:
   * a boolean that determines if the host provides the `family`-friendly amenity
   * a boolean that determines if the host provides the free-`parking` amenity
   * a boolean that determines if the host provides a `kitchen`
+  * a boolean that determines if the home is `featured`
 
 Below is an example of a state shape for the home index page:
 
 ```JavaScript
 {
-  1: {
-    id: 1,
-    lat: 41.1706021488593,
-    lng: -74.9294859019342,
-    price: 138,
-    title: "Three Island",
-    description: "Classic Brooklyn Brownstone. Suite 627 is a spacious 1 bedroom apt with private entry. Living room, full kitchen and bath on the second floor on quiet tree-lined block in historic Bedford-Stuyvesant, Brooklyn. Built in 1899, Suite 627 features original architectural details, such as hardwood floors, fireplaces and built-ins. Accommodates 4 with a queen bed and convertible sofa. Close to subway for easy access to Manhattan. Short cab ride from both JFK and LaGuardia airports. The space Suite 627 is a comfortable oasis. You have the entire floor and features a private entryway. All inclusive amenities include Wi-fi, air conditioning, laptop work-space and smart TV to access your favorite apps. Perfect for couples retreat, family get-a-way or business traveler. Interaction with guests My family and I occupy the lower levels of the home and have been residents of Bedford Stuyvesant for over 20 years. We enjoy everything about our neighborhood--friends, family, and friends who are extended family. I am a self professed HGTV enthusiast. I love watching the magic that happens when people love their house and transform it into a home. I apply these learnings to my own home and by extension Suite 627. Suite 627 is waiting for you to join in on the good people, great diverse food, beautiful art and non-stop culture. So many things to do and see! Don't wait, book Suite 627 now! We can't wait to have you as our guest!",
-    address: "79886 Skiles Mission, Lake Marlee, Mauritania",
-    host: {
-      first: "Kim",
-      last: "Kardashian"
-    },
-    revcount: 9,
-    avg: 7,
-    space: {
-      max_guests: 12,
-      beds: 12,
-      room_type: "Private Room"
-    },
-    image_url: "http://s3.amazonaws.com/safehavns-dev/homes/images/000/000/001/original/0.jpg?1500573048"
-  },
   2: {
     id: 2,
-    lat: 40.6777110577057,
-    lng: -73.8242275239494,
-    price: 338,
-    title: "Icirrus City",
-    description: "Beautiful, newly renovated apartment. Very clean(really) and quiet. Has a fully equipped kitchen, cable tv, smart tv, wifi troughout. Located a stone throw away from the Freedom tower, Wall Street, NYSE, Shopping malls, Battery Park City, Hudson River boardwalk, Statue of Liberty ferry, Federal Reserve Bank, Goldman Sachs and more. All within 5 min walk from my place. I would love to share my love of New York City with you. Я говорю по русски. Пишите, спрашивайте. Thank you and see you soon. The space Designed with home in mind, all of the pieces were carefully selected to make you feel cozy. Lots of clean towels, sheets and essentials for a comfortable stay in my place. Interaction with guests I love New York, especially Downtown and Finacial district, Battery Park city promenade and the marina. Got my sailors license there. Would love to show you my favorite places or advice you on where to go. We have it all down here! And the clean air, and water, and beautiful parks.",
-    address: "7547 Franz Falls, Dooleyport, Honduras",
+    lat: 41.3517071578383,
+    lng: -74.097058141765,
+    price: 184,
+    title: "Oreburgh City",
+    description: "Windows to the NYC VIEW ... One of 2 bedrooms that place is good for solo adventurers, business travelers, and furry friends (pets) Or even a light traveling couple for a romantic escape! Guest access All available for the guest within apartment, parking pass, washer and dryer , blow dryer, ice machine, blenders etc Other things to note All available for the guest within apartment, parking pass, washer and dryer , blow dryer, ice machine, blenders etc",
+    address: "6959 Feeney Throughway, Darrelborough, Spain",
+    featured: true,
     host: {
-      first: "Emma",
-      last: "Watson"
+      first: "Nicki",
+      last: "Minaj"
     },
-    revcount: 4,
+    revcount: 8,
     avg: 7,
     space: {
-      max_guests: 12,
-      beds: 12,
-      room_type: "Entire home/apt"
+      max_guests: 6,
+      beds: 6,
+      room_type: "Private Room"
     },
-    image_url: "http://s3.amazonaws.com/safehavns-dev/homes/images/000/000/002/original/1.jpg?1500573048"
-  }
+    image_url: "http://s3.amazonaws.com/safehavns-dev/homes/images/000/000/002/original/1.jpg?1502306488"
+  },
+  4: {
+    id: 4,
+    lat: 40.6174974596302,
+    lng: -74.1008671933032,
+    price: 415,
+    title: "Couriway Town",
+    description: "Windows to the NYC VIEW ... One of 2 bedrooms that place is good for solo adventurers, business travelers, and furry friends (pets) Or even a light traveling couple for a romantic escape! Guest access All available for the guest within apartment, parking pass, washer and dryer , blow dryer, ice machine, blenders etc Other things to note All available for the guest within apartment, parking pass, washer and dryer , blow dryer, ice machine, blenders etc",
+    address: "23930 Garrett Cape, Lake Kian, Bouvet Island (Bouvetoya)",
+    featured: true,
+    host: {
+      first: "Deadpool",
+      last: "Wilson"
+    },
+    revcount: 6,
+    avg: 7,
+    space: {
+      max_guests: 4,
+      beds: 4,
+      room_type: "Private Room"
+    },
+    image_url: "http://s3.amazonaws.com/safehavns-dev/homes/images/000/000/004/original/3.jpg?1502306490"
+  },
 }
 ```
 
@@ -104,47 +125,37 @@ Below is an example of a state shape for the home show page:
 
 ```JavaScript
 {
-  id: 29,
-  lat: 40.817193641856,
-  lng: -74.0953376465903,
-  price: 244,
-  title: "Vermilion City",
-  description: "Classic Brooklyn Brownstone. Suite 627 is a spacious 1 bedroom apt with private entry. Living room, full kitchen and bath on the second floor on quiet tree-lined block in historic Bedford-Stuyvesant, Brooklyn. Built in 1899, Suite 627 features original architectural details, such as hardwood floors, fireplaces and built-ins. Accommodates 4 with a queen bed and convertible sofa. Close to subway for easy access to Manhattan. Short cab ride from both JFK and LaGuardia airports. The space Suite 627 is a comfortable oasis. You have the entire floor and features a private entryway. All inclusive amenities include Wi-fi, air conditioning, laptop work-space and smart TV to access your favorite apps. Perfect for couples retreat, family get-a-way or business traveler. Interaction with guests My family and I occupy the lower levels of the home and have been residents of Bedford Stuyvesant for over 20 years. We enjoy everything about our neighborhood--friends, family, and friends who are extended family. I am a self professed HGTV enthusiast. I love watching the magic that happens when people love their house and transform it into a home. I apply these learnings to my own home and by extension Suite 627. Suite 627 is waiting for you to join in on the good people, great diverse food, beautiful art and non-stop culture. So many things to do and see! Don't wait, book Suite 627 now! We can't wait to have you as our guest!",
-  cancellation: "Strict",
-  address: "9821 Soledad Green, North Erika, Romania",
-  trips: [
-    {
-    id: 4,
-    visitor_id: 1,
-    home_id: 29,
-    start_date: "2017-08-08",
-    end_date: "2017-08-15",
-    created_at: "2017-07-20T18:54:39.861Z",
-    updated_at: "2017-07-20T18:54:39.861Z",
-    num_guests: 4,
-    totalcost: 1763
-    }
-  ],
+  id: 87,
+  lat: 41.3597284791475,
+  lng: -73.8634425131675,
+  price: 436,
+  title: "Mossdeep City",
+  description: "The space Stay in this state-of-the art 2 Bedrooms steps away from Times Square. Apartment Features: ** Elevator building with 24Hr doorman ** Apartment with splendid City views ** Unit featuring lots of windows throughout entire apartment ** Kitchen finishes include white granite countertops, appliances, built-in microwave and custom cabinetry ** Wireless internet available ** Flat screen TV with cable package channels ** Comfortable sofa in living room ** Dining table seats 4 ** Washer / Dryer in the apartment ** Spacious Closets ** Parquet wood flooring ** Towels and Linens provided free of charge ** Complimentary breakfast provided Apartment Amenities: • Oversized windows • Rift cut white oak floors • Bosch washer and dryer • Chef’s Kitchen: – Whitewashed oak cabinetry – Natural calacatta backsplash – Caesarstone countertop – Bertazzoni range and microwave – Stainless steel refrigerator and dishwasher • Baths: – Moss Lappato porcelain floors and shower wall – White Caesarstone vanity top – Rift cut white oak vanity with matching custom medicine cabinet – Soaking tub Guest access Doorman, Lounge, Gym, Roof Top hot jacuzzi, Pet Friendly, Tv, Wifi, AC, Central Air, Kitchen, Dishwasher, Dishes, Elevator Interaction with guests we can put portable bed on air mattress, if you need, pls write me. Other things to note Please note that if you do not meet the 11:00 AM check-out deadline. If you have a flight later on in the day, you can store your luggage until your flight at our other place for free.",
+  cancellation: "Moderate",
+  address: "325 Demetrius Flat, North Frederic, Seychelles",
+  trips: [ ],
+  featured: false,
   host: {
-    id: 3,
-    first: "Beyonce",
-    last: "Knowles"
+    first: "Kim",
+    last: "Kardashian"
   },
-  host_image_url: "http://s3.amazonaws.com/safehavns-dev/users/images/000/000/003/original/beyonce.jpg?1500573040",
-  image_url: "http://s3.amazonaws.com/safehavns-dev/homes/images/000/000/029/original/28.jpg?1500573065",
+  host_image_url: "http://s3.amazonaws.com/safehavns-dev/users/images/000/000/010/original/kim.jpg?1502306483",
+  image_url: "http://s3.amazonaws.com/safehavns-dev/homes/images/000/000/087/original/86.jpg?1502306536",
+  revcount: 9,
+  avg: 8,
   space: {
-    max_guests: 4,
-    bathrooms: 1,
-    bedrooms: 2,
-    beds: 4,
-    property_type: "Farmhouse",
-    room_type: "Shared Room"
+    max_guests: 6,
+    bathrooms: 3,
+    bedrooms: 3,
+    beds: 6,
+    property_type: "Mansion",
+    room_type: "Entire home/apt"
   },
   amenities: {
     internet: false,
     family: false,
     parking: true,
-    kitchen: false
+    kitchen: true
   }
 }
 ```
@@ -152,7 +163,7 @@ Below is an example of a state shape for the home show page:
 ![safehavn-show](/app/assets/images/demo/SafeHavnShow.png)
 
 ## Instant Map Filters
-SafeHavn offers real-time filtering based on party size and price (per night). The Redux state is updated with a list of all the homes matching both the filter query and location bounds. Map markers are then populated on the map as an overlay for every location stored in the state. With every filter or idle state of the map, old map markers are replaced with new map markers; the bounds also resize automatically when zooming in or out of the map.
+SafeHavn offers real-time filtering based on party size and price (per night). The Redux state is updated with a list of all the homes matching both the filter query and location bounds. Map markers are then populated on the map as an overlay for every location stored in the state. With every filter or idle state of the map, old map markers are removed and new map markers are created; the bounds also resize automatically when zooming in or out of the map.
 
 ![filter-map](/app/assets/images/demo/filter-map.gif)
 
@@ -209,7 +220,23 @@ This is the page where the user can post a review of their trips.
 
 ## Reviews
 
-Only visitors can make a review of the homes they visit. A review requires a rating and a body. The rating has to be between 1-10 and the body has to be less than 500 characters just like AirBnB. Upon creating a review, the review will be posted on the respective home show page. In the backend, each review will be tallied and the average rating calculated. This information will be displayed on the home index page.
+Only visitors can make a review of the homes they visit. A review requires a rating and a body. The rating has to be between 1-10 and the body has to be less than 500 characters just like AirBnB. Upon creating a review, the review will be posted on the respective home show page. In the backend, each review will be tallied and the average rating calculated. This information will be displayed on the home index page as well as the home show page.
+
+## Preventing N+1 Queries
+
+Active Record allows eager loading of all the associations with a single Model. This is possible by specifying the includes method. With this method, Active Record ensures that all of the specified associations are loaded using the minimum possible number of queries.
+
+Below are snippets of such queries:
+
+``` Ruby
+@homes = params[:bounds]
+  ? Home.includes(:reviews, :host).in_bounds(params[:bounds]) : Home.where(featured: true).includes(:reviews, :host).limit(8)
+
+@reviews = Review.includes(:author).where(home_id: params[:home_id])
+
+@trips = Trip.where(visitor_id: current_user.id).includes(:home)
+```
+
 
 ## Future Concepts
 During my two week course of development, I discovered many more implementation that can deliver a better user experience listed below:
@@ -227,4 +254,6 @@ Integration with mobile using React Native.
 Filtering by amenities and housing accommodations will improve usability. Adding dropdowns and modals will allow the expansion of such filters.
 
 #### Improved Styling/Design
-Compared with AirBnB, there are countless UX design tweaks that I can improve on such as: adding a carousel that spins through photos of the home. Adding a slider bar to filter budgets and guest size.
+Compared with AirBnB, there are countless UX design tweaks that I can improve on such as:
+  - Adding a carousel that spins through photos of the home.
+  - Adding a slider bar to filter budgets and guest size.
