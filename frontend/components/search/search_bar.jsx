@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter} from 'react-router-dom';
-import { findLatLng } from '../../util/home_api_util';
+import { findLatLng } from '../../util/map_api_util';
 
 class SearchBar extends React.Component {
   constructor(props) {

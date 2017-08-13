@@ -1,5 +1,4 @@
 import { merge } from 'lodash';
-
 import { RECEIVE_INPUT } from '../actions/input_actions';
 
 const defaultState = {

@@ -1,5 +1,5 @@
 import {OPEN, CLOSE, RECEIVE_COMPONENT} from '../actions/modal_actions';
-import merge from "lodash/merge";
+import { merge } from 'lodash';
 
 const initialState = {
     isOpen: false,

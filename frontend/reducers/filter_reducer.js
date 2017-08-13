@@ -1,4 +1,4 @@
-import merge from 'lodash/merge';
+import { merge } from 'lodash';
 
 import { UPDATE_FILTER } from '../actions/filter_actions';
 

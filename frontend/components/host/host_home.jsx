@@ -1,12 +1,15 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
 import { withRouter } from 'react-router-dom';
-import { roomText, cancellationText, spaceText, amenityText } from '../../util/home_detail_descriptions';
+import * as textUtil from '../../util/home_detail_descriptions';
+import { findLatLng } from '../../util/home_api_util';
 
-class HostTrip extends React.Component {
+class HostHome extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      lat: null,
+      lng: null,
       price: 0,
       title: "",
       description: "",
@@ -26,6 +29,7 @@ class HostTrip extends React.Component {
       imageUrl: null,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleAddressSubmit = this.handleAddressSubmit.bind(this);
     this.update = this.update.bind(this);
     this.updateFile = this.updateFile.bind(this);
     this.updateDraggedFile = this.updateDraggedFile.bind(this);
@@ -33,7 +37,7 @@ class HostTrip extends React.Component {
 
   componentDidMount() {
     const input = document.getElementById("address-field");
-    let autocomplete = new google.maps.places.Autocomplete(input);
+    this.autocomplete = new google.maps.places.Autocomplete(input);
   }
 
   handleSubmit(e) {
@@ -44,6 +48,11 @@ class HostTrip extends React.Component {
       formData.append("home[image]", this.state.imageFile);
     }
     this.props.createHome({home});
+  }
+
+  handleAddressSubmit(e) {
+    e.preventDefault();
+
   }
 
   updateFile(e) {
@@ -85,7 +94,7 @@ class HostTrip extends React.Component {
     };
     return (
       <div className="host-column">
-        <div className='select-container book-txt'>
+        <div className='select-container book-txt host-dd'>
           <div className='select-dd-container'>
             <select className='select-dropdown select-bk-dd' value={this.state.room_type}
               onChange={this.update('room_type')}
@@ -110,7 +119,7 @@ class HostTrip extends React.Component {
     };
     return (
       <div className="host-column">
-        <div className='select-container book-txt'>
+        <div className='select-container book-txt host-dd'>
           <div className='select-dd-container'>
             <select className='select-dropdown select-bk-dd' value={this.state.num_guests}
               onChange={this.update('num_guests')}
@@ -124,13 +133,13 @@ class HostTrip extends React.Component {
 
   addressInput() {
     return (
-      <form className="search-container address-container" ref={form => this.form = form} onSubmit={this.handleSubmit}>
+      <form className="search-container address-container" ref={form => this.form = form} onSubmit={this.handleAddressSubmit}>
         <input
           type="search"
           id="address-field"
           placeholder="Address"
           ref={input => this.input = input}
-          onChange={this.update('place')}
+          onChange={this.update('address')}
         />
       </form>
     )
@@ -143,10 +152,10 @@ class HostTrip extends React.Component {
           <div className="step1-form-cont">
             <div className="inner-form">
               <span className="inner-landing-tit">Hi, {this.props.currentUser.first}! Lets get started listing your space.</span>
-              <span className="step1-span">LET'S HOST</span>
+              <span className="step1-span">STEP 1</span>
               <span className="step1-blurb">What kind of place do you have?</span>
               <div className="host-row">
-                {this.selectRoom(roomText)}
+                {this.selectRoom(textUtil.roomText)}
                 {this.selectGuests()}
               </div>
               <div className="host-row">
@@ -166,4 +175,4 @@ class HostTrip extends React.Component {
 
 }
 
-export default withRouter(HostTrip);
+export default withRouter(HostHome);
