@@ -12,6 +12,8 @@ const MapReducer = (state = defaultState, action) => {
   let newState;
   switch(action.type) {
     case RECEIVE_MAP_INFO:
+      ;
+      let mapInfo = action.mapInfo;
       let lat = mapInfo.results[0].geometry.location.lat;
       let lng = mapInfo.results[0].geometry.location.lng;
       let address = mapInfo.results[0].formatted_address;

@@ -6,8 +6,9 @@ export const receiveMapInfo = (mapInfo) => ({
   mapInfo
 });
 
-export const fetchMapInfo = address => dispatch => (
+export const fetchMapInfo = address => dispatch => {
+  return (
   APIUtil.findLatLng(address).then(mapInfo => (
     dispatch(receiveMapInfo(mapInfo)))
   )
-);
+)};

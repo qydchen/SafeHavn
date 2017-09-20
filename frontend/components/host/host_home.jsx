@@ -52,13 +52,13 @@ class HostHome extends React.Component {
 
   handleAddressSubmit(e) {
     e.preventDefault();
-
+    this.props.fetchMapInfo(e.target.value);
   }
 
   updateFile(e) {
     let file = e.currentTarget.files[0];
     let fileReader = new FileReader();
-     fileReader.onloadend = function() {
+    fileReader.onloadend = function() {
        this.setState({ imageFile: file, imageUrl: fileReader.result });
      }.bind(this);
     if (file) {
@@ -83,14 +83,10 @@ class HostHome extends React.Component {
     });
   }
 
-  selectRoom(array) {
+  dropdownRoom(array) {
     const options = [];
     for (let i = 0; i < array.length; i++) {
-      options.push(
-        <option value={i}
-        key={i}
-        >{array[i]}</option>
-      )
+      options.push(<option value={i} key={i}>{array[i]}</option>)
     };
     return (
       <div className="host-column">
@@ -106,16 +102,10 @@ class HostHome extends React.Component {
     );
   }
 
-  selectGuests() {
-    const options = [
-      <option value="1" key={1}>for 1 guest</option>
-    ];
+  dropdownGuests() {
+    const options = [<option value="1" key={1}>for 1 guest</option>];
     for (let i = 2; i <= 12; i++) {
-      options.push(
-        <option value={i}
-        key={i}
-        >for {i} guests</option>
-      )
+      options.push(<option value={i} key={i}>for {i} guests</option>)
     };
     return (
       <div className="host-column">
@@ -155,8 +145,8 @@ class HostHome extends React.Component {
               <span className="step1-span">STEP 1</span>
               <span className="step1-blurb">What kind of place do you have?</span>
               <div className="host-row">
-                {this.selectRoom(textUtil.roomText)}
-                {this.selectGuests()}
+                {this.dropdownRoom(textUtil.roomText)}
+                {this.dropdownGuests()}
               </div>
               <div className="host-row">
                 {this.addressInput()}
