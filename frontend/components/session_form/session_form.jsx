@@ -16,13 +16,11 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearErrorsAndOpenModal = this.clearErrorsAndOpenModal.bind(this);
-    this.handleSelectChange = this.handleSelectChange.bind(this);
+    this.update = this.update.bind(this);
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+    return e => this.setState({[field]: e.currentTarget.value});
   }
 
   clearErrorsAndOpenModal(component){
@@ -39,10 +37,6 @@ class SessionForm extends React.Component {
  			this.props.signup({user}).then(this.props.closeModal);
  		}
      this.setState({email: '', password: '', first: '', last: '', month: '', day: '', year: '' });
-  }
-
-  handleSelectChange(property) {
-    return e => this.setState({ [property]: e.target.value });
   }
 
   renderErrors() {
@@ -155,7 +149,7 @@ class SessionForm extends React.Component {
           <label className="label-hidden"/>
           <div className='select-dd-container'>
             <select className='select-dropdown' value={this.state.month}
-              onChange={this.handleSelectChange('month')}
+              onChange={this.update('month')}
             >{options}
             </select>
             <span className="dropdown-arrow"></span>
@@ -184,7 +178,7 @@ class SessionForm extends React.Component {
           <label className="label-hidden"/>
           <div className='select-dd-container'>
             <select className='select-dropdown' value={this.state.day}
-              onChange={this.handleSelectChange('day')}
+              onChange={this.update('day')}
             >{options}</select>
             <span className="dropdown-arrow"></span>
           </div>
@@ -212,7 +206,7 @@ class SessionForm extends React.Component {
           <label className="label-hidden"/>
           <div className='select-dd-container'>
             <select className='select-dropdown' value={this.state.year}
-              onChange={this.handleSelectChange('year')}
+              onChange={this.update('year')}
             >{options}</select>
             <span className="dropdown-arrow"></span>
           </div>
