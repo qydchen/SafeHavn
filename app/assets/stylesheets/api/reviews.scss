@@ -1,0 +1,72 @@
+// Place all the styles related to the api/reviews controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.review-stats {
+  display: flex;
+  margin-bottom: 52px;
+  justify-content: space-between;
+}
+
+.rev {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.review-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-divider {
+  float: left;
+  width: 100%;
+}
+
+.review-header {
+  display: flex;
+}
+
+.review-author {
+  font-weight: normal;
+  color: #484848;
+  margin: 0px;
+  word-wrap: break-word;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: 0.2px;
+  display: inline;
+}
+
+.review-body {
+  position: relative;
+  min-height: 1px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-top: 24px;
+}
+
+.profile-pic {
+  height: 52px;
+  width: 52px;
+  backface-visibility: hidden;
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  overflow: hidden;
+  background-color: #bbb;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  margin-right: 22px;
+  object-fit: cover;
+}
+
+.review-form {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 90% !important;
+}
+
+.post-review {
+  width: 40% !important;
+}

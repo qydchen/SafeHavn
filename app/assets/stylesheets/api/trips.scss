@@ -1,0 +1,175 @@
+// Place all the styles related to the api/trips controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.trip-slider {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  width: 1080px;
+  padding-left: 24px;
+  padding-right: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Helvetica !important;
+}
+
+.trip-tit {
+  color: #2d2d2d;
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 15px;
+  line-height: 1.1;
+  text-rendering: optimizelegibility;
+  margin-top: 0;
+}
+
+.trip-card-container {
+  width: 32.0%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 12px;
+}
+
+.trip-image-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.trip-image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-position: 50% 50%;
+  object-fit: cover;
+}
+
+.trip-cards {
+  width: 100%;
+  float: left;
+  position: relative;
+  // display: flex;
+  min-height: 1px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-bottom: 0px;
+  padding: 0px;
+  padding-top: 20px;
+  overflow: visible;
+  white-space: normal;
+  margin-top: 0px;
+}
+
+.trip-cards-txt {
+  margin: 16px 0 16px 0;
+}
+
+.trip-card {
+  border: 0;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  font-size: 16px;
+  margin-top: 20px;
+
+}
+
+.trip-card:hover {
+  text-decoration: none;
+}
+
+.trip-padding {
+  width: 100%;
+  height: 490px;
+  position: relative;
+  border: 1px #dce0e0 solid !important;
+  margin-top: 24px;
+  padding-bottom: 20px;
+}
+
+.trip-text {
+  text-align: center;
+  padding: 0;
+  margin-top: 0;
+  position: relative;
+  font-size: 16px;
+  color: #2d2d2d;
+}
+
+.trip-time {
+  width: 100%;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.trip-actions-wrap {
+  padding: 0 20px;
+  height: auto;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 400;
+  color: #2d2d2d;
+}
+
+.scheduled-box {
+  padding: 0 20px;
+  color: #484848;
+}
+
+.address-box {
+  margin-bottom: 18px;
+  margin-top: 18px;
+  font-size: 36px;
+  color: #2d2d2d;
+}
+
+.space-top {
+  margin-top: 6px;
+}
+
+.trip-actions {
+  color: #2d2d2d;
+  border: 0;
+  height: auto;
+  padding: 10px 0 0 0;
+  font-family: Helvetica !important;
+}
+
+.trip-action-row {
+  border-top: 1px solid #bbb;
+  width: 100%;
+  padding: 15px 5px;
+  float: left;
+}
+
+.trip-card-txt {
+  font-size: 26px;
+}
+
+.trip-button {
+  color: white;
+  width: 35% !important;
+}
+
+.trip-button:hover {
+  text-decoration: none;
+}
+
+.trip-div {
+  content: "";
+  top: -1px;
+  width: 80%;
+  margin: 0 auto;
+  border-top: 1px solid #bbb;
+}
+
+.trip-hov:hover {
+  text-decoration: underline;
+  color: #008489;
+  cursor: pointer;
+}

@@ -7,6 +7,24 @@
   cursor: pointer !important;
 }
 
+.image-hov:hover {
+  border-bottom: 2px solid #484848 !important;
+}
+
+.image-hov {
+  height: 44px;
+  width: 44px;
+  margin: 0 12px 0 12px;
+}
+
+.pic-head {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
 .header-enter, .SignOutButton {
   padding: 8px 0 !important;
   vertical-align: middle !important;
@@ -16,9 +34,10 @@
   margin-left: 16px;
   margin-right: 16px;
   display: block;
+  background-repeat: no-repeat;
 }
 
-.SubmitButton:hover, .x-close:hover {
+.pinkButton:hover, .x-close:hover {
   cursor: pointer !important;
 }
 
@@ -39,16 +58,16 @@
   margin: 8px;
 }
 
-.LastInput, .PasswordInput, .SubmitButton, .EmailInput, .FirstInput {
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-  font-size: 19px !important;
-  line-height: 24px !important;
+.lastInput, .PasswordInput, .EmailInput, .firstInput {
+  font-family: sans-serif;
+  font-size: 19px;
+  line-height: 24px;
   color: #484848;
-  font-weight: 300 !important;
-  background-color: transparent !important;
-  border: 0px !important;
-  padding: 11px !important;
-  width: 100% !important;
+  font-weight: 300;
+  background-color: transparent;
+  border: 0px;
+  padding: 11px;
+  width: 100%;
 }
 
 
@@ -71,33 +90,34 @@
   box-shadow: 0 0 10px #9ecaed;
 }
 
-.SubmitButton {
-  background: #FF5A5F;
+.pinkButton {
   margin-top: 16px;
-  text-align: center !important;
-  background: #FF5A5F !important;
-  cursor: pointer !important;
-  -webkit-transition: background 0.3s, border-color 0.3s !important;
-  -moz-transition: background 0.3s, border-color 0.3s !important;
-  transition: background 0.3s, border-color 0.3s !important;
-  position: relative !important;
-  border: 2px solid transparent !important;
-  border-radius: 4px !important;
-  width: 100% !important;
-  font-size: 19px !important;
-  line-height: 22px !important;
-  letter-spacing: undefined !important;
-  padding-top: 12px !important;
-  padding-bottom: 12px !important;
-  color: #484848 !important;
-  font-weight: 700 !important;
-  padding-right: 24px !important;
-  padding-left: 24px !important;
-  min-width: 77.66563145999496px !important;
-  background: #FF5A5F !important;
-  border-color: undefined !important;
-  align-items: flex-start;
   text-align: center;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s;
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 19px;
+  line-height: 22px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: #484848;
+  font-weight: 700;
+  padding-right: 24px;
+  padding-left: 24px;
+  min-width: 77.66563145999496px;
+  background: #FF5A5F;
+  align-items: flex-start;
+}
+
+.login-header {
+  color: #484848;
+  font-size: 28px;
+  line-height: 36px;
+  letter-spacing: -0.6px;
+  margin: 32px 0 32px 0;
 }
 
 .signup-divider {
@@ -125,7 +145,6 @@
 .account-txt {
   font-weight: 300 !important;
   color: #484848 !important;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
   margin: 0px !important;
   word-wrap: break-word !important;
   font-size: 19px !important;
@@ -139,26 +158,24 @@
 .switch {
   float: right;
   vertical-align: middle;
-  display: inline-block !important;
-  text-align: center !important;
-  text-decoration: none !important;
-  font-weight: 700 !important;
-  border-radius: 4px !important;
-  cursor: pointer !important;
-  transition: background 0.3s, border-color 0.3s !important;
-  position: relative !important;
-  border: 2px solid transparent !important;
-  width: auto !important;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-  font-size: 15px !important;
-  line-height: 15px !important;
-  padding-top: 8px !important;
-  padding-bottom: 8px !important;
-  color: #484848 !important;
-  padding-right: 16px !important;
-  padding-left: 16px !important;
-  background: transparent !important;
-  border-color: #008489 !important;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  border: 2px solid transparent;
+  width: auto;
+  font-size: 15px;
+  line-height: 15px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #484848;
+  padding-right: 16px;
+  padding-left: 16px;
+  background: transparent;
+  border-color: #008489;
 }
 
 .register-txt {
@@ -174,10 +191,14 @@
 
 .x-close {
   font-weight: bold;
-	padding: 7px 9px;
+  height: 16px;
+  width: 16px;
 	border-radius: 3px;
 	transition: background-color 0.3s;
-	font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0px;
+  display: block;
 	font-size: 14px;
 	text-align: center;
   background-image: asset-url('cross.png');
@@ -221,110 +242,101 @@
 }
 
 .birthdayTitle {
-  font-weight: normal !important;
-  color: #484848 !important;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-  margin: 0px !important;
-  word-wrap: break-word !important;
-  font-size: 19px !important;
-  line-height: 24px !important;
-  letter-spacing: undefined !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
+  font-weight: normal;
+  color: #484848;
+  margin: 0px;
+  word-wrap: break-word;
+  font-size: 19px;
+  line-height: 24px;
+  letter-spacing: undefined;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .birthdayText {
-  font-weight: 300 !important;
-  color: #484848 !important;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-weight: 300;
+  color: #484848;
   margin: 0px;
   margin-top: 8px;
-  word-wrap: break-word !important;
-  font-size: 15px !important;
-  line-height: 18px !important;
-  letter-spacing: 0.2px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
+  word-wrap: break-word;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .birthdayRow {
   margin-top: 8px;
-  margin-left: -8px !important;
-  margin-right: -8px !important;
+  margin-left: -8px;
+  margin-right: -8px;
   box-sizing: border-box;
-  display: inline-flex !important;
+  display: inline-flex;
   width: 100%;
 }
 
 
 .bday-column {
-  padding-left: 8px !important;
-  padding-right: 8px !important;
-  min-height: 1px !important;
-  position: relative !important;
-  width: 33.33333333333333% !important;
-  float: left !important;
+  padding-left: 8px;
+  padding-right: 8px;
+  min-height: 1px;
+  position: relative;
+  width: 33.33333333333333%;
+  float: left;
 }
 
 .select-container {
-  padding-right: 8px !important;
-  min-height: 1px !important;
-  position: relative !important;
-  float: left !important;
+  padding-right: 8px;
+  min-height: 1px;
+  position: relative;
+  float: left;
   width: 100%;
 }
 
 
 .label-hidden {
-  position: absolute !important;
-  display: block !important;
-  border: 0px !important;
-  margin: -1px !important;
-  padding: 0px !important;
-  height: 1px !important;
-  width: 1px !important;
-  clip: rect(0, 0, 0, 0) !important;
-  overflow: hidden !important;
+  position: absolute;
+  display: block;
+  border: 0px;
+  margin: -1px;
+  padding: 0px;
+  height: 1px;
+  width: 1px;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
 }
 
 .select-dd-container {
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-  font-size: 19px !important;
-  line-height: 24px !important;
-  letter-spacing: undefined !important;
-  padding-top: undefined !important;
-  padding-bottom: undefined !important;
-  color: #484848 !important;
-  position: relative !important;
-  display: block !important;
-  background: #ffffff !important;
-  border: 1px solid #DBDBDB !important;
-  border-radius: 2px !important;
-  margin-bottom: 8px !important;
-  width: 100% !important;
-  overflow: hidden !important;
+  font-size: 19px;
+  line-height: 24px;
+  letter-spacing: undefined;
+  padding-top: undefined;
+  padding-bottom: undefined;
+  color: #484848;
+  position: relative;
+  display: block;
+  background: #ffffff;
+  border: 1px solid #DBDBDB;
+  border-radius: 2px;
+  margin-bottom: 8px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .select-dropdown {
-  -webkit-appearance: none !important;
-  -moz-appearance: none !important;
-  appearance: none !important;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-  font-size: 19px !important;
-  line-height: 24px !important;
-  letter-spacing: undefined !important;
-  padding-top: undefined !important;
-  padding-bottom: undefined !important;
-  color: #484848 !important;
-  font-weight: 300 !important;
-  background-color: transparent !important;
-  border: none !important;
-  border-radius: 0px !important;
-  padding: 10px !important;
-  padding-right: 40px !important;
-  height: 44px !important;
-  display: block !important;
-  width: 100% !important;
+  -webkit-appearance: none;
+  font-size: 19px;
+  line-height: 24px;
+  color: #484848;
+  font-weight: 300;
+  background-color: transparent;
+  border: none;
+  border-radius: 0px;
+  padding: 10px;
+  padding-right: 40px;
+  height: 44px;
+  display: block;
+  width: 100%;
 }
 
 .dropdown-arrow {
@@ -341,35 +353,34 @@
 }
 
 .subscribe-info {
-  font-weight: 300 !important;
-  cursor: pointer !important;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-  font-size: 15px !important;
-  line-height: 24px !important;
-  letter-spacing: undefined !important;
-  padding-top: undefined !important;
-  padding-bottom: undefined !important;
-  color: #484848 !important;
-  position: relative !important;
-  top: -3px !important;
-  vertical-align: top !important;
-  padding-left: 6px !important;
-  display: table-cell !important;
-  vertical-align: top !important;
-  white-space: normal !important;
+  font-weight: 300;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: undefined;
+  padding-top: undefined;
+  padding-bottom: undefined;
+  color: #484848;
+  position: relative;
+  top: -3px;
+  vertical-align: top;
+  padding-left: 6px;
+  display: table-cell;
+  vertical-align: top;
+  white-space: normal;
 }
 
 .disclaimer {
-  font-weight: normal !important;
-  color: #484848 !important;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-  margin: 0px !important;
-  word-wrap: break-word !important;
-  font-size: 12px !important;
-  line-height: 16px !important;
-  letter-spacing: 0.4px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
+  font-weight: normal;
+  color: #484848;
+  font-family: sans-serif;
+  margin: 0px;
+  word-wrap: break-word;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .subscribe-lab {
@@ -382,7 +393,6 @@
 }
 
 .subscribe-img {
-  // background-image: asset-url('chempty.png');
   cursor: pointer !important;
   padding: 0px !important;
   display: table-cell !important;
@@ -391,8 +401,6 @@
 }
 
 .subbox-input {
-  // background-image: asset-url('checin.png');
-  // -webkit-appearance: none;
   height: 1.25em;
   width: 1.25em;
   margin-bottom: -.25em;

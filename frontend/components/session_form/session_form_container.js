@@ -21,7 +21,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     clearErrors: () => dispatch(clearErrors()),
     closeModal: () => dispatch(closeModal()),
     openModal: (component) => dispatch(openModal(component)),
-    guestLogin: () => dispatch(login({"user": {"email": "guest@live.com", "first": "", "last": "", "password": "asdf1234", "month": "", "day": "", "year": ""}}))
+    guestLogin: () => dispatch(
+      login({"user": {"email": "guest@live.com", "first": "", "last": "", "password": "asdf1234", "month": "", "day": "", "year": ""}})
+    )
   };
 };
 

@@ -1,0 +1,131 @@
+.prompt-box {
+  box-sizing: border-box;
+  border: 1px transparent;
+  border-radius: 6px;
+}
+
+.no-date-prompt {
+  text-align: center;
+  font-weight: 500;
+  padding: 9px;
+  font-size: 16px;
+
+}
+
+.to-book-it-divider {
+  width: 33.33333333333333% !important;
+  float: left !important;
+  height: 1px;
+  margin-left: 16px;
+}
+
+.bookItContainer {
+  position: absolute;
+  z-index: 1;
+  border-top: 0
+}
+
+.book-it {
+  margin-top: -50px;
+  position:relative;
+}
+
+.offers-box {
+  background-color: rgba(60,63,64,0.9);
+  border: 0;
+  color: #fff;
+  height: 32px;
+  padding: 13px 20px 5px;
+  width: 275px;
+  z-index: 1;
+  overflow-y: visible;
+  display: -webkit-inline-box
+}
+
+.thunderbolt {
+  margin-right: 2px;
+  margin-top: 6px;
+  background-image: asset-url('lightning.png');
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+  margin-bottom: 6px;
+}
+
+.book-it-price {
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0px;
+  word-wrap: break-word;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: -0.2px;
+  display: inline;
+  margin-right: 6px;
+}
+
+.per-night {
+  font-weight: normal;
+  color: #ffffff;
+  margin: 0px;
+  word-wrap: break-word;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  display: inline;
+  padding-top: 8px;
+}
+
+.row-condensed {
+  padding: 14px;
+  border: 1px solid #dce0e0;
+  background-color: #fff;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  align-content: center;
+}
+
+.guest-header {
+  display: flex;
+}
+
+.guest-check {
+  display: block;
+  padding-bottom: 8px;
+  font-weight: 400;
+  font-size: 15px !important;
+  width: 50%;
+  margin-left: 8px;
+}
+
+.guest-dd-container {
+  margin-top: 18px;
+  display: flow-root;
+}
+
+.guests {
+  font-size: 15px !important;
+  font-weight: 400 !important;
+}
+
+.margin-top-8px {
+  margin-top: 8px;
+  text-align: center;
+}
+
+.book-btn {
+  display: table;
+  margin: 0 auto;
+  width: 97.5% !important;
+}
+
+.book-disc {
+  display: table;
+  max-width: 210px;
+  margin: 0 auto !important;
+}
+
+.dash {
+  background-image: asset-url('small-downarrow.png');
+}

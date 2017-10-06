@@ -2,10 +2,10 @@ import { connect } from 'react-redux';
 import Modal from './modal';
 import { closeModal, receiveComponent } from '../../actions/modal_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({modal}) => {
   return {
-    isOpen: state.modal.isOpen,
-    component: state.modal.component
+    isOpen: modal.isOpen,
+    component: modal.component
   };
 };
 

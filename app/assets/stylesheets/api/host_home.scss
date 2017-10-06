@@ -1,0 +1,75 @@
+.step1 {
+  max-width: 1310px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  height: 100%;
+}
+
+.step1-img {
+  background-image: asset-url('step1.png');
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 50%;
+}
+
+.step1-form-cont {
+  height: 100vh;
+  width: 50%;
+}
+
+.inner-form {
+  margin: 50px 50px 50px 100px;
+  max-width: 470px;
+  display: grid
+}
+
+.inner-landing-tit {
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
+.step1-span {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #bbb;
+  font-weight: bold;
+}
+
+.step1-blurb {
+  font-size: 24px;
+}
+
+.host-column {
+  margin: 0 8px 0 8px;
+}
+
+.host-row {
+  display: flex;
+}
+
+#address-field {
+  min-height: 1px;
+  position: relative;
+  width: 77%;
+  font-size: 16px;
+  line-height: 24px;
+  color: #484848;
+  font-weight: 400;
+  background-color: transparent;
+  border: 1px solid #DBDBDB;
+  border-radius: 2px;
+  padding: 10px;
+  padding-right: 40px;
+  height: 44px;
+}
+
+.address-container {
+  width: 100%;
+  padding: 0 0 0 8px !important;
+}
+
+.host-dd {
+  margin: 8px 0 0 0 !important; 
+}
