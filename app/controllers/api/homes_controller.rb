@@ -2,6 +2,7 @@ class Api::HomesController < ApplicationController
   def index
     if Home.all.length != 0
       @homes = params[:bounds] ? Home.includes(:reviews, :host).in_bounds(params[:bounds]) : Home.where(featured: true).includes(:reviews, :host).limit(8)
+
       if (params[:minHousing] && params[:maxHousing])
         @homes = @homes.where(max_guests: housing_range)
       end
@@ -68,11 +69,30 @@ class Api::HomesController < ApplicationController
 
   def home_params
     params.require(:home).permit(
-      :lat, :lng, :price, :host,
-      :image, :title, :description, :cancellation,
-      :address, :max_guests, :start_date, :end_date, :bathrooms,
-      :property_type, :room_type, :internet, :family,
-      :parking, :kitchen, :beds, :bedrooms, :image, :bounds, :featured
+      :lat,
+      :lng,
+      :price,
+      :host,
+      :image,
+      :title,
+      :description,
+      :cancellation,
+      :address,
+      :max_guests,
+      :start_date,
+      :end_date,
+      :bathrooms,
+      :property_type,
+      :room_type,
+      :internet,
+      :family,
+      :parking,
+      :kitchen,
+      :beds,
+      :bedrooms,
+      :image,
+      :bounds,
+      :featured
     )
   end
 
