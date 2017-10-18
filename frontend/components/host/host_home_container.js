@@ -7,7 +7,7 @@ import { fetchMapInfo } from '../../actions/map_actions';
 
 const mapStateToProps = ({session, homes, map}) => {
   return {
-    loggedIn: Boolean(session.currentUser),
+    loggedIn: !!session.currentUser,
     currentUser: session.currentUser,
     lat: map.lat,
     lng: map.lng,

@@ -20,4 +20,4 @@ export const amenityText = {
   kitchen: ["Kitchen", "cutlery-img"],
 }
 
-export const roomText = [  "Entire home/apt", "Private Room", "Shared Room" ]
+export const roomText = [ "Entire home/apt", "Private Room", "Shared Room" ]

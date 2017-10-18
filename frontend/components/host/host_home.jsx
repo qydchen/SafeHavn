@@ -52,7 +52,10 @@ class HostHome extends React.Component {
 
   handleAddressSubmit(e) {
     e.preventDefault();
-    this.props.fetchMapInfo(e.target.value);
+    // fetchMapInfo gets an api response that will give me lat, lng, and address of the input from the auto complete
+    this.props.fetchMapInfo(this.state.address);
+    // this.props.fetchMapInfo(this.autocomplete); ???
+    // the result should be in reducer, and then i can get the address and lat lng from the reducer
   }
 
   updateFile(e) {
@@ -132,6 +135,7 @@ class HostHome extends React.Component {
           onChange={this.update('address')}
         />
       </form>
+      // <button className="pinkButton upload-btn" onClick={this.handleAddressSubmit}>Continue</button>
     )
   }
 
