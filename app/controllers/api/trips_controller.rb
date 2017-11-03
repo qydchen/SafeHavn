@@ -8,12 +8,20 @@ class Api::TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.new(trip_params)
-    @trip.visitor = current_user
-    if @trip.save
-      render :show
+    @home = Home.find(trip_params[:home_id])
+    start_date = trip_params[:start_date].to_date
+    end_date = trip_paarams[:end_date].to_date
+
+    if @home.booking_conflict?(start_date, end_date)
+      render json: "Home is unavailable on those dates", status: 422
     else
-      render json: @trip.errors.full_messages, status: 422
+      @trip = Trip.new(trip_params)
+      @trip.visitor = current_user
+      if @trip.save
+        render :show
+      else
+        render json: @trip.errors.full_messages, status: 422
+      end
     end
   end
 

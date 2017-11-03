@@ -5,6 +5,7 @@ import BookTrip from './book_trip';
 import { withRouter } from 'react-router-dom';
 import { fetchHome } from '../../actions/home_actions';
 import { createTrip } from '../../actions/trip_actions';
+import { bookingConfirmation, clearConfirmation } from '../../actions/session_actions';
 
 const mapStateToProps = ({session, homes, inputs}, {match}) => {
   const homeid = match.params.homeid;
@@ -12,6 +13,7 @@ const mapStateToProps = ({session, homes, inputs}, {match}) => {
   return {
     loggedIn: Boolean(session.currentUser),
     currentUser: session.currentUser,
+    confirmation: session.confirmation,
     homeid,
     listing,
     inputs
@@ -21,7 +23,9 @@ const mapStateToProps = ({session, homes, inputs}, {match}) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     createTrip: trip => dispatch(createTrip(trip)),
-    fetchHome: id => dispatch(fetchHome(id))
+    fetchHome: id => dispatch(fetchHome(id)),
+    bookingConfirmation: (confirmation) => dispatch(bookingConfirmation(confirmation)),
+    clearConfirmation: () => dispatch(clearConfirmation()),
   }
 };
 
