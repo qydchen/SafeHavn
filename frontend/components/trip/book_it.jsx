@@ -13,6 +13,7 @@ class BookIt extends React.Component {
       endDate: null,
       num_guests: 1,
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
     this.navigateToBookTrip = this.navigateToBookTrip.bind(this);
@@ -27,6 +28,19 @@ class BookIt extends React.Component {
   handleSelectChange(property) {
     return e => this.setState({ [property]: e.target.value });
   };
+
+  componentWillUnmount() {
+    const {startDate, endDate} = this.state;
+    const days = endDate.diff(startDate,"days");
+    const cost = this.props.listing.price * days;
+    const cleaning = 20;
+    const service = 35;
+    const totalcost = cost + cleaning + service;
+    const utcBeg = startDate.format('MMM D, YYYY'); // makes days read like english
+    const utcEnd = endDate.format('MMM D, YYYY');
+    const confirmation = {days, cost, cleaning, service, totalcost, utcBeg, utcEnd}
+    this.props.bookingConfirmation(confirmation);
+  }
 
   navigateToBookTrip() {
     if (this.state.startDate && this.state.endDate) {

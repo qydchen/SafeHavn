@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { closeModal, openModal } from '../../actions/modal_actions';
-import { login, logout, signup, clearErrors } from '../../actions/session_actions';
+import { login, logout, signup, clearErrors, bookingConfirmation } from '../../actions/session_actions';
 import SessionForm from './session_form';
 import { yearsRange } from '../../reducers/selectors';
 
@@ -21,6 +21,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     clearErrors: () => dispatch(clearErrors()),
     closeModal: () => dispatch(closeModal()),
     openModal: (component) => dispatch(openModal(component)),
+    bookingConfirmation: (confirmation) => dispatch(bookingConfirmation(confirmation)),
     guestLogin: () => dispatch(
       login({"user": {"email": "guest@live.com", "first": "", "last": "", "password": "asdf1234", "month": "", "day": "", "year": ""}})
     )

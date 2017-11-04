@@ -4,15 +4,15 @@ import { withRouter } from 'react-router-dom';
 class BookTrip extends React.Component {
   constructor(props) {
     super(props);
-    const end = this.props.inputs.endDate; //calculates the difference between days
-    const beg = this.props.inputs.startDate;
-    this.days = end.diff(beg,"days");
-    this.cost = this.props.listing.price * this.days;
-    this.cleaning = 20;
-    this.service = 35;
-    this.totalcost = this.cost + this.cleaning + this.service;
-    this.utcBeg = beg.format('MMM D, YYYY'); // makes days read like english
-    this.utcEnd = end.format('MMM D, YYYY');
+    // const end = this.props.inputs.endDate; //calculates the difference between days
+    // const beg = this.props.inputs.startDate;
+    // this.days = end.diff(beg,"days");
+    // this.cost = this.props.listing.price * this.days;
+    // this.cleaning = 20;
+    // this.service = 35;
+    // this.totalcost = this.cost + this.cleaning + this.service;
+    // this.utcBeg = beg.format('MMM D, YYYY'); // makes days read like english
+    // this.utcEnd = end.format('MMM D, YYYY');
     this.state = {
       num_guests: this.props.inputs.num_guests,
       totalcost: this.totalcost,
