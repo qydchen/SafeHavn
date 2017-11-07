@@ -33,15 +33,6 @@ const SessionReducer = (state = defaultUser, action) => {
       return Object.assign({}, state, {
         errors
       });
-    case RECEIVE_CONFIRMATION:
-      const confirmation = action.confirmation;
-      return merge({}, state, {
-        confirmation
-      });
-    case CLEAR_CONFIRMATION:
-      newState = Object.assign({}, state);
-      delete newState[confirmation];
-      return newState;
     default:
       return state;
   }

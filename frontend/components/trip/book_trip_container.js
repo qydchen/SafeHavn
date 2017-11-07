@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { receiveInput } from '../../actions/input_actions';
-import BookTrip from './book_trip';
 import { withRouter } from 'react-router-dom';
+
+import BookTrip from './book_trip';
+
+import { receiveInput } from '../../actions/input_actions';
 import { fetchHome } from '../../actions/home_actions';
 import { createTrip } from '../../actions/trip_actions';
-import { clearConfirmation } from '../../actions/session_actions';
+import { clearConfirmation } from '../../actions/input_actions';
 
 const mapStateToProps = ({session, homes, inputs}, {match}) => {
   const homeid = match.params.homeid;
@@ -16,7 +18,7 @@ const mapStateToProps = ({session, homes, inputs}, {match}) => {
     confirmation: session.confirmation,
     homeid,
     listing,
-    inputs
+    inputs,
   }
 };
 

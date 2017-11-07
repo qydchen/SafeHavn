@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { Link } from 'react-scroll';
 import HomeShowContainer from './home_show_container';
 import HomeDetail from './home_detail';
-import BookIt from '../trip/book_it';
+import BookItContainer from '../trip/book_it_container';
 import Footer from '../footer';
 
 // shows a single listing
@@ -18,7 +18,7 @@ class HomeShow extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-  if (this.props.match.params.homeid !== nextProps.match.params.homeid) {
+  if (this.props.homeid !== nextProps.match.params.homeid) {
     this.props.fetchHome(nextProps.match.params.homeid);
     }
   }
@@ -28,12 +28,6 @@ class HomeShow extends React.Component {
       listing,
       reviews,
       homeid,
-      fetchHome,
-      currentUser,
-      receiveInput,
-      clearErrors,
-      openModal,
-      createReview
     } = this.props;
 
     if (listing === undefined) {
@@ -58,16 +52,11 @@ class HomeShow extends React.Component {
                     Review
                   </Link>
                 </div>
-                <HomeDetail listing={listing} reviews={reviews} createReview={createReview}/>
+                <HomeDetail listing={listing} reviews={reviews}/>
               </div>
 
               <div className="to-book-it-divider">
-                <BookIt
-                  listing={listing}
-                  currentUser={currentUser}
-                  receiveInput={receiveInput}
-                  openModal={openModal}
-                  clearErrors={clearErrors}/>
+                <BookItContainer homeid={homeid}/>
               </div>
 
             </div>

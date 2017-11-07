@@ -4,19 +4,9 @@ import { withRouter } from 'react-router-dom';
 class BookTrip extends React.Component {
   constructor(props) {
     super(props);
-    // const end = this.props.inputs.endDate; //calculates the difference between days
-    // const beg = this.props.inputs.startDate;
-    // this.days = end.diff(beg,"days");
-    // this.cost = this.props.listing.price * this.days;
-    // this.cleaning = 20;
-    // this.service = 35;
-    // this.totalcost = this.cost + this.cleaning + this.service;
-    // this.utcBeg = beg.format('MMM D, YYYY'); // makes days read like english
-    // this.utcEnd = end.format('MMM D, YYYY');
     this.state = {
-      num_guests: this.props.inputs.num_guests,
-      totalcost: this.totalcost,
-    };
+      num_guests: this.props.inputs.numGuests,
+    }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
   }
@@ -37,14 +27,19 @@ class BookTrip extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    const { startDate, endDate, totalCost } = this.props.inputs
+    const { num_guests } = this.state;
+    const { homeid } = this.props;
     const trip = {
       home_id: this.props.homeid,
-      start_date: this.props.inputs.startDate.toDate(),
-      end_date: this.props.inputs.endDate.toDate(),
-      num_guests: parseInt(this.state.num_guests),
-      totalcost: this.state.totalcost,
+      start_date: startDate.toDate(),
+      end_date: endDate.toDate(),
+      num_guests: parseInt(num_guests),
+      totalcost: totalCost
     }
-		this.props.createTrip({trip}).then(this.props.history.push(`/user/${this.props.currentUser.id}/trips`));
+		this.props.createTrip({trip})
+      .then(this.props.history.push(`/user/${this.props.currentUser.id}/trips`));
+    this.props.clearConfirmation();
   };
 
   handleSelectChange(property) {
@@ -78,7 +73,8 @@ class BookTrip extends React.Component {
   }
 
   bookingRightPanel() {
-    const {inputs, listing} = this.props;
+    const { inputs, listing } = this.props;
+    const { confirmation } = this.props.inputs;
     return (
       <section className="bk-right-panel">
         <div className="bk-pic-container">
@@ -94,40 +90,39 @@ class BookTrip extends React.Component {
         <div className="panel-body check-col calendar-position">
           <div className="cal-col">
             <div className="check-col">Check-in</div>
-            <div className="bk-checkin">{this.utcBeg}</div>
+            <div className="bk-checkin">{confirmation.utcBeg}</div>
           </div>
           <div className="cal-col">
             <div className="check-col">Checkout</div>
-            <div className="bk-checkin">{this.utcEnd}</div>
+            <div className="bk-checkin">{confirmation.utcEnd}</div>
           </div>
         </div>
         <div className="book-div"/>
         <div className="panel-body">
           <div className="bk-price-row">
-            <div className="price-calc">${listing.price} x {this.days} nights</div>
-            <div className="tot-price">${this.cost}</div>
+            <div className="price-calc">${listing.price} x {confirmation.days} nights</div>
+            <div className="tot-price">${confirmation.cost}</div>
           </div>
           <div className="bk-price-row">
             <div className="price-calc">Cleaning fee</div>
-            <div className="tot-price">${this.cleaning}</div>
+            <div className="tot-price">${confirmation.cleaning}</div>
           </div>
           <div className="bk-price-row">
             <div className="price-calc">Service fee</div>
-            <div className="tot-price">${this.service}</div>
+            <div className="tot-price">${confirmation.service}</div>
           </div>
 
         </div>
         <div className="book-div"/>
         <div className="panel-body">
           <div className="total-txt">Total</div>
-          <div className="total-txt">${this.totalcost}</div>
+          <div className="total-txt">${confirmation.totalcost}</div>
         </div>
       </section>
     )
   }
 
   render() {
-    // has to be in preloadedState...
     if (this.props.listing === undefined) {
       return (
         <div className="loading">Fetching listing</div>
