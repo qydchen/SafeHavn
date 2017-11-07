@@ -10,13 +10,15 @@ class Api::TripsController < ApplicationController
   def create
     @home = Home.find(trip_params[:home_id])
     start_date = trip_params[:start_date].to_date
-    end_date = trip_paarams[:end_date].to_date
+    end_date = trip_params[:end_date].to_date
+
 
     if @home.booking_conflict?(start_date, end_date)
       render json: "Home is unavailable on those dates", status: 422
     else
       @trip = Trip.new(trip_params)
-      @trip.visitor = current_user
+      @trip.visitor_id = current_user.id
+      debugger
       if @trip.save
         render :show
       else
@@ -48,7 +50,6 @@ class Api::TripsController < ApplicationController
   def trip_params
     params.require(:trip).permit(
       :home_id,
-      :host_id,
       :start_date,
       :end_date,
       :num_guests,

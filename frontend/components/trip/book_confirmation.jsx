@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-class BookTrip extends React.Component {
+class BookConfirmation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,7 +27,8 @@ class BookTrip extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { startDate, endDate, totalCost } = this.props.inputs
+    const { startDate, endDate } = this.props.inputs;
+    const { totalCost } = this.props.inputs.confirmation;
     const { num_guests } = this.state;
     const { homeid } = this.props;
     const trip = {
@@ -37,6 +38,7 @@ class BookTrip extends React.Component {
       num_guests: parseInt(num_guests),
       totalcost: totalCost
     }
+
 		this.props.createTrip({trip})
       .then(this.props.history.push(`/user/${this.props.currentUser.id}/trips`));
     this.props.clearConfirmation();
@@ -116,7 +118,7 @@ class BookTrip extends React.Component {
         <div className="book-div"/>
         <div className="panel-body">
           <div className="total-txt">Total</div>
-          <div className="total-txt">${confirmation.totalcost}</div>
+          <div className="total-txt">${confirmation.totalCost}</div>
         </div>
       </section>
     )
@@ -154,4 +156,4 @@ class BookTrip extends React.Component {
   }
 }
 
-export default withRouter(BookTrip);
+export default withRouter(BookConfirmation);

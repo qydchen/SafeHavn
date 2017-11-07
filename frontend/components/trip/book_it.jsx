@@ -17,7 +17,7 @@ class BookIt extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
-    this.navigateToBookTrip = this.navigateToBookTrip.bind(this);
+    this.navigateToBookConfirmation = this.navigateToBookConfirmation.bind(this);
     this.clearErrorsAndOpenModal = this.clearErrorsAndOpenModal.bind(this);
   };
 
@@ -43,7 +43,7 @@ class BookIt extends React.Component {
   //   this.props.bookingConfirmation(data);
   // }
 
-  navigateToBookTrip() {
+  navigateToBookConfirmation() {
     if (this.state.startDate && this.state.endDate) {
       const url = `/homes/${this.props.homeid}/book`;
       const { startDate, endDate } = this.state;
@@ -51,10 +51,10 @@ class BookIt extends React.Component {
       const cost = this.props.listing.price * days;
       const cleaning = 20;
       const service = 35;
-      const totalcost = cost + cleaning + service;
+      const totalCost = cost + cleaning + service;
       const utcBeg = startDate.format('MMM D, YYYY'); // makes days read like english
       const utcEnd = endDate.format('MMM D, YYYY');
-      const data = {days, cost, cleaning, service, totalcost, utcBeg, utcEnd}
+      const data = {days, cost, cleaning, service, totalCost, utcBeg, utcEnd}
       this.props.bookingConfirmation(data);
       this.props.history.push(url);
     } else {
@@ -71,7 +71,7 @@ class BookIt extends React.Component {
     const input = Object.assign({}, this.state);
 		if (loggedIn) {
       receiveInput(input);
-      this.navigateToBookTrip();
+      this.navigateToBookConfirmation();
     } else {
       this.clearErrorsAndOpenModal(<SessionFormContainer formType="signup"/>)
     }

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import BookTrip from './book_trip';
+import BookConfirmation from './book_confirmation';
 
 import { receiveInput } from '../../actions/input_actions';
 import { fetchHome } from '../../actions/home_actions';
@@ -33,4 +33,4 @@ const mapDispatchToProps = (dispatch) => {
 export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(BookTrip));
+)(BookConfirmation));

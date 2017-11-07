@@ -1,5 +1,5 @@
 class Trip < ActiveRecord::Base
-  validates :home, :user, :start_date, :end_date, presence: true
+  validates :home, :visitor, :start_date, :end_date, presence: true
 
   belongs_to :visitor,
     class_name: :User,
