@@ -9,22 +9,10 @@ export const receiveInput = ({ startDate, endDate, numGuests }) => ({
   numGuests,
 });
 
-
 export const bookingConfirmation = (confirmation) => ({
   type: RECEIVE_CONFIRMATION,
   confirmation
 });
-
-// export const bookingConfirmation = ({ cleaning, cost, days, service, totalcost, utcBeg, utcEnd}) => ({
-//   type: RECEIVE_CONFIRMATION,
-//   cleaning,
-//   cost,
-//   days,
-//   service,
-//   totalcost,
-//   utcBeg,
-//   utcEnd,
-// });
 
 export const clearConfirmation = () => ({
   type: CLEAR_CONFIRMATION,

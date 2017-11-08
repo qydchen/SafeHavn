@@ -30,19 +30,6 @@ class BookIt extends React.Component {
     return e => this.setState({ [property]: e.target.value });
   };
 
-  // componentWillUnmount() {
-  //   const { startDate, endDate } = this.state;
-  //   const days = endDate.diff(startDate,"days");
-  //   const cost = this.props.listing.price * days;
-  //   const cleaning = 20;
-  //   const service = 35;
-  //   const totalcost = cost + cleaning + service;
-  //   const utcBeg = startDate.format('MMM D, YYYY'); // makes days read like english
-  //   const utcEnd = endDate.format('MMM D, YYYY');
-  //   const data = {days, cost, cleaning, service, totalcost, utcBeg, utcEnd}
-  //   this.props.bookingConfirmation(data);
-  // }
-
   navigateToBookConfirmation() {
     if (this.state.startDate && this.state.endDate) {
       const url = `/homes/${this.props.homeid}/book`;
