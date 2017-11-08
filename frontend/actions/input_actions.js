@@ -8,7 +8,7 @@ export const receiveInput = ({ startDate, endDate, numGuests }) => ({
   endDate,
   numGuests,
 });
-// do i need this???
+
 
 export const bookingConfirmation = (confirmation) => ({
   type: RECEIVE_CONFIRMATION,

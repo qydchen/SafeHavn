@@ -18,7 +18,7 @@ class Api::TripsController < ApplicationController
     else
       @trip = Trip.new(trip_params)
       @trip.visitor_id = current_user.id
-      debugger
+
       if @trip.save
         render :show
       else
