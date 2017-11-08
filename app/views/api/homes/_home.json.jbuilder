@@ -9,6 +9,7 @@ json.extract! home,
   :address,
   :trips,
   :featured
+  json.booked_days home.booked_days
   json.host do
     json.first home.host.first
     json.last home.host.last

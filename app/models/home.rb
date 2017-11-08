@@ -40,6 +40,18 @@ class Home < ActiveRecord::Base
       .where("lng < ?", bounds[:northeast][:lng])
   end
 
+  def booking_conflict?(start_date, end_date)
+    self.trips.any? { |trip| trip.conflict?(start_date, end_date)}
+  end
 
+  def booked_days
+    all_booked_days = []
+    self.trips.each do |trip|
+      (trip.start_date..trip.end_date).each do |date|
+        all_booked_days << date
+      end
+    end
+    all_booked_days
+  end
 
 end

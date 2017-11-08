@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
+import SessionForm from './session_form';
+
 import { closeModal, openModal } from '../../actions/modal_actions';
 import { login, logout, signup, clearErrors } from '../../actions/session_actions';
-import SessionForm from './session_form';
+
 import { yearsRange } from '../../reducers/selectors';
 
 
