@@ -40,6 +40,18 @@ class Home < ActiveRecord::Base
       .where("lng < ?", bounds[:northeast][:lng])
   end
 
+  def self.home_filters(params)
+    if params[:bounds]
+      @homes = Home.includes(:reviews, :host).in_bounds(params[:bounds])
+    else
+      Home.where(featured: true).includes(:reviews, :host).limit(8)
+    end
+
+    self.housing_filter(params)
+    self.pricing_filter(params)
+    self.featured_filter(params)
+  end
+
   def booking_conflict?(start_date, end_date)
     self.trips.any? { |trip| trip.conflict?(start_date, end_date)}
   end
@@ -52,6 +64,24 @@ class Home < ActiveRecord::Base
       end
     end
     all_booked_days
+  end
+
+  def housing_filter(params)
+    if (params[:minHousing] && params[:maxHousing])
+      @homes = @homes.where(max_guests: housing_range)
+    end
+  end
+
+  def pricing_filter(params)
+    if (params[:minPrice] && params[:maxPrice])
+      @homes = @homes.where(price: price_range)
+    end
+  end
+
+  def featured_filter(params)
+    if (params[:featured] == true)
+      @homes = @homes.where(featured: true)
+    end
   end
 
 end

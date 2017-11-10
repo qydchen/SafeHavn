@@ -1,18 +1,7 @@
 class Api::HomesController < ApplicationController
   def index
     if Home.all.length != 0
-      @homes = params[:bounds] ? Home.includes(:reviews, :host).in_bounds(params[:bounds]) : Home.where(featured: true).includes(:reviews, :host).limit(8)
-
-      if (params[:minHousing] && params[:maxHousing])
-        @homes = @homes.where(max_guests: housing_range)
-      end
-      if (params[:minPrice] && params[:maxPrice])
-        @homes = @homes.where(price: price_range)
-      end
-      if (params[:featured] == true)
-        @homes = @homes.where(featured: true)
-      end
-
+      @homes = Home.home_filters(params)
     else
       render json: 'There are no homes'
     end
