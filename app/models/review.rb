@@ -3,9 +3,7 @@ class Review < ActiveRecord::Base
   validates :body, length: { maximum: 500 }
   validates :home, :author, presence: true
 
-  belongs_to :home,
-    class_name: :Home,
-    foreign_key: :home_id
+  belongs_to :home
 
   belongs_to :author,
     class_name: :User,

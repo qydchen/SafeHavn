@@ -11,10 +11,8 @@ class User < ActiveRecord::Base
   has_attached_file :image, default_url: "defaultuser.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
-  has_many :homes,
-    class_name: :Home,
-    foreign_key: :host_id
-
+  has_many :homes
+  
   has_many :trips,
     class_name: :Trip,
     foreign_key: :visitor_id

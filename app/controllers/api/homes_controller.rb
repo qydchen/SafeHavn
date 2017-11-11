@@ -1,7 +1,7 @@
 class Api::HomesController < ApplicationController
   def index
     if Home.all.length != 0
-      @homes = Home.home_filters(params)
+      @homes = Home.filters(params)
     else
       render json: 'There are no homes'
     end
@@ -83,14 +83,6 @@ class Api::HomesController < ApplicationController
       :bounds,
       :featured
     )
-  end
-
-  def housing_range
-    (params[:minHousing]..params[:maxHousing])
-  end
-
-  def price_range
-    (params[:minPrice]..params[:maxPrice])
   end
 
   # def start_date

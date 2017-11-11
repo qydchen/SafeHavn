@@ -9,13 +9,8 @@ class Home < ActiveRecord::Base
     class_name: :User,
     foreign_key: :host_id
 
-  has_many :trips,
-    class_name: :Trip,
-    foreign_key: :home_id
-
-  has_many :reviews,
-    class_name: :Review,
-    foreign_key: :home_id
+  has_many :trips, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   has_many :visitors,
     through: :trips,
@@ -40,16 +35,23 @@ class Home < ActiveRecord::Base
       .where("lng < ?", bounds[:northeast][:lng])
   end
 
-  def self.home_filters(params)
-    if params[:bounds]
-      @homes = Home.includes(:reviews, :host).in_bounds(params[:bounds])
+  def self.filters(params)
+    homes = nil
+    # destructure filter values
+    bounds, min_housing, max_housing, min_price, max_price, featured = params.
+      values_at(:bounds, :minHousing, :maxHousing, :minPrice, :maxPrice, :featured)
+
+    if bounds
+      homes = Home.in_bounds(bounds).includes(:reviews, :host)
     else
-      Home.where(featured: true).includes(:reviews, :host).limit(8)
+      return Home.where(featured: true).includes(:reviews, :host).limit(8)
     end
 
-    self.housing_filter(params)
-    self.pricing_filter(params)
-    self.featured_filter(params)
+    homes = housing_filter((min_housing..max_housing), homes) if (min_housing && max_housing)
+    homes = pricing_filter((min_price..max_price), homes) if (min_price && max_price)
+    homes = featured_filter(featured, homes)
+
+    homes
   end
 
   def booking_conflict?(start_date, end_date)
@@ -66,22 +68,16 @@ class Home < ActiveRecord::Base
     all_booked_days
   end
 
-  def housing_filter(params)
-    if (params[:minHousing] && params[:maxHousing])
-      @homes = @homes.where(max_guests: housing_range)
-    end
+  def self.housing_filter(range, homes)
+    homes.where(max_guests: range)
   end
 
-  def pricing_filter(params)
-    if (params[:minPrice] && params[:maxPrice])
-      @homes = @homes.where(price: price_range)
-    end
+  def self.pricing_filter(range, homes)
+    homes.where(price: range)
   end
 
-  def featured_filter(params)
-    if (params[:featured] == true)
-      @homes = @homes.where(featured: true)
-    end
+  def self.featured_filter(featured, homes)
+    homes.where(featured: featured)
   end
 
 end

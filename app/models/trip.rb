@@ -5,9 +5,7 @@ class Trip < ActiveRecord::Base
     class_name: :User,
     foreign_key: :visitor_id
 
-  belongs_to :home,
-    class_name: :Home,
-    foreign_key: :home_id
+  belongs_to :home
 
   def conflict?(start_date, end_date)
     !(self.start_date > end_date || start_date > self.end_date)
