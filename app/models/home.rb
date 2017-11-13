@@ -29,10 +29,10 @@ class Home < ActiveRecord::Base
   end
 
   def self.in_bounds(bounds)
-  self.where("lat < ?", bounds[:northeast][:lat])
-      .where("lat > ?", bounds[:southwest][:lat])
-      .where("lng > ?", bounds[:southwest][:lng])
-      .where("lng < ?", bounds[:northeast][:lng])
+    self.where("lat < ?", bounds[:northeast][:lat])
+        .where("lat > ?", bounds[:southwest][:lat])
+        .where("lng > ?", bounds[:southwest][:lng])
+        .where("lng < ?", bounds[:northeast][:lng])
   end
 
   def self.filters(params)
@@ -67,6 +67,8 @@ class Home < ActiveRecord::Base
     end
     all_booked_days
   end
+
+  private
 
   def self.housing_filter(range, homes)
     homes.where(max_guests: range)
