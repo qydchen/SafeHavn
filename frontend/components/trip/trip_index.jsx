@@ -19,15 +19,15 @@ class TripIndex extends React.Component {
   }
 
   render() {
-    const { deleteTrip, openModal } = this.props;
-    const tripsIndex = this.props.trips.map((trip, idx) => {
-      return (
-        <div className="trip-card-container" key={idx}>
+    const { deleteTrip, openModal, trips } = this.props;
+    if (trips.length > 0) {
+      const tripsIndex = trips.map((trip, idx) => {
+        return (
+          <div className="trip-card-container" key={idx}>
           <TripIndexItem trip={trip} deleteTrip={deleteTrip} openModal={openModal}/>
-        </div>
-      )
-    });
-    if (tripsIndex.length > 0) {
+          </div>
+        )
+      });
       return (
         <div className="trip-slider">
         <span className="trip-tit">Your Trips</span>

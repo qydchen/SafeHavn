@@ -1,5 +1,5 @@
 @trips.each do |trip|
-  
+
   json.set! trip.id do
     json.extract! trip,
       :id,
@@ -10,6 +10,6 @@
       :num_guests,
       :totalcost
 
-      json.image_url asset_path(trip.home.image.url)
+      json.image_url asset_path(trip.home.image.url) if trip.home
   end
 end

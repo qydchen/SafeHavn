@@ -38,9 +38,8 @@ class Api::TripsController < ApplicationController
 
   def destroy
     @trip = Trip.find(params[:id])
-    if @trip.destroy
-      @trips = current_user.trips
-      render :index
+    if current_user.id == @trip.visitor_id
+      @trip.destroy
     else
       render json: @trip.errors.full_messages, status: 404
     end
