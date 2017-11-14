@@ -14,14 +14,13 @@ class BookConfirmation extends React.Component {
   }
 
   componentDidMount() {
-    const { loggedIn, confirmations } = this.props;
-    debugger;
-    console.log(!isEmpty(confirmations))
-    if (loggedIn && !isEmpty(confirmations)) {
-      this.props.fetchHome(this.props.homeid);
-      this.props.fetchConfirmation();
-    } else {
-      return (<div className="loading">Page Expired</div>)
+    const { loggedIn, fetchConfirmation, fetchHome } = this.props;
+    if (loggedIn) {
+      fetchConfirmation().then( res => {
+        if (!isEmpty(res.confirmation)) {
+          fetchHome(this.props.homeid);
+        }
+      })
     }
   };
 
@@ -124,7 +123,7 @@ class BookConfirmation extends React.Component {
   render() {
     if (this.props.listing === undefined) {
       return (
-        <div className="loading">Fetching listing</div>
+        <div className="loading">Page Expired</div>
       );
     } else {
       return (
