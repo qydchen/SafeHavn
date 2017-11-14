@@ -1,7 +1,7 @@
 class Api::ReviewsController < ApplicationController
 
   def index
-    @reviews = Review.includes(:author).where(home_id: params[:home_id])
+    @reviews = Review.includes(:author).where(home_id: params[:home_id]).order('id DESC')
   end
 
   def create
@@ -9,7 +9,7 @@ class Api::ReviewsController < ApplicationController
     @review.author_id = current_user.id
     if @review.save
       render :show
-    else
+    elseh
       render json: @review.errors.full_messages
     end
   end
