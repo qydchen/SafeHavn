@@ -37,7 +37,7 @@ class TripIndexItem extends React.Component {
             </div>
             <div className="trip-div"/>
             <div className='trip-actions-wrap'>
-              <div className='trip-actions'>Paid ${trip.totalcost}</div>
+              <div className='trip-actions'>Paid ${trip.total_cost}</div>
             </div>
             <div className="trip-div"/>
             <div className="trip-actions-wrap">

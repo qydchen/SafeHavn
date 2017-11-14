@@ -1,4 +1,4 @@
-export const fetchTrips = (data) => (
+export const fetchTrips = data => (
   $.ajax({
     method: 'GET',
     url: 'api/trips',

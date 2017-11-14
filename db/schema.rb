@@ -11,10 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170810161416) do
+ActiveRecord::Schema.define(version: 20171114075112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "confirmations", force: :cascade do |t|
+    t.integer  "home_id",       null: false
+    t.integer  "user_id",       null: false
+    t.integer  "num_guests",    null: false
+    t.integer  "days",          null: false
+    t.float    "total_cost",    null: false
+    t.float    "nightly_cost",  null: false
+    t.float    "cleaning_cost", null: false
+    t.float    "service_cost",  null: false
+    t.date     "start_date",    null: false
+    t.date     "end_date",      null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "confirmations", ["home_id"], name: "index_confirmations_on_home_id", using: :btree
+  add_index "confirmations", ["user_id"], name: "index_confirmations_on_user_id", using: :btree
 
   create_table "homes", force: :cascade do |t|
     t.integer  "host_id",            null: false
@@ -69,14 +87,17 @@ ActiveRecord::Schema.define(version: 20170810161416) do
   add_index "reviews", ["home_id"], name: "index_reviews_on_home_id", using: :btree
 
   create_table "trips", force: :cascade do |t|
-    t.integer  "visitor_id", null: false
-    t.integer  "home_id",    null: false
-    t.date     "start_date", null: false
-    t.date     "end_date",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "visitor_id",    null: false
+    t.integer  "home_id",       null: false
+    t.date     "start_date",    null: false
+    t.date     "end_date",      null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "num_guests"
-    t.float    "totalcost"
+    t.float    "total_cost",    null: false
+    t.float    "nightly_cost",  null: false
+    t.float    "service_cost",  null: false
+    t.float    "cleaning_cost", null: false
   end
 
   add_index "trips", ["home_id"], name: "index_trips_on_home_id", using: :btree

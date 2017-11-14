@@ -11,15 +11,19 @@ class User < ActiveRecord::Base
   has_attached_file :image, default_url: "defaultuser.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
-  has_many :homes
-  
+  has_many :homes, dependent: :destroy
+  has_one :confirmation, dependent: :destroy
+
   has_many :trips,
     class_name: :Trip,
-    foreign_key: :visitor_id
+    foreign_key: :visitor_id,
+    dependent: :destroy
 
   has_many :reviews,
     class_name: :Review,
-    foreign_key: :author_id
+    foreign_key: :author_id,
+    dependent: :destroy
+
 
 	def password=(password)
     @password = password

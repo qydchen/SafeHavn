@@ -1,4 +1,4 @@
-import { merge } from 'lodash';
+import merge from 'lodash/merge';
 
 import {
   RECEIVE_TRIPS,
@@ -7,7 +7,6 @@ import {
 } from '../actions/trip_actions';
 
 const defaultState = {};
-
 
 const TripReducer = (state = defaultState, action) => {
   Object.freeze(state);

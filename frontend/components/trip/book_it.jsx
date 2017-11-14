@@ -33,16 +33,6 @@ class BookIt extends React.Component {
   navigateToBookConfirmation() {
     if (this.state.startDate && this.state.endDate) {
       const url = `/homes/${this.props.homeid}/book`;
-      const { startDate, endDate } = this.state;
-      const days = endDate.diff(startDate,"days");
-      const cost = this.props.listing.price * days;
-      const cleaning = 20;
-      const service = 35;
-      const totalCost = cost + cleaning + service;
-      const utcBeg = startDate.format('MMM D, YYYY'); // makes days read like english
-      const utcEnd = endDate.format('MMM D, YYYY');
-      const data = {days, cost, cleaning, service, totalCost, utcBeg, utcEnd}
-      this.props.bookingConfirmation(data);
       this.props.history.push(url);
     } else {
       this.props.openModal(
@@ -54,10 +44,30 @@ class BookIt extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { loggedIn, receiveInput } = this.props;
-    const input = Object.assign({}, this.state);
+    const { loggedIn, homeid } = this.props;
+    const { startDate, endDate, numGuests } = this.state;
 		if (loggedIn) {
-      receiveInput(input);
+      const days = endDate.diff(startDate,"days");
+      const nightly_cost = this.props.listing.price * days;
+      const cleaning_cost = 20;
+      const service_cost = 35;
+      const total_cost = nightly_cost + cleaning_cost + service_cost;
+      const start_date = startDate.format('MMM D, YYYY'); // makes days read like english
+      const end_date = endDate.format('MMM D, YYYY');
+      const num_guests = parseInt(numGuests);
+      const confirmation = {
+        home_id: parseInt(homeid),
+        days,
+        nightly_cost,
+        cleaning_cost,
+        service_cost,
+        total_cost,
+        start_date,
+        end_date,
+        num_guests,
+      }
+
+      this.props.createConfirmation(confirmation);
       this.navigateToBookConfirmation();
     } else {
       this.clearErrorsAndOpenModal(<SessionFormContainer formType="signup"/>)

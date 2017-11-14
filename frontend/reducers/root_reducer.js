@@ -5,8 +5,8 @@ import modal from './modal_reducer';
 import homes from './home_reducer';
 import filters from './filter_reducer';
 import trips from './trip_reducer';
-import inputs from './input_reducer';
 import reviews from './review_reducer';
+import confirmations from './confirmation_reducer';
 import map from './map_reducer';
 
 const RootReducer = combineReducers({
@@ -15,8 +15,8 @@ const RootReducer = combineReducers({
   homes,
   filters,
   trips,
-  inputs,
   reviews,
+  confirmations,
   map,
 });
 

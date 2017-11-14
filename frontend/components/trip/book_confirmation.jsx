@@ -1,21 +1,26 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import merge from 'lodash/merge';
+import isEmpty from 'lodash/isEmpty';
 
 class BookConfirmation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      num_guests: this.props.inputs.numGuests,
+      num_guests: this.props.confirmations.num_guests,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
   }
 
   componentDidMount() {
-    if (this.props.loggedIn && this.props.inputs) {
-      this.props.fetchHome(this.props.homeid);
-    } else {
-      return (<div className="loading">You are not logged in</div>)
+    const { loggedIn, fetchConfirmation, fetchHome } = this.props;
+    if (loggedIn) {
+      fetchConfirmation().then( res => {
+        if (!isEmpty(res.confirmation)) {
+          fetchHome(this.props.homeid);
+        }
+      })
     }
   };
 
@@ -27,21 +32,13 @@ class BookConfirmation extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { startDate, endDate } = this.props.inputs;
-    const { totalCost } = this.props.inputs.confirmation;
     const { num_guests } = this.state;
-    const { homeid } = this.props;
-    const trip = {
-      home_id: this.props.homeid,
-      start_date: startDate.toDate(),
-      end_date: endDate.toDate(),
-      num_guests: parseInt(num_guests),
-      totalcost: totalCost
-    }
+    const { homeid, confirmations } = this.props;
+    const trip = merge({home_id: homeid, num_guests: parseInt(num_guests)}, confirmations);
 
 		this.props.createTrip({trip})
       .then(this.props.history.push(`/user/${this.props.currentUser.id}/trips`));
-    this.props.clearConfirmation();
+    this.props.deleteConfirmation();
   };
 
   handleSelectChange(property) {
@@ -75,8 +72,7 @@ class BookConfirmation extends React.Component {
   }
 
   bookingRightPanel() {
-    const { inputs, listing } = this.props;
-    const { confirmation } = this.props.inputs;
+    const { confirmations, listing } = this.props;
     return (
       <section className="bk-right-panel">
         <div className="bk-pic-container">
@@ -92,33 +88,33 @@ class BookConfirmation extends React.Component {
         <div className="panel-body check-col calendar-position">
           <div className="cal-col">
             <div className="check-col">Check-in</div>
-            <div className="bk-checkin">{confirmation.utcBeg}</div>
+            <div className="bk-checkin">{confirmations.start_date}</div>
           </div>
           <div className="cal-col">
             <div className="check-col">Checkout</div>
-            <div className="bk-checkin">{confirmation.utcEnd}</div>
+            <div className="bk-checkin">{confirmations.end_date}</div>
           </div>
         </div>
         <div className="book-div"/>
         <div className="panel-body">
           <div className="bk-price-row">
-            <div className="price-calc">${listing.price} x {confirmation.days} nights</div>
-            <div className="tot-price">${confirmation.cost}</div>
+            <div className="price-calc">${listing.price} x {confirmations.days} nights</div>
+            <div className="tot-price">${confirmations.nightly_cost}</div>
           </div>
           <div className="bk-price-row">
             <div className="price-calc">Cleaning fee</div>
-            <div className="tot-price">${confirmation.cleaning}</div>
+            <div className="tot-price">${confirmations.cleaning_cost}</div>
           </div>
           <div className="bk-price-row">
             <div className="price-calc">Service fee</div>
-            <div className="tot-price">${confirmation.service}</div>
+            <div className="tot-price">${confirmations.service_cost}</div>
           </div>
 
         </div>
         <div className="book-div"/>
         <div className="panel-body">
           <div className="total-txt">Total</div>
-          <div className="total-txt">${confirmation.totalCost}</div>
+          <div className="total-txt">${confirmations.total_cost}</div>
         </div>
       </section>
     )
@@ -127,7 +123,7 @@ class BookConfirmation extends React.Component {
   render() {
     if (this.props.listing === undefined) {
       return (
-        <div className="loading">Fetching listing</div>
+        <div className="loading">Page Expired</div>
       );
     } else {
       return (

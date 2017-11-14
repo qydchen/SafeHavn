@@ -1,0 +1,10 @@
+json.extract! confirmation,
+  :home_id,
+  :start_date,
+  :end_date,
+  :num_guests,
+  :total_cost,
+  :cleaning_cost,
+  :service_cost,
+  :nightly_cost,
+  :days
