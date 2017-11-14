@@ -8,9 +8,8 @@ export const receiveConfirmation = confirmation => ({
   confirmation
 });
 
-export const receiveDeletedConfirmation = confirmation => ({
-  type: RECEIVE_DELETION,
-  confirmation
+export const receiveDeletedConfirmation = ()) => ({
+  type: RECEIVE_DELETION
 });
 
 export const fetchConfirmation = id => dispatch => (
@@ -26,7 +25,7 @@ export const createConfirmation = confirmation => dispatch => (
 );
 
 export const deleteConfirmation = id => dispatch => (
-  APIUtil.deleteConfirmation(id).then(confirmations => (
-    dispatch(receiveConfirmations(confirmations)))
+  APIUtil.deleteConfirmation(id).then( () => (
+    dispatch(receiveDeletedConfirmation()))
   )
 )
