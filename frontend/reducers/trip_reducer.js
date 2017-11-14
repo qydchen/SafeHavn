@@ -8,7 +8,6 @@ import {
 
 const defaultState = {};
 
-
 const TripReducer = (state = defaultState, action) => {
   Object.freeze(state);
   let newState;

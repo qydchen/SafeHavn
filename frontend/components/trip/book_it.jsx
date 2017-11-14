@@ -44,11 +44,9 @@ class BookIt extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { loggedIn, receiveInput, homeid } = this.props;
+    const { loggedIn, homeid } = this.props;
     const { startDate, endDate, numGuests } = this.state;
-    // const input = Object.assign({}, this.state);
 		if (loggedIn) {
-      // receiveInput(input);
       const days = endDate.diff(startDate,"days");
       const nightly_cost = this.props.listing.price * days;
       const cleaning_cost = 20;

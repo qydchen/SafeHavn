@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { merge } from 'lodash';
 
 class BookConfirmation extends React.Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class BookConfirmation extends React.Component {
     // const { start_date, end_date, total_cost, nightly_cost, cleaning_cost, service_cost } = this.props.confirmations;
     const { num_guests } = this.state;
     const { homeid, confirmations } = this.props;
-    const trip = Object.assign({home_id: homeid, num_guests: parseInt(num_guests)}, confirmations);
+    const trip = merge({home_id: homeid, num_guests: parseInt(num_guests)}, confirmations);
     debugger;
     // total_cost,
     // nightly_cost,
@@ -76,8 +77,7 @@ class BookConfirmation extends React.Component {
   }
 
   bookingRightPanel() {
-    const { inputs, listing } = this.props;
-    const { confirmations } = this.props;
+    const { confirmations, listing } = this.props;
     return (
       <section className="bk-right-panel">
         <div className="bk-pic-container">

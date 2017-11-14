@@ -451,7 +451,7 @@ User.create({
 end
 
 10.times do |i|
-  cost = rand(200..5000),
+  cost = rand(200..5000)
   Trip.create({
     visitor_id: User.all.sample.id,
     home_id: Home.all.sample.id,

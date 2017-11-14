@@ -24,8 +24,8 @@ export const createConfirmation = confirmation => dispatch => (
   )
 );
 
-export const deleteConfirmation = id => dispatch => (
-  APIUtil.deleteConfirmation(id).then( () => (
+export const deleteConfirmation = () => dispatch => (
+  APIUtil.deleteConfirmation().then( () => (
     dispatch(clearConfirmation()))
   )
 )
