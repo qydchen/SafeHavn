@@ -6,5 +6,4 @@ json.extract! confirmation,
   :num_guests,
   :totalcost,
   :cleaningcost,
-  :servicecost,
-end
+  :servicecost
