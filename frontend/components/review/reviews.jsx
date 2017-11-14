@@ -10,26 +10,26 @@ class Reviews extends React.Component{
       const month = months[parseInt(review.created_at.slice(5,7)) - 1];
       return (
         <div key={idx} className="review-container">
-          <div className="review-top">
-            <div className="review-header">
-              <img className="profile-pic" src={review.image_url}/>
-              <div>
-                <div className="review-author">
-                  {review.author}
-                </div>
-                <div className="review-timestamp">
-                  {month} {year}
-                </div>
-              </div>
-            </div>
-            <div className='review-rating'>Rating: <span className="strong">{review.rating}/10</span></div>
-          </div>
+        <div className="review-top">
+        <div className="review-header">
+        <img className="profile-pic" src={review.image_url}/>
+        <div>
+        <div className="review-author">
+        {review.author}
+        </div>
+        <div className="review-timestamp">
+        {month} {year}
+        </div>
+        </div>
+        </div>
+        <div className='review-rating'>Rating: <span className="strong">{review.rating}/10</span></div>
+        </div>
 
-          <div className="review-body">
-            {review.body}
-          </div>
+        <div className="review-body">
+        {review.body}
+        </div>
 
-          <hr className="rowDivider"/>
+        <hr className="rowDivider"/>
         </div>
       )
     })

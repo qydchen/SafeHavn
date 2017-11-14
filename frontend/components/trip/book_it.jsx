@@ -55,7 +55,7 @@ class BookIt extends React.Component {
       const start_date = startDate.format('MMM D, YYYY'); // makes days read like english
       const end_date = endDate.format('MMM D, YYYY');
       const num_guests = parseInt(numGuests);
-      
+
       const confirmation = {
         home_id: parseInt(homeid),
         days,
