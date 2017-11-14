@@ -7,7 +7,7 @@ import HomeShow from './home_show';
 import { fetchHome } from '../../actions/home_actions';
 import { openModal } from '../../actions/modal_actions';
 import { clearErrors } from '../../actions/session_actions'
-import { createReview, fetchReviews } from '../../actions/review_actions';
+import { fetchReviews } from '../../actions/review_actions';
 
 const mapStateToProps = ({ homes, session, reviews }, { match }) => {
   //remember the entities is nested in home which is nested in state
@@ -27,7 +27,6 @@ const mapDispatchToProps = (dispatch) => {
     fetchHome: id => dispatch(fetchHome(id)),
     openModal: (component) => dispatch(openModal(component)),
     clearErrors: () => dispatch(clearErrors()),
-    createReview: (review) => dispatch(createReview(review)),
     fetchReviews: (id) => dispatch(fetchReviews(id)),
   }
 }

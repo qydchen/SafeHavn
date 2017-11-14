@@ -11,5 +11,4 @@ class Trip < ActiveRecord::Base
     !(self.start_date > end_date || start_date > self.end_date)
   end
 
-
 end
