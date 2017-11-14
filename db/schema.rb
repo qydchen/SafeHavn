@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114075112) do
+ActiveRecord::Schema.define(version: 20171114223049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20171114075112) do
     t.float    "nightly_cost",  null: false
     t.float    "service_cost",  null: false
     t.float    "cleaning_cost", null: false
+    t.integer  "days",          null: false
   end
 
   add_index "trips", ["home_id"], name: "index_trips_on_home_id", using: :btree

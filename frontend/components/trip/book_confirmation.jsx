@@ -7,8 +7,9 @@ class BookConfirmation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      num_guests: this.props.confirmations.num_guests,
+      num_guests: 1,
     }
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
   }
@@ -19,6 +20,7 @@ class BookConfirmation extends React.Component {
       fetchConfirmation().then( res => {
         if (!isEmpty(res.confirmation)) {
           fetchHome(this.props.homeid);
+          this.setState({num_guests: res.confirmation.num_guests});
         }
       })
     }

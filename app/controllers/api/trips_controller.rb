@@ -9,7 +9,7 @@ class Api::TripsController < ApplicationController
 
   def create
     @home = Home.find(trip_params[:home_id])
-
+    debugger
     start_date = trip_params[:start_date].to_date
     end_date = trip_params[:end_date].to_date
 
@@ -55,7 +55,8 @@ class Api::TripsController < ApplicationController
       :total_cost,
       :nightly_cost,
       :service_cost,
-      :cleaning_cost
+      :cleaning_cost,
+      :days,
     )
   end
 
