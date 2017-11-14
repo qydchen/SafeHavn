@@ -12,7 +12,8 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   has_many :homes
-  
+  has_one :confirmation
+
   has_many :trips,
     class_name: :Trip,
     foreign_key: :visitor_id
@@ -20,6 +21,7 @@ class User < ActiveRecord::Base
   has_many :reviews,
     class_name: :Review,
     foreign_key: :author_id
+
 
 	def password=(password)
     @password = password

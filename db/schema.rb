@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170810161416) do
+ActiveRecord::Schema.define(version: 20171113224604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "confirmations", force: :cascade do |t|
+    t.integer  "home_id",      null: false
+    t.integer  "user_id",      null: false
+    t.integer  "max_guests",   null: false
+    t.float    "totalcost",    null: false
+    t.float    "cleaningcost", null: false
+    t.float    "servicecost",  null: false
+    t.date     "start_date",   null: false
+    t.date     "end_date",     null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "confirmations", ["home_id"], name: "index_confirmations_on_home_id", using: :btree
+  add_index "confirmations", ["user_id"], name: "index_confirmations_on_user_id", using: :btree
 
   create_table "homes", force: :cascade do |t|
     t.integer  "host_id",            null: false

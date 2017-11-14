@@ -11,6 +11,7 @@ class Home < ActiveRecord::Base
 
   has_many :trips, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :confirmations, dependent: :destroy
 
   has_many :visitors,
     through: :trips,
