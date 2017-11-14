@@ -9,7 +9,7 @@ export const createConfirmation = confirmation => (
   $.ajax({
     method: 'POST',
     url: 'api/confirmations',
-    data: confirmation
+    data: { confirmation },
   })
 );
 

@@ -1,6 +1,6 @@
 import { merge } from 'lodash';
 
-import { FETCH_CONFIRMATION, CLEAR_CONFIRMATION } from '../actions/confirmation_actions';
+import { RECEIVE_CONFIRMATION, CLEAR_CONFIRMATION } from '../actions/confirmation_actions';
 
 const defaultConfirmations = {};
 

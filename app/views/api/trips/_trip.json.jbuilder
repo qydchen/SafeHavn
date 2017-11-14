@@ -5,6 +5,6 @@ json.extract! trip,
   :start_date,
   :end_date,
   :num_guests,
-  :totalcost
+  :total_cost
 
   json.image_url asset_path(trip.home.image.url)

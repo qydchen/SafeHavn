@@ -10,11 +10,11 @@ class Api::ConfirmationsController < ApplicationController
   end
 
   def show
-    @confirmation = Confirmation.find(current_user.id)
+    @confirmation = Confirmation.find_by(user_id: current_user.id)
   end
 
   def destroy
-    @confirmation = Confirmation.find(current_user.id)
+    @confirmation = Confirmation.find_by(user_id: current_user.id)
     @confirmation.destroy
     render :show
   end
@@ -22,13 +22,15 @@ class Api::ConfirmationsController < ApplicationController
   private
   def confirmation_params
     params.require(:confirmation).permit(
-      :home_id,
-      :start_date,
+      :cleaning_cost,
+      :days,
       :end_date,
+      :home_id,
       :num_guests,
-      :totalcost,
-      :cleaningcost,
-      :servicecost,
+      :service_cost,
+      :nightly_cost,
+      :start_date,
+      :total_cost,
     )
   end
 

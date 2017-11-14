@@ -450,19 +450,23 @@ User.create({
   })
 end
 
-3.times do |i|
+10.times do |i|
+  cost = rand(200..5000),
   Trip.create({
     visitor_id: User.all.sample.id,
     home_id: Home.all.sample.id,
     start_date: Time.at(rand * Time.now.to_i),
     end_date: Time.at(rand * Time.now.to_i),
     num_guests: 1,
-    totalcost: rand(200..5000),
+    total_cost: cost,
+    nightly_cost: cost - 35,
+    service_cost: 10,
+    cleaning_cost: 25,
     }
   )
 end
 
-700.times do |i|
+1200.times do |i|
   Review.create({
     author_id: User.all.sample.id,
     home_id: Home.all.sample.id,

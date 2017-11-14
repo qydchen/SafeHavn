@@ -32,7 +32,7 @@ class BookIt extends React.Component {
 
   navigateToBookConfirmation() {
     if (this.state.startDate && this.state.endDate) {
-      const url = `/homes/${this.props.home_id}/book`;
+      const url = `/homes/${this.props.homeid}/book`;
       this.props.history.push(url);
     } else {
       this.props.openModal(
@@ -44,7 +44,7 @@ class BookIt extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { loggedIn, receiveInput, home_id } = this.props;
+    const { loggedIn, receiveInput, homeid } = this.props;
     const { startDate, endDate, numGuests } = this.state;
     // const input = Object.assign({}, this.state);
 		if (loggedIn) {
@@ -53,12 +53,12 @@ class BookIt extends React.Component {
       const nightly_cost = this.props.listing.price * days;
       const cleaning_cost = 20;
       const service_cost = 35;
-      const total_cost = cost + cleaning + service;
+      const total_cost = nightly_cost + cleaning_cost + service_cost;
       const start_date = startDate.format('MMM D, YYYY'); // makes days read like english
       const end_date = endDate.format('MMM D, YYYY');
-      const num_guests = numGuests;
+      const num_guests = parseInt(numGuests);
       const confirmation = {
-        home_id,
+        home_id: parseInt(homeid),
         days,
         nightly_cost,
         cleaning_cost,
@@ -66,8 +66,9 @@ class BookIt extends React.Component {
         total_cost,
         start_date,
         end_date,
-        num_guests
+        num_guests,
       }
+
       this.props.createConfirmation(confirmation);
       this.navigateToBookConfirmation();
     } else {

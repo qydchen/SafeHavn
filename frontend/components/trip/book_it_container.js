@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { receiveInput, bookingConfirmation } from '../../actions/input_actions';
-import { receiveConfirmation } from '../../actions/confirmation_actions';
+import { createConfirmation } from '../../actions/confirmation_actions';
 import { openModal } from '../../actions/modal_actions';
 import { clearErrors } from '../../actions/session_actions';
 import BookIt from './book_it';

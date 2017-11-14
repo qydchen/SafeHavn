@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     createTrip: trip => dispatch(createTrip(trip)),
     fetchHome: id => dispatch(fetchHome(id)),
-    fetchConfirmation: id => dispatch(fetchConfirmation(id)),
+    fetchConfirmation: () => dispatch(fetchConfirmation()),
     deleteConfirmation: id => dispatch(deleteConfirmation(id)),
   }
 };

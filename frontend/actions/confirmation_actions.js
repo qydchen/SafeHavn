@@ -12,8 +12,8 @@ export const clearConfirmation = () => ({
   type: CLEAR_CONFIRMATION
 });
 
-export const fetchConfirmation = id => dispatch => (
-  APIUtil.fetchConfirmation(id).then(confirmation => (
+export const fetchConfirmation = () => dispatch => (
+  APIUtil.fetchConfirmation().then(confirmation => (
     dispatch(receiveConfirmation(confirmation)))
   )
 );
