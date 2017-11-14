@@ -30,6 +30,10 @@ class BookConfirmation extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.deleteConfirmation();
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const { num_guests } = this.state;
@@ -38,7 +42,6 @@ class BookConfirmation extends React.Component {
 
 		this.props.createTrip({trip})
       .then(this.props.history.push(`/user/${this.props.currentUser.id}/trips`));
-    this.props.deleteConfirmation();
   };
 
   handleSelectChange(property) {
