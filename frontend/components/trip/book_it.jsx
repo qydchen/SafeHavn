@@ -32,9 +32,23 @@ class BookIt extends React.Component {
 
   navigateToBookConfirmation() {
     if (this.state.startDate && this.state.endDate) {
-      const { home_id } = this.props
-      const { startDate, endDate, numGuests } = this.state;
-      const url = `/homes/${home_id}/book`;
+      const url = `/homes/${this.props.home_id}/book`;
+      this.props.history.push(url);
+    } else {
+      this.props.openModal(
+      <div className="prompt-box">
+        <div className="no-date-prompt">Which days are you interested in booking?</div>
+      </div>
+    )}
+  };
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const { loggedIn, receiveInput, home_id } = this.props;
+    const { startDate, endDate, numGuests } = this.state;
+    // const input = Object.assign({}, this.state);
+		if (loggedIn) {
+      // receiveInput(input);
       const days = endDate.diff(startDate,"days");
       const nightly_cost = this.props.listing.price * days;
       const cleaning_cost = 20;
@@ -55,21 +69,6 @@ class BookIt extends React.Component {
         num_guests
       }
       this.props.createConfirmation(confirmation);
-      this.props.history.push(url);
-    } else {
-      this.props.openModal(
-      <div className="prompt-box">
-        <div className="no-date-prompt">Which days are you interested in booking?</div>
-      </div>
-    )}
-  };
-
-  handleSubmit(e) {
-    e.preventDefault();
-    const { loggedIn, receiveInput } = this.props;
-    // const input = Object.assign({}, this.state);
-		if (loggedIn) {
-      // receiveInput(input);
       this.navigateToBookConfirmation();
     } else {
       this.clearErrorsAndOpenModal(<SessionFormContainer formType="signup"/>)

@@ -5,15 +5,16 @@ class BookConfirmation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      num_guests: this.props.inputs.numGuests,
+      num_guests: this.props.confirmations.num_guests,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
   }
 
   componentDidMount() {
-    if (this.props.loggedIn && this.props.inputs) {
+    if (this.props.loggedIn && this.props.confirmations) {
       this.props.fetchHome(this.props.homeid);
+      this.props.fetchConfirmation(this.props.confirmations.id);
     } else {
       return (<div className="loading">You are not logged in</div>)
     }
@@ -27,16 +28,15 @@ class BookConfirmation extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { startDate, endDate } = this.props.inputs;
-    const { totalCost } = this.props.inputs.confirmation;
+    const { start_date, end_date, total_cost } = this.props.confirmations;
     const { num_guests } = this.state;
     const { homeid } = this.props;
     const trip = {
-      home_id: this.props.homeid,
+      home_id,
+      total_cost,
       start_date: startDate.toDate(),
       end_date: endDate.toDate(),
       num_guests: parseInt(num_guests),
-      totalcost: totalCost
     }
 
 		this.props.createTrip({trip})
