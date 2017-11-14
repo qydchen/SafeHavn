@@ -27,8 +27,8 @@ class Api::ConfirmationsController < ApplicationController
       :end_date,
       :num_guests,
       :totalcost,
-      :cleaningcost
-      :servicecost
+      :cleaningcost,
+      :servicecost,
     )
   end
 
