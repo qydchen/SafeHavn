@@ -11,6 +11,11 @@ class Api::ConfirmationsController < ApplicationController
 
   def show
     @confirmation = Confirmation.find_by(user_id: current_user.id)
+    if @confirmation
+      render :show
+    else
+      render json: ["Page Expired"]
+    end
   end
 
   def destroy
