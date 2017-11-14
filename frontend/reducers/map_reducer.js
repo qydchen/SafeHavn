@@ -1,4 +1,4 @@
-import { merge } from 'lodash';
+import merge from 'lodash/merge';
 import { RECEIVE_MAP_INFO } from '../actions/map_actions';
 
 const defaultState = {

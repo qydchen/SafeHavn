@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { merge } from 'lodash';
+import merge from 'lodash/merge';
+import isEmpty from 'lodash/isEmpty';
 
 class BookConfirmation extends React.Component {
   constructor(props) {
@@ -13,11 +14,14 @@ class BookConfirmation extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.loggedIn) {
+    const { loggedIn, confirmations } = this.props;
+    debugger;
+    console.log(!isEmpty(confirmations))
+    if (loggedIn && !isEmpty(confirmations)) {
       this.props.fetchHome(this.props.homeid);
       this.props.fetchConfirmation();
     } else {
-      return (<div className="loading">You are not logged in</div>)
+      return (<div className="loading">Page Expired</div>)
     }
   };
 
@@ -29,17 +33,9 @@ class BookConfirmation extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // const { start_date, end_date, total_cost, nightly_cost, cleaning_cost, service_cost } = this.props.confirmations;
     const { num_guests } = this.state;
     const { homeid, confirmations } = this.props;
     const trip = merge({home_id: homeid, num_guests: parseInt(num_guests)}, confirmations);
-    debugger;
-    // total_cost,
-    // nightly_cost,
-    // cleaning_cost,
-    // service_cost,
-    // start_date,
-    // end_date,
 
 		this.props.createTrip({trip})
       .then(this.props.history.push(`/user/${this.props.currentUser.id}/trips`));
