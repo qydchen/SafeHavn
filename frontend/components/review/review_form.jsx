@@ -1,7 +1,7 @@
 import React from 'react';
 import SessionFormContainer from "../session_form/session_form_container";
 
-class Reviews extends React.Component{
+class ReviewForm extends React.Component{
   constructor(props) {
     super(props)
     this.state = {
@@ -82,4 +82,4 @@ class Reviews extends React.Component{
   }
 }
 
-export default Reviews
+export default ReviewForm
