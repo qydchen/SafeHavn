@@ -41,7 +41,7 @@ class BookConfirmation extends React.Component {
 
 		this.props.createTrip({trip})
       .then(this.props.history.push(`/user/${this.props.currentUser.id}/trips`));
-    this.props.clearConfirmation();
+    this.props.deleteConfirmation();
   };
 
   handleSelectChange(property) {

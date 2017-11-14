@@ -1,6 +1,6 @@
 import { merge } from 'lodash';
 
-import { FETCH_CONFIRMATION, RECEIVE_DELETION } from '../actions/confirmation_actions';
+import { FETCH_CONFIRMATION, CLEAR_CONFIRMATION } from '../actions/confirmation_actions';
 
 const defaultConfirmations = {};
 
@@ -12,7 +12,7 @@ const ConfirmationReducer = (state = defaultConfirmations, action) => {
       newState = action.confirmation;
       return newState;
 
-    case RECEIVE_DELETION:
+    case CLEAR_CONFIRMATION:
       return {};
 
     default:

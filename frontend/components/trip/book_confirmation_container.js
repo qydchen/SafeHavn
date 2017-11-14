@@ -7,7 +7,8 @@ import BookConfirmation from './book_confirmation';
 import { receiveInput } from '../../actions/input_actions';
 import { fetchHome } from '../../actions/home_actions';
 import { createTrip } from '../../actions/trip_actions';
-import { clearConfirmation } from '../../actions/input_actions';
+// import { clearConfirmation } from '../../actions/input_actions';
+import { deleteConfirmation } from '../../actions/confirmation_actions';
 
 const mapStateToProps = ({session, homes, inputs}, {match}) => {
   const homeid = match.params.homeid;
@@ -26,7 +27,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     createTrip: trip => dispatch(createTrip(trip)),
     fetchHome: id => dispatch(fetchHome(id)),
-    clearConfirmation: () => dispatch(clearConfirmation()),
+    deleteConfirmation: () => dispatch(deleteConfirmation()),
   }
 };
 

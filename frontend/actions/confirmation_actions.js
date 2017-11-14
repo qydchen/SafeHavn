@@ -1,15 +1,15 @@
 import * as APIUtil from '../util/confirmation_api_util'
 
 export const RECEIVE_CONFIRMATION = 'RECEIVE_CONFIRMATION';
-export const RECEIVE_DELETION = 'RECEIVE_DELETION';
+export const CLEAR_CONFIRMATION = 'CLEAR_CONFIRMATION';
 
 export const receiveConfirmation = confirmation => ({
   type: RECEIVE_CONFIRMATION,
   confirmation
 });
 
-export const receiveDeletedConfirmation = ()) => ({
-  type: RECEIVE_DELETION
+export const clearConfirmation = () => ({
+  type: CLEAR_CONFIRMATION
 });
 
 export const fetchConfirmation = id => dispatch => (
@@ -26,6 +26,6 @@ export const createConfirmation = confirmation => dispatch => (
 
 export const deleteConfirmation = id => dispatch => (
   APIUtil.deleteConfirmation(id).then( () => (
-    dispatch(receiveDeletedConfirmation()))
+    dispatch(clearConfirmation()))
   )
 )

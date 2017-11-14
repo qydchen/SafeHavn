@@ -4,9 +4,11 @@ class CreateConfirmations < ActiveRecord::Migration
       t.integer :home_id, null: false
       t.integer :user_id, null: false
       t.integer :num_guests, null: false
-      t.float :totalcost, null: false
-      t.float :cleaningcost, null: false
-      t.float :servicecost, null: false
+      t.integer :days, null: false
+      t.float :total_cost, null: false
+      t.float :nightly_cost, null: false
+      t.float :cleaning_cost, null: false
+      t.float :service_cost, null: false
       t.date :start_date, null: false
       t.date :end_date, null: false
       t.timestamps null: false
