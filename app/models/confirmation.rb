@@ -1,5 +1,5 @@
 class Confirmation < ActiveRecord::Base
-  validates :home, :user, :max_guests, :totalcost, :cleaningcost, :servicecost, presence: true
+  validates :home, :user, :num_guests, :totalcost, :cleaningcost, :servicecost, presence: true
   belongs_to :home
   belongs_to :user
 end

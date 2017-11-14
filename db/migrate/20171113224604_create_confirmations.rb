@@ -3,7 +3,7 @@ class CreateConfirmations < ActiveRecord::Migration
     create_table :confirmations do |t|
       t.integer :home_id, null: false
       t.integer :user_id, null: false
-      t.integer :max_guests, null: false
+      t.integer :num_guests, null: false
       t.float :totalcost, null: false
       t.float :cleaningcost, null: false
       t.float :servicecost, null: false

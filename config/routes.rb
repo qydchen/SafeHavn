@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :homes
     resources :trips, only: [:create, :destroy, :index, :show]
     resources :reviews, only: [:create, :index, :show]
+    resources :confirmations, only: [:create, :show, :destroy]
   end
 end
