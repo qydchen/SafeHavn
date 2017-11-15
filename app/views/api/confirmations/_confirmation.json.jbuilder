@@ -1,5 +1,5 @@
 json.extract! confirmation,
-  :home_id,
+  :home,
   :start_date,
   :end_date,
   :num_guests,
@@ -8,3 +8,6 @@ json.extract! confirmation,
   :service_cost,
   :nightly_cost,
   :days
+  json.first confirmation.home.host.first
+  json.last confirmation.home.host.last
+  json.image_url asset_path(confirmation.home.image.url)

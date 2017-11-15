@@ -8,15 +8,14 @@ import { fetchHome } from '../../actions/home_actions';
 import { createTrip } from '../../actions/trip_actions';
 import { fetchConfirmation, deleteConfirmation } from '../../actions/confirmation_actions';
 
-const mapStateToProps = ({session, homes, confirmations}, {match}) => {
+const mapStateToProps = ({ session, confirmations }, { match }) => {
   const homeid = match.params.homeid;
-  const listing = homes[homeid];
+  
   return {
     loggedIn: Boolean(session.currentUser),
     currentUser: session.currentUser,
     confirmations,
     homeid,
-    listing
   }
 };
 

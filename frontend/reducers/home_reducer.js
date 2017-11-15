@@ -14,9 +14,9 @@ const HomeReducer = (state = defaultState, action) => {
   switch(action.type) {
     case RECEIVE_HOME:
 
-      newState = merge({}, state, {[action.home.id]: action.home})
+      newState = merge({}, state, {[action.home.id]: action.home});
       return newState;
-      
+
     case RECEIVE_HOMES:
       return action.homes;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 import TripIndexItem from './trip_index_item';
-
+import isEmpty from 'lodash/isEmpty';
 
 class TripIndex extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class TripIndex extends React.Component {
   }
 
   componentDidMount() {
-    if (!this.props.trips.length) {
+    if (isEmpty(this.props.trips)) {
       this.props.fetchTrips();
     }
   }

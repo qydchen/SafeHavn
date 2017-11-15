@@ -14,7 +14,7 @@ class Api::ConfirmationsController < ApplicationController
     if @confirmation
       render :show
     else
-      render json: ["Page Expired"]
+      render json: {}
     end
   end
 

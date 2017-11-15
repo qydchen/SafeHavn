@@ -11,18 +11,22 @@ class BookConfirmation extends React.Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleSelectChange = this.handleSelectChange.bind(this);
+    this.handleGuestChange = this.handleGuestChange.bind(this);
   }
 
   componentDidMount() {
-    const { loggedIn, fetchConfirmation, fetchHome, homeid } = this.props;
-    if (loggedIn) {
-      fetchConfirmation().then( res => {
+    const { loggedIn, fetchConfirmation, fetchHome, homeid, confirmations } = this.props;
+
+    if (loggedIn && isEmpty(confirmations)) {
+
+      fetchConfirmation().then(res => {
         if (!isEmpty(res.confirmation)) {
-          fetchHome(homeid);
           this.setState({num_guests: res.confirmation.num_guests});
         }
       })
+
+    } else {
+      this.setState({num_guests: confirmations.num_guests})
     }
   };
 
@@ -39,22 +43,33 @@ class BookConfirmation extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const { num_guests } = this.state;
-    const { homeid, confirmations } = this.props;
-    const trip = merge({home_id: homeid, num_guests: parseInt(num_guests)}, confirmations);
+    const { homeid } = this.props;
+    const { start_date, end_date, total_cost, nightly_cost, service_cost, cleaning_cost, days } = this.props.confirmations;
+    const trip = {
+      home_id: homeid,
+      num_guests: parseInt(num_guests),
+      start_date,
+      end_date,
+      total_cost,
+      nightly_cost,
+      service_cost,
+      cleaning_cost,
+      days
+    };
 
 		this.props.createTrip({trip})
       .then(this.props.history.push(`/user/${this.props.currentUser.id}/trips`));
   };
 
-  handleSelectChange(property) {
-    return e => this.setState({ [property]: e.target.value });
+  handleGuestChange(property) {
+    return e => this.setState({ [property]: parseInt(e.target.value) });
   };
 
   selectGuests() {
     const options = [
-      <option value="1" key={1}>1 guest</option>
+      <option value={1} key={1}>1 guest</option>
     ];
-    for (let i = 2; i <= this.props.listing.space.max_guests; i++) {
+    for (let i = 2; i <= this.props.confirmations.home.max_guests; i++) {
       options.push(
         <option value={i}
         key={i}
@@ -67,7 +82,7 @@ class BookConfirmation extends React.Component {
           <label className="book-label"/>Who's coming?
           <div className='select-dd-container book-dd'>
             <select className='select-dropdown select-bk-dd' value={this.state.num_guests}
-              onChange={this.handleSelectChange('num_guests')}
+              onChange={this.handleGuestChange('num_guests')}
             >{options}</select>
             <span className="dropdown-arrow"></span>
           </div>
@@ -77,17 +92,17 @@ class BookConfirmation extends React.Component {
   }
 
   bookingRightPanel() {
-    const { confirmations, listing } = this.props;
+    const { confirmations } = this.props;
     return (
       <section className="bk-right-panel">
         <div className="bk-pic-container">
-          <img className="bk-pic" src={listing.image_url}/>
+          <img className="bk-pic" src={confirmations.image_url}/>
         </div>
         <div className="panel-body">
-          <div className="bk-host">Hosted by {listing.host.first}</div>
-          <div className="bk-title">{listing.title}</div>
-          <div className="bk-desc">{listing.space.room_type}</div>
-          <div className="bk-desc">{listing.address}</div>
+          <div className="bk-host">Hosted by {confirmations.first}</div>
+          <div className="bk-title">{confirmations.home.title}</div>
+          <div className="bk-desc">{confirmations.home.room_type}</div>
+          <div className="bk-desc">{confirmations.home.address}</div>
         </div>
         <div className="book-div"/>
         <div className="panel-body check-col calendar-position">
@@ -103,7 +118,7 @@ class BookConfirmation extends React.Component {
         <div className="book-div"/>
         <div className="panel-body">
           <div className="bk-price-row">
-            <div className="price-calc">${listing.price} x {confirmations.days} nights</div>
+            <div className="price-calc">${confirmations.home.price} x {confirmations.days} nights</div>
             <div className="tot-price">${confirmations.nightly_cost}</div>
           </div>
           <div className="bk-price-row">
@@ -126,7 +141,7 @@ class BookConfirmation extends React.Component {
   }
 
   render() {
-    if (this.props.listing === undefined) {
+    if (isEmpty(this.props.confirmations)) {
       return (
         <div className="loading">Page Expired</div>
       );

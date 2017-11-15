@@ -12,7 +12,7 @@ class Api::TripsController < ApplicationController
 
     start_date = trip_params[:start_date].to_date
     end_date = trip_params[:end_date].to_date
-
+    
     if @home.booking_conflict?(start_date, end_date)
       render json: "Home is unavailable on those dates", status: 422
     else
@@ -20,6 +20,7 @@ class Api::TripsController < ApplicationController
       @trip.visitor_id = current_user.id
 
       if @trip.save
+        @trips = Trip.where(visitor_id: current_user.id).includes(:home)
         render :index
       else
         render json: @trip.errors.full_messages, status: 422

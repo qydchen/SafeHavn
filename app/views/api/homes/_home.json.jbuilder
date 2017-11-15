@@ -34,6 +34,4 @@ json.extract! home,
     json.family home.family
     json.parking home.parking
     json.kitchen home.kitchen
-
-
-end
+  end

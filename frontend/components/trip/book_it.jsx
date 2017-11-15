@@ -68,8 +68,8 @@ class BookIt extends React.Component {
         num_guests,
       }
 
-      this.props.createConfirmation(confirmation);
-      this.navigateToBookConfirmation();
+      this.props.createConfirmation(confirmation)
+        .then(this.navigateToBookConfirmation);
     } else {
       this.clearErrorsAndOpenModal(<SessionFormContainer formType="signup"/>)
     }
