@@ -9,7 +9,7 @@ class Api::TripsController < ApplicationController
 
   def create
     @home = Home.find(trip_params[:home_id])
-    
+
     start_date = trip_params[:start_date].to_date
     end_date = trip_params[:end_date].to_date
 
@@ -20,7 +20,7 @@ class Api::TripsController < ApplicationController
       @trip.visitor_id = current_user.id
 
       if @trip.save
-        render :show
+        render :index
       else
         render json: @trip.errors.full_messages, status: 422
       end

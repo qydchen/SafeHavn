@@ -15,11 +15,11 @@ class BookConfirmation extends React.Component {
   }
 
   componentDidMount() {
-    const { loggedIn, fetchConfirmation, fetchHome } = this.props;
+    const { loggedIn, fetchConfirmation, fetchHome, homeid } = this.props;
     if (loggedIn) {
       fetchConfirmation().then( res => {
         if (!isEmpty(res.confirmation)) {
-          fetchHome(this.props.homeid);
+          fetchHome(homeid);
           this.setState({num_guests: res.confirmation.num_guests});
         }
       })

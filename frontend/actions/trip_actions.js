@@ -32,8 +32,8 @@ export const fetchTrip = id => dispatch => (
 );
 
 export const createTrip = trip => dispatch => (
-  APIUtil.createTrip(trip).then(trip => (
-    dispatch(receiveTrip(trip)))
+  APIUtil.createTrip(trip).then(trips => (
+    dispatch(receiveTrips(trips)))
   )
 );
 
