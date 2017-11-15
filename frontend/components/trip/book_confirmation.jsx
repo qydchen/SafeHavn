@@ -9,22 +9,18 @@ class BookConfirmation extends React.Component {
     this.state = {
       num_guests: 1,
     }
-
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleGuestChange = this.handleGuestChange.bind(this);
   }
 
   componentDidMount() {
     const { loggedIn, fetchConfirmation, fetchHome, homeid, confirmations } = this.props;
-
     if (loggedIn && isEmpty(confirmations)) {
-
       fetchConfirmation().then(res => {
         if (!isEmpty(res.confirmation)) {
           this.setState({num_guests: res.confirmation.num_guests});
         }
       })
-
     } else {
       this.setState({num_guests: confirmations.num_guests})
     }
