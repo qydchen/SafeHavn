@@ -33,6 +33,8 @@ gem 'faker'
 gem 'rails_12factor'
 # group :production do
 # end
+gem 'ddtrace'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a  console
