@@ -64,6 +64,8 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    ddtrace (0.10.0)
+      msgpack
     debug_inspector (0.0.3)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -94,6 +96,7 @@ GEM
     mimemagic (0.3.2)
     mini_portile2 (2.2.0)
     minitest (5.10.2)
+    msgpack (1.2.0)
     multi_json (1.12.1)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
@@ -190,6 +193,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
   coffee-rails (~> 4.1.0)
+  ddtrace
   faker
   figaro
   jbuilder (~> 2.0)
