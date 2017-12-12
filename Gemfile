@@ -33,7 +33,6 @@ gem 'faker'
 gem 'rails_12factor'
 # group :production do
 # end
-gem 'ddtrace'
 
 
 group :development, :test do
