@@ -9,7 +9,7 @@ class Api::ReviewsController < ApplicationController
     @review.author_id = current_user.id
     if @review.save
       render :show
-    elseh
+    else
       render json: @review.errors.full_messages
     end
   end

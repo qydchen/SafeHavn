@@ -9,6 +9,16 @@ json.extract! home,
   :address,
   :trips,
   :featured
+  json.reviews home.reviews_desc do |review|
+    json.id review.id
+    json.author_id review.author_id
+    json.rating review.rating
+    json.body review.body
+    json.created_at review.created_at
+    json.updated_at review.updated_at
+    json.author review.author.first
+    json.image_url asset_path(review.author.image.url)
+  end
   json.booked_days home.booked_days
   json.host do
     json.first home.host.first

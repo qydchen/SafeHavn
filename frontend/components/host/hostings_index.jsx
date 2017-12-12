@@ -8,7 +8,6 @@ class Hostings extends React.Component {
 
   componentDidMount() {
     this.props.fetchHome(this.props.homeid);
-    this.props.fetchReviews(this.props.homeid);
   }
 
   componentWillReceiveProps(nextProps) {

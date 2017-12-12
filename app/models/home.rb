@@ -29,6 +29,10 @@ class Home < ActiveRecord::Base
     self.reviews.length
   end
 
+  def reviews_desc
+    self.reviews.includes(:author).order('id DESC')
+  end
+
   def self.in_bounds(bounds)
     self.where("lat < ?", bounds[:northeast][:lat])
         .where("lat > ?", bounds[:southwest][:lat])
