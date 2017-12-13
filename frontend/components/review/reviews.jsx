@@ -2,9 +2,10 @@ import React from 'react';
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
   'August', 'September', 'October', 'November', 'December'];
 
-class Reviews extends React.Component{
+class Reviews extends React.Component {
   displayReviews() {
-    return this.props.reviews.map((review, idx) => {
+    let reviews = this.props.reviews ? this.props.reviews : [];
+    return reviews.map((review, idx) => {
       const year = review.created_at.slice(0,4);
       const month = months[parseInt(review.created_at.slice(5,7)) - 1];
       return (

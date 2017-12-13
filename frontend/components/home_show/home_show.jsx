@@ -17,18 +17,13 @@ class HomeShow extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-  if (this.props.homeid !== nextProps.match.params.homeid) {
-    this.props.fetchHome(nextProps.match.params.homeid);
+    if (this.props.homeid !== nextProps.match.params.homeid) {
+      this.props.fetchHome(nextProps.match.params.homeid);
     }
   }
 
   render() {
-    const {
-      listing,
-      reviews,
-      homeid,
-    } = this.props;
-
+    const { listing, homeid, } = this.props;
     if (listing === undefined) {
       return (
         <div className="loading">Fetching listing</div>
@@ -51,7 +46,7 @@ class HomeShow extends React.Component {
                     Review
                   </Link>
                 </div>
-                <HomeDetail listing={listing} reviews={reviews}/>
+                <HomeDetail listing={listing}/>
               </div>
 
               <div className="to-book-it-divider">

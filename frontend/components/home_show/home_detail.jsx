@@ -5,35 +5,35 @@ import { trueAmenities } from '../../reducers/selectors.js';
 import Reviews from '../review/reviews';
 import { cancellationText, spaceText, amenityText } from '../../util/home_detail_descriptions';
 
-class HomeDetail extends React.Component{
-
+class HomeDetail extends React.Component {
   summaryIcons() {
+    const { space } = this.props.listing;
     return (
       <div className="sum-col">
         <div className="sum-detail-cols">
           <i className="room-type-icon sicon"></i>
-          <div className="summary-icon-desc">{this.props.listing.space.room_type}</div>
+          <div className="summary-icon-desc">{space.room_type}</div>
         </div>
         <div className="sum-detail-cols">
           <i className="guests-type-icon sicon"></i>
-          <div className="summary-icon-desc">{this.props.listing.space.max_guests} Guests</div>
+          <div className="summary-icon-desc">{space.max_guests} Guests</div>
         </div>
         <div className="sum-detail-cols">
           <i className="bedrooms-type-icon sicon"></i>
-          <div className="summary-icon-desc">{this.props.listing.space.bedrooms} Bedrooms</div>
+          <div className="summary-icon-desc">{space.bedrooms} Bedrooms</div>
         </div>
         <div className="sum-detail-cols">
           <i className="beds-icon sicon"></i>
-          <div className="summary-icon-desc">{this.props.listing.space.beds} Beds</div>
+          <div className="summary-icon-desc">{space.beds} Beds</div>
         </div>
       </div>
     )
   }
 
   theSpace() {
-    var s = this.props.listing.space;
-    var sArr = [];
-    for (var key in s) {
+    let s = this.props.listing.space;
+    let sArr = [];
+    for (let key in s) {
       sArr.push([key, s[key]])
     }
     const spaceFeats = sArr.map((el, idx) => (
@@ -61,7 +61,7 @@ class HomeDetail extends React.Component{
     const amenitiesArray = trueAmenities(this.props.listing.amenities)
     const confirmedAmenities = []; // confirms if amenity should be crossed out or bolded in Styling
     let idx = 0; // give unique keys
-    for (var key in amenityText) {
+    for (let key in amenityText) {
       idx++;
       if (amenitiesArray.indexOf(key) > -1) {
         confirmedAmenities.push(
@@ -115,7 +115,7 @@ class HomeDetail extends React.Component{
   }
 
   render() {
-    const { reviews, listing } = this.props;
+    const { listing } = this.props;
     return (
       <Element name="scroll-to-overview" className="single-listing-container">
         <div className="summary-box">
@@ -163,7 +163,7 @@ class HomeDetail extends React.Component{
             <div className="rev">{listing.revcount} Total Reviews</div>
             <div className="rev">Rated<span className="stronger green">{listing.avg} </span>out of 10</div>
           </div>
-          <Reviews reviews={reviews}/>
+          <Reviews reviews={listing.reviews}/>
         </Element>
 
       </Element>
