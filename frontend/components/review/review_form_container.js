@@ -5,13 +5,9 @@ import { Link, withRouter } from 'react-router-dom';
 import { closeModal } from '../../actions/modal_actions';
 import { createReview } from '../../actions/review_actions';
 
-const mapStateToProps = ({ session, reviews }) => {
-  //remember the entities is nested in home which is nested in state
-  return {
-    currentUser: session.currentUser,
-    reviews,
-  }
-}
+const mapStateToProps = ({ session }) => (
+  { currentUser: session.currentUser }
+)
 
 const mapDispatchToProps = (dispatch) => {
   return {

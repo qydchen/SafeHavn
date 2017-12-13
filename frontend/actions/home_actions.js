@@ -19,6 +19,11 @@ export const receiveDeletedHome = id => ({
   id
 });
 
+export const receiveReview = review => ({
+  type: RECEIVE_REVIEW,
+  review
+});
+
 export const fetchHomes = filters => dispatch => (
   APIUtil.fetchHomes(filters).then(homes => (
     dispatch(receiveHomes(homes)))
