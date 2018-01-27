@@ -31,9 +31,12 @@ class SearchBar extends React.Component {
     let bounds = {};
     this.findLatLng(currentInput)
       .then(res => {
+        debugger;
         bounds = res.results[0].geometry.viewport;
-      });
-    this.props.updateFilter('bounds', bounds);
+      })
+      .then(this.props.updateFilter('bounds', bounds));
+
+    ;
   }
 
   render() {
@@ -46,7 +49,7 @@ class SearchBar extends React.Component {
           ref={input => this.input = input}
           onChange={this.update('place')}
         />
-    </form>
+      </form>
     );
   }
 };

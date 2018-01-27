@@ -18,8 +18,6 @@ export const clearErrors = () => ({
   type: CLEAR_ERRORS,
 });
 
-
-
 export const signup = user => {
   return (dispatch) => {
     return APIUtil.signup(user)
