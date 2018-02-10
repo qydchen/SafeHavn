@@ -15,7 +15,7 @@ class TripIndex extends React.Component {
   }
 
   componentDidUpdate() {
-    if (!this.props.currentUser) {
+    if (!this.props.loggedIn) {
       this.props.history.push(`/homes`);
     }
   }
@@ -26,7 +26,7 @@ class TripIndex extends React.Component {
       const tripsIndex = trips.map((trip, idx) => {
         return (
           <div className="trip-card-container" key={idx}>
-          <TripIndexItem trip={trip} deleteTrip={deleteTrip} openModal={openModal}/>
+            <TripIndexItem trip={trip} deleteTrip={deleteTrip} openModal={openModal}/>
           </div>
         )
       });
@@ -34,7 +34,7 @@ class TripIndex extends React.Component {
         <div className="trip-slider">
         <span className="trip-tit">Your Trips</span>
           <div className="trip-cards">
-          {tripsIndex}
+            {tripsIndex}
           </div>
         </div>
       )

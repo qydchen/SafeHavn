@@ -9,7 +9,7 @@ import { selectAll } from '../../reducers/selectors.js';
 const mapStateToProps = ({trips, session}) => {
   return {
     trips: selectAll(trips),
-    currentUser: session.currentUser,
+    loggedIn: Boolean(session.currentUser),
   }
 };
 

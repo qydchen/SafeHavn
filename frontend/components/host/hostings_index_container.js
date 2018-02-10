@@ -2,20 +2,19 @@ import React from 'react';
 import Hostings from './hostings_index';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { fetchHomes } from '../../actions/home_actions';
+import { fetchMyHomes } from '../../actions/home_actions';
+import { selectAll } from '../../reducers/selectors';
 
-const mapStateToProps = ({session, homes}, {match}) => {
-  const homeid = match.params.homeid;
+const mapStateToProps = ({session, homes}) => {
   return {
     loggedIn: Boolean(session.currentUser),
-    currentUser: session.currentUser,
-    homeid,
+    homes: selectAll(homes),
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchHomes: (id) => dispatch(fetchHomes(id))
+    fetchMyHomes: () => dispatch(fetchMyHomes()),
   }
 };
 

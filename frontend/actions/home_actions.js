@@ -30,6 +30,12 @@ export const fetchHomes = filters => dispatch => (
   )
 );
 
+export const fetchMyHomes = () => dispatch => (
+  APIUtil.fetchMyHomes().then(homes => (
+    dispatch(receiveHomes(homes)))
+  )
+)
+
 export const fetchHome = id => dispatch => (
   APIUtil.fetchHome(id).then(home => (
     dispatch(receiveHome(home)))

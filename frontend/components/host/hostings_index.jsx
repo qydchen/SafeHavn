@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { homeCard } from '../home_index/home_card';
 
 class Hostings extends React.Component {
   constructor(props){
@@ -7,17 +7,35 @@ class Hostings extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchHome(this.props.homeid);
+    if (this.isLoggedIn()) {
+      this.props.fetchMyHomes();
+    }
   }
 
-  componentWillReceiveProps(nextProps) {
-  if (this.props.match.params.homeid !== nextProps.match.params.homeid) {
-    this.props.fetchHome(nextProps.match.params.homeid);
+  componentDidUpdate() {
+    this.isLoggedIn();
+  }
+
+  isLoggedIn() {
+    if (!this.props.loggedIn) {
+      this.props.history.push(`/homes`)
+      return false;
+    } else {
+      return true;
     }
   }
 
   render() {
+    let {loggedIn, homes} = this.props;
+    if (loggedIn) {
+      return (
+        <section className='home-card-slider'>
+          {homes.map(homeCard)}
+        </section>
+      )
+    }
+    return null;
   }
 }
 
-export default withRouter(Hostings);
+export default Hostings;

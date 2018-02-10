@@ -18,12 +18,12 @@ const App = () => (
       <ModalContainer/>
       <Route path="/" component={HeaderContainer}/>
       <Route exact path="/" component={LandingContainer}/>
+      <Route exact path="/my" component={HostingsIndexContainer}/>
       <Route exact path="/homes/" component={SearchContainer}/>
       <Route exact path="/homes/:homeid" component={HomeShowContainer}/>
       <Route exact path="/homes/:homeid/book" component={BookConfirmationContainer}/>
       <Route exact path="/user/:userid/trips" component={TripsContainer}/>
       <Route exact path="/user/:userid/host" component={HostHomeContainer}/>
-      <Route exact path="/user/:userid/hostings" component={HostingsIndexContainer}/>
     </header>
   </div>
 );
