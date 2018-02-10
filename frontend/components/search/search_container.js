@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { selectAll } from '../../reducers/selectors';
-import { updateFilter } from '../../actions/filter_actions.js';
+import { updateFilter } from '../../actions/filter_actions';
+import { clearMapInfo } from '../../actions/map_actions';
 import Search from './search';
 
 const mapStateToProps = ({ homes, filters, map }) => {
@@ -17,7 +18,8 @@ const mapStateToProps = ({ homes, filters, map }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
+    updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
+    clearMapInfo: () => dispatch(clearMapInfo()),
   };
 };
 

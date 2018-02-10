@@ -27,7 +27,12 @@ class Search extends React.Component {
   render() {
     return (
       <section className='index-container'>
-        <HomeMap homes={this.props.homes} mapState={this.props.map} updateFilter={this.props.updateFilter}/>
+        <HomeMap
+          homes={this.props.homes}
+          mapState={this.props.map}
+          updateFilter={this.props.updateFilter}
+          clearMapInfo={this.props.clearMapInfo}
+        />
           {this.filterBar()}
         <HomeIndex homes={this.props.homes}/>
       </section>

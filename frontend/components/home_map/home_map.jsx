@@ -24,8 +24,24 @@ class HomeMap extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.mapState) {
-      this.map.setCenter(nextProps.mapState.results[0].geometry.location)
+      const coords = nextProps.mapState.results[0].geometry.location;
+      this.map.setCenter(coords);
+      this.props.clearMapInfo();
     }
+  }
+
+  componentDidUpdate() {
+    if (this.props.homeid) {
+      const targetHomeKey = Object.keys(this.props.homes)[0];
+      const targetHome = this.props.homes[targetHomeKey];
+      this.MarkerManager.updateMarkers([targetHome]);
+    } else {
+      this.MarkerManager.updateMarkers(this.props.homes);
+    }
+  }
+
+  componentWillUnmount() {
+    google.maps.event.clearListeners(this.map);
   }
 
   mapOptions() {
@@ -37,11 +53,24 @@ class HomeMap extends React.Component {
         { featureType: "water", stylers: [{hue: "#A4DDF5"}]}
       ]
     }
-    if (this.props.mapState) {
-      options.center = this.props.mapState.results[0].geometry.location
+    const {location, mapState} = this.props;
+    if (location.search) {
+      console.log(this.makeCoordObj(location.search));
+      options.center = this.makeCoordObj(location.search);
+    } else if (mapState) {
+      options.center = mapState.results[0].geometry.location
     }
     return options;
   };
+
+  makeCoordObj(searchUrl) {
+    let coords = {};
+    searchUrl.slice(1).split('&').forEach(loc => {
+      let geo = loc.split('=');
+      coords[geo[0]] = Number(geo[1]);
+    });
+    return coords;
+  }
 
   registerListeners() {
     google.maps.event.addListener(this.map, 'idle', () => {
@@ -58,28 +87,14 @@ class HomeMap extends React.Component {
     });
   }
 
-  componentWillUnmount() {
-    google.maps.event.clearListeners(this.map);
-  }
-
   handleMarkerClick(home) {
     this.props.history.push(`homes/${home.id}`);
-  }
-
-  componentDidUpdate() {
-    if (this.props.homeid) {
-      const targetHomeKey = Object.keys(this.props.homes)[0];
-      const targetHome = this.props.homes[targetHomeKey];
-      this.MarkerManager.updateMarkers([targetHome]);
-    } else {
-      this.MarkerManager.updateMarkers(this.props.homes);
-    }
   }
 
   handleClick(coords) {
     this.props.history.push({
       pathname: '/homes',
-      search: `lat=${coords.lat}&lng=${coords.lng})`
+      search: `lat=${coords.lat}&lng=${coords.lng}`,
     })
   }
 
