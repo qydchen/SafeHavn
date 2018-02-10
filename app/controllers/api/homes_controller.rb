@@ -7,10 +7,10 @@ class Api::HomesController < ApplicationController
     end
   end
 
-  # def my
-  #   @homes = current_user.homes
-  #   render :index
-  # end
+  def my
+    @homes = current_user.homes
+    render :index
+  end
 
   def show
     @home = Home.includes(:visitors).find(params[:id])

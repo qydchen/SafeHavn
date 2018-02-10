@@ -6,6 +6,13 @@ export const fetchHomes = (data) => (
   })
 );
 
+export const fetchMyHomes = () => (
+  $.ajax({
+    method: 'GET',
+    url: 'api/homes/my',
+  })
+);
+
 export const fetchHome = id => (
   $.ajax({
     method: 'GET',
