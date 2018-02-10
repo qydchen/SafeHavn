@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter} from 'react-router-dom';
-import { findLatLng } from '../../util/map_api_util';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -9,7 +8,6 @@ class SearchBar extends React.Component {
       place: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.findLatLng = findLatLng.bind(this);
   }
 
   componentDidMount() {
@@ -25,18 +23,11 @@ class SearchBar extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.setState({place: this.input.value});
-    let currentInput = this.input.value;
+    let address = this.input.value;
     e.target.firstChild.value = '';
-    let bounds = {};
-    this.findLatLng(currentInput)
-      .then(res => {
-        debugger;
-        bounds = res.results[0].geometry.viewport;
-      })
-      .then(this.props.updateFilter('bounds', bounds));
-
-    ;
+    this.props.fetchMapInfo(address).then(() => {
+      this.props.history.push(`/homes`);
+    })
   }
 
   render() {

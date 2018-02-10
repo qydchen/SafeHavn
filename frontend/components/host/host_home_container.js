@@ -18,7 +18,7 @@ const mapStateToProps = ({session, homes, map}) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     createHome: home => dispatch(createHome(home)),
-    fetchMapInfo: address => dispatch(fetchMapInfo(address)),
+    fetchMapInfo: info => dispatch(fetchMapInfo(info)),
   }
 };
 

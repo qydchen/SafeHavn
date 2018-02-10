@@ -8,21 +8,11 @@ const getCoordsObj = latLng => ({
   lng: latLng.lng()
 });
 
-// set the map to show NY
-const mapOptions = {
-  center: { lat: 40.7128, lng: -74.0059 }, // this is NY
-  zoom: 11,
-  scrollwheel: false,
-  styles: [
-    { featureType: "water", stylers: [{hue: "#A4DDF5"}]}
-  ]
-};
-
 class HomeMap extends React.Component {
 
   componentDidMount() {
     const map = this.refs.map;
-    this.map = new google.maps.Map(this.mapNode, mapOptions);
+    this.map = new google.maps.Map(this.mapNode, this.mapOptions());
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
     if (this.props.homeid) {
       this.props.fetchHome(this.props.homeid);
@@ -31,6 +21,27 @@ class HomeMap extends React.Component {
       this.MarkerManager.updateMarkers(this.props.homes);
     }
   }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.mapState) {
+      this.map.setCenter(nextProps.mapState.results[0].geometry.location)
+    }
+  }
+
+  mapOptions() {
+    let options = {
+      center: { lat: 40.7128, lng: -74.0059 }, // this is NY
+      zoom: 11,
+      scrollwheel: false,
+      styles: [
+        { featureType: "water", stylers: [{hue: "#A4DDF5"}]}
+      ]
+    }
+    if (this.props.mapState) {
+      options.center = this.props.mapState.results[0].geometry.location
+    }
+    return options;
+  };
 
   registerListeners() {
     google.maps.event.addListener(this.map, 'idle', () => {
