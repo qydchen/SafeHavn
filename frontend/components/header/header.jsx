@@ -31,6 +31,12 @@ class Header extends React.Component {
       </ReactTooltip>
     )
   }
+  // <div className ="header-enter">
+  // <Link to={`/user/${this.props.currentUser.id}/host`} className="trip-link">Host</Link>
+  // </div>
+  // <div className ="header-enter">
+  // <Link to={`/user/${this.props.currentUser.id}/hostings`} className="trip-link">Your Hostings</Link>
+  // </div>
 
   loggedInHeader() {
     if (this.props.loggedIn) {
@@ -39,12 +45,6 @@ class Header extends React.Component {
           <div data-tip data-for="auth-tool-tip" className="header-enter">
             <p className="trip-link">No time to host?</p>
             {this.tooltip()}
-          </div>
-          <div className ="header-enter">
-            <Link to={`/user/${this.props.currentUser.id}/host`} className="trip-link">Host</Link>
-          </div>
-          <div className ="header-enter">
-            <Link to={`/user/${this.props.currentUser.id}/hostings`} className="trip-link">Your Hostings</Link>
           </div>
           <div className ="header-enter">
             <Link to={`/user/${this.props.currentUser.id}/trips`} className="trip-link">Your Trips</Link>
