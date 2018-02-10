@@ -8,8 +8,9 @@ const getCoordsObj = latLng => ({
   lng: latLng.lng()
 });
 
-class HomeMap extends React.Component {
+const NYC = { lat: 40.7128, lng: -74.0059 };
 
+class HomeMap extends React.Component {
   componentDidMount() {
     const map = this.refs.map;
     this.map = new google.maps.Map(this.mapNode, this.mapOptions());
@@ -24,8 +25,13 @@ class HomeMap extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.mapState) {
-      const coords = nextProps.mapState.results[0].geometry.location;
-      this.map.setCenter(coords);
+      try {
+        const coords = nextProps.mapState.results[0].geometry.location;
+        this.map.setCenter(coords);
+      }
+      catch (e) {
+        this.map.setCenter(NYC);
+      }
       this.props.clearMapInfo();
     }
   }
@@ -46,7 +52,7 @@ class HomeMap extends React.Component {
 
   mapOptions() {
     let options = {
-      center: { lat: 40.7128, lng: -74.0059 }, // this is NY
+      center: NYC,
       zoom: 11,
       scrollwheel: false,
       styles: [
