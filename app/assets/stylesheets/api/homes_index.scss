@@ -60,15 +60,6 @@
   object-fit: cover;
 }
 
-// .heart-icon {
-//   position: absolute;
-//   top: 16px;
-//   right: 16px;
-//   z-index: 2;
-//   height: 32px;
-//   width: 32px;
-// }
-
 .card-top-row {
   padding-top: 8px;
   overflow: hidden;
@@ -127,7 +118,6 @@
   z-index: 4;
   position: fixed;
   padding-top: 16px;
-  // border-bottom: 1px solid #e4e4e4;
 }
 
 .filter-col {
@@ -179,7 +169,4 @@
 
 .cards {
   margin-top: 80px;
-  // width: inherit;
-  // position: relative;
-  // overflow-y: scroll;
 }

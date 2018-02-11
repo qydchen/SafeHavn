@@ -27,10 +27,21 @@ class Hostings extends React.Component {
 
   render() {
     let {loggedIn, homes} = this.props;
+    let homeCards;
+    if (homes) {
+      homeCards = homes.map((home, idx) => {
+        return (
+          <div className="home-card-container" key={idx}>
+            {homeCard(home)}
+          </div>
+        )
+      }
+    )}
+
     if (loggedIn) {
       return (
-        <section className='home-card-slider'>
-          {homes.map(homeCard)}
+        <section className='home-card-slider hostings-container'>
+          {homeCards}
         </section>
       )
     }
