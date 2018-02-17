@@ -32,7 +32,7 @@ class Header extends React.Component {
     )
   }
   // <div className ="header-enter">
-  // <Link to={`/user/${this.props.currentUser.id}/host`} className="trip-link">Host</Link>
+  // <Link to={`/user/host`} className="trip-link">Host</Link>
   // </div>
 
   loggedInHeader() {
@@ -47,7 +47,7 @@ class Header extends React.Component {
             <Link to={`/my`} className="trip-link">Your Hostings</Link>
           </div>
           <div className ="header-enter">
-            <Link to={`/user/${this.props.currentUser.id}/trips`} className="trip-link">Your Trips</Link>
+            <Link to={`/user/trips`} className="trip-link">Your Trips</Link>
           </div>
           <div className="SignOutButton">
             <span onClick={this.handleClick}>Sign Out</span>

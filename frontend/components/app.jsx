@@ -22,8 +22,8 @@ const App = () => (
       <Route exact path="/homes/" component={SearchContainer}/>
       <Route exact path="/homes/:homeid" component={HomeShowContainer}/>
       <Route exact path="/homes/:homeid/book" component={BookConfirmationContainer}/>
-      <Route exact path="/user/:userid/trips" component={TripsContainer}/>
-      <Route exact path="/user/:userid/host" component={HostHomeContainer}/>
+      <Route exact path="/user/trips" component={TripsContainer}/>
+      <Route exact path="/user/host" component={HostHomeContainer}/>
     </header>
   </div>
 );
