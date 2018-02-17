@@ -9,6 +9,9 @@ class TripIndex extends React.Component {
   }
 
   componentDidMount() {
+    if (!this.props.loggedIn) {
+      this.props.history.push(`/homes`);
+    }
     if (isEmpty(this.props.trips)) {
       this.props.fetchTrips();
     }
