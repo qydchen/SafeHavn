@@ -11,7 +11,6 @@ import { clearErrors } from '../../actions/session_actions'
 const mapStateToProps = ({ homes, session }, { match }) => {
   const homeid = match.params.homeid;
   const listing = homes[homeid];
-  // console.log(listing);
   return {
     homeid,
     listing,

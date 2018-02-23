@@ -61,7 +61,6 @@ class HomeMap extends React.Component {
     }
     const {location, mapState} = this.props;
     if (location.search) {
-      console.log(this.makeCoordObj(location.search));
       options.center = this.makeCoordObj(location.search);
     } else if (mapState) {
       options.center = mapState.results[0].geometry.location
