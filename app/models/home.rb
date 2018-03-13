@@ -18,11 +18,7 @@ class Home < ActiveRecord::Base
     source: :visitor
 
   def average_review
-    sum = 0
-    self.reviews.each do |review|
-      sum += review.rating
-    end
-    sum/review_count
+    self.reviews.average(:rating).round(1)
   end
 
   def review_count
