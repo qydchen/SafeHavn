@@ -9,7 +9,7 @@ json.extract! home,
   :address,
   :trips,
   :featured
-  json.reviews home.reviews_desc do |review|
+  json.reviews home.reviews.review_desc do |review|
     json.id review.id
     json.author_id review.author_id
     json.rating review.rating
@@ -28,7 +28,7 @@ json.extract! home,
   json.image_url asset_path(home.image.url)
 
   json.revcount home.reviews.length
-  json.avg home.average_review
+  json.avg home.reviews.review_average
 
   json.space do
     json.max_guests home.max_guests

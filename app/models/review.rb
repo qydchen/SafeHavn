@@ -9,4 +9,6 @@ class Review < ActiveRecord::Base
     class_name: :User,
     foreign_key: :author_id
 
+  scope :review_average, -> { average(:rating).round(1) }
+  scope :review_desc, -> { includes(:author).order('id DESC')}
 end

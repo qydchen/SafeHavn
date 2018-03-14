@@ -17,24 +17,12 @@ class Home < ActiveRecord::Base
     through: :trips,
     source: :visitor
 
-  def average_review
-    self.reviews.average(:rating).round(1)
-  end
-
-  def review_count
-    self.reviews.length
-  end
-
-  def reviews_desc
-    self.reviews.includes(:author).order('id DESC')
-  end
-
-  def self.in_bounds(bounds)
-    self.where("lat < ?", bounds[:northeast][:lat])
-        .where("lat > ?", bounds[:southwest][:lat])
-        .where("lng > ?", bounds[:southwest][:lng])
-        .where("lng < ?", bounds[:northeast][:lng])
-  end
+  scope :in_bounds, -> (bounds) {
+    where("lat < ?", bounds[:northeast][:lat])
+    .where("lat > ?", bounds[:southwest][:lat])
+    .where("lng > ?", bounds[:southwest][:lng])
+    .where("lng < ?", bounds[:northeast][:lng])
+  }
 
   def self.filters(params)
     homes = nil

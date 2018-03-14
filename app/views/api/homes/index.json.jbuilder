@@ -13,8 +13,8 @@
         json.first home.host.first
         json.last home.host.last
       end
-      json.revcount home.review_count
-      json.avg home.average_review
+      json.revcount home.reviews.length
+      json.avg home.reviews.review_average
       json.space do
         json.max_guests home.max_guests
         json.beds home.beds
