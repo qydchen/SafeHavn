@@ -2,7 +2,14 @@ class Api::ConfirmationsController < ApplicationController
   def create
     @confirmation = Confirmation.new(confirmation_params)
     @confirmation.user_id = current_user.id
-    if @confirmation.save
+    @home = Home.find(confirmation_params[:home_id])
+
+    start_date = confirmation_params[:start_date].to_date
+    end_date = confirmation_params[:end_date].to_date
+
+    if @home.booking_conflict?(start_date, end_date)
+      render json: "Home is unavailable on those dates", status: 422
+    elsif @confirmation.save
       render :show
     else
       render json: @confirmation.errors.full_messages, status: 422
@@ -14,7 +21,7 @@ class Api::ConfirmationsController < ApplicationController
     if @confirmation
       render :show
     else
-      render json: {}
+      render json: "Error", status: 422
     end
   end
 
