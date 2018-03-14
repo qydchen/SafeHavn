@@ -12,7 +12,6 @@ const NYC = { lat: 40.7128, lng: -74.0059 };
 
 class HomeMap extends React.Component {
   componentDidMount() {
-    const map = this.refs.map;
     this.map = new google.maps.Map(this.mapNode, this.mapOptions());
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
     if (this.props.homeid) {
