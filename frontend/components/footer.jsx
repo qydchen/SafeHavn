@@ -6,8 +6,6 @@ class Footer extends React.Component {
         <div className='footer-links'>
           <div className='footer-links-column'>
           <label className='footer-column-category'>About Me</label>
-            <a className='bio-link' target="_blank" href='https://www.linkedin.com/in/qin-yong-david-chen/'>LinkedIn</a>
-            <br />
             <a className='bio-link' target="_blank" href='https://github.com/qydchen'>Github</a>
           </div>
 
