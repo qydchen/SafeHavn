@@ -8,10 +8,10 @@ import { Route, Redirect } from "react-router-dom";
 
 class Header extends React.Component {
   constructor(props){
-   super(props);
-   this.handleClick = this.handleClick.bind(this);
-   this.clearErrorsAndOpenModal = this.clearErrorsAndOpenModal.bind(this);
- }
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+    this.clearErrorsAndOpenModal = this.clearErrorsAndOpenModal.bind(this);
+  }
 
   handleClick(e){
     e.preventDefault();
@@ -23,25 +23,16 @@ class Header extends React.Component {
     this.props.openModal(component);
   }
 
-  tooltip() {
-    return (
-      <ReactTooltip className="tt-hook" id="auth-tool-tip" place="bottom" type="light" effect="solid">
-        <span className="tt-txt">Find an experienced co-host who can help you earn money</span>
-        <span className="tt-txt">by renting your extra space to travelers.</span>
-      </ReactTooltip>
-    )
-  }
-  // <div className ="header-enter">
-  // <Link to={`/user/host`} className="trip-link">Host</Link>
-  // </div>
-
   loggedInHeader() {
     if (this.props.loggedIn) {
       return (
         <div className="auth-buttons">
           <div data-tip data-for="auth-tool-tip" className="header-enter">
             <p className="trip-link">No time to host?</p>
-            {this.tooltip()}
+            <ReactTooltip className="tt-hook" id="auth-tool-tip" place="bottom" type="light" effect="solid">
+              <span className="tt-txt">Find an experienced co-host who can help you earn money</span>
+              <span className="tt-txt">by renting your extra space to travelers.</span>
+            </ReactTooltip>
           </div>
           <div className ="header-enter">
             <Link to={`/my`} className="trip-link">Your Hostings</Link>
@@ -82,10 +73,10 @@ class Header extends React.Component {
   }
 
   verticalNavWrapper() {
+    const path = this.props.history.location.pathname;
     let navWrap;
     let navCol1;
     let navCol2;
-    let path = this.props.history.location.pathname;
     if (path.match("/homes/") || path.match("/user/")) {
       navWrap = 'hidden';
     } else {
@@ -111,7 +102,7 @@ class Header extends React.Component {
   }
 
   render() {
-    let path = this.props.history.location.pathname;
+    const path = this.props.history.location.pathname;
     const headerClass = (path.match("/homes/") || path.match("/user/")) ? "headerBar-relative show-page-bool" : "headerBar";
     return (
       <div className={headerClass}>

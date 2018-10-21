@@ -18,7 +18,6 @@ const FilterReducer = (state = defaultFilters, action) => {
     case UPDATE_FILTER:
       newState = merge({}, state, {[action.filter]: action.value});
       return newState;
-
     default:
       return state;
   }

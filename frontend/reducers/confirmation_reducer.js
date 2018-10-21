@@ -7,12 +7,9 @@ const ConfirmationReducer = (state = defaultConfirmations, action) => {
   let newState;
   switch(action.type) {
     case RECEIVE_CONFIRMATION:
-      newState = action.confirmation;
-      return newState;
-
+      return action.confirmation;
     case CLEAR_CONFIRMATION:
       return {};
-
     default:
       return state;
   }

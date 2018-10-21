@@ -5,11 +5,9 @@ const defaultState = null;
 
 const MapReducer = (state = defaultState, action) => {
   Object.freeze(state);
-  let newState;
   switch(action.type) {
     case RECEIVE_MAP_INFO:
-      let {mapInfo} = action;
-      return newState = merge({}, state, mapInfo)
+      return merge({}, state, { mapInfo: action.mapInfo })
     case CLEAR_MAP_INFO:
       return defaultState;
     default:

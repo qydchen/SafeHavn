@@ -13,15 +13,12 @@ const TripReducer = (state = defaultState, action) => {
   let newState;
   switch(action.type) {
     case RECEIVE_TRIP:
-
       newState = merge({}, state, {[action.trip.id]: action.trip})
       return newState;
-
     case RECEIVE_TRIPS:
       return action.trips;
-
     case RECEIVE_DELETION:
-      newState = Object.assign({}, state);
+      newState = merge({}, state);
       delete newState[action.trip.id];
       return newState;
     default:
