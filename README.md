@@ -1,5 +1,5 @@
 # SafeHavn
-URL: [Live Link](http://www.safehavn.site/#/)
+URL: [Live Link](https://safehavn.herokuapp.com/#/)
 
 ![safehavn-Landing](/app/assets/images/demo/SafeHavnLanding.png)
 
